@@ -16,10 +16,7 @@ protocol CSMatchCellDelegate: AnyObject {
     
     func stakeSelected(match: CSMatch, stake: CSStake)
     
-    func stakeUnselected(match: CSMatch, stake: CSStake)
-    
     func saveStakesOffset(matchId: String, x: CGFloat)
-    
     
     func setCurrentDeleting(_ id: String)
     
@@ -61,6 +58,7 @@ class CSMatchBaseCell: UICollectionViewCell {
         super.init(frame: frame)
         setup()
         bindings()
+        backgroundColor = .red
     }
     
     required init?(coder: NSCoder) {
@@ -98,13 +96,6 @@ class CSMatchBaseCell: UICollectionViewCell {
     }
 }
 
-extension CSMatchBaseCell: LongTapDelegate {
-    func betFailed() {
-//        delegate?.longTapBetFailed()
-    }
-    
-    func makeBet(_ bet: Bet) {} ///UNUSED
-}
 
 extension CSMatchBaseCell: UIGestureRecognizerDelegate {
     override func gestureRecognizerShouldBegin(_ gestureRecognizer: UIGestureRecognizer) -> Bool {
@@ -191,33 +182,7 @@ private extension CSMatchBaseCell {
         }
     }
     
-    @objc func longPressStakes(gestureRecognizer: UILongPressGestureRecognizer) {
-        if gestureRecognizer.state == .began {
-            if model.betStop { return }
-            
-            let point = gestureRecognizer.location(in: stakesCollection)
-
-            if
-                let indexPath = stakesCollection.indexPathForItem(at: point),
-                let stake = (stakesCollection.cellForItem(at: indexPath) as? CSStakeCell)?.model,
-                !stake.id.isEmpty,
-                stake.active
-            {
-                var bet = Bet()
-                bet.csMatch = model
-                bet.csStake = stake
-                bet.isCS = true
-                
-                let position = indexPath.item
-                QuickBetLandscape.shared.makeBet(bet, screenOrientation: .portrait, fromScreen: .cybersport, position: position)
-            }
-            return
-        }
-        if gestureRecognizer.state == .ended {
-            QuickBetLandscape.shared.cancelAction()
-            return
-        }
-    }
+    
     
     // MARK: - Bingings
     func bindings() {
@@ -236,14 +201,14 @@ private extension CSMatchBaseCell {
         
         stakesCollection.willSelectStake = { [weak self] stake in
             guard let self = self else { return }
-            
             self.delegate?.stakeSelected(match: self.model, stake: stake)
+        
         }
         
         stakesCollection.willUnselectStake = { [weak self] stake in
             guard let self = self else { return }
             
-            self.delegate?.stakeUnselected(match: self.model, stake: stake)
+        
         }
         
         stakesCollection.willSelectMore = { [weak self] in
@@ -254,11 +219,12 @@ private extension CSMatchBaseCell {
     }
     // MARK: - Setups
     func setup() {
-        setupCell()
+//        setupCell()
         setupMainView()
-        setupFavoriteView()
+//        setupFavoriteView()
         setupStakesCollection()
         setupInfoContainer()
+        
     }
     
     func setupCell() {
@@ -274,64 +240,42 @@ private extension CSMatchBaseCell {
     
     func setupMainView() {
         let view = UIView()
-        view.theme_backgroundColor = ThemeColorPicker(colors: "#181818", "#F6F7FB")
+
+        view.backgroundColor = #colorLiteral(red: 0.1236208603, green: 0.153539598, blue: 0.2130726874, alpha: 1)
         
+        view.layer.cornerRadius = 16
         mainView = view
         contentView.addSubview(mainView)
         mainView.snp.makeConstraints {
-            $0.leading.top.equalToSuperview()
-            $0.bottom.equalToSuperview().offset(-2)
+            $0.leading.equalToSuperview().offset(16)
+            $0.trailing.equalToSuperview().offset(-16)
+            $0.bottom.equalToSuperview()
+            $0.top.equalToSuperview()
             $0.width.equalTo(UIScreen.main.bounds.width)
         }
     }
     
     func setupFavoriteView() {
-        let view = UIView()
-        view.theme_backgroundColor = ThemeColorPicker(colors: "#29292B", "#EDEEF2")
-        
-        let icon = UIImageView(image: R.image.ic24Favorite())
-        icon.theme_tintColor = ThemeColorPicker(colors: "#CCCCCC", "#CCCCCC")
-        
-        favoriteIcon = icon
-        view.addSubview(favoriteIcon)
-        favoriteIcon.snp.makeConstraints {
-            $0.height.width.equalTo(24)
-            $0.centerY.equalToSuperview()
-            $0.trailing.equalToSuperview().offset(-16)
-        }
-        
-        favoriteView = view
-        contentView.addSubview(favoriteView)
-        favoriteView.snp.makeConstraints {
-            $0.top.equalToSuperview()
-            $0.leading.equalToSuperview().offset(-3)
-            $0.bottom.equalToSuperview().offset(-2)
-            $0.trailing.equalTo(mainView.snp.leading).offset(-2)
-        }
+       
     }
     
     func setupStakesCollection() {
         let collection = CSStakesCollection()
         collection.backgroundColor = .clear
         
-        let longPress = UILongPressGestureRecognizer(
-            target: self,
-            action: #selector(longPressStakes(gestureRecognizer:))
-        )
-        longPress.minimumPressDuration = 0.5
-        longPress.delegate = self
-        longPress.delaysTouchesBegan = true
-        
-        collection.addGestureRecognizer(longPress)
+
         collection.isUserInteractionEnabled = true
         
         stakesCollection = collection
+        
         mainView.addSubview(stakesCollection)
         stakesCollection.snp.makeConstraints {
-            $0.top.equalToSuperview().offset(8)
-            $0.bottom.equalToSuperview().offset(-8)
-            $0.trailing.equalToSuperview()
-            $0.width.equalTo(210)
+
+            $0.bottom.equalToSuperview().offset(-16)
+            $0.trailing.equalToSuperview().offset(-16)
+            $0.leading.equalToSuperview().offset(16)
+
+            $0.height.equalTo(40)
         }
         stakesCollection.allowDelegates()
     }

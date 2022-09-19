@@ -16,6 +16,23 @@ extension Data {
     }
 }
 
+extension Set {
+    func getDifference(with state: Set) -> (toInsert: Set, toDelete: Set) {
+        var old = self
+        var new = state
+        
+        old.forEach {
+            if new.contains($0) {
+                old.remove($0)
+                new.remove($0)
+            }
+        }
+        
+        return (toInsert: new, toDelete: old)
+    }
+}
+
+
 extension String {
     func applyPatternOnNumbers(pattern:String = "+# (###) ### ## ##", replacmentCharacter:Character = "#") -> String {
         var pureNumber = self.replacingOccurrences( of: "[^0-9]", with: "", options: .regularExpression)
@@ -123,24 +140,6 @@ extension String {
     }
     
 }
-
-extension UIButton {
-    
-    func enableButton() {
-        self.theme_backgroundColor = ThemeColor.buttonDefault
-        self.theme_setTitleColor(ThemeColor.buttonDefaultTitle, forState: .normal)
-        let color = UIColor(hex: "#0D0D0D")!.withAlphaComponent(0.5)
-        self.theme_setTitleColor(ThemeColorPicker(colors: color, color), forState: .highlighted)
-        self.isUserInteractionEnabled = true
-    }
-    
-    func disableButton() {
-        self.theme_backgroundColor = ThemeColor.buttonDisable
-        self.theme_setTitleColor(ThemeColor.buttonDisableTitle, forState: .normal)
-        self.isUserInteractionEnabled = false
-    }
-}
-
 extension UIView {
     func shake() {
         let animation = CAKeyframeAnimation(keyPath: "transform.translation.x")
@@ -487,5 +486,40 @@ extension UITableView {
 
     func hasRowAtIndexPath(indexPath: IndexPath) -> Bool {
         return indexPath.section < self.numberOfSections && indexPath.row < self.numberOfRows(inSection: indexPath.section)
+    }
+}
+struct AppUtility {
+
+    static func lockOrientation(_ orientation: UIInterfaceOrientationMask) {
+    
+        if let delegate = UIApplication.shared.delegate as? AppDelegate {
+            delegate.orientationLock = orientation
+        }
+    }
+
+    /// OPTIONAL Added method to adjust lock and rotate to the desired orientation
+    static func lockOrientation(_ orientation: UIInterfaceOrientationMask, andRotateTo rotateOrientation:UIInterfaceOrientation) {
+   
+        self.lockOrientation(orientation)
+    
+        UIDevice.current.setValue(rotateOrientation.rawValue, forKey: "orientation")
+        UINavigationController.attemptRotationToDeviceOrientation()
+    }
+
+}
+extension UIView {
+    @discardableResult
+    func applyGradient(colours: [UIColor]) -> CAGradientLayer {
+        return self.applyGradient(colours: colours, locations: nil)
+    }
+
+    @discardableResult
+    func applyGradient(colours: [UIColor], locations: [NSNumber]?) -> CAGradientLayer {
+        let gradient: CAGradientLayer = CAGradientLayer()
+        gradient.frame = self.bounds
+        gradient.colors = colours.map { $0.cgColor }
+        gradient.locations = locations
+        self.layer.insertSublayer(gradient, at: 0)
+        return gradient
     }
 }

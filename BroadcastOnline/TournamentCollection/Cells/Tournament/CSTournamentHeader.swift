@@ -58,7 +58,12 @@ class CSTournamentHeader: UICollectionReusableView {
     
     override func prepareForReuse() {
         super.prepareForReuse()
-        mainView.snp.updateConstraints { $0.leading.equalToSuperview() }
+//        mainView.snp.updateConstraints {
+//            $0.leading.equalToSuperview().offset(16)
+//            $0.trailing.equalToSuperview().offset(-16)
+//            $0.leading.equalToSuperview()
+//
+//        }
     }
     
     func configure(_ model: CSTournamentInfo, collapsed: Bool) {
@@ -66,7 +71,7 @@ class CSTournamentHeader: UICollectionReusableView {
         
         titleLabel.text = model.name
         sportColorIndicator.backgroundColor = CSTypeProvider.getInfoVM(id: model.sportId).color
-        countLabel.text = "\(model.matchesCount)"
+//        countLabel.text = "\(model.matchesCount)"
         arrowIcon.transform = collapsed ? .init(rotationAngle: CGFloat(Double.pi)) : .identity
         configureState(collapse: collapsed)
     }
@@ -75,30 +80,26 @@ class CSTournamentHeader: UICollectionReusableView {
         tournamentId = model.id
         
         sportColorIndicator.backgroundColor = CSTypeProvider.getInfoVM(id: model.sportId).color
-        countLabel.text = "\(count)"
+//        countLabel.text = "\(count)"
         arrowIcon.transform = collapsed ? .init(rotationAngle: CGFloat(Double.pi)) : .identity
         configureState(collapse: collapsed)
     }
     
-    func favoriteState(_ active: Bool) {
-        favorite = active
-        
-        let defaultColor: ThemeColorPicker = active ? ThemeColorPicker(colors: "#F8E800", "#FFBA33") : ThemeColorPicker(colors: "#CCCCCC", "#CCCCCC")
-        favoriteIcon.theme_tintColor = defaultColor
-    }
-    
+  
 }
 
 private extension CSTournamentHeader {
     func setup() {
         setupMainView()
-        setupSportColorIndicator()
-        setupFavoriteView()
-        setupTitleLabel()
-        setupCountView()
-        setupCountLabel()
-        setupArrowIcon()
         setupCollapseButton()
+        setupSportColorIndicator()
+//        setupFavoriteView()
+        setupTitleLabel()
+//        setupCountView()
+//        setupCountLabel()
+        setupArrowIcon()
+   
+  
     }
     
     func setupMainView() {
@@ -111,11 +112,17 @@ private extension CSTournamentHeader {
         view.addGestureRecognizer(pan)
         */
         mainView = view
+        
         addSubview(mainView)
+        
         mainView.snp.makeConstraints {
-            $0.leading.top.bottom.equalToSuperview()
+            $0.leading.equalToSuperview().offset(16)
+            $0.trailing.equalToSuperview().offset(-16)
+            $0.top.bottom.equalToSuperview()
             $0.width.equalTo(UIScreen.main.bounds.width)
         }
+        
+        
     }
     
     func setupSportColorIndicator() {
@@ -130,37 +137,15 @@ private extension CSTournamentHeader {
         }
     }
     
-    func setupFavoriteView() {
-        let view = UIView()
-        view.theme_backgroundColor = ThemeColorPicker(colors: "#29292B", "#EDEEF2")
-        
-        let icon = UIImageView(image: R.image.ic24Favorite())
-        icon.theme_tintColor = ThemeColorPicker(colors: "#CCCCCC", "#CCCCCC")
-        
-        favoriteIcon = icon
-        view.addSubview(favoriteIcon)
-        favoriteIcon.snp.makeConstraints {
-            $0.height.width.equalTo(24)
-            $0.centerY.equalToSuperview()
-            $0.trailing.equalToSuperview().offset(-16)
-        }
-        
-        favoriteView = view
-        addSubview(favoriteView)
-        favoriteView.snp.makeConstraints {
-            $0.leading.equalToSuperview().offset(-3)
-            $0.top.bottom.equalToSuperview()
-            $0.trailing.equalTo(mainView.snp.leading).offset(-2)
-        }
-    }
     
     func setupTitleLabel() {
         let label = UILabel()
-        label.theme_textColor = ThemeColor.textPrimary
-        label.font = R.font.gilroyBold(size: 14)
+        label.textColor = .white
+        label.font = R.font.robotoBold(size: 12)
+        
         
         titleLabel = label
-        mainView.addSubview(titleLabel)
+        collapseButton.addSubview(titleLabel)
         titleLabel.snp.contentHuggingHorizontalPriority = 249
         titleLabel.snp.makeConstraints {
             $0.leading.equalToSuperview().offset(16)
@@ -176,18 +161,19 @@ private extension CSTournamentHeader {
         countView = view
         mainView.addSubview(countView)
         countView.snp.makeConstraints {
-            $0.leading.equalTo(titleLabel.snp.trailing).offset(16)
-            $0.trailing.equalToSuperview().offset(-16)
+//            $0.leading.equalTo(titleLabel.snp.trailing).offset(16)
+            $0.trailing.equalToSuperview().offset(-12)
             $0.centerY.equalToSuperview()
-            $0.height.equalTo(16)
-            $0.width.greaterThanOrEqualTo(30)
+            $0.height.equalTo(12)
+            $0.width.greaterThanOrEqualTo(16)
         }
     }
     
     func setupCountLabel() {
         let label = UILabel()
-        label.textColor = Color.deepBlack
-        label.font = R.font.gilroyBold(size: 10)
+        label.textColor = UIColor.black
+        label.font = UIFont.systemFont(ofSize: 10)
+        
         label.textAlignment = .center
         
         countLabel = label
@@ -200,17 +186,18 @@ private extension CSTournamentHeader {
     }
     
     func setupArrowIcon() {
-        let icon = UIImageView(image: R.image.ic10ArrowDown())
-        icon.tintColor = Color.deepBlack
+        let icon = UIImageView(image: UIImage(named: "ic10ArrowDown"))
+        icon.tintColor = .white
         
         arrowIcon = icon
-        countView.addSubview(arrowIcon)
-        arrowIcon.snp.contentHuggingHorizontalPriority = 251
+        mainView.addSubview(arrowIcon)
+//        arrowIcon.snp.contentHuggingHorizontalPriority = 251
         arrowIcon.snp.makeConstraints {
-            $0.leading.equalTo(countLabel.snp.trailing)
-            $0.trailing.equalToSuperview().offset(-4)
+            
+            $0.trailing.equalToSuperview().offset(-12)
             $0.centerY.equalToSuperview()
-            $0.height.width.equalTo(10)
+            $0.height.equalTo(12)
+            $0.width.equalTo(16)
         }
     }
     
@@ -220,6 +207,9 @@ private extension CSTournamentHeader {
         button.isUserInteractionEnabled = true
         
         collapseButton = button
+        collapseButton.layer.cornerRadius = 16
+        collapseButton.backgroundColor = #colorLiteral(red: 0.6601216793, green: 0.6862185597, blue: 0.7269647121, alpha: 1)
+
         mainView.addSubview(collapseButton)
         collapseButton.snp.makeConstraints {
             $0.edges.equalToSuperview()
@@ -297,14 +287,16 @@ private extension CSTournamentHeader {
     
     func configureState(collapse: Bool) {
         if collapse {
-            mainView.theme_backgroundColor = ThemeColorPicker(colors: "#333333", "#EDEEF2")
-            countView.theme_backgroundColor = ThemeColorPicker(colors: "#FFFFFF", "#FFFFFF")
-            countLabel.theme_textColor = ThemeColorPicker(colors: "#0D0D0D", "#0D0D0D")
+            
+//            mainView.theme_backgroundColor = ThemeColorPicker(colors: "#333333", "#EDEEF2")
+//            countView.theme_backgroundColor = ThemeColorPicker(colors: "#FFFFFF", "#FFFFFF")
+//            countLabel.theme_textColor = ThemeColorPicker(colors: "#0D0D0D", "#0D0D0D")
             arrowIcon.theme_tintColor = ThemeColorPicker(colors: "#0D0D0D", "#0D0D0D")
         } else {
-            mainView.theme_backgroundColor = ThemeColorPicker(colors: "#212121", "#EDEEF2")
-            countView.theme_backgroundColor = ThemeColorPicker(colors: "#333333", "#D2D5E0")
-            countLabel.theme_textColor = ThemeColorPicker(colors: "#FFFFFF", "#0D0D0D")
+            
+//            mainView.theme_backgroundColor = ThemeColorPicker(colors: "#212121", "#EDEEF2")
+//            countView.theme_backgroundColor = ThemeColorPicker(colors: "#333333", "#D2D5E0")
+//            countLabel.theme_textColor = ThemeColorPicker(colors: "#FFFFFF", "#0D0D0D")
             arrowIcon.theme_tintColor = ThemeColorPicker(colors: "#FFFFFF", "#0D0D0D")
         }
     }

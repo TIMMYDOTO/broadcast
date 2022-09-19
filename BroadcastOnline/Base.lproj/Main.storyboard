@@ -1,24 +1,184 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13122.16" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="20037" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="R38-9T-hYc">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13104.12"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="20020"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
+    <customFonts key="customFonts">
+        <array key="Lato_BB-Regular.otf">
+            <string>Lato_BB-Regular</string>
+        </array>
+        <array key="Roboto-Bold.ttf">
+            <string>Roboto-Bold</string>
+        </array>
+    </customFonts>
     <scenes>
-        <!--View Controller-->
+        <!--Main View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="ViewController" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="BYZ-38-t0r" customClass="MainViewController" customModule="BroadcastOnline" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" xcode11CocoaTouchSystemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
+                        <color key="backgroundColor" red="0.054901960784313725" green="0.066666666666666666" blue="0.090196078431372548" alpha="1" colorSpace="calibratedRGB"/>
                     </view>
+                    <navigationItem key="navigationItem" id="IPc-p4-l81"/>
+                    <size key="freeformSize" width="414" height="896"/>
+                    <connections>
+                        <outlet property="segmentedController" destination="Bqm-ws-aYn" id="B6B-7o-JVc"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
+                <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" id="Bqm-ws-aYn">
+                    <rect key="frame" x="0.0" y="0.0" width="363" height="33"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                    <segments>
+                        <segment title="LIVE"/>
+                        <segment title="Прематч"/>
+                    </segments>
+                    <connections>
+                        <action selector="didTapSegmentedControll:" destination="BYZ-38-t0r" eventType="valueChanged" id="ViL-nK-Gjp"/>
+                    </connections>
+                </segmentedControl>
             </objects>
+            <point key="canvasLocation" x="939.13043478260875" y="83.705357142857139"/>
+        </scene>
+        <!--Broadcast View Controller-->
+        <scene sceneID="ptW-2k-GaV">
+            <objects>
+                <viewController storyboardIdentifier="Broadcast" id="AFg-zJ-fJh" customClass="BroadcastViewController" customModule="BroadcastOnline" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="rJh-VL-wxS">
+                        <rect key="frame" x="0.0" y="0.0" width="365" height="812"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <viewLayoutGuide key="safeArea" id="JH2-Nk-TOR"/>
+                        <color key="backgroundColor" red="0.054901960784313725" green="0.066666666666666666" blue="0.090196078431372548" alpha="0.80320224383019456" colorSpace="custom" customColorSpace="calibratedRGB"/>
+                    </view>
+                    <size key="freeformSize" width="365" height="812"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="bnG-af-OtW" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1719" y="84"/>
+        </scene>
+        <!--Make BetV Iew Controller-->
+        <scene sceneID="rZa-9K-vtN">
+            <objects>
+                <viewController storyboardIdentifier="MakeBetVIewController" id="Zyq-tO-BWf" customClass="MakeBetVIewController" customModule="BroadcastOnline" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="PBB-YU-cyk">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="812"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="LGA-hX-ub2">
+                                <rect key="frame" x="0.0" y="193" width="414" height="619"/>
+                                <subviews>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="8Jb-hO-7Mo">
+                                        <rect key="frame" x="191.5" y="8" width="31" height="3"/>
+                                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="3" id="9WL-GA-RP0"/>
+                                            <constraint firstAttribute="width" constant="31" id="glk-ln-7fw"/>
+                                        </constraints>
+                                    </view>
+                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="MakeBet" translatesAutoresizingMaskIntoConstraints="NO" id="2ld-fc-f18">
+                                        <rect key="frame" x="53" y="32" width="308" height="354"/>
+                                    </imageView>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6c3-qX-cn0">
+                                        <rect key="frame" x="45" y="394" width="324" height="77"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="77" id="FDH-Xe-QIx"/>
+                                        </constraints>
+                                        <string key="text">Открой  игру 
+с  лучшим  букмекером</string>
+                                        <fontDescription key="fontDescription" type="system" pointSize="25"/>
+                                        <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="LU7-hS-HNP">
+                                        <rect key="frame" x="16" y="531" width="382" height="56"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="56" id="K3h-sC-Y3J"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" name="Roboto-Bold" family="Roboto" pointSize="20"/>
+                                        <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                                        <state key="normal" title="Сделать ставку"/>
+                                        <connections>
+                                            <action selector="didTapmakeBet:" destination="Zyq-tO-BWf" eventType="touchUpInside" id="vab-HD-Gve"/>
+                                        </connections>
+                                    </button>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Делай ставки в приложении BetBoom" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="GiQ-Gm-VQE">
+                                        <rect key="frame" x="64.5" y="487" width="285.5" height="19"/>
+                                        <fontDescription key="fontDescription" name="Lato_BB-Regular" family="Lato_BB" pointSize="16"/>
+                                        <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                                <color key="backgroundColor" red="0.11764705882352941" green="0.14117647058823529" blue="0.20000000000000001" alpha="1" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="trailing" secondItem="6c3-qX-cn0" secondAttribute="trailing" constant="45" id="9IG-L7-O1D"/>
+                                    <constraint firstItem="2ld-fc-f18" firstAttribute="top" secondItem="8Jb-hO-7Mo" secondAttribute="bottom" constant="21" id="Nia-sR-WtA"/>
+                                    <constraint firstItem="GiQ-Gm-VQE" firstAttribute="top" secondItem="6c3-qX-cn0" secondAttribute="bottom" constant="16" id="PHf-zB-GWF"/>
+                                    <constraint firstItem="2ld-fc-f18" firstAttribute="leading" secondItem="LGA-hX-ub2" secondAttribute="leading" constant="53" id="R7J-bc-w8H"/>
+                                    <constraint firstItem="6c3-qX-cn0" firstAttribute="leading" secondItem="LGA-hX-ub2" secondAttribute="leading" constant="45" id="WAx-G7-yyt"/>
+                                    <constraint firstItem="LU7-hS-HNP" firstAttribute="leading" secondItem="LGA-hX-ub2" secondAttribute="leading" constant="16" id="afY-gN-cSM"/>
+                                    <constraint firstItem="GiQ-Gm-VQE" firstAttribute="centerX" secondItem="LGA-hX-ub2" secondAttribute="centerX" id="fsw-EH-KNP"/>
+                                    <constraint firstItem="6c3-qX-cn0" firstAttribute="top" secondItem="2ld-fc-f18" secondAttribute="bottom" constant="8" id="kcX-nW-bR6"/>
+                                    <constraint firstAttribute="trailing" secondItem="2ld-fc-f18" secondAttribute="trailing" constant="53" id="kr0-6D-WIM"/>
+                                    <constraint firstAttribute="bottom" secondItem="LU7-hS-HNP" secondAttribute="bottom" constant="32" id="vxb-UV-yPa"/>
+                                    <constraint firstItem="8Jb-hO-7Mo" firstAttribute="top" secondItem="LGA-hX-ub2" secondAttribute="top" constant="8" id="y9d-x3-2di"/>
+                                    <constraint firstAttribute="trailing" secondItem="LU7-hS-HNP" secondAttribute="trailing" constant="16" id="yqb-P8-Sdh"/>
+                                    <constraint firstItem="8Jb-hO-7Mo" firstAttribute="centerX" secondItem="LGA-hX-ub2" secondAttribute="centerX" id="zxK-xj-6MI"/>
+                                </constraints>
+                            </view>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="WMb-Pn-qmf"/>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="2ld-fc-f18" firstAttribute="height" secondItem="PBB-YU-cyk" secondAttribute="height" multiplier="0.435961" id="YG6-rj-Xj2"/>
+                            <constraint firstItem="LGA-hX-ub2" firstAttribute="height" secondItem="PBB-YU-cyk" secondAttribute="height" multiplier="0.762315" id="fhG-jZ-kZT"/>
+                            <constraint firstItem="LGA-hX-ub2" firstAttribute="bottom" secondItem="PBB-YU-cyk" secondAttribute="bottom" id="iqD-8g-iz3"/>
+                            <constraint firstItem="LGA-hX-ub2" firstAttribute="leading" secondItem="WMb-Pn-qmf" secondAttribute="leading" id="lWJ-K9-ngh"/>
+                            <constraint firstItem="WMb-Pn-qmf" firstAttribute="trailing" secondItem="LGA-hX-ub2" secondAttribute="trailing" id="yge-FB-gZe"/>
+                        </constraints>
+                    </view>
+                    <size key="freeformSize" width="414" height="812"/>
+                    <connections>
+                        <outlet property="backgroundView" destination="LGA-hX-ub2" id="FYf-3W-MKi"/>
+                        <outlet property="makeBetButton" destination="LU7-hS-HNP" id="dnm-UL-NkY"/>
+                        <outlet property="subtitleLabel" destination="GiQ-Gm-VQE" id="AbP-eH-N9J"/>
+                        <outlet property="titleLabel" destination="6c3-qX-cn0" id="cZq-kV-Kzn"/>
+                        <outlet property="zalupkaView" destination="8Jb-hO-7Mo" id="sYb-vy-Zge"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Tgf-Ok-kEV" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2375" y="87"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="sD9-bW-lQg">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="R38-9T-hYc" customClass="NavigationController" customModule="BroadcastOnline" customModuleProvider="target" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="15p-dc-K1Q">
+                        <rect key="frame" x="0.0" y="44" width="414" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="BYZ-38-t0r" kind="relationship" relationship="rootViewController" id="dD8-Eq-mpg"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="jay-rt-M7i" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="28.985507246376812" y="83.705357142857139"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="MakeBet" width="269" height="354"/>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+    </resources>
 </document>

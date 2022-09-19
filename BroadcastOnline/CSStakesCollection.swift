@@ -14,7 +14,7 @@ final class CSStakesCollection: UICollectionView {
     var willUnselectStake: ((CSStake) -> Void)?
     var didScroll: ((CGFloat) -> Void)?
     
-    private var cellHeight: CGFloat = 72
+    private var cellHeight: CGFloat = 40
     
     private var model: [CellType] = []
     var selectedStakes = Set<String>()
@@ -110,12 +110,12 @@ extension CSStakesCollection: UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         switch model[indexPath.item] {
         case let .stake(item):
-            let cell = collectionView.dequeueReusableCell(for: indexPath) as CSStakeCell
+            let cell = collectionView.dequeueReusableCell(for: indexPath) as NewCSStakesCell
             cell.configure(item, selected: selectedStakes.contains(item.id), betStop: betStop)
             cell.delegate = self
             return cell
         case let .longStake(item):
-            let cell = collectionView.dequeueReusableCell(for: indexPath) as CSStakeCell
+            let cell = collectionView.dequeueReusableCell(for: indexPath) as NewCSStakesCell
             cell.configure(item, selected: selectedStakes.contains(item.id), betStop: betStop)
             cell.delegate = self
             return cell
@@ -168,22 +168,6 @@ extension CSStakesCollection: UICollectionViewDelegateFlowLayout {
 extension CSStakesCollection: UICollectionViewDelegate {
     func scrollViewDidScroll(_ scrollView: UIScrollView) {
         didScroll?(scrollView.contentOffset.x)
-    }
-}
-
-extension CSStakesCollection: CSStakeCellDelegate {
-    func tapStake(_ model: CSStake) {
-        if selectedStakes.contains(model.id) {
-            willUnselectStake?(model)
-        } else if model.active {
-            willSelectStake?(model)
-        }
-    }
-}
-
-extension CSStakesCollection: CSMoreStakesCellDelegate {
-    func tapMore() {
-        willSelectMore?()
     }
 }
 

@@ -8,7 +8,7 @@
 
 import Foundation
 
-protocol ViewInput: NSObjectProtocol, Presentable {
+protocol ViewInput: NSObjectProtocol {
     func showLoader()
     func hideLoader()
 }

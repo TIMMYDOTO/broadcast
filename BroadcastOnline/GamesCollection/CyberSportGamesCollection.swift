@@ -21,7 +21,7 @@ class CyberSportGamesCollection: UICollectionView {
         let layout = UICollectionViewFlowLayout()
         layout.scrollDirection = .horizontal
         layout.minimumLineSpacing = 0
-        layout.minimumInteritemSpacing = 0
+        layout.minimumInteritemSpacing = 8
         
         super.init(frame: .zero, collectionViewLayout: layout)
         setup()
@@ -41,12 +41,7 @@ class CyberSportGamesCollection: UICollectionView {
         
         if let id = selected { selectedId = id }
         if sk.isSkeletonActive { return }
-        
-        self.reloadData {
-//            if let id = selected {
-//                self.select(id, scrollToCenter: true)
-//            }
-        }
+        self.reloadData {}
         /*
         UIView.animate(withDuration: 0) {
             self.indexPathsForVisibleItems.forEach {
@@ -117,6 +112,8 @@ extension CyberSportGamesCollection: SkeletonCollectionViewDataSource {
 }
 
 extension CyberSportGamesCollection: UICollectionViewDelegate {
+    
+    
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         if model[indexPath.item].id == selectedId { return }
         
@@ -150,8 +147,9 @@ extension CyberSportGamesCollection: UICollectionViewDelegateFlowLayout {
         if sk.isSkeletonActive {
             return CGSize(width: 60, height: 82)
         } else {
-            let width: CGFloat = model[indexPath.item].abbreviation.width(withConstrainedHeight: 10, font: R.font.lato_BBBold(size: 12)!)
-            return CGSize(width: max(width + 16, 60), height: 82)
+            let width: CGFloat = model[indexPath.item].abbreviation.width(withConstrainedHeight: 10, font: UIFont.systemFont(ofSize: 12))
+         
+            return CGSize(width: max(width + 16, 60), height: 72)
         }
     }
 }
@@ -162,7 +160,7 @@ private extension CyberSportGamesCollection {
     }
     
     func setupCollectionView() {
-        contentInset = UIEdgeInsets(top: 0, left: 8, bottom: 1, right: 8)
+        contentInset = UIEdgeInsets(top: 0, left: 8, bottom: 0, right: 8)
         
         alwaysBounceHorizontal = true
         showsHorizontalScrollIndicator = false
@@ -173,3 +171,8 @@ private extension CyberSportGamesCollection {
         register(type: CyberSportGameCell.self)
     }
 }
+
+
+
+
+

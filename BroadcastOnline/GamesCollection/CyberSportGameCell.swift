@@ -6,11 +6,11 @@
 //
 
 import UIKit
-import SwiftTheme
+
 
 class CyberSportGameCell: UICollectionViewCell {
     
-    private let iconContainerColor = ThemeColorPicker(colors: "#1F1F1F", "#FFFFFF")
+    private let iconContainerColor = UIColor.clear
     
     private weak var sportIconView: CyberSportIconView!
 //    private weak var sportIcon: CyberSportIconImageView!
@@ -37,36 +37,31 @@ class CyberSportGameCell: UICollectionViewCell {
     
     override func layoutSubviews() {
         super.layoutSubviews()
-        bottomRadialGradient.frame = CGRect(x: (contentView.frame.width / 2) - 60, y: contentView.frame.height - 50, width: 120, height: 50)
-        sportIconContainerInnerShadow.frame = CGRect(x: -8, y: -16, width: 56, height: 56)
+//        bottomRadialGradient.frame = CGRect(x: (contentView.frame.width / 2) - 60, y: contentView.frame.height - 50, width: 120, height: 50)
+//        sportIconContainerInnerShadow.frame = CGRect(x: -8, y: -16, width: 56, height: 56)
     }
     
     override func prepareForReuse() {
         super.prepareForReuse()
-        setState(false, theme: .clear)
+//        setState(false, theme: .clear)
         sportIconView.clear()
     }
     
     func configure(_ model: CSSportInfo, selected: Bool) {
-        titleLabel.theme_textColor = getTitleLabelStateColor(active: selected)
+        titleLabel.textColor = getTitleLabelStateColor(active: selected)
         titleLabel.text = model.abbreviation
-        liveLabelContainer.isHidden = !model.hasLive
+//        liveLabelContainer.isHidden = !model.hasLive
         
         let type = CSTypeProvider.getInfoVM(id: model.id)
         setState(selected, theme: type.color)
         
         sportIconView.set(model, vm: type)
         
-        sportIconContainerBorder.isHidden = false
-        if BBTheme.isNight() {
-            bottomRadialGradient.isHidden = false
-            sportIconContainerInnerShadow.isHidden = false
-            sportIconView.clipsToBounds = true
-        } else {
-            bottomRadialGradient.isHidden = true
-            sportIconContainerInnerShadow.isHidden = true
-            sportIconView.clipsToBounds = false
-        }
+//        sportIconContainerBorder.isHidden = false
+//        bottomRadialGradient.isHidden = false
+//        sportIconContainerInnerShadow.isHidden = false
+        sportIconView.clipsToBounds = true
+      
         
     }
     
@@ -75,50 +70,63 @@ class CyberSportGameCell: UICollectionViewCell {
 //    }
     
     func setState(_ selected: Bool, theme: UIColor) {
-        let duration = 0.2
+        layer.borderWidth = 2
+        layer.borderColor = #colorLiteral(red: 0.2274509804, green: 0.2705882353, blue: 0.368627451, alpha: 0.5)
+        layer.cornerRadius = 8
         
-        selected ? sportIconView.active() : sportIconView.inactive()
-        
-        let first = CABasicAnimation(keyPath: "colors")
-        first.isRemovedOnCompletion = false
-        first.duration = duration
-        first.fillMode = CAMediaTimingFillMode.forwards
-        first.toValue = selected ? [
-            theme.withAlphaComponent(0).cgColor,
-            theme.cgColor
-        ] : [
-            UIColor.clear.cgColor,
-            UIColor.clear.cgColor
-        ]
-        sportIconContainerBorder.add(first, forKey: nil)
-        
-        let second = CABasicAnimation(keyPath: "colors")
-        second.isRemovedOnCompletion = false
-        second.duration = duration
-        second.fillMode = CAMediaTimingFillMode.forwards
-        second.toValue = selected ? [
-            theme.withAlphaComponent(0.5).cgColor,
-            theme.withAlphaComponent(0).cgColor
-        ] : [
-            UIColor.clear.cgColor,
-            UIColor.clear.cgColor
-        ]
-        bottomRadialGradient.add(second, forKey: nil)
-        
-        let third = CABasicAnimation(keyPath: "colors")
-        third.isRemovedOnCompletion = false
-        third.duration = duration
-        third.fillMode = CAMediaTimingFillMode.forwards
-        third.toValue = selected ? [
-            theme.withAlphaComponent(0).cgColor,
-            theme.withAlphaComponent(0).cgColor,
-            theme.withAlphaComponent(0.3).cgColor
-        ] : [
-            UIColor.clear.cgColor,
-            UIColor.clear.cgColor,
-            UIColor.clear.cgColor
-        ]
-        sportIconContainerInnerShadow.add(third, forKey: nil)
+//        let duration = 0.2
+//
+        if selected {
+            backgroundColor = #colorLiteral(red: 0.1843137255, green: 0.2235294118, blue: 0.3098039216, alpha: 1)
+            titleLabel.textColor = .white
+            sportIconView.active()
+        }else{
+            backgroundColor = .clear
+            titleLabel.textColor = #colorLiteral(red: 0.5960784314, green: 0.6235294118, blue: 0.6705882353, alpha: 1)
+            sportIconView.inactive()
+        }
+    
+//
+//        let first = CABasicAnimation(keyPath: "colors")
+//        first.isRemovedOnCompletion = false
+//        first.duration = duration
+//        first.fillMode = CAMediaTimingFillMode.forwards
+//        first.toValue = selected ? [
+//            theme.withAlphaComponent(0).cgColor,
+//            theme.cgColor
+//        ] : [
+//            UIColor.clear.cgColor,
+//            UIColor.clear.cgColor
+//        ]
+//        sportIconContainerBorder.add(first, forKey: nil)
+//
+//        let second = CABasicAnimation(keyPath: "colors")
+//        second.isRemovedOnCompletion = false
+//        second.duration = duration
+//        second.fillMode = CAMediaTimingFillMode.forwards
+//        second.toValue = selected ? [
+//            theme.withAlphaComponent(0.5).cgColor,
+//            theme.withAlphaComponent(0).cgColor
+//        ] : [
+//            UIColor.clear.cgColor,
+//            UIColor.clear.cgColor
+//        ]
+//        bottomRadialGradient.add(second, forKey: nil)
+//
+//        let third = CABasicAnimation(keyPath: "colors")
+//        third.isRemovedOnCompletion = false
+//        third.duration = duration
+//        third.fillMode = CAMediaTimingFillMode.forwards
+//        third.toValue = selected ? [
+//            theme.withAlphaComponent(0).cgColor,
+//            theme.withAlphaComponent(0).cgColor,
+//            theme.withAlphaComponent(0.3).cgColor
+//        ] : [
+//            UIColor.clear.cgColor,
+//            UIColor.clear.cgColor,
+//            UIColor.clear.cgColor
+//        ]
+//        sportIconContainerInnerShadow.add(third, forKey: nil)
     }
 }
 
@@ -126,29 +134,29 @@ private extension CyberSportGameCell {
     func setup() {
         setupSportIconContainer()
         setupTitleLabel()
-        setupLiveLabelContainer()
-        setupLiveLabel()
-        setupSportIconContainerBorder()
-        setupSportIconContainerInnerGradient()
+//        setupLiveLabelContainer()
+//        setupLiveLabel()
+//        setupSportIconContainerBorder()
+//        setupSportIconContainerInnerGradient()
         setupBottomRadialGradient()
     }
     
     func setupSportIconContainer() {
         let container = CyberSportIconView()
-        container.theme_backgroundColor = iconContainerColor
-        container.layer.cornerRadius = 10
+        container.backgroundColor = iconContainerColor
+//        container.layer.cornerRadius = 8
         container.clipsToBounds = true
         
-        container.layer.shadowColor = UIColor(red: 0, green: 0, blue: 0, alpha: 0.1).cgColor
-        container.layer.shadowOpacity = 1
-        container.layer.shadowRadius = 16
-        container.layer.shadowOffset = CGSize(width: 0, height: 8)
+//        container.layer.shadowColor = UIColor(red: 0, green: 0, blue: 0, alpha: 0.1).cgColor
+//        container.layer.shadowOpacity = 1
+//        container.layer.shadowRadius = 16
+//        container.layer.shadowOffset = CGSize(width: 0, height: 8)
         
         sportIconView = container
         contentView.addSubview(sportIconView)
         sportIconView.snp.makeConstraints {
-            $0.top.equalToSuperview().offset(7)
-            $0.height.width.equalTo(40)
+            $0.top.equalToSuperview().offset(8)
+            $0.height.width.equalTo(34)
             $0.centerX.equalToSuperview()
         }
     }
@@ -156,23 +164,25 @@ private extension CyberSportGameCell {
     func setupTitleLabel() {
         let label = UILabel()
         label.textAlignment = .center
-        label.font = R.font.lato_BBBold(size: 12)
-        label.theme_textColor = getTitleLabelStateColor(active: false)
+        label.font = R.font.robotoMedium(size: 12)
+        
+        label.textColor = getTitleLabelStateColor(active: false)
         
         titleLabel = label
         contentView.addSubview(titleLabel)
         titleLabel.snp.makeConstraints {
-            $0.top.equalTo(sportIconView.snp.bottom).offset(9)
+//            $0.top.equalTo(sportIconView.snp.bottom).offset(9)
+            $0.bottom.equalToSuperview().offset(-8)
             $0.trailing.equalToSuperview().offset(-3)
             $0.leading.equalToSuperview().offset(3)
-            $0.height.equalTo(14)
+            $0.height.equalTo(16)
             $0.width.greaterThanOrEqualTo(44)
         }
     }
     
     func setupLiveLabelContainer() {
         let view = UIView()
-        view.backgroundColor = Color.carmineRed
+        view.backgroundColor = .red
         view.layer.cornerRadius = 2
         view.isHidden = true
         
@@ -189,7 +199,7 @@ private extension CyberSportGameCell {
     func setupLiveLabel() {
         let label = UILabel()
         label.textColor = .white
-        label.font = R.font.lato_BBBold(size: 8)
+        label.font = UIFont.systemFont(ofSize: 8)
         label.textAlignment = .center
         label.text = "Live"
         
@@ -246,7 +256,7 @@ private extension CyberSportGameCell {
         contentView.layer.addSublayer(bottomRadialGradient)
     }
     
-    func getTitleLabelStateColor(active: Bool) -> ThemeColorPicker {
-        return active ? ThemeColor.textPrimary : ThemeColorPicker(colors: "#CCCCCC", "#A1A3AB")
+    func getTitleLabelStateColor(active: Bool) -> UIColor {
+        return active ? .lightGray : .midnightBlue
     }
 }

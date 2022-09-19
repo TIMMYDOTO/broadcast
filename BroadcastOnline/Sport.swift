@@ -80,18 +80,7 @@ struct Stake: Codable, Hashable {
         
     }
     
-    init(multiBetStake: Bb_BespokeGetsMultiBetsOfDayResponse.MultiBet.Stake) {
-        id = multiBetStake.stakeID
-        teams = multiBetStake.teams.map {
-            var team = Team()
-            team.name = $0.name
-            return team
-        }
-        tournamentName = multiBetStake.tournamentName
-        sportID = multiBetStake.sportID
-        startDttm = multiBetStake.startDttm
-        
-    }
+    
     
     func hash(into hasher: inout Hasher) {
         hasher.combine(id)
@@ -130,12 +119,8 @@ struct Team: Codable {
    
     }
     
-    init(_ teamTopEvents: Bb_BespokeTopEventsResponse.Sport.Match.Team) {
-        self.name = teamTopEvents.name
-        self.isHome = teamTopEvents.home
-        self.score = teamTopEvents.score
-        self.image = teamTopEvents.image
-    }
+
+    
     
     init(name: String) {
         self.name = name
@@ -233,18 +218,7 @@ struct Match: Codable, Hashable {
         }
     }
     
-    init(matchFromTopEvents: Bb_BespokeTopEventsResponse.Sport.Match) {
-        
-        self.id = matchFromTopEvents.id
-        
-        self.sportId = matchFromTopEvents.sportID
-        self.sportName = matchFromTopEvents.sportName
-        
-        matchFromTopEvents.teams.forEach { (teamData) in
-            let team = Team(teamData)
-            self.teams.append(team)
-        }
-    }
+
     
     init() {
         
@@ -274,11 +248,7 @@ struct SportDetails {
     
 }
 
-struct TopEventsSport {
-    var matches: [Match]!
-    var info: Bb_BespokeTopEventsResponse.Sport.SportInfo!
-    
-}
+
 
 struct Tournament: Codable {
     var code: Int32 = 200
@@ -378,45 +348,9 @@ struct State {
     }
 }
 
-struct FullMatchUpdateResponse {
-    var code: Int32
-    var status: String
-    
-    var action: UpdateType
-    var match: Match
-    
-    init(_ fullMatchUpdateResponse: Bb_Mobile_SportTreeWs_FullMatchResponse) {
-        self.code = fullMatchUpdateResponse.code
-        self.status = fullMatchUpdateResponse.status
-        
-        self.action = UpdateType(rawValue: fullMatchUpdateResponse.action) ?? .updateFullMatch
-        self.match = Match(fullMatchUpdateResponse.match)
-        
-        
-    }
-}
 
-struct FullMatch {
-    var code: Int32 = 0
-    var status = ""
-    var match = Match()
-    var subMatches = [Match]()
-    var tournament: Bb_Mobile_SportTreeWs_Tournament
-//    var group = [Match]()
-    
-    
-    init(_ fullMatch: Bb_Mobile_SportTreeWs_SubscribeFullMatchResponse) {
-        
-        self.code = fullMatch.code
-        self.status = fullMatch.status
-        self.match = Match(fullMatch.match)
-        self.tournament = fullMatch.tournament
-        fullMatch.subMatches.forEach { submatchData in
-            let match = Match(submatchData)
-            self.subMatches.append(match)
-        }
-    }
-}
+
+
 
 struct MatchToUpdate {
     var match: Match?

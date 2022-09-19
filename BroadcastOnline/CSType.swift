@@ -48,55 +48,55 @@ class CSTypeProvider {
         let vm: CSInfoVM
         switch type {
         case .lol:
-            vm = CSInfoVM(color: UIColor(hex: "#029DCE")!, icon: R.image.icCyberLol()!, type: type)
+            vm = CSInfoVM(color: UIColor(hex: "#029DCE")!, icon: UIImage(named: "icCyberLol")!, type: type)
         case .dota2:
-            vm = CSInfoVM(color: UIColor(hex: "#5A3A73")!, icon: R.image.icCyberDota2()!, type: type)
+            vm = CSInfoVM(color: UIColor(hex: "#5A3A73")!, icon: UIImage(named: "icCyberDota2")!, type: type)
         case .csgo:
-            vm = CSInfoVM(color: UIColor(hex: "#DE900A")!, icon: R.image.icCyberCsgo()!, type: type)
+            vm = CSInfoVM(color: UIColor(hex: "#DE900A")!, icon: UIImage(named: "icCyberCsgo")!, type: type)
         case .fortnite:
-            vm = CSInfoVM(color: UIColor(hex: "#AB539E")!, icon: R.image.icCyberFortnite()!, type: type)
+            vm = CSInfoVM(color: UIColor(hex: "#AB539E")!, icon: UIImage(named: "icCyberFortnite")!, type: type)
         case .pubg:
-            vm = CSInfoVM(color: UIColor(hex: "#F2A900")!, icon: R.image.icCyberPubg()!, type: type)
+            vm = CSInfoVM(color: UIColor(hex: "#F2A900")!, icon: UIImage(named: "icCyberPubg")!, type: type)
         case .fifa:
-            vm = CSInfoVM(color: UIColor(hex: "#008F54")!, icon: R.image.icCyberFifa()!, type: type)
+            vm = CSInfoVM(color: UIColor(hex: "#008F54")!, icon: UIImage(named: "icCyberFifa")!, type: type)
         case .nba2k:
-            vm = CSInfoVM(color: UIColor(hex: "#1C3F83")!, icon: R.image.icCyberNba()!, type: type)
+            vm = CSInfoVM(color: UIColor(hex: "#1C3F83")!, icon: UIImage(named: "icCyberNba")!, type: type)
         case .overwatch:
-            vm = CSInfoVM(color: UIColor(hex: "#FA9C1E")!, icon: R.image.icCyberOverwatch()!, type: type)
+            vm = CSInfoVM(color: UIColor(hex: "#FA9C1E")!, icon: UIImage(named: "icCyberOverwatch")!, type: type)
         case .hearthstone:
-            vm = CSInfoVM(color: UIColor(hex: "#573FB7")!, icon: R.image.icCyberHearthstone()!, type: type)
+            vm = CSInfoVM(color: UIColor(hex: "#573FB7")!, icon: UIImage(named: "icCyberHearthstone")!, type: type)
         case .kingofglory:
-            vm = CSInfoVM(color: UIColor(hex: "#635BC8")!, icon: R.image.icCyberKingOfGlory()!, type: type)
+            vm = CSInfoVM(color: UIColor(hex: "#635BC8")!, icon: UIImage(named: "icCyberKingOfGlory")!, type: type)
         case .starcraft2:
-            vm = CSInfoVM(color: UIColor(hex: "#3F69A5")!, icon: R.image.icCyberStarcraft2()!, type: type)
+            vm = CSInfoVM(color: UIColor(hex: "#3F69A5")!, icon: UIImage(named: "icCyberStarcraft2")!, type: type)
         case .rocketleague:
-            vm = CSInfoVM(color: UIColor(hex: "#433A73")!, icon: R.image.icCyberRocketLeague()!, type: type)
+            vm = CSInfoVM(color: UIColor(hex: "#433A73")!, icon: UIImage(named: "icCyberRocketLeague")!, type: type)
         case .valorant:
-            vm = CSInfoVM(color: UIColor(hex: "#80232A")!, icon: R.image.icCyberValorant()!, type: type)
+            vm = CSInfoVM(color: UIColor(hex: "#80232A")!, icon: UIImage(named: "icCyberValorant")!, type: type)
         case .starcraft:
-            vm = CSInfoVM(color: UIColor(hex: "#3F69A5")!, icon: R.image.icCyberStarcraft()!, type: type)
+            vm = CSInfoVM(color: UIColor(hex: "#3F69A5")!, icon: UIImage(named: "icCyberStarcraft")!, type: type)
         case .callofduty:
-            vm = CSInfoVM(color: UIColor(hex: "#808889")!, icon: R.image.icCyberCallOfDuty()!, type: type)
+            vm = CSInfoVM(color: UIColor(hex: "#808889")!, icon: UIImage(named: "icCyberCallOfDuty")!, type: type)
         case .rainbowsix:
-            vm = CSInfoVM(color: UIColor(hex: "#808889")!, icon: R.image.icCyberRainbow6()!, type: type)
+            vm = CSInfoVM(color: UIColor(hex: "#808889")!, icon: UIImage(named: "icCyberRainbow6")!, type: type)
         case .nhl:
-            vm = CSInfoVM(color: UIColor(hex: "#4F7AB7")!, icon: R.image.icCyberNhl()!, type: type)
+            vm = CSInfoVM(color: UIColor(hex: "#4F7AB7")!, icon: UIImage(named: "icCyberNhl")!, type: type)
         case .warcraft3:
-            vm = CSInfoVM(color: UIColor(hex: "#C85139")!, icon: R.image.icCyberWarcraft3()!, type: type)
+            vm = CSInfoVM(color: UIColor(hex: "#C85139")!, icon: UIImage(named: "icCyberWarcraft3")!, type: type)
         case .rushsoccer:
-            vm = CSInfoVM(color: UIColor(hex: "#433A73")!, icon: R.image.icCyberRushSoccer()!, type: type)
+            vm = CSInfoVM(color: UIColor(hex: "#433A73")!, icon: UIImage(named: "icCyberRushSoccer")!, type: type)
         case .hallo:
-            vm = CSInfoVM(color: UIColor(hex: "#6E8196")!, icon: R.image.icCyberHalo()!, type: type)
+            vm = CSInfoVM(color: UIColor(hex: "#6E8196")!, icon: UIImage(named: "icCyberHalo")!, type: type)
         case .wildrift:
-            vm = CSInfoVM(color: UIColor(hex: "#238CB2")!, icon: R.image.icCyberWildRift()!, type: type)
+            vm = CSInfoVM(color: UIColor(hex: "#238CB2")!, icon: UIImage(named: "icCyberWildRift")!, type: type)
         case .arenaofvalor:
-            vm = CSInfoVM(color: UIColor(hex: "#8C89DD")!, icon: R.image.icCyberArenaOfValor()!, type: type)
+            vm = CSInfoVM(color: UIColor(hex: "#8C89DD")!, icon: UIImage(named: "icCyberArenaOfValor")!, type: type)
         case .ageofempires:
-            vm = CSInfoVM(color: UIColor(hex: "#96391B")!, icon: R.image.icCyberAgeOfEmpires()!, type: type)
+            vm = CSInfoVM(color: UIColor(hex: "#96391B")!, icon: UIImage(named: "icCyberAgeOfEmpires")!, type: type)
         case .mobilelegends:
-            vm = CSInfoVM(color: UIColor(hex: "#602C68")!, icon: R.image.icCyberMobileLegends()!, type: type)
+            vm = CSInfoVM(color: UIColor(hex: "#602C68")!, icon: UIImage(named: "icCyberMobileLegends")!, type: type)
         default:
-            vm = CSInfoVM(color: UIColor(hex: "#808889")!, icon: R.image.cyberSport()!, type: nil)
+            vm = CSInfoVM(color: UIColor(hex: "#808889")!, icon: UIImage(named: "cyberSport")!, type: nil)
         }
         return vm
     }

@@ -20,7 +20,7 @@ final class CSMoreStakesCell: UICollectionViewCell {
     private weak var titleLabel: UILabel!
     private weak var subtitleLabel: UILabel!
     
-    weak var delegate: CSMoreStakesCellDelegate?
+    weak var delegate: CSStakeCellDelegate?
     
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -37,27 +37,30 @@ final class CSMoreStakesCell: UICollectionViewCell {
 }
 
 private extension CSMoreStakesCell {
-    @objc func tapCell() { delegate?.tapMore() }
+    @objc func tapCell() {
+        delegate?.tapStake(CSStake())
+        
+    }
     
     func setup() {
         setupCell()
-        setupMainView()
+//        setupMainView()
         setupTitleLabel()
         setupSubtitleLabel()
     }
     
     func setupCell() {
         clipsToBounds = true
-        layer.cornerRadius = 8
+        
         backgroundColor = .clear
         
         let tap = UITapGestureRecognizer(target: self, action: #selector(tapCell))
         addGestureRecognizer(tap)
         isUserInteractionEnabled = true
-        
-        contentView.theme_backgroundColor = ThemeColorPicker(
-            colors: "#2B2B2B", "#D8DBE5"
-        )
+        layer.borderWidth = 2
+        layer.borderColor = #colorLiteral(red: 0.2913191915, green: 0.3439336419, blue: 0.4444465041, alpha: 1)
+        layer.cornerRadius = 8
+
     }
     
     func setupMainView() {
@@ -78,16 +81,16 @@ private extension CSMoreStakesCell {
         let label = UILabel()
         label.textAlignment = .center
         label.numberOfLines = 1
-        label.theme_textColor = ThemeColorPicker(colors: "#FFFFFF", "#0D0D0D")
-        label.font = R.font.lato_BBRegular(size: 10)
+        label.textColor = #colorLiteral(red: 0.6601216793, green: 0.6862185597, blue: 0.7269647121, alpha: 1)
+        label.font = R.font.robotoRegular(size: 12)
         label.text = "Ещё"
         
         titleLabel = label
-        mainView.addSubview(titleLabel)
+        addSubview(titleLabel)
         titleLabel.snp.makeConstraints {
             $0.top.equalToSuperview().offset(12)
-            $0.leading.equalToSuperview().offset(5)
-            $0.trailing.equalToSuperview().offset(-5)
+            $0.leading.equalToSuperview().offset(12)
+            
             $0.height.equalTo(16)
         }
     }
@@ -96,15 +99,15 @@ private extension CSMoreStakesCell {
         let label = UILabel()
         label.textAlignment = .center
         label.numberOfLines = 1
-        label.theme_textColor = ThemeColorPicker(colors: "#FFFFFF", "#0D0D0D")
-        label.font = R.font.lato_BBBold(size: 14)
+        label.textColor = .white
+        label.font = R.font.robotoBold(size: 12)
         
         subtitleLabel = label
-        mainView.addSubview(subtitleLabel)
+        addSubview(subtitleLabel)
         subtitleLabel.snp.makeConstraints {
-            $0.top.equalTo(titleLabel.snp.bottom).offset(4)
-            $0.leading.equalToSuperview().offset(5)
-            $0.trailing.equalToSuperview().offset(-5)
+            $0.top.equalToSuperview().offset(12)
+        
+            $0.trailing.equalToSuperview().offset(-12)
             $0.height.equalTo(16)
         }
     }

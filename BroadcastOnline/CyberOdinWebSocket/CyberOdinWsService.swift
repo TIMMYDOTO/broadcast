@@ -19,8 +19,8 @@ final class CyberOdinWsService: CyberOdinWsServiceInterface {
     
     private var typeName: String { String(describing: self) }
     
-    private var wsUrlString: String { AppDataStore.shared.appConfig.esportTreeWsUrlProd }
-    //private let wsUrlString: String = "wss://betboom.ru/api/esport_tree_ws/v1"
+//    private var wsUrlString: String { AppDataStore.shared.appConfig.esportTreeWsUrlProd }
+    private let wsUrlString: String = "wss://betboom.ru/api/oddin_tree_ws/v1"
 //    private let wsUrlString: String = "wss://bboncyp-oddin.bb-online-stage.com/api/oddin_tree_ws/v1"
     
     private var webSocket: WebSocket!

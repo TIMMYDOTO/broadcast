@@ -168,11 +168,7 @@ enum ThemeColor {
                                                 .font: R.font.lato_BBRegular(size: 14)!
                                             ]
                                         )
-    
-    static let radioButtonSelected24    = ThemeImagePicker(names:
-                                            R.image.icRadioSelectedNight24.name,
-                                            R.image.icRadioSelectedLight24.name
-                                        )
+
  
   
 }

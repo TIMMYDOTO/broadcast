@@ -58,10 +58,8 @@ private extension CyberSportFilterCell {
         titleLabel = label
         contentView.addSubview(titleLabel)
         titleLabel.snp.makeConstraints {
-            $0.top.equalToSuperview().offset(5)
-            $0.bottom.equalToSuperview().offset(-5)
-            $0.leading.equalToSuperview().offset(16)
-            $0.trailing.equalToSuperview().offset(-16)
+            $0.centerX.centerY.equalToSuperview()
+            $0.height.equalTo(24)
         }
     }
 }

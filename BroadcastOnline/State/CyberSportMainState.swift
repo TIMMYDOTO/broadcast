@@ -7,6 +7,43 @@
 
 import Foundation
 
+struct SportSettings: Codable {
+    var oneClick: Int = 100
+    var rememberSum: Bool = false
+    var sort: Sort = .popularity
+    var agreeChangingCoef: Bool = false
+    var changingCoef: ChangingCoefSetting = .disable
+}
+enum Sort: String, Codable {
+    case popularity = "Популярность события"
+    case name = "Название события"
+    case country = "Страна"
+}
+enum ChangingCoefSetting: Codable {
+    case disable
+    case decrease
+    case increase
+    case all
+    
+    func getTitle() -> String {
+        switch self {
+        case .disable: return "Не согласен"
+        case .decrease: return "Понижение"
+        case .increase: return "Повышение"
+        case .all: return "Все изменения"
+        }
+    }
+    
+    func getNWData() -> String {
+        switch self {
+        case .disable: return "none"
+        case .decrease: return "smaller"
+        case .increase: return "higher"
+        case .all: return "all"
+        }
+    }
+}
+
 class CyberSportMainState {
     
     var sportSettings = SportSettings()

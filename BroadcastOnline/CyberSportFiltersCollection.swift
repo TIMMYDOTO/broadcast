@@ -15,17 +15,13 @@ class CyberSportFiltersCollection: UICollectionView {
     private let model: [CSFilter] = [
         .allLive,
         .allPrematch,
-        .oneHours,
-        .threeHours,
-        .sixHours,
-        .twelveHours,
-        .oneDay
+
     ]
     private var selectedIndex: Int = 0
     
     init() {
         let layout = UICollectionViewFlowLayout()
-        layout.estimatedItemSize = UICollectionViewFlowLayout.automaticSize
+//        layout.estimatedItemSize = UICollectionViewFlowLayout.automaticSize
         layout.minimumLineSpacing = 0
         layout.minimumInteritemSpacing = 1
         layout.scrollDirection = .horizontal
@@ -88,7 +84,12 @@ extension CyberSportFiltersCollection: SkeletonCollectionViewDataSource {
         return "CyberSportFilterSkeletonCell"
     }
 }
-
+extension CyberSportFiltersCollection: UICollectionViewDelegateFlowLayout {
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
+        return CGSize(width: frame.size.width * 0.44, height: 36)
+    }
+    
+}
 extension CyberSportFiltersCollection: UICollectionViewDelegate {
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         if indexPath.item == selectedIndex { return }
@@ -103,15 +104,15 @@ private extension CyberSportFiltersCollection {
         showsHorizontalScrollIndicator = false
         alwaysBounceHorizontal = true
         
-        contentInset = UIEdgeInsets(top: 0, left: 8, bottom: 0, right: 8)
+        contentInset = UIEdgeInsets(top: 0, left: 16, bottom: 0, right: 16)
         
         dataSource = self
         delegate = self
         
-        register(type: CyberSportFilterSkeletonCell.self)
+        
         
         register(type: CyberSportFilterCell.self)
-        register(type: CyberSportFilterSkeletonCell.self)
+        
     }
 }
 
@@ -119,10 +120,6 @@ extension CyberSportFiltersCollection {
     enum FilterType {
         case allLive
         case allPrematch
-        case oneHours
-        case threeHours
-        case sixHours
-        case twelveHours
-        case oneDay
+
     }
 }

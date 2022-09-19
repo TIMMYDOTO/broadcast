@@ -12,8 +12,8 @@ final class CyberSportTournamentsCollection: UICollectionView {
     
     var willSelectTournament: ((_ model: CSTournament) -> Void)?
     var didSelectMatch: ((_ model: CSMatch) -> Void)?
-    var addBet: ((_ item: Bet) -> Void)?
-    var removeBet: ((_ item: Bet) -> Void)?
+    
+    var willSelectStake: ((CSMatch, CSStake) -> Void)?
     var actionFavoriteEvent: ((_ item: (match: CSMatch, add: Bool)) -> Void)?
     var actionFavoriteTournament: ((_ item: (tournament: CSTournamentInfo, add: Bool)) -> Void)?
     
@@ -70,7 +70,7 @@ final class CyberSportTournamentsCollection: UICollectionView {
     }
     
     func setLoading() {
-        let color = BBTheme.isNight() ? UIColor(hex: "#262626")! : UIColor(hex: "#D2D5E0")!
+        let color = UIColor(hex: "#262626")!
         showAnimatedSkeleton(usingColor: color)
     }
     
@@ -134,35 +134,10 @@ final class CyberSportTournamentsCollection: UICollectionView {
         }
     }
     
-    func setFavoriteEvent(_ id: String, active: Bool) {
-        if active { favoriteEvents.insert(id) } else { favoriteEvents.remove(id) }
-        if let cell = visibleCells
-            .first(where: { ($0 as? CSMatchBaseCell)?.model.id == id })
-        {
-            (cell as! CSMatchBaseCell).favoriteState(favoriteEvents.contains(id))
-        }
-    }
     
-    func setFavoriteTournaments(_ model: Set<String>) {
-        favoriteTournaments = model
-        
-        let headers: [CSTournamentHeader] = visibleSupplementaryViews(ofKind: UICollectionView.elementKindSectionHeader)
-            .compactMap({ $0 as? CSTournamentHeader })
-        model.forEach { id in
-            if let header = headers.first(where: { $0.tournamentId == id  }) {
-                header.favoriteState(true)
-            }
-        }
-    }
+
     
-    func setFavoriteTournament(_ id: String, active: Bool) {
-        if active { favoriteTournaments.insert(id) } else { favoriteTournaments.remove(id) }
-        if let header = visibleSupplementaryViews(ofKind: UICollectionView.elementKindSectionHeader)
-            .first(where: { ($0 as? CSTournamentHeader)?.tournamentId == id })
-        {
-            (header as! CSTournamentHeader).favoriteState(favoriteTournaments.contains(id))
-        }
-    }
+    
 }
 
 extension CyberSportTournamentsCollection: SkeletonCollectionViewDataSource {
@@ -179,7 +154,7 @@ extension CyberSportTournamentsCollection: SkeletonCollectionViewDataSource {
         let item = model[indexPath.section].matches[indexPath.item]
         let cell = collectionView.dequeueReusableCell(for: indexPath) as CSDefaultMatchCell
         
-        cell.favoriteState(favoriteEvents.contains(item.id))
+    
         cell.stakesCollection.selectedStakes = selectedStakes[item.id] ?? []
         cell.configure(item, stakesOffset: stakesOffsetHash[item.id] ?? 0)
         cell.delegate = self
@@ -190,8 +165,9 @@ extension CyberSportTournamentsCollection: SkeletonCollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, viewForSupplementaryElementOfKind kind: String, at indexPath: IndexPath) -> UICollectionReusableView {
         let item = model[indexPath.section]
         let header = collectionView.dequeueReusableView(ofKind: kind, for: indexPath) as CSTournamentHeader
+        
         header.configure(item.info, collapsed: item.collapsed)
-        header.favoriteState(favoriteTournaments.contains(item.info.id))
+
         header.delegate = self
         
         return header
@@ -222,7 +198,7 @@ extension CyberSportTournamentsCollection: UICollectionViewDelegateFlowLayout {
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        return CGSize(width: UIScreen.main.bounds.width, height: 100)
+        return CGSize(width: UIScreen.main.bounds.width, height: 136)
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAt section: Int) -> UIEdgeInsets {
@@ -254,14 +230,9 @@ extension CyberSportTournamentsCollection: CSMatchCellDelegate {
     }
     
     func stakeSelected(match: CSMatch, stake: CSStake) {
-        let bet = Bet(match, stake)
-        addBet?(bet)
+        willSelectStake?(match, stake)
     }
-    
-    func stakeUnselected(match: CSMatch, stake: CSStake) {
-        let bet = Bet(match, stake)
-        removeBet?(bet)
-    }
+
     
     func saveStakesOffset(matchId: String, x: CGFloat) {
         stakesOffsetHash[matchId] = x
@@ -293,7 +264,7 @@ private extension CyberSportTournamentsCollection {
 
         register(type: TournamentSkeletonCHeader.self, forSupplementaryViewOfKind: UICollectionView.elementKindSectionHeader)
         register(type: CSTournamentHeader.self, forSupplementaryViewOfKind: UICollectionView.elementKindSectionHeader)
-        register(type: SportEmptyPlaceholderCHeader.self, forSupplementaryViewOfKind: UICollectionView.elementKindSectionHeader)
+        
     }
     
     func highlight(olds: [CSTournament]) {
