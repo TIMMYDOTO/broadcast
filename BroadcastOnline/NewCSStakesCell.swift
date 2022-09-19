@@ -128,7 +128,7 @@ class NewCSStakesCell: UICollectionViewCell {
         stakeFactorLabel.snp.makeConstraints {
             $0.top.equalToSuperview().offset(12)
             
-            $0.trailing.equalToSuperview().offset(-15)
+            $0.trailing.equalToSuperview().offset(-12)
             $0.height.equalTo(16)
         }
     }

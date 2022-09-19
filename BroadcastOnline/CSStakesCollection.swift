@@ -7,7 +7,9 @@
 
 import UIKit
 
-final class CSStakesCollection: UICollectionView {
+final class CSStakesCollection: UICollectionView, CSStakeCellDelegate {
+
+    
     
     var willSelectMore: (() -> Void)?
     var willSelectStake: ((CSStake) -> Void)?
@@ -24,8 +26,8 @@ final class CSStakesCollection: UICollectionView {
         let layout = UICollectionViewFlowLayout()
         layout.sectionInset = UIEdgeInsets(top: 0, left: 0, bottom: 0, right: 8)
         layout.scrollDirection = .horizontal
-        layout.minimumLineSpacing = 2
-        layout.minimumInteritemSpacing = 2
+        layout.minimumLineSpacing = 8
+//        layout.minimumInteritemSpacing = 8
         
         super.init(frame: .zero, collectionViewLayout: layout)
         setup()
@@ -57,7 +59,7 @@ final class CSStakesCollection: UICollectionView {
     }
     
     func highlight(_ olds: [CSStake]) {
-        for cell in visibleCells.compactMap({ ($0 as? CSStakeCell) }) {
+        for cell in visibleCells.compactMap({ ($0 as? NewCSStakesCell) }) {
             let new = cell.model
             if let old = olds.first(where: { $0.id == new.id }) {
                 if old.factor > new.factor {
@@ -111,55 +113,63 @@ extension CSStakesCollection: UICollectionViewDataSource {
         switch model[indexPath.item] {
         case let .stake(item):
             let cell = collectionView.dequeueReusableCell(for: indexPath) as NewCSStakesCell
-            cell.configure(item, selected: selectedStakes.contains(item.id), betStop: betStop)
-            cell.delegate = self
+
+            cell.configure(item)
+            
+//            cell.delegate = self
             return cell
         case let .longStake(item):
             let cell = collectionView.dequeueReusableCell(for: indexPath) as NewCSStakesCell
-            cell.configure(item, selected: selectedStakes.contains(item.id), betStop: betStop)
-            cell.delegate = self
+            cell.configure(item)
+//            cell.configure(item, selected: selectedStakes.contains(item.id), betStop: betStop)
+//            cell.delegate = self
             return cell
         case let .more(value):
             let cell = collectionView.dequeueReusableCell(for: indexPath) as CSMoreStakesCell
             cell.configure(value)
-            cell.delegate = self
+//            cell.delegate = self
             return cell
         case let .placeholder(title):
-            let cell = collectionView.dequeueReusableCell(for: indexPath) as CSStakeCell
-            cell.placeholder(title)
+            let cell = collectionView.dequeueReusableCell(for: indexPath) as NewCSStakesCell
+//            cell.placeholder(title)
             return cell
         }
+    }
+    
+    func tapStake(_ model: CSStake) {
+        
     }
 }
 
 extension CSStakesCollection: UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
+    
         if model.count == 1 {
-            return CGSize(width: 196, height: cellHeight)
+            return CGSize(width: collectionView.frame.size.width, height: cellHeight)
         }
         
-        if model.count == 2, indexPath.item == 1 {
-            let firstCellWidth: CGFloat
-            if case .longStake = model[0] {
-                firstCellWidth = 97
-            } else { firstCellWidth = 64 }
-            
-            let secondCellWidth = max(64, 210 - firstCellWidth - 10)
-            return CGSize(width: secondCellWidth, height: cellHeight)
-        }
+//        if model.count == 2, indexPath.item == 1 {
+//            let firstCellWidth: CGFloat
+//            if case .longStake = model[0] {
+//                firstCellWidth = 97
+//            } else { firstCellWidth = 64 }
+//
+//            let secondCellWidth = max(64, 210 - firstCellWidth - 10)
+//            return CGSize(width: secondCellWidth, height: cellHeight)
+//        }
         
         let item = model[indexPath.item]
         let size: CGSize
         switch item {
         case .stake:
-            size = CGSize(width: 64, height: cellHeight)
+            size = CGSize(width: collectionView.frame.size.width * 0.316, height: cellHeight)
         case .longStake:
             size = CGSize(width: 97, height: cellHeight)
         case .more:
-            let width: CGFloat = model.count < 2 ? 196 : 64
+            let width: CGFloat = model.count < 2 ? collectionView.frame.size.width : collectionView.frame.size.width * 0.316
             size = CGSize(width: width, height: cellHeight)
         case .placeholder:
-            size = CGSize(width: 64, height: cellHeight)
+            size = CGSize(width: collectionView.frame.size.width * 0.316, height: cellHeight)
         }
         return size
     }
@@ -178,6 +188,7 @@ private extension CSStakesCollection {
         
         register(type: CSStakeCell.self)
         register(type: CSMoreStakesCell.self)
+        register(type: NewCSStakesCell.self)
     }
     
     func formatStakes(_ model: [CSStake], total: Int32) -> [CellType] {

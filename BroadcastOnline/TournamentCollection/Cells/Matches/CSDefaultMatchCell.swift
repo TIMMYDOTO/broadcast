@@ -319,6 +319,6 @@ private extension CSDefaultMatchCell {
         secondLogoDownloadTask?.cancel()
         secondLogoDownloadTask = nil
         firstTeamLogo.image = R.image.ic56CyberTeamPlaceholder()
-        secondTeamLogo.image = R.image.ic56CyberTeamPlaceholder()
+//        secondTeamLogo.image = R.image.ic56CyberTeamPlaceholder()
     }
 }
