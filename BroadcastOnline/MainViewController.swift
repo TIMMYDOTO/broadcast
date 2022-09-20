@@ -22,7 +22,7 @@ class MainViewController: UIViewController, MainViewInput {
     public var presenter: MainPresenter!
     private weak var gamesCollection: CyberSportGamesCollection!
     private weak var filtersCollection: CyberSportFiltersCollection!
-
+    private weak var placeholderContainerView: UIView!
     @IBOutlet var segmentedController: UISegmentedControl!
     
     override func viewDidLoad() {
@@ -47,6 +47,29 @@ class MainViewController: UIViewController, MainViewInput {
       
         
     }
+    
+    func setupPlaceholderView() {
+        let container = UIView()
+        container.isHidden = true
+        
+        placeholderContainerView = container
+        view.addSubview(placeholderContainerView)
+        placeholderContainerView.snp.makeConstraints {
+            $0.edges.equalTo(tournamentsCollection.snp.edges)
+        }
+        
+        let placeholder = CyberSportPlaceholderView()
+        
+        placeholderView = placeholder
+        placeholderContainerView.addSubview(placeholderView)
+        placeholderView.snp.makeConstraints {
+            $0.centerY.equalToSuperview().offset(-40)
+            $0.leading.equalToSuperview().offset(16)
+            $0.trailing.equalToSuperview().offset(-16)
+        }
+    }
+    
+    
     
     func setupSegmentedControll() {
         view.addSubview(segmentedController)
@@ -213,11 +236,23 @@ class MainViewController: UIViewController, MainViewInput {
     
     func setTournamentsPlaceholder(model: String) {
         DispatchQueue.main.async {
-            
+            self.placeholderState(active: true)
             if !self.contentIsLoaded {
                 self.stopSkeletonState()
                 self.contentIsLoaded = true
             }
+        }
+    }
+    
+    func placeholderState(active: Bool) {
+        if active {
+            placeholderContainerView.isHidden = false
+            tournamentsCollection.isHidden = true
+            placeholderView.play()
+        } else {
+            placeholderContainerView.isHidden = true
+            tournamentsCollection.isHidden = false
+            placeholderView.pause()
         }
     }
 

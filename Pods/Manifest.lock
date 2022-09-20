@@ -1,6 +1,7 @@
 PODS:
   - Alamofire (5.5.0)
   - Kingfisher (7.1.2)
+  - lottie-ios (3.3.0)
   - R.swift (6.1.0):
     - R.swift.Library (~> 5.3.0)
   - R.swift.Library (5.3.0)
@@ -16,6 +17,7 @@ PODS:
 DEPENDENCIES:
   - Alamofire
   - Kingfisher
+  - lottie-ios
   - R.swift
   - RxSwift
   - SkeletonView
@@ -30,6 +32,7 @@ SPEC REPOS:
   trunk:
     - Alamofire
     - Kingfisher
+    - lottie-ios
     - R.swift
     - R.swift.Library
     - RxSwift
@@ -44,6 +47,7 @@ SPEC REPOS:
 SPEC CHECKSUMS:
   Alamofire: 1c4fb5369c3fe93d2857c780d8bbe09f06f97e7c
   Kingfisher: 44ed6a8504763f27bab46163adfac83f5deb240c
+  lottie-ios: 6ac74dcc09904798f59b18cb3075c089d76be9ae
   R.swift: ec98ff71c4ab2f6fd01dd077e5afd15e63a4834c
   R.swift.Library: 0fc583cb55a99e28901299cc451614cad1161962
   RxSwift: 5710a9e6b17f3c3d6e40d6e559b9fa1e813b2ef8
@@ -55,6 +59,6 @@ SPEC CHECKSUMS:
   SwiftVideoBackground: 826e0567c737ded2a211aa309e9951c643695e8f
   YouTubePlayer: 2b5f2830d8f9b2cde942083211291e382c9e6bd5
 
-PODFILE CHECKSUM: 29ba49575ab4e20b2f105e18ed5903f24c752b2b
+PODFILE CHECKSUM: 9742a4c3de6c41af0edcb9982123cf17ace12f9b
 
 COCOAPODS: 1.11.3

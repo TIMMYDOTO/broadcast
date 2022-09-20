@@ -122,6 +122,8 @@
 		9ACBA99B28D485A300E73AAF /* NewCSStakesCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9ACBA99A28D485A300E73AAF /* NewCSStakesCell.swift */; };
 		9ACBA99D28D89FEE00E73AAF /* CSDefaultMatchCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9ACBA99C28D89FEE00E73AAF /* CSDefaultMatchCell.swift */; };
 		9ACBA99E28D8C00800E73AAF /* CSStakesCollection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A4EE33928CF8E3800905FF9 /* CSStakesCollection.swift */; };
+		9ACBA9A028D9E99500E73AAF /* CyberSportPlaceholderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9ACBA99F28D9E99400E73AAF /* CyberSportPlaceholderView.swift */; };
+		9ACBA9A228D9EAF600E73AAF /* illustration_7.json in Resources */ = {isa = PBXBuildFile; fileRef = 9ACBA9A128D9EAF500E73AAF /* illustration_7.json */; };
 		9AE4764528D3380800E59FC0 /* Roboto-Medium.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 9AE4763928D3380800E59FC0 /* Roboto-Medium.ttf */; };
 		9AE4764628D3380800E59FC0 /* Roboto-Light.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 9AE4763A28D3380800E59FC0 /* Roboto-Light.ttf */; };
 		9AE4764728D3380800E59FC0 /* Roboto-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 9AE4763B28D3380800E59FC0 /* Roboto-Regular.ttf */; };
@@ -258,6 +260,8 @@
 		9A79194328D204CB00062946 /* CSDetailsHeaderTranslationView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CSDetailsHeaderTranslationView.swift; sourceTree = SOURCE_ROOT; };
 		9ACBA99A28D485A300E73AAF /* NewCSStakesCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewCSStakesCell.swift; sourceTree = "<group>"; };
 		9ACBA99C28D89FEE00E73AAF /* CSDefaultMatchCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CSDefaultMatchCell.swift; sourceTree = "<group>"; };
+		9ACBA99F28D9E99400E73AAF /* CyberSportPlaceholderView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CyberSportPlaceholderView.swift; sourceTree = "<group>"; };
+		9ACBA9A128D9EAF500E73AAF /* illustration_7.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = illustration_7.json; sourceTree = "<group>"; };
 		9AE4763928D3380800E59FC0 /* Roboto-Medium.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Roboto-Medium.ttf"; sourceTree = "<group>"; };
 		9AE4763A28D3380800E59FC0 /* Roboto-Light.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Roboto-Light.ttf"; sourceTree = "<group>"; };
 		9AE4763B28D3380800E59FC0 /* Roboto-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Roboto-Regular.ttf"; sourceTree = "<group>"; };
@@ -478,7 +482,9 @@
 				9A79192A28D0907B00062946 /* stake.pb.swift */,
 				9A79191F28D08ECD00062946 /* CSMoreStakesCell.swift */,
 				9A79193028D093FF00062946 /* tournament.pb.swift */,
+				9ACBA9A128D9EAF500E73AAF /* illustration_7.json */,
 				9A4EE34028D07DE500905FF9 /* CSTeam.swift */,
+				9ACBA99F28D9E99400E73AAF /* CyberSportPlaceholderView.swift */,
 				9A79193428D0947400062946 /* subscribe_state.pb.swift */,
 				9A79192E28D093B800062946 /* match.pb.swift */,
 				9A79193A28D0B9C000062946 /* CyberSportFiltersCollection.swift */,
@@ -692,6 +698,7 @@
 				9A4EE37228D0809300905FF9 /* Lato_BB-Regular.otf in Resources */,
 				9A4EE37328D0809300905FF9 /* Lucita Grande-Bold.ttf in Resources */,
 				9A790DDC28C9F35C009F2AA4 /* LaunchScreen.storyboard in Resources */,
+				9ACBA9A228D9EAF600E73AAF /* illustration_7.json in Resources */,
 				9A4EE36228D0809300905FF9 /* Giorgio Sans LCG Heavy.otf in Resources */,
 				9A4EE36628D0809300905FF9 /* Giorgio Sans LCG Extralight Italic.otf in Resources */,
 				9AE4764828D3380800E59FC0 /* Roboto-MediumItalic.ttf in Resources */,
@@ -876,6 +883,7 @@
 				9A4EE32628CF5C8000905FF9 /* UIColor.swift in Sources */,
 				9A790E2928CA29CB009F2AA4 /* etw_rpc_newsletter_match.pb.swift in Sources */,
 				9A4EE31C28CF4D5200905FF9 /* CyberSportGameCell.swift in Sources */,
+				9ACBA9A028D9E99500E73AAF /* CyberSportPlaceholderView.swift in Sources */,
 				9A4EE34428D07DE500905FF9 /* CSTeam.swift in Sources */,
 				9A790E3528CA29CB009F2AA4 /* etw_rpc_subscribe_state.pb.swift in Sources */,
 				9A79193B28D0B9C000062946 /* CyberSportFiltersCollection.swift in Sources */,

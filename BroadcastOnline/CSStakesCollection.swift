@@ -150,28 +150,23 @@ extension CSStakesCollection: UICollectionViewDelegateFlowLayout {
             return CGSize(width: collectionView.frame.size.width, height: cellHeight)
         }
         
-//        if model.count == 2, indexPath.item == 1 {
-//            let firstCellWidth: CGFloat
-//            if case .longStake = model[0] {
-//                firstCellWidth = 97
-//            } else { firstCellWidth = 64 }
-//
-//            let secondCellWidth = max(64, 210 - firstCellWidth - 10)
-//            return CGSize(width: secondCellWidth, height: cellHeight)
-//        }
+        if model.count == 2 {
+      
+            return CGSize(width: (collectionView.frame.size.width - 8) * 0.5, height: cellHeight)
+        }
         
         let item = model[indexPath.item]
         let size: CGSize
         switch item {
         case .stake:
-            size = CGSize(width: collectionView.frame.size.width * 0.316, height: cellHeight)
+            size = CGSize(width: collectionView.frame.size.width * 0.317, height: cellHeight)
         case .longStake:
             size = CGSize(width: 97, height: cellHeight)
         case .more:
-            let width: CGFloat = model.count < 2 ? collectionView.frame.size.width : collectionView.frame.size.width * 0.316
+            let width: CGFloat = model.count < 2 ? collectionView.frame.size.width : collectionView.frame.size.width * 0.317
             size = CGSize(width: width, height: cellHeight)
         case .placeholder:
-            size = CGSize(width: collectionView.frame.size.width * 0.316, height: cellHeight)
+            size = CGSize(width: collectionView.frame.size.width * 0.317, height: cellHeight)
         }
         return size
     }

@@ -227,7 +227,7 @@ final class MainPresenter: MainOutput {
                 self.handleError(message)
             }
           
-        
+            self.view?.setTournamentsPlaceholder(model: "Нет событий")
         }
         
         
