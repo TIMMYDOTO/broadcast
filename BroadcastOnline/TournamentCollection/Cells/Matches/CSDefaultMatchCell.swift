@@ -36,10 +36,13 @@ class CSDefaultMatchCell: CSMatchBaseCell {
     private weak var infoStackView: UIStackView!
         private weak var statusView: UIView!
     
+    private weak var timeLabel: UILabel!
+    
     // MARK: - Lifecycles
     override init(frame: CGRect) {
         super.init(frame: frame)
         setup()
+        
     }
     
     required init?(coder: NSCoder) {
@@ -53,47 +56,89 @@ class CSDefaultMatchCell: CSMatchBaseCell {
     
     override func configure(_ model: CSMatch, stakesOffset: CGFloat) {
         super.configure(model, stakesOffset: stakesOffset)
-//        updateInfo(model)
+        updateInfo(model)
     }
 }
 
 private extension CSDefaultMatchCell {
     // MARK: - Setups
     func setup() {
-        setupFirstTeamLogo()
-        
-//        setupInfoStackView()
+        setupTimeLabel()
+        setupLiveInfoIcon()
+        setupMatchStatus()
+    
+        setupInfoStackView()
         
     }
     
-    func setupFirstTeamLogo() {
-        let firstLogo = UIImageView()
-        firstTeamLogo = firstLogo
-        contentView.addSubview(firstTeamLogo)
-        firstTeamLogo.snp.makeConstraints { make in
-            make.leading.equalToSuperview().offset(16)
-            make.height.equalTo(24)
-            make.width.equalTo(24)
-            make.top.equalToSuperview().offset(16)
+    func setupLiveInfoIcon() {
+        let liveIcon = UIView()
+        
+        liveIcon.layer.cornerRadius = 4
+        liveIcon.backgroundColor = #colorLiteral(red: 1, green: 0.153459698, blue: 0.1873883307, alpha: 1)
+        isLiveIcon = liveIcon
+        infoView.addSubview(isLiveIcon)
+      
+        isLiveIcon.snp.makeConstraints {
+            $0.centerY.equalTo(timeLabel.snp.centerY)
+            $0.trailing.equalTo(timeLabel.snp.leading).offset(-4)
+            $0.width.height.equalTo(8)
         }
-        firstTeamLogo.backgroundColor = .red
+        
+     
+    }
+    
+    func setupTimeLabel() {
+        let label = UILabel()
+        label.textAlignment = .right
+        label.numberOfLines = 1
+        label.textColor = .white
+        label.font = R.font.robotoBold(size: 16)
+        timeLabel = label
+        
+        infoView.addSubview(timeLabel)
+        
+        timeLabel.snp.makeConstraints {
+            
+            $0.top.equalToSuperview().offset(17)
+            $0.trailing.equalToSuperview().offset(-16)
+            $0.height.equalTo(22)
+        }
+    }
+    
+    func setupMatchStatus() {
+        let label = UILabel()
+        label.textAlignment = .right
+        label.numberOfLines = 1
+        label.textColor = #colorLiteral(red: 0.6601216793, green: 0.6862185597, blue: 0.7269647121, alpha: 1)
+        label.font = R.font.robotoMedium(size: 12)
+        matchStatusLabel = label
+        infoView.addSubview(matchStatusLabel)
+        
+        matchStatusLabel.snp.makeConstraints {
+            
+            $0.top.equalTo(timeLabel.snp.bottom).offset(4)
+            $0.trailing.equalToSuperview().offset(-16)
+            $0.height.equalTo(22)
+        }
+        
     }
     
     func setupInfoStackView() {
         let first = createTeamFieldView()
-//        firstTeamFieldView = first.view
+        firstTeamFieldView = first.view
         firstTeamLogo = first.logo
         firstTeamNameLabel = first.team
-//        firstTeamNameLabel.text = "firstTeamNameLabelfirstTeamNameLabel"
-//        firstTeamGameScoreLabel = first.gameScore
-//        firstTeamMatchScoreLabel = first.matchScore
+        
+        firstTeamGameScoreLabel = first.gameScore
+        firstTeamMatchScoreLabel = first.matchScore
         
         let second = createTeamFieldView()
-//        secondTeamFieldView = second.view
+        secondTeamFieldView = second.view
         secondTeamLogo = second.logo
         secondTeamNameLabel = second.team
-//        secondTeamGameScoreLabel = second.gameScore
-//        secondTeamMatchScoreLabel = second.matchScore
+        secondTeamGameScoreLabel = second.gameScore
+        secondTeamMatchScoreLabel = second.matchScore
         
         let status = createStatusStackView()
         let containerStatus = UIView()
@@ -102,12 +147,11 @@ private extension CSDefaultMatchCell {
         containerStatus.addSubview(status)
         status.snp.makeConstraints { $0.leading.trailing.centerY.equalToSuperview() }
         
-        let info = UIStackView(arrangedSubviews: [containerStatus])
+        let info = UIStackView(arrangedSubviews: [first.view, second.view, containerStatus])
         info.axis = .vertical
         info.spacing = 4
         
         infoStackView = info
-        
         infoView.addSubview(info)
         info.snp.makeConstraints {
             $0.leading.equalToSuperview().offset(16)
@@ -125,24 +169,26 @@ private extension CSDefaultMatchCell {
 //            secondTeamGameScoreLabel.isHidden = model.teams.count == 1
 //            secondTeamMatchScoreLabel.isHidden = model.teams.count == 1
             matchStatusLabel.text = model.matchStatus.isEmpty ? "Лайв" : model.matchStatus
+            timeLabel.text = model.startDttm.getLocaleFormattedDate(format: "HH:mm")
         } else {
 //            firstTeamGameScoreLabel.isHidden = true
 //            firstTeamMatchScoreLabel.isHidden = true
 //            secondTeamGameScoreLabel.isHidden = true
 //            secondTeamMatchScoreLabel.isHidden = true
-            matchStatusLabel.text = model.startDttm.getLocaleFormattedDate(format: "d MMMM HH:mm")
+            timeLabel.text = model.startDttm.getLocaleFormattedDate(format: "HH:mm")
+            matchStatusLabel.text = model.startDttm.getLocaleFormattedDate(format: "d MMMM")
         }
         
         let home = model.teams.first(where: { $0.home }) ?? CSTeam()
         let away = model.teams.first(where: { !$0.home }) ?? CSTeam()
         firstTeamNameLabel.text = home.name
-        firstTeamNameLabel.text = "firstTeamNameLabel.textfirstTeamNameLabel.text"
+        firstTeamNameLabel.font = R.font.robotoMedium(size: 16)
         secondTeamNameLabel.text = away.name
-        secondTeamNameLabel.text = "secondTeamNameLabel.textsecondTeamNameLabel.text"
+        secondTeamNameLabel.font = R.font.robotoMedium(size: 16)
         configureScores(model)
         configureLogo(home: home, away: away)
         
-//        isLiveIcon.isHidden = !(model.type == .live)
+        isLiveIcon.isHidden = !(model.type == .live)
 //        liveVideoIcon.isHidden = model.stream == nil
 //        liveInfoIcon.isHidden = true
         
@@ -207,26 +253,9 @@ private extension CSDefaultMatchCell {
     }
     
     func createStatusStackView() -> UIStackView {
-        let label = UILabel()
-        label.textAlignment = .left
-        label.numberOfLines = 1
-        label.textColor = .black
-        label.font = UIFont.systemFont(ofSize: 10)
-        matchStatusLabel = label
-        
         let liveIconContainer = UIView()
         
-        let liveIcon = UIView()
-        
-        liveIcon.layer.cornerRadius = 4
-        
-        liveIconContainer.addSubview(liveIcon)
-        liveIcon.snp.makeConstraints {
-            $0.leading.trailing.centerY.equalToSuperview()
-            $0.width.height.equalTo(8)
-        }
-        
-        isLiveIcon = liveIconContainer
+ 
         
         let infoIcon = UIImageView(image: UIImage(named: "icLiveInfo"))
         infoIcon.contentMode = .scaleAspectFit
@@ -242,7 +271,7 @@ private extension CSDefaultMatchCell {
         
         let spaceView = UIView()
         
-        let stack = UIStackView(arrangedSubviews: [isLiveIcon, matchStatusLabel, spaceView, liveVideoIcon, liveInfoIcon])
+        let stack = UIStackView(arrangedSubviews: [spaceView])
         stack.spacing = 8
         
         stack.snp.makeConstraints { $0.height.equalTo(16) }
@@ -250,7 +279,7 @@ private extension CSDefaultMatchCell {
         return stack
     }
     
-    func createTeamFieldView() -> (logo: UIImageView, team: UILabel) {
+    func createTeamFieldView() -> (logo: UIImageView, team: UILabel, gameScore: UILabel, matchScore: UILabel, view: UIView) {
         let logoContainer = UIView()
         logoContainer.backgroundColor = .clear
         logoContainer.snp.makeConstraints {
@@ -259,7 +288,7 @@ private extension CSDefaultMatchCell {
         
         let logo = UIImageView()
         logo.contentMode = .scaleAspectFit
-        logo.image = UIImage(named: "ic56CyberTeamPlaceholder")
+        logo.image = R.image.ic56CyberTeamPlaceholder()
         logo.theme_tintColor = ThemeColorPicker(colors: "#CCCCCC", "#A1A3AB")
         
         logoContainer.addSubview(logo)
@@ -271,8 +300,8 @@ private extension CSDefaultMatchCell {
         let team = UILabel()
         team.textAlignment = .left
         team.numberOfLines = 1
-        team.textColor = .white
-        team.font = R.font.robotoMedium(size: 16)
+        team.theme_textColor = ThemeColor.textPrimary
+        team.font = R.font.gilroyBold(size: 12)
         
         team.snp.contentHuggingHorizontalPriority = 250
         team.snp.contentCompressionResistanceHorizontalPriority = 749
@@ -280,37 +309,37 @@ private extension CSDefaultMatchCell {
             $0.height.equalTo(24)
         }
         
-//        let gameScore = UILabel()
-//        gameScore.textAlignment = .right
-//        gameScore.numberOfLines = 1
-//        gameScore.theme_textColor = ThemeColorPicker(colors: "#FFFFFF", "#737373")
-//        gameScore.font = R.font.lato_BBBold(size: 12)
-//
-//        gameScore.snp.contentHuggingHorizontalPriority = 251
-//        gameScore.snp.contentCompressionResistanceHorizontalPriority = 750
-//        gameScore.snp.makeConstraints {
-//            $0.height.equalTo(24)
-//            $0.width.equalTo(1)
-//        }
+        let gameScore = UILabel()
+        gameScore.textAlignment = .right
+        gameScore.numberOfLines = 1
+        gameScore.theme_textColor = ThemeColorPicker(colors: "#FFFFFF", "#737373")
+        gameScore.font = R.font.lato_BBBold(size: 12)
         
-//        let matchScore = UILabel()
-//        matchScore.textAlignment = .right
-//        matchScore.numberOfLines = 1
-//        matchScore.font = R.font.lato_BBBold(size: 12)
-//
-//        matchScore.snp.contentHuggingHorizontalPriority = 251
-//        matchScore.snp.contentCompressionResistanceHorizontalPriority = 750
-//        matchScore.snp.makeConstraints {
-//            $0.height.equalTo(24)
-//            $0.width.equalTo(1)
-//        }
+        gameScore.snp.contentHuggingHorizontalPriority = 251
+        gameScore.snp.contentCompressionResistanceHorizontalPriority = 750
+        gameScore.snp.makeConstraints {
+            $0.height.equalTo(24)
+            $0.width.equalTo(1)
+        }
         
-        let stack = UIStackView(arrangedSubviews: [logoContainer, team])
+        let matchScore = UILabel()
+        matchScore.textAlignment = .right
+        matchScore.numberOfLines = 1
+        matchScore.font = R.font.lato_BBBold(size: 12)
+        
+        matchScore.snp.contentHuggingHorizontalPriority = 251
+        matchScore.snp.contentCompressionResistanceHorizontalPriority = 750
+        matchScore.snp.makeConstraints {
+            $0.height.equalTo(24)
+            $0.width.equalTo(1)
+        }
+        
+        let stack = UIStackView(arrangedSubviews: [logoContainer, team, UIView(), gameScore, matchScore])
         stack.spacing = 8
         
         stack.snp.makeConstraints { $0.height.equalTo(24) }
         
-        return (logo, team)
+        return (logo, team, gameScore, matchScore, stack)
     }
     
     func clearImages() {
@@ -319,6 +348,6 @@ private extension CSDefaultMatchCell {
         secondLogoDownloadTask?.cancel()
         secondLogoDownloadTask = nil
         firstTeamLogo.image = R.image.ic56CyberTeamPlaceholder()
-//        secondTeamLogo.image = R.image.ic56CyberTeamPlaceholder()
+        secondTeamLogo.image = R.image.ic56CyberTeamPlaceholder()
     }
 }
