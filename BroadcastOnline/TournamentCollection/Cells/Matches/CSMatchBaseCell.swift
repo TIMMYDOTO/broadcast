@@ -211,6 +211,8 @@ private extension CSMatchBaseCell {
         
         }
         
+        
+        
         stakesCollection.willSelectMore = { [weak self] in
             guard let self = self else { return }
             
@@ -297,9 +299,11 @@ private extension CSMatchBaseCell {
         
         infoView = view
         mainView.addSubview(infoView)
+        
         infoView.snp.makeConstraints {
-            $0.top.leading.bottom.equalToSuperview()
-            $0.trailing.equalTo(stakesCollection.snp.leading)
+            $0.top.leading.trailing.equalToSuperview()
+            $0.bottom.equalTo(stakesCollection.snp.top)
+//            $0.trailing.equalTo(stakesCollection.snp.leading)
         }
     }
     

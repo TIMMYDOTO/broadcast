@@ -24,10 +24,10 @@ final class CSStakesCollection: UICollectionView, CSStakeCellDelegate {
     
     init() {
         let layout = UICollectionViewFlowLayout()
-        layout.sectionInset = UIEdgeInsets(top: 0, left: 0, bottom: 0, right: 8)
+        layout.sectionInset = UIEdgeInsets(top: 0, left: 0, bottom: 0, right: 0)
         layout.scrollDirection = .horizontal
         layout.minimumLineSpacing = 8
-//        layout.minimumInteritemSpacing = 8
+        layout.minimumInteritemSpacing = 0
         
         super.init(frame: .zero, collectionViewLayout: layout)
         setup()
@@ -46,7 +46,7 @@ final class CSStakesCollection: UICollectionView, CSStakeCellDelegate {
     ) {
         self.betStop = betStop
         self.model = formatStakes(stakes, total: total)
-        self.cellHeight = cellHeight
+//        self.cellHeight = cellHeight
         self.setContentOffset(CGPoint(x: stakesOffset, y: 0), animated: false)
         reloadData()
     }
@@ -101,6 +101,7 @@ final class CSStakesCollection: UICollectionView, CSStakeCellDelegate {
     func allowDelegates() {
         dataSource = self
         delegate = self
+        
     }
 }
 
@@ -116,28 +117,29 @@ extension CSStakesCollection: UICollectionViewDataSource {
 
             cell.configure(item)
             
-//            cell.delegate = self
+            cell.delegate = self
             return cell
         case let .longStake(item):
             let cell = collectionView.dequeueReusableCell(for: indexPath) as NewCSStakesCell
             cell.configure(item)
 //            cell.configure(item, selected: selectedStakes.contains(item.id), betStop: betStop)
-//            cell.delegate = self
+            cell.delegate = self
             return cell
         case let .more(value):
             let cell = collectionView.dequeueReusableCell(for: indexPath) as CSMoreStakesCell
             cell.configure(value)
-//            cell.delegate = self
+            cell.delegate = self
             return cell
         case let .placeholder(title):
             let cell = collectionView.dequeueReusableCell(for: indexPath) as NewCSStakesCell
+            print("title", title)
 //            cell.placeholder(title)
             return cell
         }
     }
     
     func tapStake(_ model: CSStake) {
-        
+        willSelectStake?(model)
     }
 }
 
@@ -179,6 +181,8 @@ extension CSStakesCollection: UICollectionViewDelegate {
     func scrollViewDidScroll(_ scrollView: UIScrollView) {
         didScroll?(scrollView.contentOffset.x)
     }
+  
+  
 }
 
 private extension CSStakesCollection {
@@ -186,7 +190,7 @@ private extension CSStakesCollection {
         alwaysBounceHorizontal = true
         showsHorizontalScrollIndicator = false
         
-        register(type: CSStakeCell.self)
+//        register(type: CSStakeCell.self)
         register(type: CSMoreStakesCell.self)
         register(type: NewCSStakesCell.self)
     }
