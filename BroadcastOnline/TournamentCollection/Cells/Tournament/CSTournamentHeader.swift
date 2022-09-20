@@ -70,6 +70,7 @@ class CSTournamentHeader: UICollectionReusableView {
         tournamentId = model.id
         
         titleLabel.text = model.name
+
         sportColorIndicator.backgroundColor = CSTypeProvider.getInfoVM(id: model.sportId).color
 //        countLabel.text = "\(model.matchesCount)"
         arrowIcon.transform = collapsed ? .init(rotationAngle: CGFloat(Double.pi)) : .identity
@@ -208,7 +209,7 @@ private extension CSTournamentHeader {
         
         collapseButton = button
         collapseButton.layer.cornerRadius = 16
-        collapseButton.backgroundColor = #colorLiteral(red: 0.6601216793, green: 0.6862185597, blue: 0.7269647121, alpha: 1)
+//        collapseButton.backgroundColor = #colorLiteral(red: 0.6601216793, green: 0.6862185597, blue: 0.7269647121, alpha: 1)
 
         mainView.addSubview(collapseButton)
         collapseButton.snp.makeConstraints {
@@ -287,13 +288,14 @@ private extension CSTournamentHeader {
     
     func configureState(collapse: Bool) {
         if collapse {
-            
+            collapseButton.backgroundColor = #colorLiteral(red: 0.2406542599, green: 0.2908609807, blue: 0.3834058642, alpha: 1)
 //            mainView.theme_backgroundColor = ThemeColorPicker(colors: "#333333", "#EDEEF2")
 //            countView.theme_backgroundColor = ThemeColorPicker(colors: "#FFFFFF", "#FFFFFF")
 //            countLabel.theme_textColor = ThemeColorPicker(colors: "#0D0D0D", "#0D0D0D")
             arrowIcon.theme_tintColor = ThemeColorPicker(colors: "#0D0D0D", "#0D0D0D")
         } else {
-            
+            collapseButton.backgroundColor = #colorLiteral(red: 0.1236208603, green: 0.153539598, blue: 0.2130726874, alpha: 1)
+      
 //            mainView.theme_backgroundColor = ThemeColorPicker(colors: "#212121", "#EDEEF2")
 //            countView.theme_backgroundColor = ThemeColorPicker(colors: "#333333", "#D2D5E0")
 //            countLabel.theme_textColor = ThemeColorPicker(colors: "#FFFFFF", "#0D0D0D")

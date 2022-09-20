@@ -154,7 +154,7 @@ class NewCSStakesCell: UICollectionViewCell {
     func showIconImageViewRed() {
         
         UIView.animate(withDuration: 0.3) {
-            print("green show")
+
             self.iconImageView.isHidden = false
             self.iconImageView.tintColor = Color.carmineRed
         } completion: { _ in

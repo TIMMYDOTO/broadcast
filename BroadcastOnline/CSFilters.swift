@@ -17,9 +17,10 @@ enum CSFilter: String {
     case allPrematch
     
     func getModel() -> CSFilterItem {
+        
         switch self {
         case .allLive: return CSFilterItem(title: "LIVE", type: .live)
-        case .allPrematch: return CSFilterItem(title: "Прематч", type: .prematch)
+        case .allPrematch: return CSFilterItem(title: "Prematch", type: .prematch)
 
         }
     }

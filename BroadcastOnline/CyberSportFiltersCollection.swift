@@ -70,6 +70,7 @@ extension CyberSportFiltersCollection: SkeletonCollectionViewDataSource {
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(for: indexPath) as CyberSportFilterCell
+      
         cell.configure(model[indexPath.item], selected: indexPath.item == selectedIndex)
         
         return cell
@@ -86,7 +87,7 @@ extension CyberSportFiltersCollection: SkeletonCollectionViewDataSource {
 }
 extension CyberSportFiltersCollection: UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        return CGSize(width: frame.size.width * 0.44, height: 36)
+        return CGSize(width: (frame.size.width - 12) * 0.5, height: 36)
     }
     
 }
@@ -102,17 +103,17 @@ private extension CyberSportFiltersCollection {
     func setup() {
         showsVerticalScrollIndicator = false
         showsHorizontalScrollIndicator = false
-        alwaysBounceHorizontal = true
+        isScrollEnabled = false
         
-        contentInset = UIEdgeInsets(top: 0, left: 16, bottom: 0, right: 16)
+        contentInset = UIEdgeInsets(top: 6, left: 6, bottom: 6, right: 6)
         
         dataSource = self
         delegate = self
         
         
-        
+        layer.cornerRadius = 16
         register(type: CyberSportFilterCell.self)
-        
+        backgroundColor = #colorLiteral(red: 0.1402209699, green: 0.1697322726, blue: 0.2372379601, alpha: 1)
     }
 }
 

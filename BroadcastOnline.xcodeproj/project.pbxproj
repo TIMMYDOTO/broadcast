@@ -124,6 +124,7 @@
 		9ACBA99E28D8C00800E73AAF /* CSStakesCollection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A4EE33928CF8E3800905FF9 /* CSStakesCollection.swift */; };
 		9ACBA9A028D9E99500E73AAF /* CyberSportPlaceholderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9ACBA99F28D9E99400E73AAF /* CyberSportPlaceholderView.swift */; };
 		9ACBA9A228D9EAF600E73AAF /* illustration_7.json in Resources */ = {isa = PBXBuildFile; fileRef = 9ACBA9A128D9EAF500E73AAF /* illustration_7.json */; };
+		9ACBA9A528DA10EE00E73AAF /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 9ACBA9A728DA10EE00E73AAF /* Localizable.strings */; };
 		9AE4764528D3380800E59FC0 /* Roboto-Medium.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 9AE4763928D3380800E59FC0 /* Roboto-Medium.ttf */; };
 		9AE4764628D3380800E59FC0 /* Roboto-Light.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 9AE4763A28D3380800E59FC0 /* Roboto-Light.ttf */; };
 		9AE4764728D3380800E59FC0 /* Roboto-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 9AE4763B28D3380800E59FC0 /* Roboto-Regular.ttf */; };
@@ -262,6 +263,17 @@
 		9ACBA99C28D89FEE00E73AAF /* CSDefaultMatchCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CSDefaultMatchCell.swift; sourceTree = "<group>"; };
 		9ACBA99F28D9E99400E73AAF /* CyberSportPlaceholderView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CyberSportPlaceholderView.swift; sourceTree = "<group>"; };
 		9ACBA9A128D9EAF500E73AAF /* illustration_7.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = illustration_7.json; sourceTree = "<group>"; };
+		9ACBA9A628DA10EE00E73AAF /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
+		9ACBA9A828DA12FB00E73AAF /* es */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = es; path = es.lproj/Main.strings; sourceTree = "<group>"; };
+		9ACBA9A928DA12FC00E73AAF /* es */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = es; path = es.lproj/LaunchScreen.strings; sourceTree = "<group>"; };
+		9ACBA9AA28DA12FC00E73AAF /* es */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = es; path = es.lproj/Localizable.strings; sourceTree = "<group>"; };
+		9ACBA9AB28DA131700E73AAF /* pt-PT */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "pt-PT"; path = "pt-PT.lproj/Main.strings"; sourceTree = "<group>"; };
+		9ACBA9AC28DA131700E73AAF /* pt-PT */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "pt-PT"; path = "pt-PT.lproj/LaunchScreen.strings"; sourceTree = "<group>"; };
+		9ACBA9AD28DA131700E73AAF /* pt-PT */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "pt-PT"; path = "pt-PT.lproj/Localizable.strings"; sourceTree = "<group>"; };
+		9ACBA9AE28DA134C00E73AAF /* ru */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ru; path = ru.lproj/Main.strings; sourceTree = "<group>"; };
+		9ACBA9AF28DA134C00E73AAF /* ru */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ru; path = ru.lproj/LaunchScreen.strings; sourceTree = "<group>"; };
+		9ACBA9B028DA134C00E73AAF /* ru */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ru; path = ru.lproj/Localizable.strings; sourceTree = "<group>"; };
+		9ACBA9B228DA15A300E73AAF /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Main.strings; sourceTree = "<group>"; };
 		9AE4763928D3380800E59FC0 /* Roboto-Medium.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Roboto-Medium.ttf"; sourceTree = "<group>"; };
 		9AE4763A28D3380800E59FC0 /* Roboto-Light.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Roboto-Light.ttf"; sourceTree = "<group>"; };
 		9AE4763B28D3380800E59FC0 /* Roboto-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Roboto-Regular.ttf"; sourceTree = "<group>"; };
@@ -459,6 +471,7 @@
 				9A4EE32528CF5C8000905FF9 /* UIColor.swift */,
 				9A790DD528C9F358009F2AA4 /* Main.storyboard */,
 				9AE4765328D355F100E59FC0 /* MakeBetVIewController.swift */,
+				9ACBA9A728DA10EE00E73AAF /* Localizable.strings */,
 				9A4EE32328CF570300905FF9 /* CSType.swift */,
 				9A79192C28D0934800062946 /* Sport.swift */,
 				9A4EE31128CF40C000905FF9 /* State */,
@@ -679,6 +692,9 @@
 			knownRegions = (
 				en,
 				Base,
+				es,
+				"pt-PT",
+				ru,
 			);
 			mainGroup = 9A790DC328C9F358009F2AA4;
 			productRefGroup = 9A790DCD28C9F358009F2AA4 /* Products */;
@@ -727,6 +743,7 @@
 				9A790DD728C9F358009F2AA4 /* Main.storyboard in Resources */,
 				9AE4764B28D3380800E59FC0 /* Roboto-LightItalic.ttf in Resources */,
 				9AE4764528D3380800E59FC0 /* Roboto-Medium.ttf in Resources */,
+				9ACBA9A528DA10EE00E73AAF /* Localizable.strings in Resources */,
 				9AE4764928D3380800E59FC0 /* Roboto-ThinItalic.ttf in Resources */,
 				9AE4764E28D3380800E59FC0 /* Roboto-Bold.ttf in Resources */,
 				9AE4764D28D3380800E59FC0 /* Roboto-BlackItalic.ttf in Resources */,
@@ -907,6 +924,10 @@
 			isa = PBXVariantGroup;
 			children = (
 				9A790DD628C9F358009F2AA4 /* Base */,
+				9ACBA9A828DA12FB00E73AAF /* es */,
+				9ACBA9AB28DA131700E73AAF /* pt-PT */,
+				9ACBA9AE28DA134C00E73AAF /* ru */,
+				9ACBA9B228DA15A300E73AAF /* en */,
 			);
 			name = Main.storyboard;
 			sourceTree = "<group>";
@@ -915,8 +936,22 @@
 			isa = PBXVariantGroup;
 			children = (
 				9A790DDB28C9F35C009F2AA4 /* Base */,
+				9ACBA9A928DA12FC00E73AAF /* es */,
+				9ACBA9AC28DA131700E73AAF /* pt-PT */,
+				9ACBA9AF28DA134C00E73AAF /* ru */,
 			);
 			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+		9ACBA9A728DA10EE00E73AAF /* Localizable.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				9ACBA9A628DA10EE00E73AAF /* en */,
+				9ACBA9AA28DA12FC00E73AAF /* es */,
+				9ACBA9AD28DA131700E73AAF /* pt-PT */,
+				9ACBA9B028DA134C00E73AAF /* ru */,
+			);
+			name = Localizable.strings;
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */
@@ -926,6 +961,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++17";
@@ -986,6 +1022,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++17";

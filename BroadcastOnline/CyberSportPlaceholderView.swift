@@ -58,7 +58,7 @@ private extension CyberSportPlaceholderView {
     func setupTitleLabel() {
         let label = UILabel()
         label.theme_textColor = ThemeColorPicker(colors: "#FFFFFF", "#0D0D0D")
-        label.font = R.font.gilroy_BBBold(size: 24)
+        label.font = R.font.robotoBold(size: 24)
         label.textAlignment = .center
         label.numberOfLines = 1
         

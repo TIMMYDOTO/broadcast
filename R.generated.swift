@@ -140,7 +140,7 @@ struct R: Rswift.Validatable {
     fileprivate init() {}
   }
 
-  /// This `R.file` struct is generated, and contains static references to 36 files.
+  /// This `R.file` struct is generated, and contains static references to 37 files.
   struct file {
     /// Resource file `Gilroy-Bold.otf`.
     static let gilroyBoldOtf = Rswift.FileResource(bundle: R.hostingBundle, name: "Gilroy-Bold", pathExtension: "otf")
@@ -214,6 +214,8 @@ struct R: Rswift.Validatable {
     static let robotoThinItalicTtf = Rswift.FileResource(bundle: R.hostingBundle, name: "Roboto-ThinItalic", pathExtension: "ttf")
     /// Resource file `SFProDisplay-Regular.ttf`.
     static let sfProDisplayRegularTtf = Rswift.FileResource(bundle: R.hostingBundle, name: "SFProDisplay-Regular", pathExtension: "ttf")
+    /// Resource file `illustration_7.json`.
+    static let illustration_7Json = Rswift.FileResource(bundle: R.hostingBundle, name: "illustration_7", pathExtension: "json")
 
     /// `bundle.url(forResource: "Gilroy-Bold", withExtension: "otf")`
     static func gilroyBoldOtf(_: Void = ()) -> Foundation.URL? {
@@ -428,6 +430,12 @@ struct R: Rswift.Validatable {
     /// `bundle.url(forResource: "SFProDisplay-Regular", withExtension: "ttf")`
     static func sfProDisplayRegularTtf(_: Void = ()) -> Foundation.URL? {
       let fileResource = R.file.sfProDisplayRegularTtf
+      return fileResource.bundle.url(forResource: fileResource)
+    }
+
+    /// `bundle.url(forResource: "illustration_7", withExtension: "json")`
+    static func illustration_7Json(_: Void = ()) -> Foundation.URL? {
+      let fileResource = R.file.illustration_7Json
       return fileResource.bundle.url(forResource: fileResource)
     }
 
@@ -1048,6 +1056,122 @@ struct R: Rswift.Validatable {
         }
 
         fileprivate init() {}
+      }
+
+      fileprivate init() {}
+    }
+
+    fileprivate init() {}
+  }
+
+  /// This `R.string` struct is generated, and contains static references to 3 localization tables.
+  struct string {
+    /// This `R.string.launchScreen` struct is generated, and contains static references to 0 localization keys.
+    struct launchScreen {
+      fileprivate init() {}
+    }
+
+    /// This `R.string.localizable` struct is generated, and contains static references to 0 localization keys.
+    struct localizable {
+      fileprivate init() {}
+    }
+
+    /// This `R.string.main` struct is generated, and contains static references to 5 localization keys.
+    struct main {
+      /// en translation: LIVE
+      ///
+      /// Locales: es, pt-PT, ru, en
+      static let bqmWsAYnSegmentTitles0 = Rswift.StringResource(key: "Bqm-ws-aYn.segmentTitles[0]", tableName: "Main", bundle: R.hostingBundle, locales: ["es", "pt-PT", "ru", "en"], comment: nil)
+      /// en translation: Make a bet
+      ///
+      /// Locales: es, pt-PT, ru, en
+      static let lu7HSHNPNormalTitle = Rswift.StringResource(key: "LU7-hS-HNP.normalTitle", tableName: "Main", bundle: R.hostingBundle, locales: ["es", "pt-PT", "ru", "en"], comment: nil)
+      /// en translation: Place bets in the BetBoom app
+      ///
+      /// Locales: es, pt-PT, ru, en
+      static let giQGmVQEText = Rswift.StringResource(key: "GiQ-Gm-VQE.text", tableName: "Main", bundle: R.hostingBundle, locales: ["es", "pt-PT", "ru", "en"], comment: nil)
+      /// en translation: Prematch
+      ///
+      /// Locales: es, pt-PT, ru, en
+      static let bqmWsAYnSegmentTitles1 = Rswift.StringResource(key: "Bqm-ws-aYn.segmentTitles[1]", tableName: "Main", bundle: R.hostingBundle, locales: ["es", "pt-PT", "ru", "en"], comment: nil)
+      /// en translation: UNLOCK THE GAME WITH THE BEST BOOKMER
+      ///
+      /// Locales: es, pt-PT, ru, en
+      static let c3QXCn0Text = Rswift.StringResource(key: "6c3-qX-cn0.text", tableName: "Main", bundle: R.hostingBundle, locales: ["es", "pt-PT", "ru", "en"], comment: nil)
+
+      /// en translation: LIVE
+      ///
+      /// Locales: es, pt-PT, ru, en
+      static func bqmWsAYnSegmentTitles0(preferredLanguages: [String]? = nil) -> String {
+        guard let preferredLanguages = preferredLanguages else {
+          return NSLocalizedString("Bqm-ws-aYn.segmentTitles[0]", tableName: "Main", bundle: hostingBundle, comment: "")
+        }
+
+        guard let (_, bundle) = localeBundle(tableName: "Main", preferredLanguages: preferredLanguages) else {
+          return "Bqm-ws-aYn.segmentTitles[0]"
+        }
+
+        return NSLocalizedString("Bqm-ws-aYn.segmentTitles[0]", tableName: "Main", bundle: bundle, comment: "")
+      }
+
+      /// en translation: Make a bet
+      ///
+      /// Locales: es, pt-PT, ru, en
+      static func lu7HSHNPNormalTitle(preferredLanguages: [String]? = nil) -> String {
+        guard let preferredLanguages = preferredLanguages else {
+          return NSLocalizedString("LU7-hS-HNP.normalTitle", tableName: "Main", bundle: hostingBundle, comment: "")
+        }
+
+        guard let (_, bundle) = localeBundle(tableName: "Main", preferredLanguages: preferredLanguages) else {
+          return "LU7-hS-HNP.normalTitle"
+        }
+
+        return NSLocalizedString("LU7-hS-HNP.normalTitle", tableName: "Main", bundle: bundle, comment: "")
+      }
+
+      /// en translation: Place bets in the BetBoom app
+      ///
+      /// Locales: es, pt-PT, ru, en
+      static func giQGmVQEText(preferredLanguages: [String]? = nil) -> String {
+        guard let preferredLanguages = preferredLanguages else {
+          return NSLocalizedString("GiQ-Gm-VQE.text", tableName: "Main", bundle: hostingBundle, comment: "")
+        }
+
+        guard let (_, bundle) = localeBundle(tableName: "Main", preferredLanguages: preferredLanguages) else {
+          return "GiQ-Gm-VQE.text"
+        }
+
+        return NSLocalizedString("GiQ-Gm-VQE.text", tableName: "Main", bundle: bundle, comment: "")
+      }
+
+      /// en translation: Prematch
+      ///
+      /// Locales: es, pt-PT, ru, en
+      static func bqmWsAYnSegmentTitles1(preferredLanguages: [String]? = nil) -> String {
+        guard let preferredLanguages = preferredLanguages else {
+          return NSLocalizedString("Bqm-ws-aYn.segmentTitles[1]", tableName: "Main", bundle: hostingBundle, comment: "")
+        }
+
+        guard let (_, bundle) = localeBundle(tableName: "Main", preferredLanguages: preferredLanguages) else {
+          return "Bqm-ws-aYn.segmentTitles[1]"
+        }
+
+        return NSLocalizedString("Bqm-ws-aYn.segmentTitles[1]", tableName: "Main", bundle: bundle, comment: "")
+      }
+
+      /// en translation: UNLOCK THE GAME WITH THE BEST BOOKMER
+      ///
+      /// Locales: es, pt-PT, ru, en
+      static func c3QXCn0Text(preferredLanguages: [String]? = nil) -> String {
+        guard let preferredLanguages = preferredLanguages else {
+          return NSLocalizedString("6c3-qX-cn0.text", tableName: "Main", bundle: hostingBundle, comment: "")
+        }
+
+        guard let (_, bundle) = localeBundle(tableName: "Main", preferredLanguages: preferredLanguages) else {
+          return "6c3-qX-cn0.text"
+        }
+
+        return NSLocalizedString("6c3-qX-cn0.text", tableName: "Main", bundle: bundle, comment: "")
       }
 
       fileprivate init() {}

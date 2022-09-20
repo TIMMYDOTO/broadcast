@@ -20,7 +20,7 @@ class CyberSportGamesCollection: UICollectionView {
     init() {
         let layout = UICollectionViewFlowLayout()
         layout.scrollDirection = .horizontal
-        layout.minimumLineSpacing = 0
+        layout.minimumLineSpacing = 8
         layout.minimumInteritemSpacing = 8
         
         super.init(frame: .zero, collectionViewLayout: layout)

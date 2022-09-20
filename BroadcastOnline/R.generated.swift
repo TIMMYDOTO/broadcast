@@ -140,7 +140,7 @@ struct R: Rswift.Validatable {
     fileprivate init() {}
   }
 
-  /// This `R.file` struct is generated, and contains static references to 36 files.
+  /// This `R.file` struct is generated, and contains static references to 37 files.
   struct file {
     /// Resource file `Gilroy-Bold.otf`.
     static let gilroyBoldOtf = Rswift.FileResource(bundle: R.hostingBundle, name: "Gilroy-Bold", pathExtension: "otf")
@@ -214,6 +214,8 @@ struct R: Rswift.Validatable {
     static let robotoThinItalicTtf = Rswift.FileResource(bundle: R.hostingBundle, name: "Roboto-ThinItalic", pathExtension: "ttf")
     /// Resource file `SFProDisplay-Regular.ttf`.
     static let sfProDisplayRegularTtf = Rswift.FileResource(bundle: R.hostingBundle, name: "SFProDisplay-Regular", pathExtension: "ttf")
+    /// Resource file `illustration_7.json`.
+    static let illustration_7Json = Rswift.FileResource(bundle: R.hostingBundle, name: "illustration_7", pathExtension: "json")
 
     /// `bundle.url(forResource: "Gilroy-Bold", withExtension: "otf")`
     static func gilroyBoldOtf(_: Void = ()) -> Foundation.URL? {
@@ -428,6 +430,12 @@ struct R: Rswift.Validatable {
     /// `bundle.url(forResource: "SFProDisplay-Regular", withExtension: "ttf")`
     static func sfProDisplayRegularTtf(_: Void = ()) -> Foundation.URL? {
       let fileResource = R.file.sfProDisplayRegularTtf
+      return fileResource.bundle.url(forResource: fileResource)
+    }
+
+    /// `bundle.url(forResource: "illustration_7", withExtension: "json")`
+    static func illustration_7Json(_: Void = ()) -> Foundation.URL? {
+      let fileResource = R.file.illustration_7Json
       return fileResource.bundle.url(forResource: fileResource)
     }
 
@@ -731,10 +739,14 @@ struct R: Rswift.Validatable {
     fileprivate init() {}
   }
 
-  /// This `R.image` struct is generated, and contains static references to 29 images.
+  /// This `R.image` struct is generated, and contains static references to 32 images.
   struct image {
     /// Image `CloseIcon`.
     static let closeIcon = Rswift.ImageResource(bundle: R.hostingBundle, name: "CloseIcon")
+    /// Image `MakeBet`.
+    static let makeBet = Rswift.ImageResource(bundle: R.hostingBundle, name: "MakeBet")
+    /// Image `green`.
+    static let green = Rswift.ImageResource(bundle: R.hostingBundle, name: "green")
     /// Image `ic10ArrowDown`.
     static let ic10ArrowDown = Rswift.ImageResource(bundle: R.hostingBundle, name: "ic10ArrowDown")
     /// Image `ic16Lock`.
@@ -791,11 +803,27 @@ struct R: Rswift.Validatable {
     static let icCyberWildRift = Rswift.ImageResource(bundle: R.hostingBundle, name: "icCyberWildRift")
     /// Image `icLiveInfo`.
     static let icLiveInfo = Rswift.ImageResource(bundle: R.hostingBundle, name: "icLiveInfo")
+    /// Image `red`.
+    static let red = Rswift.ImageResource(bundle: R.hostingBundle, name: "red")
 
     #if os(iOS) || os(tvOS)
     /// `UIImage(named: "CloseIcon", bundle: ..., traitCollection: ...)`
     static func closeIcon(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIImage? {
       return UIKit.UIImage(resource: R.image.closeIcon, compatibleWith: traitCollection)
+    }
+    #endif
+
+    #if os(iOS) || os(tvOS)
+    /// `UIImage(named: "MakeBet", bundle: ..., traitCollection: ...)`
+    static func makeBet(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIImage? {
+      return UIKit.UIImage(resource: R.image.makeBet, compatibleWith: traitCollection)
+    }
+    #endif
+
+    #if os(iOS) || os(tvOS)
+    /// `UIImage(named: "green", bundle: ..., traitCollection: ...)`
+    static func green(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIImage? {
+      return UIKit.UIImage(resource: R.image.green, compatibleWith: traitCollection)
     }
     #endif
 
@@ -995,6 +1023,13 @@ struct R: Rswift.Validatable {
     }
     #endif
 
+    #if os(iOS) || os(tvOS)
+    /// `UIImage(named: "red", bundle: ..., traitCollection: ...)`
+    static func red(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIImage? {
+      return UIKit.UIImage(resource: R.image.red, compatibleWith: traitCollection)
+    }
+    #endif
+
     fileprivate init() {}
   }
 
@@ -1082,16 +1117,23 @@ struct _R: Rswift.Validatable {
 
       let broadcast = StoryboardViewControllerResource<BroadcastViewController>(identifier: "Broadcast")
       let bundle = R.hostingBundle
+      let makeBetVIewController = StoryboardViewControllerResource<MakeBetVIewController>(identifier: "MakeBetVIewController")
       let name = "Main"
 
       func broadcast(_: Void = ()) -> BroadcastViewController? {
         return UIKit.UIStoryboard(resource: self).instantiateViewController(withResource: broadcast)
       }
 
+      func makeBetVIewController(_: Void = ()) -> MakeBetVIewController? {
+        return UIKit.UIStoryboard(resource: self).instantiateViewController(withResource: makeBetVIewController)
+      }
+
       static func validate() throws {
+        if UIKit.UIImage(named: "MakeBet", in: R.hostingBundle, compatibleWith: nil) == nil { throw Rswift.ValidationError(description: "[R.swift] Image named 'MakeBet' is used in storyboard 'Main', but couldn't be loaded.") }
         if #available(iOS 11.0, tvOS 11.0, *) {
         }
         if _R.storyboard.main().broadcast() == nil { throw Rswift.ValidationError(description:"[R.swift] ViewController with identifier 'broadcast' could not be loaded from storyboard 'Main' as 'BroadcastViewController'.") }
+        if _R.storyboard.main().makeBetVIewController() == nil { throw Rswift.ValidationError(description:"[R.swift] ViewController with identifier 'makeBetVIewController' could not be loaded from storyboard 'Main' as 'MakeBetVIewController'.") }
       }
 
       fileprivate init() {}

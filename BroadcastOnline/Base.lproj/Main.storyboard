@@ -8,6 +8,9 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <customFonts key="customFonts">
+        <array key="Giorgio Sans LCG Bold.otf">
+            <string>GiorgioSansLCG-Bold</string>
+        </array>
         <array key="Lato_BB-Regular.otf">
             <string>Lato_BB-Regular</string>
         </array>
@@ -34,7 +37,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
                 <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" id="Bqm-ws-aYn">
-                    <rect key="frame" x="0.0" y="0.0" width="363" height="33"/>
+                    <rect key="frame" x="0.0" y="-1" width="363" height="33"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                     <segments>
                         <segment title="LIVE"/>
@@ -85,14 +88,12 @@
                                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="MakeBet" translatesAutoresizingMaskIntoConstraints="NO" id="2ld-fc-f18">
                                         <rect key="frame" x="53" y="32" width="308" height="354"/>
                                     </imageView>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6c3-qX-cn0">
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="UNLOCK THE GAME WITH THE BEST BOOKMER" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6c3-qX-cn0">
                                         <rect key="frame" x="45" y="394" width="324" height="77"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="77" id="FDH-Xe-QIx"/>
                                         </constraints>
-                                        <string key="text">Открой  игру 
-с  лучшим  букмекером</string>
-                                        <fontDescription key="fontDescription" type="system" pointSize="25"/>
+                                        <fontDescription key="fontDescription" name="GiorgioSansLCG-Bold" family="Giorgio Sans LCG" pointSize="40"/>
                                         <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <nil key="highlightedColor"/>
                                     </label>
@@ -103,19 +104,19 @@
                                         </constraints>
                                         <fontDescription key="fontDescription" name="Roboto-Bold" family="Roboto" pointSize="20"/>
                                         <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
-                                        <state key="normal" title="Сделать ставку"/>
+                                        <state key="normal" title="Make a bet"/>
                                         <connections>
                                             <action selector="didTapmakeBet:" destination="Zyq-tO-BWf" eventType="touchUpInside" id="vab-HD-Gve"/>
                                         </connections>
                                     </button>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Делай ставки в приложении BetBoom" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="GiQ-Gm-VQE">
-                                        <rect key="frame" x="64.5" y="487" width="285.5" height="19"/>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Place bets in the BetBoom app" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="GiQ-Gm-VQE">
+                                        <rect key="frame" x="101" y="487" width="212" height="19"/>
                                         <fontDescription key="fontDescription" name="Lato_BB-Regular" family="Lato_BB" pointSize="16"/>
                                         <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                 </subviews>
-                                <color key="backgroundColor" red="0.11764705882352941" green="0.14117647058823529" blue="0.20000000000000001" alpha="1" colorSpace="calibratedRGB"/>
+                                <color key="backgroundColor" red="0.12216828020000001" green="0.1401331425" blue="0.1921631694" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 <constraints>
                                     <constraint firstAttribute="trailing" secondItem="6c3-qX-cn0" secondAttribute="trailing" constant="45" id="9IG-L7-O1D"/>
                                     <constraint firstItem="2ld-fc-f18" firstAttribute="top" secondItem="8Jb-hO-7Mo" secondAttribute="bottom" constant="21" id="Nia-sR-WtA"/>
@@ -176,7 +177,7 @@
         </scene>
     </scenes>
     <resources>
-        <image name="MakeBet" width="269" height="354"/>
+        <image name="MakeBet" width="269" height="324"/>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>

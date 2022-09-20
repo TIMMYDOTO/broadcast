@@ -24,7 +24,7 @@ class MainViewController: UIViewController, MainViewInput {
     private weak var filtersCollection: CyberSportFiltersCollection!
     private weak var placeholderContainerView: UIView!
     @IBOutlet var segmentedController: UISegmentedControl!
-    
+    private weak var placeholderView: CyberSportPlaceholderView!
     override func viewDidLoad() {
         super.viewDidLoad()
         presenter = MainPresenter(view: self)
@@ -36,7 +36,7 @@ class MainViewController: UIViewController, MainViewInput {
         presenter.viewDidLoad()
         bindFiltersCollection()
         bindTournamentCollection()
-
+        setupPlaceholderView()
         let label = UILabel()
         label.textColor = #colorLiteral(red: 1, green: 1, blue: 1, alpha: 0.8686360744)
         
@@ -148,14 +148,15 @@ class MainViewController: UIViewController, MainViewInput {
     
     func setupFilterCollection() {
         let collection = CyberSportFiltersCollection()
-        collection.backgroundColor = .black
+        
         collection.isSkeletonable = true
         
         filtersCollection = collection
         view.addSubview(filtersCollection)
         filtersCollection.snp.makeConstraints {
-            $0.top.equalTo(gamesCollection.snp.bottom)
-            $0.leading.trailing.equalToSuperview()
+            $0.top.equalTo(gamesCollection.snp.bottom).offset(16)
+            $0.leading.equalToSuperview().offset(16)
+            $0.trailing.equalToSuperview().offset(-16)
             $0.height.equalTo(48)
         }
     }
@@ -209,7 +210,7 @@ class MainViewController: UIViewController, MainViewInput {
     
     func setTournaments(model: [CSTournament]) {
         DispatchQueue.main.async {
-            
+            self.placeholderState(active: false)
             self.tournamentsCollection.set(model)
             if !self.contentIsLoaded {
                 self.stopSkeletonState()

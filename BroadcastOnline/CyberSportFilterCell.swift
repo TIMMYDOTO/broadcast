@@ -26,11 +26,13 @@ class CyberSportFilterCell: UICollectionViewCell {
         titleLabel.text = model.title
         
         if selected {
-            theme_backgroundColor = ThemeColorPicker(colors: "#FFFFFF", "#EDEEF2")
-            titleLabel.theme_textColor = ThemeColorPicker(colors: UIColor.black, UIColor.black)
+            backgroundColor = .white
+            titleLabel.textColor = #colorLiteral(red: 0.1402209699, green: 0.1697322726, blue: 0.2372379601, alpha: 1)
+            titleLabel.font = R.font.robotoBold(size: 12)
         } else {
-            theme_backgroundColor = ThemeColorPicker(colors: UIColor.clear, UIColor.clear)
-            titleLabel.theme_textColor = ThemeColorPicker(colors: "#CCCCCC", "#737373")
+            titleLabel.font = R.font.robotoBold(size: 12)
+            backgroundColor = .clear
+            titleLabel.textColor = .white
         }
     }
     

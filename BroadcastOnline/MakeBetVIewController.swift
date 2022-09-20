@@ -8,7 +8,7 @@
 import UIKit
 
 class MakeBetVIewController: UIViewController {
-
+    
     @IBOutlet weak var backgroundView: UIView!{
         didSet{
             backgroundView.layer.cornerRadius = 8
@@ -35,13 +35,26 @@ class MakeBetVIewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        
         // Do any additional setup after loading the view.
     }
     
-
-
-    @IBAction func didTapmakeBet(_ sender: UIButton) {
-    }
     
+    
+    @IBAction func didTapmakeBet(_ sender: UIButton) {
+        let locale = Locale.current
+        
+        if locale.regionCode == "RU" {
+             let url = URL(string: "https://apps.apple.com/ru/app/betboom-%D1%81%D1%82%D0%B0%D0%B2%D0%BA%D0%B8-%D0%BD%D0%B0-%D1%81%D0%BF%D0%BE%D1%80%D1%82/id1523280942")!
+                UIApplication.shared.open(url)
+            
+                
+            }else{
+                 let url = URL(string: "https://bbnew.onelink.me/UB93/8knyuz7m")!
+                    UIApplication.shared.open(url)
+                
+            
+        }
+        
+    }
 }
