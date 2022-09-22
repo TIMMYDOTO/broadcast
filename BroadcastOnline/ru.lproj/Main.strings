@@ -3,10 +3,10 @@
 "6c3-qX-cn0.text" = "ОТКРОЙ ИГРУ  С ЛУЧШИМ БУКМЕРОМ";
 
 /* Class = "UISegmentedControl"; Bqm-ws-aYn.segmentTitles[0] = "LIVE"; ObjectID = "Bqm-ws-aYn"; */
-"Bqm-ws-aYn.segmentTitles[0]" = "LIVE";
+
 
 /* Class = "UISegmentedControl"; Bqm-ws-aYn.segmentTitles[1] = "Прематч"; ObjectID = "Bqm-ws-aYn"; */
-"Bqm-ws-aYn.segmentTitles[1]" = "Прематч";
+
 
 /* Class = "UILabel"; text = "Делай ставки в приложении BetBoom"; ObjectID = "GiQ-Gm-VQE"; */
 "GiQ-Gm-VQE.text" = "Делай ставки в приложении BetBoom";

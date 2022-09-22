@@ -31,22 +31,8 @@
                     </view>
                     <navigationItem key="navigationItem" id="IPc-p4-l81"/>
                     <size key="freeformSize" width="414" height="896"/>
-                    <connections>
-                        <outlet property="segmentedController" destination="Bqm-ws-aYn" id="B6B-7o-JVc"/>
-                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
-                <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" id="Bqm-ws-aYn">
-                    <rect key="frame" x="0.0" y="-1" width="363" height="33"/>
-                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                    <segments>
-                        <segment title="LIVE"/>
-                        <segment title="Прематч"/>
-                    </segments>
-                    <connections>
-                        <action selector="didTapSegmentedControll:" destination="BYZ-38-t0r" eventType="valueChanged" id="ViL-nK-Gjp"/>
-                    </connections>
-                </segmentedControl>
             </objects>
             <point key="canvasLocation" x="939.13043478260875" y="83.705357142857139"/>
         </scene>
@@ -135,7 +121,7 @@
                             </view>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="WMb-Pn-qmf"/>
-                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <color key="backgroundColor" red="0.054901960784313725" green="0.066666666666666666" blue="0.090196078431372548" alpha="0.80429360092870461" colorSpace="custom" customColorSpace="calibratedRGB"/>
                         <constraints>
                             <constraint firstItem="2ld-fc-f18" firstAttribute="height" secondItem="PBB-YU-cyk" secondAttribute="height" multiplier="0.435961" id="YG6-rj-Xj2"/>
                             <constraint firstItem="LGA-hX-ub2" firstAttribute="height" secondItem="PBB-YU-cyk" secondAttribute="height" multiplier="0.762315" id="fhG-jZ-kZT"/>

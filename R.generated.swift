@@ -1071,17 +1071,52 @@ struct R: Rswift.Validatable {
       fileprivate init() {}
     }
 
-    /// This `R.string.localizable` struct is generated, and contains static references to 0 localization keys.
+    /// This `R.string.localizable` struct is generated, and contains static references to 2 localization keys.
     struct localizable {
+      /// en translation: Prematch
+      ///
+      /// Locales: en, es, pt-PT, ru
+      static let prematchTitle = Rswift.StringResource(key: "PrematchTitle", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en", "es", "pt-PT", "ru"], comment: nil)
+      /// en translation: eSports
+      ///
+      /// Locales: en, es, pt-PT, ru
+      static let cyberSportTitle = Rswift.StringResource(key: "CyberSportTitle", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en", "es", "pt-PT", "ru"], comment: nil)
+
+      /// en translation: Prematch
+      ///
+      /// Locales: en, es, pt-PT, ru
+      static func prematchTitle(preferredLanguages: [String]? = nil) -> String {
+        guard let preferredLanguages = preferredLanguages else {
+          return NSLocalizedString("PrematchTitle", bundle: hostingBundle, comment: "")
+        }
+
+        guard let (_, bundle) = localeBundle(tableName: "Localizable", preferredLanguages: preferredLanguages) else {
+          return "PrematchTitle"
+        }
+
+        return NSLocalizedString("PrematchTitle", bundle: bundle, comment: "")
+      }
+
+      /// en translation: eSports
+      ///
+      /// Locales: en, es, pt-PT, ru
+      static func cyberSportTitle(preferredLanguages: [String]? = nil) -> String {
+        guard let preferredLanguages = preferredLanguages else {
+          return NSLocalizedString("CyberSportTitle", bundle: hostingBundle, comment: "")
+        }
+
+        guard let (_, bundle) = localeBundle(tableName: "Localizable", preferredLanguages: preferredLanguages) else {
+          return "CyberSportTitle"
+        }
+
+        return NSLocalizedString("CyberSportTitle", bundle: bundle, comment: "")
+      }
+
       fileprivate init() {}
     }
 
-    /// This `R.string.main` struct is generated, and contains static references to 5 localization keys.
+    /// This `R.string.main` struct is generated, and contains static references to 3 localization keys.
     struct main {
-      /// en translation: LIVE
-      ///
-      /// Locales: es, pt-PT, ru, en
-      static let bqmWsAYnSegmentTitles0 = Rswift.StringResource(key: "Bqm-ws-aYn.segmentTitles[0]", tableName: "Main", bundle: R.hostingBundle, locales: ["es", "pt-PT", "ru", "en"], comment: nil)
       /// en translation: Make a bet
       ///
       /// Locales: es, pt-PT, ru, en
@@ -1090,29 +1125,10 @@ struct R: Rswift.Validatable {
       ///
       /// Locales: es, pt-PT, ru, en
       static let giQGmVQEText = Rswift.StringResource(key: "GiQ-Gm-VQE.text", tableName: "Main", bundle: R.hostingBundle, locales: ["es", "pt-PT", "ru", "en"], comment: nil)
-      /// en translation: Prematch
-      ///
-      /// Locales: es, pt-PT, ru, en
-      static let bqmWsAYnSegmentTitles1 = Rswift.StringResource(key: "Bqm-ws-aYn.segmentTitles[1]", tableName: "Main", bundle: R.hostingBundle, locales: ["es", "pt-PT", "ru", "en"], comment: nil)
       /// en translation: UNLOCK THE GAME WITH THE BEST BOOKMER
       ///
       /// Locales: es, pt-PT, ru, en
       static let c3QXCn0Text = Rswift.StringResource(key: "6c3-qX-cn0.text", tableName: "Main", bundle: R.hostingBundle, locales: ["es", "pt-PT", "ru", "en"], comment: nil)
-
-      /// en translation: LIVE
-      ///
-      /// Locales: es, pt-PT, ru, en
-      static func bqmWsAYnSegmentTitles0(preferredLanguages: [String]? = nil) -> String {
-        guard let preferredLanguages = preferredLanguages else {
-          return NSLocalizedString("Bqm-ws-aYn.segmentTitles[0]", tableName: "Main", bundle: hostingBundle, comment: "")
-        }
-
-        guard let (_, bundle) = localeBundle(tableName: "Main", preferredLanguages: preferredLanguages) else {
-          return "Bqm-ws-aYn.segmentTitles[0]"
-        }
-
-        return NSLocalizedString("Bqm-ws-aYn.segmentTitles[0]", tableName: "Main", bundle: bundle, comment: "")
-      }
 
       /// en translation: Make a bet
       ///
@@ -1142,21 +1158,6 @@ struct R: Rswift.Validatable {
         }
 
         return NSLocalizedString("GiQ-Gm-VQE.text", tableName: "Main", bundle: bundle, comment: "")
-      }
-
-      /// en translation: Prematch
-      ///
-      /// Locales: es, pt-PT, ru, en
-      static func bqmWsAYnSegmentTitles1(preferredLanguages: [String]? = nil) -> String {
-        guard let preferredLanguages = preferredLanguages else {
-          return NSLocalizedString("Bqm-ws-aYn.segmentTitles[1]", tableName: "Main", bundle: hostingBundle, comment: "")
-        }
-
-        guard let (_, bundle) = localeBundle(tableName: "Main", preferredLanguages: preferredLanguages) else {
-          return "Bqm-ws-aYn.segmentTitles[1]"
-        }
-
-        return NSLocalizedString("Bqm-ws-aYn.segmentTitles[1]", tableName: "Main", bundle: bundle, comment: "")
       }
 
       /// en translation: UNLOCK THE GAME WITH THE BEST BOOKMER

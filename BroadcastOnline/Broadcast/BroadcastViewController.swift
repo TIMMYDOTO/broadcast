@@ -83,11 +83,13 @@ class BroadcastViewController: UIViewController {
     
 
     @objc func didClickDismiss() {
+        AppUtility.lockOrientation(.portrait)
         if UIDevice.current.orientation.isLandscape {
             UIDevice.current.setValue(UIInterfaceOrientation.portrait.rawValue, forKey: "orientation")
+            UINavigationController.attemptRotationToDeviceOrientation()
         }
         
-        AppUtility.lockOrientation(.portrait)
+     
         dismiss(animated: true)
     }
     

@@ -39,8 +39,8 @@ class MainViewController: UIViewController, MainViewInput {
         setupPlaceholderView()
         let label = UILabel()
         label.textColor = #colorLiteral(red: 1, green: 1, blue: 1, alpha: 0.8686360744)
-        
-        label.text = "Киберспорт"
+        let cyberSportTitle = NSLocalizedString("CyberSportTitle", comment: "CyberSportTitle Main")
+        label.text = cyberSportTitle
         label.font = R.font.robotoBold(size: 24)
 
         self.navigationItem.leftBarButtonItem = UIBarButtonItem.init(customView: label)
@@ -97,7 +97,7 @@ class MainViewController: UIViewController, MainViewInput {
         tournamentsCollection.didSelectMatch = { [weak self] match in
             guard let self = self else { return }
           
-            if let stream = match.stream {
+            if let _ = match.stream {
                 let storyboard = UIStoryboard(name: "Main", bundle: nil)
                 let broadcastVC = storyboard.instantiateViewController(withIdentifier: "Broadcast") as! BroadcastViewController
                 broadcastVC.modalPresentationStyle = .overFullScreen
@@ -110,7 +110,7 @@ class MainViewController: UIViewController, MainViewInput {
         tournamentsCollection.willSelectStake = { [weak self] match, stake in
             let storyboard = UIStoryboard(name: "Main", bundle: nil)
             let makeBetVC = storyboard.instantiateViewController(withIdentifier: "MakeBetVIewController") as! MakeBetVIewController
-            
+            makeBetVC.modalPresentationStyle = .overCurrentContext
             self?.present(makeBetVC, animated: true)
         }
 
@@ -257,8 +257,6 @@ class MainViewController: UIViewController, MainViewInput {
         }
     }
 
-    @IBAction func didTapSegmentedControll(_ sender: UISegmentedControl) {
-    }
     
 
 }

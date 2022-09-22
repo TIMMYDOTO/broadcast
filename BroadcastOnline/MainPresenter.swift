@@ -112,7 +112,6 @@ final class MainPresenter: MainOutput {
     }
     
     func bindingWs() {
-        print("binding ws")
         
         interactor.subscribeResponseSetSetting { [weak self] success in
             guard let self = self else { return }

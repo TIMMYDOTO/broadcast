@@ -3,10 +3,10 @@
 "6c3-qX-cn0.text" = "Abra o jogo com a melhor casa de apostas";
 
 /* Class = "UISegmentedControl"; Bqm-ws-aYn.segmentTitles[0] = "LIVE"; ObjectID = "Bqm-ws-aYn"; */
-"Bqm-ws-aYn.segmentTitles[0]" = "LIVE";
+
 
 /* Class = "UISegmentedControl"; Bqm-ws-aYn.segmentTitles[1] = "Прематч"; ObjectID = "Bqm-ws-aYn"; */
-"Bqm-ws-aYn.segmentTitles[1]" = "Previo al partido";
+
 
 /* Class = "UILabel"; text = "Делай ставки в приложении BetBoom"; ObjectID = "GiQ-Gm-VQE"; */
 "GiQ-Gm-VQE.text" = "Faça apostas no site BetBoom";

@@ -134,7 +134,7 @@ class NewCSStakesCell: UICollectionViewCell {
     }
     
     func highlight(_ model: StakeColor?) {
-//        stakeFactorLabel.layer.removeAllAnimations()
+        stakeFactorLabel.layer.removeAllAnimations()
         let color: UIColor
         switch model {
         case .green:
@@ -145,7 +145,7 @@ class NewCSStakesCell: UICollectionViewCell {
             showIconImageViewRed()
         case .none:
             
-//            clearHighlight()
+            clearHighlight()
             return
         }
         animateHighlight(color)
@@ -212,9 +212,10 @@ class NewCSStakesCell: UICollectionViewCell {
     
     
     func clearHighlight() {
-//        UIView.animate(withDuration: 0.3) {
-//            self.stakeFactorLabel.textColor = .white
-//        }
+        UIView.animate(withDuration: 0.3) {
+            self.stakeFactorLabel.textColor = .white
+            self.iconImageView.tintColor = .clear
+        }
     }
     
     func formatFactor(_ value: Double) -> String {

@@ -32,7 +32,7 @@ final class CyberSportTournamentsCollection: UICollectionView {
     init() {
         let layout = UICollectionViewFlowLayout()
         layout.scrollDirection = .vertical
-        layout.minimumLineSpacing = 0
+        layout.minimumLineSpacing = 8
         layout.sectionHeadersPinToVisibleBounds = true
         
         super.init(frame: .zero, collectionViewLayout: layout)
@@ -158,7 +158,7 @@ extension CyberSportTournamentsCollection: SkeletonCollectionViewDataSource {
         cell.stakesCollection.selectedStakes = selectedStakes[item.id] ?? []
         cell.configure(item, stakesOffset: stakesOffsetHash[item.id] ?? 0)
         cell.delegate = self
-
+        
         return cell
     }
     

@@ -265,7 +265,7 @@ private extension CSMatchBaseCell {
         let collection = CSStakesCollection()
         collection.backgroundColor = .clear
         
-
+        
         collection.isUserInteractionEnabled = true
         
         stakesCollection = collection

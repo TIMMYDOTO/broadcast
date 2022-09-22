@@ -2,11 +2,7 @@
 /* Class = "UILabel"; text = "ОТКРОЙ ИГРУ  С ЛУЧШИМ БУКМЕРОМ"; ObjectID = "6c3-qX-cn0"; */
 "6c3-qX-cn0.text" = "Empieza a jugar con la mejor casa de apuestas";
 
-/* Class = "UISegmentedControl"; Bqm-ws-aYn.segmentTitles[0] = "LIVE"; ObjectID = "Bqm-ws-aYn"; */
-"Bqm-ws-aYn.segmentTitles[0]" = "LIVE";
 
-/* Class = "UISegmentedControl"; Bqm-ws-aYn.segmentTitles[1] = "Прематч"; ObjectID = "Bqm-ws-aYn"; */
-"Bqm-ws-aYn.segmentTitles[1]" = "Previo al partido";
 
 /* Class = "UILabel"; text = "Делай ставки в приложении BetBoom"; ObjectID = "GiQ-Gm-VQE"; */
 "GiQ-Gm-VQE.text" = "Haz apuestas en el sitio de BetBoom";

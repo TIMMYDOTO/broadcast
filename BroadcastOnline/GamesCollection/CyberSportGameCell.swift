@@ -86,47 +86,7 @@ class CyberSportGameCell: UICollectionViewCell {
             sportIconView.inactive()
         }
     
-//
-//        let first = CABasicAnimation(keyPath: "colors")
-//        first.isRemovedOnCompletion = false
-//        first.duration = duration
-//        first.fillMode = CAMediaTimingFillMode.forwards
-//        first.toValue = selected ? [
-//            theme.withAlphaComponent(0).cgColor,
-//            theme.cgColor
-//        ] : [
-//            UIColor.clear.cgColor,
-//            UIColor.clear.cgColor
-//        ]
-//        sportIconContainerBorder.add(first, forKey: nil)
-//
-//        let second = CABasicAnimation(keyPath: "colors")
-//        second.isRemovedOnCompletion = false
-//        second.duration = duration
-//        second.fillMode = CAMediaTimingFillMode.forwards
-//        second.toValue = selected ? [
-//            theme.withAlphaComponent(0.5).cgColor,
-//            theme.withAlphaComponent(0).cgColor
-//        ] : [
-//            UIColor.clear.cgColor,
-//            UIColor.clear.cgColor
-//        ]
-//        bottomRadialGradient.add(second, forKey: nil)
-//
-//        let third = CABasicAnimation(keyPath: "colors")
-//        third.isRemovedOnCompletion = false
-//        third.duration = duration
-//        third.fillMode = CAMediaTimingFillMode.forwards
-//        third.toValue = selected ? [
-//            theme.withAlphaComponent(0).cgColor,
-//            theme.withAlphaComponent(0).cgColor,
-//            theme.withAlphaComponent(0.3).cgColor
-//        ] : [
-//            UIColor.clear.cgColor,
-//            UIColor.clear.cgColor,
-//            UIColor.clear.cgColor
-//        ]
-//        sportIconContainerInnerShadow.add(third, forKey: nil)
+
     }
 }
 

@@ -54,7 +54,7 @@ final class CSStakesCollection: UICollectionView, CSStakeCellDelegate {
     func clear() {
         self.model = []
         isScrollEnabled = false
-        isScrollEnabled = true
+        
         reloadData()
     }
     
