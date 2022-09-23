@@ -16,4 +16,5 @@ target 'BroadcastOnline' do
   pod 'SwiftVideoBackground'
   pod 'YouTubePlayer'
   pod 'lottie-ios'
+  pod 'ReachabilitySwift'
 end

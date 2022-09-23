@@ -13,7 +13,7 @@ final class MainPresenter: MainOutput {
     private var updaterTimer: Timer?
     private var awaitSetSettingAction: AwaitSetSettingResponseAction?
     var interactor = MainInteractor()
-    
+    private var needSwitchPrematchIfLivesEmpty = false
     weak var view: MainViewInput!
     private var didLoaded = false
     // MARK: - Constructor
@@ -35,7 +35,7 @@ final class MainPresenter: MainOutput {
         }
         
         if !didLoaded {
-            
+            needSwitchPrematchIfLivesEmpty = true
             didLoaded = true
         }
     }
@@ -181,14 +181,14 @@ final class MainPresenter: MainOutput {
         } onError: { [weak self] message in
             self?.handleError(message)
         }
+        let noMatches = NSLocalizedString("NoMatches", comment: "NoMatches Title")
         
-  
         interactor.subscribeResponseSport { [weak self] result in
             guard let self = self else { return }
             
             var tournaments = self.sortTournaments(result.tournaments)
             if tournaments.isEmpty {
-                self.view?.setTournamentsPlaceholder(model: "Нет событий")
+                self.view?.setTournamentsPlaceholder(model: noMatches)
             } else {
                 if self.state.currentFilter.getModel().type == .live {
                     let uncollapsed = self.state.getUncollapsedLiveTournaments(sportId: result.info.id) ?? []
@@ -212,21 +212,33 @@ final class MainPresenter: MainOutput {
                 let currentTournaments = self.state.getCurrentTournaments()
                 
                 if currentTournaments.isEmpty {
-                    let message: String = "Нет событий"
+                    let message: String = noMatches
                     
                     self.view?.setTournamentsPlaceholder(model: message)
                 } else {
                     self.view?.setTournaments(model: currentTournaments)
                 }
             }
-        
+            if self.needSwitchPrematchIfLivesEmpty {
+                self.view?.setSelectedFilter(self.state.currentFilter)
+            }
+            self.needSwitchPrematchIfLivesEmpty = false
         } onError: { [weak self] message in
             guard let self = self else { return }
             if message != "Sport not found" {
                 self.handleError(message)
             }
-          
-            self.view?.setTournamentsPlaceholder(model: "Нет событий")
+            if self.needSwitchPrematchIfLivesEmpty {
+                let allPrematch: CSFilter = .allPrematch
+                self.state.currentFilter = allPrematch
+                self.view?.setSelectedFilter(allPrematch)
+                self.awaitSetSettingAction = .sport
+                self.interactor.sendSetSetting(filter: allPrematch.getValue())
+                self.needSwitchPrematchIfLivesEmpty = false
+            } else {
+                self.view?.setTournamentsPlaceholder(model: noMatches)
+            }
+            
         }
         
         
@@ -334,7 +346,7 @@ final class MainPresenter: MainOutput {
         let live: CSFilter = .allLive
         state.currentFilter = live
         awaitSetSettingAction = .sport
-//            needSwitchPrematchIfLivesEmpty = true
+            needSwitchPrematchIfLivesEmpty = true
         interactor.sendSetSetting(filter: live.getValue())
         
 //            needSendClickCybergameEvent = true

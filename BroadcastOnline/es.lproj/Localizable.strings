@@ -1,2 +1,5 @@
 "PrematchTitle" = "Prematch";
 "CyberSportTitle" = "eSports";
+"NoMatches" = "No hay eventos";
+"NoConnection" = "Sin conexión";
+"MakeSureConnection" = "Asegúrate de que tu teléfono\ntiene una red estable\nConexión a Internet e inténtalo de nuevo";

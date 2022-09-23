@@ -163,6 +163,7 @@ extension CyberSportTournamentsCollection: SkeletonCollectionViewDataSource {
     }
     
     func collectionView(_ collectionView: UICollectionView, viewForSupplementaryElementOfKind kind: String, at indexPath: IndexPath) -> UICollectionReusableView {
+        
         let item = model[indexPath.section]
         let header = collectionView.dequeueReusableView(ofKind: kind, for: indexPath) as CSTournamentHeader
         
@@ -173,13 +174,15 @@ extension CyberSportTournamentsCollection: SkeletonCollectionViewDataSource {
         return header
     }
     
+    
+    
     // MARK: - SkeletonCollectionViewDataSource
     func numSections(in collectionSkeletonView: UICollectionView) -> Int {
-        return skeletonModel.count
+        return 1
     }
     
     func collectionSkeletonView(_ skeletonView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return skeletonModel[section]
+        return 4
     }
     
     func collectionSkeletonView(_ skeletonView: UICollectionView, cellIdentifierForItemAt indexPath: IndexPath) -> ReusableCellIdentifier {
@@ -194,7 +197,12 @@ extension CyberSportTournamentsCollection: SkeletonCollectionViewDataSource {
 
 extension CyberSportTournamentsCollection: UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, referenceSizeForHeaderInSection section: Int) -> CGSize {
-        return CGSize(width: UIScreen.main.bounds.width, height: 40)
+        if model.isEmpty {
+            return CGSize(width: UIScreen.main.bounds.width, height: 0)
+        }else{
+            return CGSize(width: UIScreen.main.bounds.width, height: 40)
+        }
+       
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {

@@ -140,7 +140,7 @@ struct R: Rswift.Validatable {
     fileprivate init() {}
   }
 
-  /// This `R.file` struct is generated, and contains static references to 37 files.
+  /// This `R.file` struct is generated, and contains static references to 38 files.
   struct file {
     /// Resource file `Gilroy-Bold.otf`.
     static let gilroyBoldOtf = Rswift.FileResource(bundle: R.hostingBundle, name: "Gilroy-Bold", pathExtension: "otf")
@@ -214,6 +214,8 @@ struct R: Rswift.Validatable {
     static let robotoThinItalicTtf = Rswift.FileResource(bundle: R.hostingBundle, name: "Roboto-ThinItalic", pathExtension: "ttf")
     /// Resource file `SFProDisplay-Regular.ttf`.
     static let sfProDisplayRegularTtf = Rswift.FileResource(bundle: R.hostingBundle, name: "SFProDisplay-Regular", pathExtension: "ttf")
+    /// Resource file `illustration_6.json`.
+    static let illustration_6Json = Rswift.FileResource(bundle: R.hostingBundle, name: "illustration_6", pathExtension: "json")
     /// Resource file `illustration_7.json`.
     static let illustration_7Json = Rswift.FileResource(bundle: R.hostingBundle, name: "illustration_7", pathExtension: "json")
 
@@ -430,6 +432,12 @@ struct R: Rswift.Validatable {
     /// `bundle.url(forResource: "SFProDisplay-Regular", withExtension: "ttf")`
     static func sfProDisplayRegularTtf(_: Void = ()) -> Foundation.URL? {
       let fileResource = R.file.sfProDisplayRegularTtf
+      return fileResource.bundle.url(forResource: fileResource)
+    }
+
+    /// `bundle.url(forResource: "illustration_6", withExtension: "json")`
+    static func illustration_6Json(_: Void = ()) -> Foundation.URL? {
+      let fileResource = R.file.illustration_6Json
       return fileResource.bundle.url(forResource: fileResource)
     }
 
@@ -1071,8 +1079,20 @@ struct R: Rswift.Validatable {
       fileprivate init() {}
     }
 
-    /// This `R.string.localizable` struct is generated, and contains static references to 2 localization keys.
+    /// This `R.string.localizable` struct is generated, and contains static references to 5 localization keys.
     struct localizable {
+      /// en translation: Make sure your phone has a stable network Internet connection and try again
+      ///
+      /// Locales: en, es, pt-PT, ru
+      static let makeSureConnection = Rswift.StringResource(key: "MakeSureConnection", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en", "es", "pt-PT", "ru"], comment: nil)
+      /// en translation: No connection
+      ///
+      /// Locales: en, es, pt-PT, ru
+      static let noConnection = Rswift.StringResource(key: "NoConnection", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en", "es", "pt-PT", "ru"], comment: nil)
+      /// en translation: No events
+      ///
+      /// Locales: en, es, pt-PT, ru
+      static let noMatches = Rswift.StringResource(key: "NoMatches", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en", "es", "pt-PT", "ru"], comment: nil)
       /// en translation: Prematch
       ///
       /// Locales: en, es, pt-PT, ru
@@ -1081,6 +1101,51 @@ struct R: Rswift.Validatable {
       ///
       /// Locales: en, es, pt-PT, ru
       static let cyberSportTitle = Rswift.StringResource(key: "CyberSportTitle", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en", "es", "pt-PT", "ru"], comment: nil)
+
+      /// en translation: Make sure your phone has a stable network Internet connection and try again
+      ///
+      /// Locales: en, es, pt-PT, ru
+      static func makeSureConnection(preferredLanguages: [String]? = nil) -> String {
+        guard let preferredLanguages = preferredLanguages else {
+          return NSLocalizedString("MakeSureConnection", bundle: hostingBundle, comment: "")
+        }
+
+        guard let (_, bundle) = localeBundle(tableName: "Localizable", preferredLanguages: preferredLanguages) else {
+          return "MakeSureConnection"
+        }
+
+        return NSLocalizedString("MakeSureConnection", bundle: bundle, comment: "")
+      }
+
+      /// en translation: No connection
+      ///
+      /// Locales: en, es, pt-PT, ru
+      static func noConnection(preferredLanguages: [String]? = nil) -> String {
+        guard let preferredLanguages = preferredLanguages else {
+          return NSLocalizedString("NoConnection", bundle: hostingBundle, comment: "")
+        }
+
+        guard let (_, bundle) = localeBundle(tableName: "Localizable", preferredLanguages: preferredLanguages) else {
+          return "NoConnection"
+        }
+
+        return NSLocalizedString("NoConnection", bundle: bundle, comment: "")
+      }
+
+      /// en translation: No events
+      ///
+      /// Locales: en, es, pt-PT, ru
+      static func noMatches(preferredLanguages: [String]? = nil) -> String {
+        guard let preferredLanguages = preferredLanguages else {
+          return NSLocalizedString("NoMatches", bundle: hostingBundle, comment: "")
+        }
+
+        guard let (_, bundle) = localeBundle(tableName: "Localizable", preferredLanguages: preferredLanguages) else {
+          return "NoMatches"
+        }
+
+        return NSLocalizedString("NoMatches", bundle: bundle, comment: "")
+      }
 
       /// en translation: Prematch
       ///

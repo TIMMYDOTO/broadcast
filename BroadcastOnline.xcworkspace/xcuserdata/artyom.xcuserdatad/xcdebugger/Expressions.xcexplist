@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<VariablesViewState
+   version = "1.0">
+   <ContextStates>
+      <ContextState
+         contextName = "CSMatchSkeletonCell.setupStakeSkeleton(leading:):CSMatchSkeletonCell.swift">
+         <PersistentStrings>
+            <PersistentString
+               value = "stakeContainerView.snp.width">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+   </ContextStates>
+</VariablesViewState>

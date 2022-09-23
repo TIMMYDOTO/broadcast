@@ -8,6 +8,8 @@
 import UIKit
 import SkeletonView
 import SnapKit
+import Reachability
+
 
 class MainViewController: UIViewController, MainViewInput {
     func showLoader() {
@@ -17,6 +19,7 @@ class MainViewController: UIViewController, MainViewInput {
     func hideLoader() {
         
     }
+    private weak var noConnectionVC: NoConnectionViewController?
     var contentIsLoaded: Bool = false
     private weak var tournamentsCollection: CyberSportTournamentsCollection!
     public var presenter: MainPresenter!
@@ -25,6 +28,9 @@ class MainViewController: UIViewController, MainViewInput {
     private weak var placeholderContainerView: UIView!
     @IBOutlet var segmentedController: UISegmentedControl!
     private weak var placeholderView: CyberSportPlaceholderView!
+    
+    private var reachability: Reachability!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         presenter = MainPresenter(view: self)
@@ -44,8 +50,48 @@ class MainViewController: UIViewController, MainViewInput {
         label.font = R.font.robotoBold(size: 24)
 
         self.navigationItem.leftBarButtonItem = UIBarButtonItem.init(customView: label)
-      
+//        setupNoConnection()
+
         
+    }
+    
+    private func setupNoConnection() {
+        NotificationCenter.default
+            .addObserver(
+                self,
+                selector: #selector(reachabilityChanged(note:)),
+                name: NSNotification.Name.reachabilityChanged,
+                object: nil
+            )
+        
+        reachability = try! Reachability()
+        
+        do
+        {
+            try reachability.startNotifier()
+        }
+        catch
+        {
+            print( "ERROR: Could not start reachability notifier." )
+        }
+    }
+    
+    
+    @objc func reachabilityChanged(note: Notification) {
+        guard let reachability = note.object as? Reachability else { return }
+        switch reachability.connection {
+        case .cellular, .wifi:
+            self.noConnectionVC?.dismiss(animated: false, completion: nil)
+            self.noConnectionVC = nil
+            
+        case .none, .unavailable:
+            if self.noConnectionVC != nil { return }
+            let vc = NoConnectionViewController()
+            vc.modalPresentationStyle = .fullScreen
+            
+            self.present(vc, animated: false, completion: nil)
+            self.noConnectionVC = vc
+        }
     }
     
     func setupPlaceholderView() {

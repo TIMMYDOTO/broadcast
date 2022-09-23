@@ -52,8 +52,9 @@ class BroadcastViewController: UIViewController {
         
         
         translationView = translationview
+        
         view.addSubview(translationView)
-
+        
         translationView.snp.makeConstraints {
             $0.centerY.equalToSuperview()
             $0.leading.trailing.equalToSuperview()
@@ -64,30 +65,37 @@ class BroadcastViewController: UIViewController {
     override func viewWillTransition(to size: CGSize, with coordinator: UIViewControllerTransitionCoordinator) {
            super.viewWillTransition(to: size, with: coordinator)
            if UIDevice.current.orientation.isLandscape {
+               translationView.webView.scrollView.contentSize = size
                translationView.snp.remakeConstraints {
                    $0.leading.equalToSuperview()
                    $0.trailing.equalToSuperview()
-                   $0.height.equalTo(size.height)
+                   $0.height.equalTo(size.height+22)
                    $0.width.equalTo(size.width)
                }
-
+               translationView.webView.scrollView.backgroundColor = .red
+         
+               print("size12",translationView.webView.scrollView.contentSize)
+               
            } else {
-
+               translationView.webView.scrollView.contentSize = size
                translationView.snp.remakeConstraints {
                    $0.centerY.equalToSuperview()
                    $0.leading.trailing.equalToSuperview()
                    $0.height.equalTo(UIScreen.main.bounds.width * 0.5625)
                }
+               translationView.webView.scrollView.backgroundColor = .red
+      
+               print("size12",translationView.webView.scrollView.contentSize)
            }
        }
     
 
     @objc func didClickDismiss() {
         AppUtility.lockOrientation(.portrait)
-        if UIDevice.current.orientation.isLandscape {
+
             UIDevice.current.setValue(UIInterfaceOrientation.portrait.rawValue, forKey: "orientation")
             UINavigationController.attemptRotationToDeviceOrientation()
-        }
+
         
      
         dismiss(animated: true)

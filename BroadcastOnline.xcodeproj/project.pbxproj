@@ -139,6 +139,8 @@
 		9AE4765028D3380800E59FC0 /* Roboto-Black.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 9AE4764428D3380800E59FC0 /* Roboto-Black.ttf */; };
 		9AE4765228D33BD500E59FC0 /* NavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9AE4765128D33BD500E59FC0 /* NavigationController.swift */; };
 		9AE4765428D355F100E59FC0 /* MakeBetVIewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9AE4765328D355F100E59FC0 /* MakeBetVIewController.swift */; };
+		9AF76E1128DDB9730040E574 /* NoConnectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9AF76E1028DDB9730040E574 /* NoConnectionViewController.swift */; };
+		9AF76E1328DDC3EB0040E574 /* illustration_6.json in Resources */ = {isa = PBXBuildFile; fileRef = 9AF76E1228DDC3EB0040E574 /* illustration_6.json */; };
 		C0652570D0F4EDD11EC0DA28 /* Pods_BroadcastOnline.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4583E1805C4D1C81C0CC5FCF /* Pods_BroadcastOnline.framework */; };
 /* End PBXBuildFile section */
 
@@ -288,6 +290,8 @@
 		9AE4764428D3380800E59FC0 /* Roboto-Black.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Roboto-Black.ttf"; sourceTree = "<group>"; };
 		9AE4765128D33BD500E59FC0 /* NavigationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigationController.swift; sourceTree = "<group>"; };
 		9AE4765328D355F100E59FC0 /* MakeBetVIewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MakeBetVIewController.swift; sourceTree = "<group>"; };
+		9AF76E1028DDB9730040E574 /* NoConnectionViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NoConnectionViewController.swift; sourceTree = "<group>"; };
+		9AF76E1228DDC3EB0040E574 /* illustration_6.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = illustration_6.json; sourceTree = "<group>"; };
 		F44A24DBE9FF638C35EB38AE /* Pods-BroadcastOnline.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BroadcastOnline.debug.xcconfig"; path = "Target Support Files/Pods-BroadcastOnline/Pods-BroadcastOnline.debug.xcconfig"; sourceTree = "<group>"; };
 		FE7501537DFD11AE83E49500 /* Pods-BroadcastOnline.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BroadcastOnline.release.xcconfig"; path = "Target Support Files/Pods-BroadcastOnline/Pods-BroadcastOnline.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -496,6 +500,7 @@
 				9A79191F28D08ECD00062946 /* CSMoreStakesCell.swift */,
 				9A79193028D093FF00062946 /* tournament.pb.swift */,
 				9ACBA9A128D9EAF500E73AAF /* illustration_7.json */,
+				9AF76E1228DDC3EB0040E574 /* illustration_6.json */,
 				9A4EE34028D07DE500905FF9 /* CSTeam.swift */,
 				9ACBA99F28D9E99400E73AAF /* CyberSportPlaceholderView.swift */,
 				9A79193428D0947400062946 /* subscribe_state.pb.swift */,
@@ -533,6 +538,7 @@
 		9A790DEC28CA1D5D009F2AA4 /* Protocol */ = {
 			isa = PBXGroup;
 			children = (
+				9AF76E1028DDB9730040E574 /* NoConnectionViewController.swift */,
 				9A790DED28CA1D77009F2AA4 /* MainOutput.swift */,
 				9A790DEF28CA1D81009F2AA4 /* MainViewInput.swift */,
 			);
@@ -715,6 +721,7 @@
 				9A4EE37328D0809300905FF9 /* Lucita Grande-Bold.ttf in Resources */,
 				9A790DDC28C9F35C009F2AA4 /* LaunchScreen.storyboard in Resources */,
 				9ACBA9A228D9EAF600E73AAF /* illustration_7.json in Resources */,
+				9AF76E1328DDC3EB0040E574 /* illustration_6.json in Resources */,
 				9A4EE36228D0809300905FF9 /* Giorgio Sans LCG Heavy.otf in Resources */,
 				9A4EE36628D0809300905FF9 /* Giorgio Sans LCG Extralight Italic.otf in Resources */,
 				9AE4764828D3380800E59FC0 /* Roboto-MediumItalic.ttf in Resources */,
@@ -841,6 +848,7 @@
 				9A79193928D0976700062946 /* R.generated.swift in Sources */,
 				9A790DEE28CA1D77009F2AA4 /* MainOutput.swift in Sources */,
 				9A790E3D28CA29CB009F2AA4 /* CyberOdinWsService.swift in Sources */,
+				9AF76E1128DDB9730040E574 /* NoConnectionViewController.swift in Sources */,
 				9A4EE33C28CF8E7F00905FF9 /* CSStake.swift in Sources */,
 				9A4EE32A28CF818600905FF9 /* CyberSportTournamentsCollection.swift in Sources */,
 				9A790E3228CA29CB009F2AA4 /* etw_rpc_unsubscribe_tournament.pb.swift in Sources */,

@@ -13,7 +13,7 @@ import SwiftVideoBackground
 class CSDetailsHeaderTranslationView: UIView {
     
     private weak var youtubePlayer: YouTubePlayerView!
-    private weak var webView: WKWebView!
+     weak var webView: WKWebView!
     
     private weak var muteButton: UIButton!
     private weak var fullScreenButton: UIButton!
@@ -99,10 +99,11 @@ private extension CSDetailsHeaderTranslationView {
         let view = WKWebView(frame: .zero, configuration: configuration)
         view.scrollView.isScrollEnabled = false
         view.navigationDelegate = self
-        
+       
         webView = view
-        webView.scrollView.backgroundColor = .black
+//        webView.isOpaque = false
         
+       
         addSubview(webView)
         webView.snp.makeConstraints {
             $0.top.equalToSuperview()
@@ -142,6 +143,7 @@ private extension CSDetailsHeaderTranslationView {
     func setupPlayer() {
         switch streamType {
         case .twitch:
+            
             setupWebView()
         case .youtube:
             setupYoutubePlayer()

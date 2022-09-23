@@ -77,10 +77,12 @@ class CyberSportGameCell: UICollectionViewCell {
 //        let duration = 0.2
 //
         if selected {
+            layer.borderWidth = 0
             backgroundColor = #colorLiteral(red: 0.1843137255, green: 0.2235294118, blue: 0.3098039216, alpha: 1)
             titleLabel.textColor = .white
             sportIconView.active()
         }else{
+            layer.borderWidth = 2
             backgroundColor = .clear
             titleLabel.textColor = #colorLiteral(red: 0.5960784314, green: 0.6235294118, blue: 0.6705882353, alpha: 1)
             sportIconView.inactive()

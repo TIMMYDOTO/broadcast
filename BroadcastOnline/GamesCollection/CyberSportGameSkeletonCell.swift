@@ -33,7 +33,7 @@ private extension CyberSportGameSkeletonCell {
     func setupSportIconSkeleton() {
         let icon = UIView()
         icon.isSkeletonable = true
-        icon.layer.cornerRadius = 10
+        icon.layer.cornerRadius = 8
         icon.clipsToBounds = true
         
         sportIconSkeleton = icon
