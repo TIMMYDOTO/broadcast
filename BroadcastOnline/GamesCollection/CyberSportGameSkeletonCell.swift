@@ -15,6 +15,9 @@ class CyberSportGameSkeletonCell: UICollectionViewCell {
     override init(frame: CGRect) {
         super.init(frame: frame)
         isSkeletonable = true
+        layer.borderColor = #colorLiteral(red: 0.2274509804, green: 0.2705882353, blue: 0.368627451, alpha: 0.50446648)
+        layer.borderWidth = 2
+        layer.cornerRadius = 8
         setup()
     }
     
@@ -39,8 +42,8 @@ private extension CyberSportGameSkeletonCell {
         sportIconSkeleton = icon
         contentView.addSubview(sportIconSkeleton)
         sportIconSkeleton.snp.makeConstraints {
-            $0.top.equalToSuperview().offset(8)
-            $0.height.width.equalTo(40)
+            $0.top.equalToSuperview().offset(10)
+            $0.height.width.equalTo(32)
             $0.centerX.equalToSuperview()
         }
     }
@@ -54,10 +57,10 @@ private extension CyberSportGameSkeletonCell {
         titleLabelSkeleton = view
         contentView.addSubview(titleLabelSkeleton)
         titleLabelSkeleton.snp.makeConstraints {
-            $0.top.equalTo(sportIconSkeleton.snp.bottom).offset(9)
+            $0.top.equalTo(sportIconSkeleton.snp.bottom).offset(12)
             $0.centerX.equalToSuperview()
-            $0.height.equalTo(10)
-            $0.width.equalTo(37)
+            $0.height.equalTo(6)
+            $0.width.equalTo(51)
         }
     }
 }

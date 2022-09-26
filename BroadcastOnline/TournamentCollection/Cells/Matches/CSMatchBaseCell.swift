@@ -58,7 +58,7 @@ class CSMatchBaseCell: UICollectionViewCell {
         super.init(frame: frame)
         setup()
         bindings()
-//        backgroundColor = .red
+
     }
     
     required init?(coder: NSCoder) {

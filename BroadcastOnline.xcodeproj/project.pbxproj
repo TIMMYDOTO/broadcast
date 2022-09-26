@@ -141,6 +141,7 @@
 		9AE4765428D355F100E59FC0 /* MakeBetVIewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9AE4765328D355F100E59FC0 /* MakeBetVIewController.swift */; };
 		9AF76E1128DDB9730040E574 /* NoConnectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9AF76E1028DDB9730040E574 /* NoConnectionViewController.swift */; };
 		9AF76E1328DDC3EB0040E574 /* illustration_6.json in Resources */ = {isa = PBXBuildFile; fileRef = 9AF76E1228DDC3EB0040E574 /* illustration_6.json */; };
+		9AF76E1528DE12810040E574 /* CyberSportFilterSkeletonCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9AF76E1428DE12810040E574 /* CyberSportFilterSkeletonCell.swift */; };
 		C0652570D0F4EDD11EC0DA28 /* Pods_BroadcastOnline.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4583E1805C4D1C81C0CC5FCF /* Pods_BroadcastOnline.framework */; };
 /* End PBXBuildFile section */
 
@@ -292,6 +293,7 @@
 		9AE4765328D355F100E59FC0 /* MakeBetVIewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MakeBetVIewController.swift; sourceTree = "<group>"; };
 		9AF76E1028DDB9730040E574 /* NoConnectionViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NoConnectionViewController.swift; sourceTree = "<group>"; };
 		9AF76E1228DDC3EB0040E574 /* illustration_6.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = illustration_6.json; sourceTree = "<group>"; };
+		9AF76E1428DE12810040E574 /* CyberSportFilterSkeletonCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CyberSportFilterSkeletonCell.swift; sourceTree = "<group>"; };
 		F44A24DBE9FF638C35EB38AE /* Pods-BroadcastOnline.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BroadcastOnline.debug.xcconfig"; path = "Target Support Files/Pods-BroadcastOnline/Pods-BroadcastOnline.debug.xcconfig"; sourceTree = "<group>"; };
 		FE7501537DFD11AE83E49500 /* Pods-BroadcastOnline.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BroadcastOnline.release.xcconfig"; path = "Target Support Files/Pods-BroadcastOnline/Pods-BroadcastOnline.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -505,7 +507,6 @@
 				9ACBA99F28D9E99400E73AAF /* CyberSportPlaceholderView.swift */,
 				9A79193428D0947400062946 /* subscribe_state.pb.swift */,
 				9A79192E28D093B800062946 /* match.pb.swift */,
-				9A79193A28D0B9C000062946 /* CyberSportFiltersCollection.swift */,
 				9A79192328D08F6B00062946 /* errors.pb.swift */,
 				9A79193628D094A300062946 /* ws2_errors.pb.swift */,
 				9A79191D28D08E5700062946 /* CSStakeCell.swift */,
@@ -521,6 +522,8 @@
 		9A790DE728CA1D0D009F2AA4 /* Main */ = {
 			isa = PBXGroup;
 			children = (
+				9AF76E1428DE12810040E574 /* CyberSportFilterSkeletonCell.swift */,
+				9A79193A28D0B9C000062946 /* CyberSportFiltersCollection.swift */,
 				9A4EE32B28CF877B00905FF9 /* TournamentCollection */,
 				9A4EE31628CF4D5200905FF9 /* GamesCollection */,
 				9A790DEC28CA1D5D009F2AA4 /* Protocol */,
@@ -834,6 +837,7 @@
 				9A790E3A28CA29CB009F2AA4 /* etw_rpc_subscribe_match.pb.swift in Sources */,
 				9A79192428D08F6B00062946 /* errors.pb.swift in Sources */,
 				9A790E2228CA29CB009F2AA4 /* etw_model_sport.pb.swift in Sources */,
+				9AF76E1528DE12810040E574 /* CyberSportFilterSkeletonCell.swift in Sources */,
 				9A790DE928CA1D1C009F2AA4 /* MainPresenter.swift in Sources */,
 				9A4EE31028CB613F00905FF9 /* CSTournament.swift in Sources */,
 				9A790E2528CA29CB009F2AA4 /* etw_rpc_subscribe_sport.pb.swift in Sources */,

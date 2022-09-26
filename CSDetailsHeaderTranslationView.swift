@@ -103,7 +103,7 @@ private extension CSDetailsHeaderTranslationView {
         webView = view
 //        webView.isOpaque = false
         
-       
+        webView.scrollView.backgroundColor = .black
         addSubview(webView)
         webView.snp.makeConstraints {
             $0.top.equalToSuperview()

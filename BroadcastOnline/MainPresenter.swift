@@ -146,7 +146,9 @@ final class MainPresenter: MainOutput {
         
         interactor.subscribeResponseState { [weak self] result in
             guard let self = self else { return }
-         
+//            self.view?.tournamentsCollection.clear()
+            self.view?.hideFilterSkeleton()
+            self.view?.hideGameFilterSkeleton()
             let sports = self.handleState(live: result.live, prematch: result.prematch)
             print("sports", sports)
             self.state.sports = sports
@@ -185,11 +187,12 @@ final class MainPresenter: MainOutput {
         
         interactor.subscribeResponseSport { [weak self] result in
             guard let self = self else { return }
-            
+          
             var tournaments = self.sortTournaments(result.tournaments)
             if tournaments.isEmpty {
                 self.view?.setTournamentsPlaceholder(model: noMatches)
             } else {
+           
                 if self.state.currentFilter.getModel().type == .live {
                     let uncollapsed = self.state.getUncollapsedLiveTournaments(sportId: result.info.id) ?? []
                     (0...tournaments.count - 1).forEach{

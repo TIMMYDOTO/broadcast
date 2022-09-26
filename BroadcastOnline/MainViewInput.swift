@@ -15,4 +15,7 @@ protocol MainViewInput: ViewInput {
     func updateTournament(model: CSTournament, scroll: Bool)
     func updateTournaments(model: [CSTournament])
     func updateSports(model: [CSSportInfo])
+    func hideFilterSkeleton()
+    func hideGameFilterSkeleton()
+    var tournamentsCollection: CyberSportTournamentsCollection! { get  }
 }

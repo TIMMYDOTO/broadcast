@@ -14,7 +14,7 @@ class BroadcastViewController: UIViewController {
     private weak var translationView: CSDetailsHeaderTranslationView!
     
     var match: CSMatch!
-    
+    let height = UIScreen.main.bounds.width * 0.5625
     override func viewDidLoad() {
         super.viewDidLoad()
      
@@ -58,7 +58,7 @@ class BroadcastViewController: UIViewController {
         translationView.snp.makeConstraints {
             $0.centerY.equalToSuperview()
             $0.leading.trailing.equalToSuperview()
-            $0.height.equalTo(UIScreen.main.bounds.width * 0.5625)
+            $0.height.equalTo(height)
         }
     }
     
@@ -72,20 +72,16 @@ class BroadcastViewController: UIViewController {
                    $0.height.equalTo(size.height+22)
                    $0.width.equalTo(size.width)
                }
-               translationView.webView.scrollView.backgroundColor = .red
-         
-               print("size12",translationView.webView.scrollView.contentSize)
+       
                
            } else {
                translationView.webView.scrollView.contentSize = size
                translationView.snp.remakeConstraints {
                    $0.centerY.equalToSuperview()
                    $0.leading.trailing.equalToSuperview()
-                   $0.height.equalTo(UIScreen.main.bounds.width * 0.5625)
+                   $0.height.equalTo(height)
                }
-               translationView.webView.scrollView.backgroundColor = .red
-      
-               print("size12",translationView.webView.scrollView.contentSize)
+
            }
        }
     

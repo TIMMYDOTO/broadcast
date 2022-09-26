@@ -61,6 +61,13 @@ class CyberSportFiltersCollection: UICollectionView {
         }
         
     }
+    
+    func setLoading() {
+        showSkeleton(usingColor: .clear, transition: .crossDissolve(0.25))
+
+    }
+    
+  
 }
 
 extension CyberSportFiltersCollection: SkeletonCollectionViewDataSource {
@@ -77,8 +84,15 @@ extension CyberSportFiltersCollection: SkeletonCollectionViewDataSource {
     }
     
     // MARK: - SkeletonCollectionViewDataSource
+    
+    func collectionSkeletonView(_ skeletonView: UICollectionView, skeletonCellForItemAt indexPath: IndexPath) -> UICollectionViewCell? {
+        let cell = skeletonView.dequeueReusableCell(for: indexPath) as CyberSportFilterSkeletonCell
+        indexPath.row == 0 ? cell.addBackground() : cell.removeBackground()
+        return cell
+    }
+    
     func collectionSkeletonView(_ skeletonView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return 5
+        return 2
     }
     
     func collectionSkeletonView(_ skeletonView: UICollectionView, cellIdentifierForItemAt indexPath: IndexPath) -> ReusableCellIdentifier {
@@ -113,6 +127,7 @@ private extension CyberSportFiltersCollection {
         
         layer.cornerRadius = 16
         register(type: CyberSportFilterCell.self)
+        register(type: CyberSportFilterSkeletonCell.self)
         backgroundColor = #colorLiteral(red: 0.1402209699, green: 0.1697322726, blue: 0.2372379601, alpha: 1)
     }
 }

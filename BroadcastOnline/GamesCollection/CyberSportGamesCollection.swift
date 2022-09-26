@@ -31,6 +31,13 @@ class CyberSportGamesCollection: UICollectionView {
         fatalError("init(coder:) has not been implemented")
     }
     
+    
+    func setLoading() {
+        
+        showSkeleton(usingColor: #colorLiteral(red: 0.2274509804, green: 0.2705882353, blue: 0.368627451, alpha: 0.5), transition: .crossDissolve(0.25))
+
+    }
+    
     func allowDelegates() {
         dataSource = self
         delegate = self
@@ -145,7 +152,7 @@ extension CyberSportGamesCollection: UICollectionViewDelegate {
 extension CyberSportGamesCollection: UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         if sk.isSkeletonActive {
-            return CGSize(width: 60, height: 82)
+            return CGSize(width: 80, height: 72)
         } else {
             let width: CGFloat = model[indexPath.item].abbreviation.width(withConstrainedHeight: 10, font: UIFont.systemFont(ofSize: 12))
          

@@ -38,8 +38,11 @@ class MakeBetVIewController: UIViewController {
         super.viewDidLoad()
         
         view.addGestureRecognizer(UIPanGestureRecognizer(target: self, action: #selector(handleDismiss)))
+        setNeedsStatusBarAppearanceUpdate()
     }
-    
+    override var preferredStatusBarStyle: UIStatusBarStyle {
+        .lightContent
+    }
   
     @objc func handleDismiss(sender: UIPanGestureRecognizer) {
         switch sender.state {

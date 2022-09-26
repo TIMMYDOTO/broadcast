@@ -144,7 +144,7 @@ private extension CyberSportGameCell {
     
     func setupLiveLabelContainer() {
         let view = UIView()
-        view.backgroundColor = .red
+        
         view.layer.cornerRadius = 2
         view.isHidden = true
         

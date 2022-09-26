@@ -21,7 +21,7 @@ class MainViewController: UIViewController, MainViewInput {
     }
     private weak var noConnectionVC: NoConnectionViewController?
     var contentIsLoaded: Bool = false
-    private weak var tournamentsCollection: CyberSportTournamentsCollection!
+     weak var tournamentsCollection: CyberSportTournamentsCollection!
     public var presenter: MainPresenter!
     private weak var gamesCollection: CyberSportGamesCollection!
     private weak var filtersCollection: CyberSportFiltersCollection!
@@ -33,14 +33,23 @@ class MainViewController: UIViewController, MainViewInput {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+   
         presenter = MainPresenter(view: self)
         setupGamesCollection()
-   
+     
         setupFilterCollection()
-//        setupSegmentedControll()
+      
+
+        
         setupTournamentsCollection()
+        tournamentsCollection.setLoading()
+        gamesCollection.setLoading()
+        filtersCollection.setLoading()
         presenter.viewDidLoad()
+        
         bindFiltersCollection()
+   
+        
         bindTournamentCollection()
         setupPlaceholderView()
         let label = UILabel()
@@ -50,7 +59,7 @@ class MainViewController: UIViewController, MainViewInput {
         label.font = R.font.robotoBold(size: 24)
 
         self.navigationItem.leftBarButtonItem = UIBarButtonItem.init(customView: label)
-//        setupNoConnection()
+        setupNoConnection()
 
         
     }
@@ -149,6 +158,11 @@ class MainViewController: UIViewController, MainViewInput {
                 broadcastVC.modalPresentationStyle = .overFullScreen
                 broadcastVC.match = match
                 self.present(broadcastVC, animated: true)
+            }else{
+                let storyboard = UIStoryboard(name: "Main", bundle: nil)
+                let makeBetVC = storyboard.instantiateViewController(withIdentifier: "MakeBetVIewController") as! MakeBetVIewController
+                makeBetVC.modalPresentationStyle = .overCurrentContext
+                self.present(makeBetVC, animated: true)
             }
           
         }
@@ -165,6 +179,7 @@ class MainViewController: UIViewController, MainViewInput {
     
     func updateTournament(model: CSTournament, scroll: Bool) {
         DispatchQueue.main.async {
+       
             self.tournamentsCollection.updateTournament(model, scroll: scroll)
         }
     }
@@ -253,10 +268,20 @@ class MainViewController: UIViewController, MainViewInput {
             $0.leading.trailing.bottom.equalToSuperview()
         }
     }
+    func hideGameFilterSkeleton() {
+        gamesCollection.hideSkeleton()
+    }
+    
+    func hideFilterSkeleton() {
+        
+        self.filtersCollection.hideSkeleton()
+    }
     
     func setTournaments(model: [CSTournament]) {
         DispatchQueue.main.async {
             self.placeholderState(active: false)
+//
+    
             self.tournamentsCollection.set(model)
             if !self.contentIsLoaded {
                 self.stopSkeletonState()

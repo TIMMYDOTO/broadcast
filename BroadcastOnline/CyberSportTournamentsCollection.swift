@@ -70,8 +70,8 @@ final class CyberSportTournamentsCollection: UICollectionView {
     }
     
     func setLoading() {
-        let color = UIColor(hex: "#262626")!
-        showAnimatedSkeleton(usingColor: color)
+        
+        showAnimatedSkeleton(usingColor: #colorLiteral(red: 0.1843137255, green: 0.2117647059, blue: 0.2745098039, alpha: 1))
     }
     
     func updateTournament(_ tournament: CSTournament, scroll: Bool) {
