@@ -95,10 +95,11 @@ private extension CSTournamentHeader {
         setupCollapseButton()
         setupSportColorIndicator()
 //        setupFavoriteView()
+        setupArrowIcon()
         setupTitleLabel()
 //        setupCountView()
 //        setupCountLabel()
-        setupArrowIcon()
+      
    
   
     }
@@ -113,7 +114,7 @@ private extension CSTournamentHeader {
         view.addGestureRecognizer(pan)
         */
         mainView = view
-        
+        mainView.backgroundColor = #colorLiteral(red: 0.06419743598, green: 0.08443901688, blue: 0.1187562123, alpha: 1)
         addSubview(mainView)
         
         mainView.snp.makeConstraints {
@@ -150,6 +151,7 @@ private extension CSTournamentHeader {
         titleLabel.snp.contentHuggingHorizontalPriority = 249
         titleLabel.snp.makeConstraints {
             $0.leading.equalToSuperview().offset(16)
+            $0.trailing.equalTo(arrowIcon.snp.leading).offset(-16)
             $0.centerY.equalToSuperview()
             $0.height.equalTo(16)
         }

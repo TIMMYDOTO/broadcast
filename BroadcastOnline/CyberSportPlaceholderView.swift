@@ -6,13 +6,14 @@
 //
 
 import UIKit
-import Lottie
+
 import SwiftTheme
 
 class CyberSportPlaceholderView: UIView {
     
-    private weak var animationView: AnimationView!
+    private weak var animationView: UIImageView!
     private weak var titleLabel: UILabel!
+    private weak var subTitleLabel: UILabel!
     
     init() {
         super.init(frame: .zero)
@@ -24,11 +25,11 @@ class CyberSportPlaceholderView: UIView {
     }
     
     func play() {
-        animationView.play()
+//        animationView.play()
     }
     
     func pause() {
-        animationView.pause()
+//        animationView.pause()
     }
 }
 
@@ -36,20 +37,21 @@ private extension CyberSportPlaceholderView {
     func setup() {
         setupAnimationView()
         setupTitleLabel()
+        setupSubtitleLabel()
     }
     
     func setupAnimationView() {
-        let anim = AnimationView()
-        let animation = Animation.named("illustration_7")
-        anim.animation = animation
-        anim.contentMode = .scaleAspectFit
-        anim.loopMode = .autoReverse
+        let anim = UIImageView()
+        
+        
+        
+        anim.image = UIImage(named: "smile")
         
         animationView = anim
         addSubview(animationView)
         animationView.snp.makeConstraints {
-            $0.height.equalTo(280)
-            $0.width.equalTo(340)
+            $0.height.equalTo(80)
+            $0.width.equalTo(80)
             $0.top.equalToSuperview()
             $0.centerX.equalToSuperview()
         }
@@ -57,16 +59,17 @@ private extension CyberSportPlaceholderView {
     
     func setupTitleLabel() {
         let label = UILabel()
-        label.theme_textColor = ThemeColorPicker(colors: "#FFFFFF", "#0D0D0D")
+        label.textColor = .white
         label.font = R.font.robotoBold(size: 24)
         label.textAlignment = .center
-        label.numberOfLines = 1
+        label.numberOfLines = 2
         
         let paragraphStyle = NSMutableParagraphStyle()
         paragraphStyle.lineHeightMultiple = 1.25
         paragraphStyle.alignment = .center
+        let noMatches = NSLocalizedString("LiveIsEmpty", comment: "NoMatches Title")
         label.attributedText = NSMutableAttributedString(
-            string: "Нет событий",
+            string: noMatches,
             attributes: [.kern: 0.26, .paragraphStyle: paragraphStyle]
         )
         
@@ -77,6 +80,22 @@ private extension CyberSportPlaceholderView {
             $0.leading.equalToSuperview()
             $0.trailing.equalToSuperview()
             $0.bottom.equalToSuperview()
+        }
+    }
+    
+    func setupSubtitleLabel() {
+        let label = UILabel()
+        let noMatches = NSLocalizedString("FollowForPrematch", comment: "NoMatches Title")
+        label.textColor = #colorLiteral(red: 1, green: 0.9999999404, blue: 0.9999999404, alpha: 0.5041179531)
+        label.text = noMatches
+        label.textAlignment = .center
+        subTitleLabel = label
+        addSubview(subTitleLabel)
+        subTitleLabel.snp.makeConstraints {
+            $0.top.equalTo(titleLabel.snp.bottom).offset(16)
+            $0.centerX.equalTo(titleLabel.snp.centerX)
+            $0.trailing.equalToSuperview()
+            $0.height.equalTo(24)
         }
     }
 }

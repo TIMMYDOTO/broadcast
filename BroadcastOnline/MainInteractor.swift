@@ -8,11 +8,33 @@
 import Foundation
 import RxSwift
 
-final class MainInteractor: CyberOdinWsServiceDependency {
+final class MainInteractor: CyberOdinWsServiceDependency, ConnectManagerDependency {
     
     let disposeBag = DisposeBag()
     func checkConnected() -> Bool { cyberSportWs.checkConnected() }
     
+    func subscribeStateReady(onNext: @escaping (Bool) -> Void) {
+        cyberSportWs.subjects.stateReady
+            .subscribe(onNext: onNext)
+            .disposed(by: disposeBag)
+    }
+    
+    func subscribeStateAwait(onNext: @escaping (Bool) -> Void) {
+        cyberSportWs.subjects.stateAwait
+            .subscribe(onNext: onNext)
+            .disposed(by: disposeBag)
+    }
+    func subscribeAppState(onNext: @escaping (AppState) -> Void) {
+        cyberSportWs.subjects.appState
+            .subscribe(onNext: onNext)
+            .disposed(by: disposeBag)
+    }
+    
+    func subscribeNetworkStatus(_ onNext: @escaping (Bool) -> Void) {
+        connectManager.connect
+            .subscribe(onNext: onNext)
+            .disposed(by: disposeBag)
+    }
     func sendUnsubscribeTournament(sportId: String, tournamentId: String, type: SportLivePrematch) {
         var request = Bb_Mobile_OddinTreeWs_UnsubscribeTournamentRequest()
         request.tournamentID = tournamentId
@@ -54,18 +76,7 @@ final class MainInteractor: CyberOdinWsServiceDependency {
             .subscribe(onNext: onNext)
             .disposed(by: disposeBag)
     }
-    
-    func subscribeStateAwait(onNext: @escaping (Bool) -> Void) {
-        cyberSportWs.subjects.stateAwait
-            .subscribe(onNext: onNext)
-            .disposed(by: disposeBag)
-    }
-    
-    func subscribeStateReady(onNext: @escaping (Bool) -> Void) {
-        cyberSportWs.subjects.stateReady
-            .subscribe(onNext: onNext)
-            .disposed(by: disposeBag)
-    }
+
     
     func wsConnect() {
         

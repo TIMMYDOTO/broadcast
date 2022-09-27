@@ -145,7 +145,7 @@ extension CSStakesCollection: UICollectionViewDataSource {
 
 extension CSStakesCollection: UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-    
+        
         if model.count == 1 {
             return CGSize(width: collectionView.frame.size.width, height: cellHeight)
         }
@@ -159,14 +159,14 @@ extension CSStakesCollection: UICollectionViewDelegateFlowLayout {
         let size: CGSize
         switch item {
         case .stake:
-            size = CGSize(width: collectionView.frame.size.width * 0.317, height: cellHeight)
+            size = CGSize(width: collectionView.frame.size.width * 0.316, height: cellHeight)
         case .longStake:
             size = CGSize(width: 97, height: cellHeight)
         case .more:
-            let width: CGFloat = model.count < 2 ? collectionView.frame.size.width : collectionView.frame.size.width * 0.317
+            let width: CGFloat = model.count < 2 ? collectionView.frame.size.width : collectionView.frame.size.width * 0.316
             size = CGSize(width: width, height: cellHeight)
         case .placeholder:
-            size = CGSize(width: collectionView.frame.size.width * 0.317, height: cellHeight)
+            size = CGSize(width: collectionView.frame.size.width * 0.316, height: cellHeight)
         }
         return size
     }

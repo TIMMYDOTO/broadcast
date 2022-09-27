@@ -42,7 +42,7 @@ final class CyberOdinWsService: CyberOdinWsServiceInterface {
     
     func connect() {
         connectStatus = .connecting
-        debugPrint("\(typeName).CONNECT")
+        debugPrint("\(typeName).CONNECT123")
         setupSocket()
         webSocket.connect()
     }
@@ -89,6 +89,8 @@ extension CyberOdinWsService: WebSocketDelegate {
             break
         }
     }
+    
+    
 }
 
 private extension CyberOdinWsService {

@@ -38,8 +38,6 @@ class MainViewController: UIViewController, MainViewInput {
         setupGamesCollection()
      
         setupFilterCollection()
-      
-
         
         setupTournamentsCollection()
         tournamentsCollection.setLoading()
@@ -62,6 +60,14 @@ class MainViewController: UIViewController, MainViewInput {
         setupNoConnection()
 
         
+    }
+    
+
+    
+    func setSelectedStakes(model: [String : Set<String>], reload: Bool) {
+        DispatchQueue.main.async {
+            self.tournamentsCollection.setSelectedStakes(model, reload: reload)
+        }
     }
     
     private func setupNoConnection() {
@@ -92,7 +98,7 @@ class MainViewController: UIViewController, MainViewInput {
         case .cellular, .wifi:
             self.noConnectionVC?.dismiss(animated: false, completion: nil)
             self.noConnectionVC = nil
-            
+      
         case .none, .unavailable:
             if self.noConnectionVC != nil { return }
             let vc = NoConnectionViewController()
@@ -138,12 +144,14 @@ class MainViewController: UIViewController, MainViewInput {
     
     override func viewWillAppear(_ animated: Bool) {
        super.viewWillAppear(animated)
-       
+ 
        AppUtility.lockOrientation(.portrait)
   
    }
 
-
+    override func willAnimateRotation(to toInterfaceOrientation: UIInterfaceOrientation, duration: TimeInterval) {
+         self.view.setNeedsUpdateConstraints()
+    }
     func bindTournamentCollection() {
         tournamentsCollection.willSelectTournament = { [weak self] tournament in
             guard let self = self else { return }
@@ -226,6 +234,7 @@ class MainViewController: UIViewController, MainViewInput {
     func setupGamesCollection() {
         let collection = CyberSportGamesCollection()
         collection.backgroundColor = #colorLiteral(red: 0.1176470588, green: 0.1411764706, blue: 0.2, alpha: 1)
+        
         collection.isSkeletonable = true
         
         gamesCollection = collection
@@ -234,7 +243,7 @@ class MainViewController: UIViewController, MainViewInput {
             $0.top.equalToSuperview()
             $0.leading.trailing.equalToSuperview()
 //            $0.height.equalTo(83)
-            $0.height.equalTo(192)
+            $0.height.equalToSuperview().multipliedBy(0.24)
         }
         
         gamesCollection.layer.cornerRadius = 16

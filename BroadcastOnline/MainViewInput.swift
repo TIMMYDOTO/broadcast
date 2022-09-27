@@ -18,4 +18,5 @@ protocol MainViewInput: ViewInput {
     func hideFilterSkeleton()
     func hideGameFilterSkeleton()
     var tournamentsCollection: CyberSportTournamentsCollection! { get  }
+    func setSelectedStakes(model: [String : Set<String>], reload: Bool)
 }

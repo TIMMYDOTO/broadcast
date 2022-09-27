@@ -747,7 +747,7 @@ struct R: Rswift.Validatable {
     fileprivate init() {}
   }
 
-  /// This `R.image` struct is generated, and contains static references to 32 images.
+  /// This `R.image` struct is generated, and contains static references to 34 images.
   struct image {
     /// Image `CloseIcon`.
     static let closeIcon = Rswift.ImageResource(bundle: R.hostingBundle, name: "CloseIcon")
@@ -811,8 +811,12 @@ struct R: Rswift.Validatable {
     static let icCyberWildRift = Rswift.ImageResource(bundle: R.hostingBundle, name: "icCyberWildRift")
     /// Image `icLiveInfo`.
     static let icLiveInfo = Rswift.ImageResource(bundle: R.hostingBundle, name: "icLiveInfo")
+    /// Image `palm`.
+    static let palm = Rswift.ImageResource(bundle: R.hostingBundle, name: "palm")
     /// Image `red`.
     static let red = Rswift.ImageResource(bundle: R.hostingBundle, name: "red")
+    /// Image `smile`.
+    static let smile = Rswift.ImageResource(bundle: R.hostingBundle, name: "smile")
 
     #if os(iOS) || os(tvOS)
     /// `UIImage(named: "CloseIcon", bundle: ..., traitCollection: ...)`
@@ -1032,9 +1036,23 @@ struct R: Rswift.Validatable {
     #endif
 
     #if os(iOS) || os(tvOS)
+    /// `UIImage(named: "palm", bundle: ..., traitCollection: ...)`
+    static func palm(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIImage? {
+      return UIKit.UIImage(resource: R.image.palm, compatibleWith: traitCollection)
+    }
+    #endif
+
+    #if os(iOS) || os(tvOS)
     /// `UIImage(named: "red", bundle: ..., traitCollection: ...)`
     static func red(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIImage? {
       return UIKit.UIImage(resource: R.image.red, compatibleWith: traitCollection)
+    }
+    #endif
+
+    #if os(iOS) || os(tvOS)
+    /// `UIImage(named: "smile", bundle: ..., traitCollection: ...)`
+    static func smile(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIImage? {
+      return UIKit.UIImage(resource: R.image.smile, compatibleWith: traitCollection)
     }
     #endif
 
@@ -1079,8 +1097,16 @@ struct R: Rswift.Validatable {
       fileprivate init() {}
     }
 
-    /// This `R.string.localizable` struct is generated, and contains static references to 5 localization keys.
+    /// This `R.string.localizable` struct is generated, and contains static references to 7 localization keys.
     struct localizable {
+      /// en translation: Follow prematch events
+      ///
+      /// Locales: en, es, pt-PT, ru
+      static let followForPrematch = Rswift.StringResource(key: "FollowForPrematch", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en", "es", "pt-PT", "ru"], comment: nil)
+      /// en translation: List of live  events is empty
+      ///
+      /// Locales: en, es, pt-PT, ru
+      static let liveIsEmpty = Rswift.StringResource(key: "LiveIsEmpty", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en", "es", "pt-PT", "ru"], comment: nil)
       /// en translation: Make sure your phone has a stable network Internet connection and try again
       ///
       /// Locales: en, es, pt-PT, ru
@@ -1101,6 +1127,36 @@ struct R: Rswift.Validatable {
       ///
       /// Locales: en, es, pt-PT, ru
       static let cyberSportTitle = Rswift.StringResource(key: "CyberSportTitle", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en", "es", "pt-PT", "ru"], comment: nil)
+
+      /// en translation: Follow prematch events
+      ///
+      /// Locales: en, es, pt-PT, ru
+      static func followForPrematch(preferredLanguages: [String]? = nil) -> String {
+        guard let preferredLanguages = preferredLanguages else {
+          return NSLocalizedString("FollowForPrematch", bundle: hostingBundle, comment: "")
+        }
+
+        guard let (_, bundle) = localeBundle(tableName: "Localizable", preferredLanguages: preferredLanguages) else {
+          return "FollowForPrematch"
+        }
+
+        return NSLocalizedString("FollowForPrematch", bundle: bundle, comment: "")
+      }
+
+      /// en translation: List of live  events is empty
+      ///
+      /// Locales: en, es, pt-PT, ru
+      static func liveIsEmpty(preferredLanguages: [String]? = nil) -> String {
+        guard let preferredLanguages = preferredLanguages else {
+          return NSLocalizedString("LiveIsEmpty", bundle: hostingBundle, comment: "")
+        }
+
+        guard let (_, bundle) = localeBundle(tableName: "Localizable", preferredLanguages: preferredLanguages) else {
+          return "LiveIsEmpty"
+        }
+
+        return NSLocalizedString("LiveIsEmpty", bundle: bundle, comment: "")
+      }
 
       /// en translation: Make sure your phone has a stable network Internet connection and try again
       ///

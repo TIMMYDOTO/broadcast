@@ -3,3 +3,5 @@
 "NoMatches" = "Sem eventos";
 "NoConnection" = "Sem conexão";
 "MakeSureConnection" = "Verifique se o seu telefone\ntem uma rede estável\nconexão com a Internet e tente novamente";
+"LiveIsEmpty" = "A lista de eventos\n ao vivo está vazia";
+"FollowForPrematch" = "Siga os eventos pré-jogo";

@@ -23,7 +23,7 @@ class NoConnectionViewController: UIViewController {
     
     let mainBottomOffset: CGFloat
     
-    private var animationView = AnimationView()
+    private var animationView = UIImageView()
     private weak var titleLabel: UILabel!
     private weak var subtitleLabel: UILabel!
     
@@ -51,7 +51,7 @@ class NoConnectionViewController: UIViewController {
     
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
-        animationView.play()
+//        animationView.play()
     }
     
  
@@ -60,9 +60,11 @@ class NoConnectionViewController: UIViewController {
 private extension NoConnectionViewController {
     func setup() {
         setupView()
-        setupSubtitleLabel()
+        
+             setupAnimationView()
         setupTitleLabel()
-        setupAnimationView()
+        setupSubtitleLabel()
+   
     }
     
     func setupView() {
@@ -71,9 +73,9 @@ private extension NoConnectionViewController {
     
     func setupSubtitleLabel() {
         let label = UILabel()
-        label.font = R.font.lato_BBRegular(size: 14)
-        label.textColor = .white
-        label.numberOfLines = 3
+        label.font = R.font.lato_BBRegular(size: 16)
+        label.textColor = #colorLiteral(red: 1, green: 0.9999999404, blue: 0.9999999404, alpha: 0.5)
+        label.numberOfLines = 2
         
         let style = NSMutableParagraphStyle()
         style.lineHeightMultiple = 1.25
@@ -89,14 +91,14 @@ private extension NoConnectionViewController {
         subtitleLabel.snp.makeConstraints {
             $0.leading.equalToSuperview().offset(16)
             $0.trailing.equalToSuperview().offset(-16)
-            $0.bottom.equalTo(view.safeAreaLayoutGuide.snp.bottom).offset(mainBottomOffset)
-            $0.height.equalTo(72)
+            $0.top.equalTo(titleLabel.snp.bottom).offset(16)
+            $0.height.equalTo(48)
         }
     }
     
     func setupTitleLabel() {
         let label = UILabel()
-        label.font = R.font.gilroyBold(size: 24)
+        label.font = R.font.robotoBold(size: 32)
         label.theme_textColor = ThemeColor.textPrimary
         label.numberOfLines = 1
         let noConnection = NSLocalizedString("NoConnection", comment: "NoMatches Title")
@@ -113,30 +115,29 @@ private extension NoConnectionViewController {
         titleLabel.snp.makeConstraints {
             $0.leading.equalToSuperview().offset(16)
             $0.trailing.equalToSuperview().offset(-16)
-            $0.bottom.equalTo(subtitleLabel.snp.top).offset(-8)
-            $0.height.equalTo(32)
+            $0.top.equalTo(animationView.snp.bottom).offset(25)
+            $0.height.equalTo(40)
         }
     }
     
     func setupAnimationView() {
-        let animation = Animation.named("illustration_6")
-        
-//        let placeholder = AnimationView()
-        animationView.contentMode = .scaleAspectFit
-        animationView.animation = animation
-        animationView.loopMode = .loop
+        animationView.image = UIImage(named: "palm")
+
+//        animationView.contentMode = .scaleAspectFit
+//        animationView.animation = animation
+//        animationView.loopMode = .loop
         
         
         view.addSubview(animationView)
         animationView.snp.makeConstraints {
-            $0.bottom.equalTo(titleLabel.snp.top).offset(-8)
+            $0.centerY.equalToSuperview().offset(-100)
             $0.centerX.equalToSuperview()
-            $0.width.equalTo(256)
-            $0.height.equalTo(256)
+            $0.width.equalTo(80)
+            $0.height.equalTo(80)
         }
     }
     
     @objc func didBecomeActive() {
-            animationView.play()
+//            animationView.play()
         }
 }

@@ -32,7 +32,7 @@ class CyberSportFilterSkeletonCell: UICollectionViewCell {
     }
     
     func setupBackgroundView() {
-        print("setupBackgroundView")
+        
         let view = UIView()
 //        view.isSkeletonable = true
 //        view.skeletonCornerRadius = 12

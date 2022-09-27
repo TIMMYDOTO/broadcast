@@ -82,10 +82,12 @@ class NewCSStakesCell: UICollectionViewCell {
         icon.isHidden = true
         
         lockIcon = icon
+
         addSubview(lockIcon)
         lockIcon.snp.makeConstraints {
+            $0.trailing.equalToSuperview().offset(-12)
             $0.width.height.equalTo(16)
-            $0.center.equalTo(stakeFactorLabel.snp.center)
+            $0.centerY.equalTo(stakeFactorLabel.snp.centerY)
         }
     }
     
@@ -96,7 +98,10 @@ class NewCSStakesCell: UICollectionViewCell {
         iconImageView.isHidden = true
         addSubview(iconImageView)
         iconImageView.snp.makeConstraints { make in
-            make.centerY.centerX.equalToSuperview()
+            make.centerY.equalToSuperview()
+            make.trailing.equalTo(stakeFactorLabel.snp.leading).offset(-4)
+            make.width.equalTo(11)
+            make.height.equalTo(5)
         }
     }
     

@@ -139,6 +139,9 @@
 		9AE4765028D3380800E59FC0 /* Roboto-Black.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 9AE4764428D3380800E59FC0 /* Roboto-Black.ttf */; };
 		9AE4765228D33BD500E59FC0 /* NavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9AE4765128D33BD500E59FC0 /* NavigationController.swift */; };
 		9AE4765428D355F100E59FC0 /* MakeBetVIewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9AE4765328D355F100E59FC0 /* MakeBetVIewController.swift */; };
+		9AF4CE7E28E33EE8002CBC2D /* ConnectManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9AF4CE7B28E33EE7002CBC2D /* ConnectManager.swift */; };
+		9AF4CE7F28E33EE8002CBC2D /* ConnectManagerInterface.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9AF4CE7C28E33EE7002CBC2D /* ConnectManagerInterface.swift */; };
+		9AF4CE8028E33EE8002CBC2D /* ConnectManagerDependency.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9AF4CE7D28E33EE7002CBC2D /* ConnectManagerDependency.swift */; };
 		9AF76E1128DDB9730040E574 /* NoConnectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9AF76E1028DDB9730040E574 /* NoConnectionViewController.swift */; };
 		9AF76E1328DDC3EB0040E574 /* illustration_6.json in Resources */ = {isa = PBXBuildFile; fileRef = 9AF76E1228DDC3EB0040E574 /* illustration_6.json */; };
 		9AF76E1528DE12810040E574 /* CyberSportFilterSkeletonCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9AF76E1428DE12810040E574 /* CyberSportFilterSkeletonCell.swift */; };
@@ -291,6 +294,9 @@
 		9AE4764428D3380800E59FC0 /* Roboto-Black.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Roboto-Black.ttf"; sourceTree = "<group>"; };
 		9AE4765128D33BD500E59FC0 /* NavigationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigationController.swift; sourceTree = "<group>"; };
 		9AE4765328D355F100E59FC0 /* MakeBetVIewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MakeBetVIewController.swift; sourceTree = "<group>"; };
+		9AF4CE7B28E33EE7002CBC2D /* ConnectManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ConnectManager.swift; sourceTree = "<group>"; };
+		9AF4CE7C28E33EE7002CBC2D /* ConnectManagerInterface.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ConnectManagerInterface.swift; sourceTree = "<group>"; };
+		9AF4CE7D28E33EE7002CBC2D /* ConnectManagerDependency.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ConnectManagerDependency.swift; sourceTree = "<group>"; };
 		9AF76E1028DDB9730040E574 /* NoConnectionViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NoConnectionViewController.swift; sourceTree = "<group>"; };
 		9AF76E1228DDC3EB0040E574 /* illustration_6.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = illustration_6.json; sourceTree = "<group>"; };
 		9AF76E1428DE12810040E574 /* CyberSportFilterSkeletonCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CyberSportFilterSkeletonCell.swift; sourceTree = "<group>"; };
@@ -480,6 +486,7 @@
 				9ACBA9A728DA10EE00E73AAF /* Localizable.strings */,
 				9A4EE32328CF570300905FF9 /* CSType.swift */,
 				9A79192C28D0934800062946 /* Sport.swift */,
+				9AF4CE7A28E33EE7002CBC2D /* ConnectManagerService */,
 				9A4EE31128CF40C000905FF9 /* State */,
 				9A790DF928CA29CB009F2AA4 /* CyberOdinWebSocket */,
 				9A790DE728CA1D0D009F2AA4 /* Main */,
@@ -654,6 +661,16 @@
 				9AE4764428D3380800E59FC0 /* Roboto-Black.ttf */,
 			);
 			path = Roboto;
+			sourceTree = "<group>";
+		};
+		9AF4CE7A28E33EE7002CBC2D /* ConnectManagerService */ = {
+			isa = PBXGroup;
+			children = (
+				9AF4CE7B28E33EE7002CBC2D /* ConnectManager.swift */,
+				9AF4CE7C28E33EE7002CBC2D /* ConnectManagerInterface.swift */,
+				9AF4CE7D28E33EE7002CBC2D /* ConnectManagerDependency.swift */,
+			);
+			path = ConnectManagerService;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -889,6 +906,7 @@
 				9A790E3328CA29CB009F2AA4 /* etw_rpc_ping.pb.swift in Sources */,
 				9A79193328D0943A00062946 /* sport.pb.swift in Sources */,
 				9A790E2728CA29CB009F2AA4 /* etw_rpc_newsletter_stake.pb.swift in Sources */,
+				9AF4CE7E28E33EE8002CBC2D /* ConnectManager.swift in Sources */,
 				9A790E3E28CA29CB009F2AA4 /* CyberOdinWsServiceSubjects.swift in Sources */,
 				9A790DF628CA1E27009F2AA4 /* ViewOutput.swift in Sources */,
 				9A4EE32228CF56AB00905FF9 /* Reusable.swift in Sources */,
@@ -897,6 +915,7 @@
 				9ACBA99D28D89FEE00E73AAF /* CSDefaultMatchCell.swift in Sources */,
 				9A4EE30E28CB610600905FF9 /* CSSport.swift in Sources */,
 				9A790DF028CA1D81009F2AA4 /* MainViewInput.swift in Sources */,
+				9AF4CE7F28E33EE8002CBC2D /* ConnectManagerInterface.swift in Sources */,
 				9A79192D28D0934900062946 /* Sport.swift in Sources */,
 				9A4EE27D28CB5A9300905FF9 /* CSState.swift in Sources */,
 				9A790E2028CA29CB009F2AA4 /* etw_model_match.pb.swift in Sources */,
@@ -924,6 +943,7 @@
 				9A790E3128CA29CB009F2AA4 /* etw_rpc_unsubscribe_full_tournament.pb.swift in Sources */,
 				9A790E2828CA29CB009F2AA4 /* etw_rpc_newsletter_full_match.pb.swift in Sources */,
 				9A4EE32028CF4D5200905FF9 /* CyberSportIconImageView.swift in Sources */,
+				9AF4CE8028E33EE8002CBC2D /* ConnectManagerDependency.swift in Sources */,
 				9A79194028D1E94800062946 /* BroadcastViewController.swift in Sources */,
 				9A790E2D28CA29CB009F2AA4 /* etw_rpc_unsubscribe.pb.swift in Sources */,
 			);

@@ -16,18 +16,24 @@ final class MainPresenter: MainOutput {
     private var needSwitchPrematchIfLivesEmpty = false
     weak var view: MainViewInput!
     private var didLoaded = false
+    private var willAppeared = false
+    private var isLostConnect = false
+    private var stateAwait: Bool = false
     // MARK: - Constructor
     
     public init(view: MainViewInput ) {
         self.view = view
     }
     
+
+    
     func viewDidLoad() {
 //        state.sportSettings = interactor.getSettings()
         bindingWs()
         
         if interactor.checkConnected() {
-//            awaitSetSettingAction = .state
+            
+            awaitSetSettingAction = .state
             interactor.sendSetSetting(filter: "all")
         } else {
 //            interactor.wsStart()
@@ -39,6 +45,18 @@ final class MainPresenter: MainOutput {
             didLoaded = true
         }
     }
+    
+//    func viewWillAppear(animated: Bool) {
+//        view?.setSelectedStakes(model: [:], reload: true)
+//        if willAppeared, state.getType() == .live {
+//            awaitSetSettingAction = .state
+//            interactor.sendSetSetting(filter: state.currentFilter.getValue())
+//        }
+//        willAppeared = true
+//    }
+//
+   
+    
     
     func changeCurrentFilter(_ model: CSFilter) {
         state.currentFilter = model
@@ -112,7 +130,40 @@ final class MainPresenter: MainOutput {
     }
     
     func bindingWs() {
-        
+        interactor.subscribeNetworkStatus { [weak self] connect in
+            guard let self = self else { return }
+            if connect, self.isLostConnect {
+                self.interactor.wsConnect()
+                self.isLostConnect = false
+            } else {
+                self.isLostConnect = true
+            }
+        }
+        interactor.subscribeAppState { [weak self] state in
+            guard let self = self else { return }
+            if state == .background {
+                self.cancelTimer()
+            }
+        }
+        interactor.subscribeResponseWsConnected { [weak self] success in
+            guard let self = self else { return }
+            if success {
+                self.awaitSetSettingAction = .state
+                self.interactor.sendSetSetting(filter: "all")
+            }
+        }
+        interactor.subscribeStateAwait { [weak self] _await in
+            guard let self = self else { return }
+            if _await { self.stateAwait = true }
+        }
+        interactor.subscribeStateReady { [weak self] ready in
+            guard let self = self else { return }
+            if ready {
+                self.awaitSetSettingAction = .state
+                self.interactor.sendSetSetting(filter: self.state.currentFilter.getValue())
+                self.stateAwait = false
+            }
+        }
         interactor.subscribeResponseSetSetting { [weak self] success in
             guard let self = self else { return }
             if success {
@@ -134,14 +185,14 @@ final class MainPresenter: MainOutput {
             self.handleError(message)
         }
         
-        
-        interactor.subscribeResponseWsConnected { [weak self] success in
-            guard let self = self else { return }
-            if success {
-                self.awaitSetSettingAction = .state
-                self.interactor.sendSetSetting(filter: "all")
-            }
-        }
+//
+//        interactor.subscribeResponseWsConnected { [weak self] success in
+//            guard let self = self else { return }
+//            if success {
+//                self.awaitSetSettingAction = .state
+//                self.interactor.sendSetSetting(filter: "all")
+//            }
+//        }
         
         
         interactor.subscribeResponseState { [weak self] result in

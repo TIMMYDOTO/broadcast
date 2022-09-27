@@ -12,7 +12,7 @@ class BroadcastViewController: UIViewController {
     var closeButton: UIButton!
 
     private weak var translationView: CSDetailsHeaderTranslationView!
-    
+    var hasClickedDismiss = false
     var match: CSMatch!
     let height = UIScreen.main.bounds.width * 0.5625
     override func viewDidLoad() {
@@ -65,6 +65,8 @@ class BroadcastViewController: UIViewController {
     override func viewWillTransition(to size: CGSize, with coordinator: UIViewControllerTransitionCoordinator) {
            super.viewWillTransition(to: size, with: coordinator)
            if UIDevice.current.orientation.isLandscape {
+               print("landscape")
+               
                translationView.webView.scrollView.contentSize = size
                translationView.snp.remakeConstraints {
                    $0.leading.equalToSuperview()
@@ -75,6 +77,11 @@ class BroadcastViewController: UIViewController {
        
                
            } else {
+               if hasClickedDismiss {
+               coordinator.animate(alongsideTransition: nil) { _ in
+                   self.dismiss(animated: true)
+                 }
+               }
                translationView.webView.scrollView.contentSize = size
                translationView.snp.remakeConstraints {
                    $0.centerY.equalToSuperview()
@@ -87,14 +94,15 @@ class BroadcastViewController: UIViewController {
     
 
     @objc func didClickDismiss() {
+        hasClickedDismiss = true
         AppUtility.lockOrientation(.portrait)
-
+ 
             UIDevice.current.setValue(UIInterfaceOrientation.portrait.rawValue, forKey: "orientation")
             UINavigationController.attemptRotationToDeviceOrientation()
 
         
-     
-        dismiss(animated: true)
+    
+        
     }
     
 }

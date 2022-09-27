@@ -3,3 +3,5 @@
 "NoMatches" = "No events";
 "NoConnection" = "No connection";
 "MakeSureConnection" = "Make sure your phone\nhas a stable network\nInternet connection and try again";
+"LiveIsEmpty" = "List of live\n events is empty";
+"FollowForPrematch" = "Follow prematch events";
