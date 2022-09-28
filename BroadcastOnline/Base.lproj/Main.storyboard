@@ -57,14 +57,14 @@
             <objects>
                 <viewController storyboardIdentifier="MakeBetVIewController" id="Zyq-tO-BWf" customClass="MakeBetVIewController" customModule="BroadcastOnline" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="PBB-YU-cyk">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="LGA-hX-ub2">
-                                <rect key="frame" x="0.0" y="193" width="375" height="619"/>
+                                <rect key="frame" x="0.0" y="135" width="320" height="433"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="8Jb-hO-7Mo">
-                                        <rect key="frame" x="172" y="8" width="31" height="3"/>
+                                        <rect key="frame" x="144.5" y="8" width="31" height="3"/>
                                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="3" id="9WL-GA-RP0"/>
@@ -72,16 +72,13 @@
                                         </constraints>
                                     </view>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="UNLOCK THE GAME  WITH THE BEST BOOKMER" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6c3-qX-cn0">
-                                        <rect key="frame" x="49.5" y="364" width="276" height="77"/>
-                                        <constraints>
-                                            <constraint firstAttribute="height" constant="77" id="FDH-Xe-QIx"/>
-                                        </constraints>
+                                        <rect key="frame" x="22" y="235.5" width="276" height="73.5"/>
                                         <fontDescription key="fontDescription" name="GiorgioSansLCG-Bold" family="Giorgio Sans LCG" pointSize="40"/>
                                         <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="LU7-hS-HNP">
-                                        <rect key="frame" x="16" y="531" width="343" height="56"/>
+                                        <rect key="frame" x="16" y="349" width="288" height="56"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="56" id="K3h-sC-Y3J"/>
                                         </constraints>
@@ -93,36 +90,36 @@
                                         </connections>
                                     </button>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Place bets in the BetBoom app" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="GiQ-Gm-VQE">
-                                        <rect key="frame" x="81.5" y="457" width="212" height="19.5"/>
+                                        <rect key="frame" x="54" y="325" width="212" height="19.5"/>
                                         <fontDescription key="fontDescription" name="Lato_BB-Regular" family="Lato_BB" pointSize="16"/>
                                         <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="MakeBet" translatesAutoresizingMaskIntoConstraints="NO" id="2ld-fc-f18">
-                                        <rect key="frame" x="53" y="32" width="269" height="324"/>
+                                        <rect key="frame" x="53" y="23" width="214" height="204.5"/>
                                     </imageView>
                                 </subviews>
                                 <color key="backgroundColor" red="0.12216828020000001" green="0.1401331425" blue="0.1921631694" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 <constraints>
-                                    <constraint firstItem="LU7-hS-HNP" firstAttribute="top" relation="greaterThanOrEqual" secondItem="GiQ-Gm-VQE" secondAttribute="bottom" constant="8" id="7Cq-yt-7UZ"/>
-                                    <constraint firstItem="2ld-fc-f18" firstAttribute="top" secondItem="8Jb-hO-7Mo" secondAttribute="bottom" constant="21" id="Nia-sR-WtA"/>
-                                    <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="6c3-qX-cn0" secondAttribute="trailing" constant="16" id="OYF-W6-jxI"/>
+                                    <constraint firstItem="2ld-fc-f18" firstAttribute="top" secondItem="8Jb-hO-7Mo" secondAttribute="bottom" constant="12" id="Nia-sR-WtA"/>
+                                    <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="6c3-qX-cn0" secondAttribute="trailing" constant="8" id="OYF-W6-jxI"/>
                                     <constraint firstItem="GiQ-Gm-VQE" firstAttribute="top" secondItem="6c3-qX-cn0" secondAttribute="bottom" constant="16" id="PHf-zB-GWF"/>
                                     <constraint firstItem="2ld-fc-f18" firstAttribute="leading" secondItem="LGA-hX-ub2" secondAttribute="leading" constant="53" id="R7J-bc-w8H"/>
+                                    <constraint firstItem="LU7-hS-HNP" firstAttribute="top" relation="greaterThanOrEqual" secondItem="GiQ-Gm-VQE" secondAttribute="bottom" constant="4.5" id="TK6-nv-7fh"/>
                                     <constraint firstItem="6c3-qX-cn0" firstAttribute="centerX" secondItem="LGA-hX-ub2" secondAttribute="centerX" id="YBe-af-KbM"/>
-                                    <constraint firstItem="6c3-qX-cn0" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="LGA-hX-ub2" secondAttribute="leading" constant="16" id="aC6-Or-t4i"/>
+                                    <constraint firstItem="6c3-qX-cn0" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="LGA-hX-ub2" secondAttribute="leading" constant="8" id="aC6-Or-t4i"/>
                                     <constraint firstItem="LU7-hS-HNP" firstAttribute="leading" secondItem="LGA-hX-ub2" secondAttribute="leading" constant="16" id="afY-gN-cSM"/>
                                     <constraint firstItem="GiQ-Gm-VQE" firstAttribute="centerX" secondItem="LGA-hX-ub2" secondAttribute="centerX" id="fsw-EH-KNP"/>
                                     <constraint firstItem="6c3-qX-cn0" firstAttribute="top" secondItem="2ld-fc-f18" secondAttribute="bottom" constant="8" id="kcX-nW-bR6"/>
                                     <constraint firstAttribute="trailing" secondItem="2ld-fc-f18" secondAttribute="trailing" constant="53" id="kr0-6D-WIM"/>
-                                    <constraint firstAttribute="bottom" secondItem="LU7-hS-HNP" secondAttribute="bottom" constant="32" id="vxb-UV-yPa"/>
+                                    <constraint firstAttribute="bottom" secondItem="LU7-hS-HNP" secondAttribute="bottom" constant="28" id="vxb-UV-yPa"/>
                                     <constraint firstItem="8Jb-hO-7Mo" firstAttribute="top" secondItem="LGA-hX-ub2" secondAttribute="top" constant="8" id="y9d-x3-2di"/>
                                     <constraint firstAttribute="trailing" secondItem="LU7-hS-HNP" secondAttribute="trailing" constant="16" id="yqb-P8-Sdh"/>
                                     <constraint firstItem="8Jb-hO-7Mo" firstAttribute="centerX" secondItem="LGA-hX-ub2" secondAttribute="centerX" id="zxK-xj-6MI"/>
                                 </constraints>
                             </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="kJF-9k-by2">
-                                <rect key="frame" x="0.0" y="0.0" width="375" height="193"/>
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="135"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             </view>
                         </subviews>
@@ -132,7 +129,7 @@
                             <constraint firstItem="LGA-hX-ub2" firstAttribute="top" secondItem="kJF-9k-by2" secondAttribute="bottom" id="6EW-Md-z4u"/>
                             <constraint firstItem="WMb-Pn-qmf" firstAttribute="trailing" secondItem="kJF-9k-by2" secondAttribute="trailing" id="7b5-T0-Vii"/>
                             <constraint firstItem="kJF-9k-by2" firstAttribute="top" secondItem="PBB-YU-cyk" secondAttribute="top" id="A6r-qQ-tNz"/>
-                            <constraint firstItem="2ld-fc-f18" firstAttribute="height" secondItem="PBB-YU-cyk" secondAttribute="height" multiplier="0.399015" id="RVO-3v-4de"/>
+                            <constraint firstItem="2ld-fc-f18" firstAttribute="height" secondItem="PBB-YU-cyk" secondAttribute="height" multiplier="0.36" id="RVO-3v-4de"/>
                             <constraint firstItem="LGA-hX-ub2" firstAttribute="height" secondItem="PBB-YU-cyk" secondAttribute="height" multiplier="0.762315" id="fhG-jZ-kZT"/>
                             <constraint firstItem="LGA-hX-ub2" firstAttribute="bottom" secondItem="PBB-YU-cyk" secondAttribute="bottom" id="iqD-8g-iz3"/>
                             <constraint firstItem="kJF-9k-by2" firstAttribute="leading" secondItem="WMb-Pn-qmf" secondAttribute="leading" id="jIN-Nb-J4j"/>
@@ -140,7 +137,7 @@
                             <constraint firstItem="WMb-Pn-qmf" firstAttribute="trailing" secondItem="LGA-hX-ub2" secondAttribute="trailing" id="yge-FB-gZe"/>
                         </constraints>
                     </view>
-                    <size key="freeformSize" width="375" height="812"/>
+                    <size key="freeformSize" width="320" height="568"/>
                     <connections>
                         <outlet property="backgroundView" destination="LGA-hX-ub2" id="FYf-3W-MKi"/>
                         <outlet property="huitaView" destination="kJF-9k-by2" id="RSa-qw-RNo"/>
@@ -152,7 +149,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Tgf-Ok-kEV" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2375" y="87"/>
+            <point key="canvasLocation" x="2373.913043478261" y="86.383928571428569"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="sD9-bW-lQg">

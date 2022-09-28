@@ -114,7 +114,7 @@ private extension CSTournamentHeader {
         view.addGestureRecognizer(pan)
         */
         mainView = view
-        mainView.backgroundColor = #colorLiteral(red: 0.06419743598, green: 0.08443901688, blue: 0.1187562123, alpha: 1)
+//        mainView.backgroundColor = #colorLiteral(red: 0.06419743598, green: 0.08443901688, blue: 0.1187562123, alpha: 1)
         addSubview(mainView)
         
         mainView.snp.makeConstraints {

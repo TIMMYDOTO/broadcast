@@ -26,9 +26,7 @@ class MakeBetVIewController: UIViewController {
         didSet{
             makeBetButton.layer.cornerRadius = 12
             makeBetButton.clipsToBounds = true
-            let firstColor = #colorLiteral(red: 1, green: 0.3058823529, blue: 0.3058823529, alpha: 1)
-            let secondColor = #colorLiteral(red: 1, green: 0.5137254902, blue: 0.3058823529, alpha: 1)
-            self.makeBetButton.applyGradient(colours: [firstColor, secondColor])
+     
         }
     }
     
@@ -42,6 +40,20 @@ class MakeBetVIewController: UIViewController {
         backgroundView.addGestureRecognizer(UIPanGestureRecognizer(target: self, action: #selector(handleDismiss)))
         huitaView.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(dismissController)))
         setNeedsStatusBarAppearanceUpdate()
+        
+
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+      
+    }
+    
+    override func viewDidLayoutSubviews() {
+        super.viewDidLayoutSubviews()
+        let firstColor = #colorLiteral(red: 1, green: 0.3058823529, blue: 0.3058823529, alpha: 1)
+        let secondColor = #colorLiteral(red: 1, green: 0.5137254902, blue: 0.3058823529, alpha: 1)
+        self.makeBetButton.applyGradient(colours: [firstColor, secondColor])
     }
     
     @objc func dismissController() {

@@ -94,6 +94,9 @@ class BroadcastViewController: UIViewController {
     
 
     @objc func didClickDismiss() {
+        if UIDevice.current.orientation.isPortrait {
+            self.dismiss(animated: true)
+        }
         hasClickedDismiss = true
         AppUtility.lockOrientation(.portrait)
  

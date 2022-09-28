@@ -156,7 +156,7 @@ extension CyberSportGamesCollection: UICollectionViewDelegateFlowLayout {
         } else {
             let width: CGFloat = model[indexPath.item].abbreviation.width(withConstrainedHeight: 10, font: UIFont.systemFont(ofSize: 12))
          
-            return CGSize(width: max(width + 16, 60), height: 72)
+            return CGSize(width: max(width + 16, 60), height: collectionView.frame.size.height * 0.375)
         }
     }
 }

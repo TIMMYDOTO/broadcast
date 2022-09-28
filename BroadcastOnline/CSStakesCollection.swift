@@ -159,14 +159,14 @@ extension CSStakesCollection: UICollectionViewDelegateFlowLayout {
         let size: CGSize
         switch item {
         case .stake:
-            size = CGSize(width: collectionView.frame.size.width * 0.316, height: cellHeight)
+            size = CGSize(width: (collectionView.frame.size.width - 16) * 0.33, height: cellHeight)
         case .longStake:
             size = CGSize(width: 97, height: cellHeight)
         case .more:
-            let width: CGFloat = model.count < 2 ? collectionView.frame.size.width : collectionView.frame.size.width * 0.316
+            let width: CGFloat = model.count < 2 ? collectionView.frame.size.width : (collectionView.frame.size.width - 16) * 0.33
             size = CGSize(width: width, height: cellHeight)
         case .placeholder:
-            size = CGSize(width: collectionView.frame.size.width * 0.316, height: cellHeight)
+            size = CGSize(width: (collectionView.frame.size.width - 16) * 0.33, height: cellHeight)
         }
         return size
     }
