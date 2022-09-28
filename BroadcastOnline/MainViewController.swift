@@ -62,7 +62,24 @@ class MainViewController: UIViewController, MainViewInput {
         
     }
     
-
+    override func viewWillTransition(to size: CGSize, with coordinator: UIViewControllerTransitionCoordinator) {
+           super.viewWillTransition(to: size, with: coordinator)
+           
+//        tournamentsCollection.snp.remakeConstraints {
+//
+//                $0.top.equalTo(filtersCollection.snp.bottom).offset(16)
+//    //            $0.leading.trailing.bottom.equalToSuperview()
+//                $0.left.equalToSuperview()
+//                $0.right.equalToSuperview()
+//                $0.bottom.equalToSuperview()
+//
+//
+//
+//        }
+       
+          
+       }
+    
     
     func setSelectedStakes(model: [String : Set<String>], reload: Bool) {
         DispatchQueue.main.async {
@@ -142,10 +159,12 @@ class MainViewController: UIViewController, MainViewInput {
         }
     }
     
+
     override func viewWillAppear(_ animated: Bool) {
        super.viewWillAppear(animated)
- 
+
        AppUtility.lockOrientation(.portrait)
+
   
    }
 
@@ -274,11 +293,17 @@ class MainViewController: UIViewController, MainViewInput {
         
         tournamentsCollection = collection
         view.addSubview(tournamentsCollection)
+        
         tournamentsCollection.snp.makeConstraints {
             $0.top.equalTo(filtersCollection.snp.bottom).offset(16)
-            $0.leading.trailing.bottom.equalToSuperview()
+//            $0.leading.trailing.bottom.equalToSuperview()
+            $0.left.equalToSuperview()
+            $0.width.equalTo(UIScreen.main.bounds.width)
+            $0.bottom.equalToSuperview()
         }
     }
+    
+
     func hideGameFilterSkeleton() {
         gamesCollection.hideSkeleton()
     }

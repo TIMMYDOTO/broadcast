@@ -75,35 +75,34 @@ class BroadcastViewController: UIViewController {
                    $0.width.equalTo(size.width)
                }
        
-               
            } else {
-               if hasClickedDismiss {
-               coordinator.animate(alongsideTransition: nil) { _ in
-                   self.dismiss(animated: true)
-                 }
-               }
+           
                translationView.webView.scrollView.contentSize = size
                translationView.snp.remakeConstraints {
                    $0.centerY.equalToSuperview()
                    $0.leading.trailing.equalToSuperview()
                    $0.height.equalTo(height)
                }
-
+               if hasClickedDismiss {
+               coordinator.animate(alongsideTransition: nil) { _ in
+                   self.dismiss(animated: true)
+                 }
+               }
            }
        }
     
 
     @objc func didClickDismiss() {
-        if UIDevice.current.orientation.isPortrait {
-            self.dismiss(animated: true)
-        }
+    
         hasClickedDismiss = true
         AppUtility.lockOrientation(.portrait)
  
             UIDevice.current.setValue(UIInterfaceOrientation.portrait.rawValue, forKey: "orientation")
             UINavigationController.attemptRotationToDeviceOrientation()
 
-        
+        if UIDevice.current.orientation.isPortrait {
+            self.dismiss(animated: true)
+        }
     
         
     }

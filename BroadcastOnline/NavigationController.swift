@@ -19,6 +19,8 @@ class NavigationController: UINavigationController {
         
     }
     
+    
+    
     private func setupNoConnection() {
         NotificationCenter.default
             .addObserver(
