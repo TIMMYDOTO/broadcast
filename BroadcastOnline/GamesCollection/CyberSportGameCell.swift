@@ -118,7 +118,7 @@ private extension CyberSportGameCell {
         contentView.addSubview(sportIconView)
         sportIconView.snp.makeConstraints {
             $0.top.equalToSuperview().offset(8)
-            $0.height.width.equalToSuperview().multipliedBy(0.47)
+            $0.height.width.equalTo(34)
             $0.centerX.equalToSuperview()
         }
     }
@@ -134,7 +134,7 @@ private extension CyberSportGameCell {
         contentView.addSubview(titleLabel)
         titleLabel.snp.makeConstraints {
 //            $0.top.equalTo(sportIconView.snp.bottom).offset(9)
-            $0.bottom.equalToSuperview().offset(-6)
+            $0.bottom.equalToSuperview().offset(-8)
             $0.centerX.equalToSuperview()
             $0.height.equalTo(16)
         

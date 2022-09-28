@@ -55,7 +55,7 @@ class MainViewController: UIViewController, MainViewInput {
         let cyberSportTitle = NSLocalizedString("CyberSportTitle", comment: "CyberSportTitle Main")
         label.text = cyberSportTitle
         label.font = R.font.robotoBold(size: 24)
-
+        
         self.navigationItem.leftBarButtonItem = UIBarButtonItem.init(customView: label)
         setupNoConnection()
 
@@ -240,10 +240,11 @@ class MainViewController: UIViewController, MainViewInput {
         gamesCollection = collection
         view.addSubview(gamesCollection)
         gamesCollection.snp.makeConstraints {
-            $0.top.equalToSuperview()
+            $0.top.equalToSuperview().offset(0)
             $0.leading.trailing.equalToSuperview()
 //            $0.height.equalTo(83)
-            $0.height.equalToSuperview().multipliedBy(0.24)
+//            $0.height.equalTo(130)
+            $0.height.equalTo(192)
         }
         
         gamesCollection.layer.cornerRadius = 16
@@ -253,7 +254,8 @@ class MainViewController: UIViewController, MainViewInput {
         
         gamesCollection.willSelect = { [weak self] game in
             guard let self = self else { return }
-
+            self.tournamentsCollection.clear()
+            self.tournamentsCollection.setLoading()
             self.presenter.changeCurrentSport(id: game.id)
         }
     }

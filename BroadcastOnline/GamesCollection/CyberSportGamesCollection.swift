@@ -20,9 +20,9 @@ class CyberSportGamesCollection: UICollectionView {
     init() {
         let layout = UICollectionViewFlowLayout()
         layout.scrollDirection = .horizontal
-        layout.minimumLineSpacing = 8
+        layout.minimumLineSpacing = 0
         layout.minimumInteritemSpacing = 8
-        
+
         super.init(frame: .zero, collectionViewLayout: layout)
         setup()
     }
@@ -116,6 +116,8 @@ extension CyberSportGamesCollection: SkeletonCollectionViewDataSource {
     func collectionSkeletonView(_ skeletonView: UICollectionView, cellIdentifierForItemAt indexPath: IndexPath) -> ReusableCellIdentifier {
         return "CyberSportGameSkeletonCell"
     }
+    
+    
 }
 
 extension CyberSportGamesCollection: UICollectionViewDelegate {
@@ -150,13 +152,18 @@ extension CyberSportGamesCollection: UICollectionViewDelegate {
 }
 
 extension CyberSportGamesCollection: UICollectionViewDelegateFlowLayout {
+    
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAt section: Int) -> UIEdgeInsets {
+        return UIEdgeInsets(top: 8, left: 0, bottom: 0, right: 0)
+    }
+    
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         if sk.isSkeletonActive {
             return CGSize(width: 80, height: 72)
         } else {
             let width: CGFloat = model[indexPath.item].abbreviation.width(withConstrainedHeight: 10, font: UIFont.systemFont(ofSize: 12))
          
-            return CGSize(width: max(width + 16, 60), height: collectionView.frame.size.height * 0.375)
+            return CGSize(width: max(width + 16, 60), height: 72)
         }
     }
 }
@@ -167,7 +174,7 @@ private extension CyberSportGamesCollection {
     }
     
     func setupCollectionView() {
-        contentInset = UIEdgeInsets(top: 0, left: 8, bottom: 0, right: 8)
+        contentInset = UIEdgeInsets(top: 0, left: 16, bottom: 0, right: 16)
         
         alwaysBounceHorizontal = true
         showsHorizontalScrollIndicator = false
