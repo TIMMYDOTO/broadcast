@@ -91,17 +91,31 @@ class MakeBetVIewController: UIViewController {
     @IBAction func didTapmakeBet(_ sender: UIButton) {
         let locale = Locale.current
         
-        if locale.regionCode == "RU" {
-             let url = URL(string: "https://apps.apple.com/ru/app/betboom-%D1%81%D1%82%D0%B0%D0%B2%D0%BA%D0%B8-%D0%BD%D0%B0-%D1%81%D0%BF%D0%BE%D1%80%D1%82/id1523280942")!
-                UIApplication.shared.open(url)
+        switch locale.regionCode {
+        case "RU":
+            let url = URL(string: "https://apps.apple.com/ru/app/betboom-%D1%81%D1%82%D0%B0%D0%B2%D0%BA%D0%B8-%D0%BD%D0%B0-%D1%81%D0%BF%D0%BE%D1%80%D1%82/id1523280942")!
+               UIApplication.shared.open(url)
+        case "BR":
+            let url = URL(string: "https://bet-boom.com/pt-BR/registration/base/?utm_source=app_int&utm_campaign=BR101022")!
+               UIApplication.shared.open(url)
+        case "PE":
+            let url = URL(string: "https://bet-boom.com/es-PE/registration/base/?utm_source=app_int&utm_campaign=PL101022")!
+               UIApplication.shared.open(url)
+        case "CL":
+            let url = URL(string: "https://bet-boom.com/es-CL/registration/base/?utm_source=app_int&utm_campaign=CL101022")!
+               UIApplication.shared.open(url)
+        case "MX":
+            let url = URL(string: "https://bet-boom.com/es-MX/registration/base/?utm_source=app_int&utm_campaign=MX101022")!
+               UIApplication.shared.open(url)
+        case "AR":
+            let url = URL(string: "https://bet-boom.com/es-CL/registration/base/?utm_source=app_int&utm_campaign=AR101022")!
+               UIApplication.shared.open(url)
             
-                
-            }else{
-                 let url = URL(string: "https://bbnew.onelink.me/UB93/8knyuz7m")!
-                    UIApplication.shared.open(url)
-                
-            
+        default:
+            let url = URL(string: "https://bbnew.onelink.me/UB93/8knyuz7m")!
+               UIApplication.shared.open(url)
         }
+     
         
     }
 }
