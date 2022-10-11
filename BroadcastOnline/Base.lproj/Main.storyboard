@@ -91,7 +91,7 @@
                                         </connections>
                                     </button>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Place bets in the BetBoom app" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="GiQ-Gm-VQE">
-                                        <rect key="frame" x="54" y="325" width="212" height="19.5"/>
+                                        <rect key="frame" x="54" y="325" width="212" height="19"/>
                                         <fontDescription key="fontDescription" name="Lato_BB-Regular" family="Lato_BB" pointSize="16"/>
                                         <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <nil key="highlightedColor"/>

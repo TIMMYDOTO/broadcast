@@ -747,12 +747,14 @@ struct R: Rswift.Validatable {
     fileprivate init() {}
   }
 
-  /// This `R.image` struct is generated, and contains static references to 34 images.
+  /// This `R.image` struct is generated, and contains static references to 37 images.
   struct image {
     /// Image `CloseIcon`.
     static let closeIcon = Rswift.ImageResource(bundle: R.hostingBundle, name: "CloseIcon")
     /// Image `MakeBet`.
     static let makeBet = Rswift.ImageResource(bundle: R.hostingBundle, name: "MakeBet")
+    /// Image `fullscreen`.
+    static let fullscreen = Rswift.ImageResource(bundle: R.hostingBundle, name: "fullscreen")
     /// Image `green`.
     static let green = Rswift.ImageResource(bundle: R.hostingBundle, name: "green")
     /// Image `ic10ArrowDown`.
@@ -811,12 +813,16 @@ struct R: Rswift.Validatable {
     static let icCyberWildRift = Rswift.ImageResource(bundle: R.hostingBundle, name: "icCyberWildRift")
     /// Image `icLiveInfo`.
     static let icLiveInfo = Rswift.ImageResource(bundle: R.hostingBundle, name: "icLiveInfo")
+    /// Image `mute`.
+    static let mute = Rswift.ImageResource(bundle: R.hostingBundle, name: "mute")
     /// Image `palm`.
     static let palm = Rswift.ImageResource(bundle: R.hostingBundle, name: "palm")
     /// Image `red`.
     static let red = Rswift.ImageResource(bundle: R.hostingBundle, name: "red")
     /// Image `smile`.
     static let smile = Rswift.ImageResource(bundle: R.hostingBundle, name: "smile")
+    /// Image `unmute`.
+    static let unmute = Rswift.ImageResource(bundle: R.hostingBundle, name: "unmute")
 
     #if os(iOS) || os(tvOS)
     /// `UIImage(named: "CloseIcon", bundle: ..., traitCollection: ...)`
@@ -829,6 +835,13 @@ struct R: Rswift.Validatable {
     /// `UIImage(named: "MakeBet", bundle: ..., traitCollection: ...)`
     static func makeBet(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIImage? {
       return UIKit.UIImage(resource: R.image.makeBet, compatibleWith: traitCollection)
+    }
+    #endif
+
+    #if os(iOS) || os(tvOS)
+    /// `UIImage(named: "fullscreen", bundle: ..., traitCollection: ...)`
+    static func fullscreen(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIImage? {
+      return UIKit.UIImage(resource: R.image.fullscreen, compatibleWith: traitCollection)
     }
     #endif
 
@@ -1036,6 +1049,13 @@ struct R: Rswift.Validatable {
     #endif
 
     #if os(iOS) || os(tvOS)
+    /// `UIImage(named: "mute", bundle: ..., traitCollection: ...)`
+    static func mute(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIImage? {
+      return UIKit.UIImage(resource: R.image.mute, compatibleWith: traitCollection)
+    }
+    #endif
+
+    #if os(iOS) || os(tvOS)
     /// `UIImage(named: "palm", bundle: ..., traitCollection: ...)`
     static func palm(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIImage? {
       return UIKit.UIImage(resource: R.image.palm, compatibleWith: traitCollection)
@@ -1053,6 +1073,13 @@ struct R: Rswift.Validatable {
     /// `UIImage(named: "smile", bundle: ..., traitCollection: ...)`
     static func smile(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIImage? {
       return UIKit.UIImage(resource: R.image.smile, compatibleWith: traitCollection)
+    }
+    #endif
+
+    #if os(iOS) || os(tvOS)
+    /// `UIImage(named: "unmute", bundle: ..., traitCollection: ...)`
+    static func unmute(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIImage? {
+      return UIKit.UIImage(resource: R.image.unmute, compatibleWith: traitCollection)
     }
     #endif
 
