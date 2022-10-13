@@ -126,6 +126,10 @@
 		9ACBA9A028D9E99500E73AAF /* CyberSportPlaceholderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9ACBA99F28D9E99400E73AAF /* CyberSportPlaceholderView.swift */; };
 		9ACBA9A228D9EAF600E73AAF /* illustration_7.json in Resources */ = {isa = PBXBuildFile; fileRef = 9ACBA9A128D9EAF500E73AAF /* illustration_7.json */; };
 		9ACBA9A528DA10EE00E73AAF /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 9ACBA9A728DA10EE00E73AAF /* Localizable.strings */; };
+		9AE2FC5B28F84599003EF4A5 /* AppConfig.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9AE2FC5A28F84599003EF4A5 /* AppConfig.swift */; };
+		9AE2FC5D28F845EF003EF4A5 /* ios_config.pb.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9AE2FC5C28F845EF003EF4A5 /* ios_config.pb.swift */; };
+		9AE2FC5F28F84E47003EF4A5 /* AppDataStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9AE2FC5E28F84E47003EF4A5 /* AppDataStore.swift */; };
+		9AE2FC6128F851C4003EF4A5 /* CheckVersion.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9AE2FC6028F851C3003EF4A5 /* CheckVersion.swift */; };
 		9AE4764528D3380800E59FC0 /* Roboto-Medium.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 9AE4763928D3380800E59FC0 /* Roboto-Medium.ttf */; };
 		9AE4764628D3380800E59FC0 /* Roboto-Light.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 9AE4763A28D3380800E59FC0 /* Roboto-Light.ttf */; };
 		9AE4764728D3380800E59FC0 /* Roboto-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 9AE4763B28D3380800E59FC0 /* Roboto-Regular.ttf */; };
@@ -281,6 +285,10 @@
 		9ACBA9AF28DA134C00E73AAF /* ru */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ru; path = ru.lproj/LaunchScreen.strings; sourceTree = "<group>"; };
 		9ACBA9B028DA134C00E73AAF /* ru */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ru; path = ru.lproj/Localizable.strings; sourceTree = "<group>"; };
 		9ACBA9B228DA15A300E73AAF /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Main.strings; sourceTree = "<group>"; };
+		9AE2FC5A28F84599003EF4A5 /* AppConfig.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppConfig.swift; sourceTree = SOURCE_ROOT; };
+		9AE2FC5C28F845EF003EF4A5 /* ios_config.pb.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ios_config.pb.swift; sourceTree = SOURCE_ROOT; };
+		9AE2FC5E28F84E47003EF4A5 /* AppDataStore.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppDataStore.swift; sourceTree = SOURCE_ROOT; };
+		9AE2FC6028F851C3003EF4A5 /* CheckVersion.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CheckVersion.swift; sourceTree = SOURCE_ROOT; };
 		9AE4763928D3380800E59FC0 /* Roboto-Medium.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Roboto-Medium.ttf"; sourceTree = "<group>"; };
 		9AE4763A28D3380800E59FC0 /* Roboto-Light.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Roboto-Light.ttf"; sourceTree = "<group>"; };
 		9AE4763B28D3380800E59FC0 /* Roboto-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Roboto-Regular.ttf"; sourceTree = "<group>"; };
@@ -478,8 +486,12 @@
 		9A790DCE28C9F358009F2AA4 /* BroadcastOnline */ = {
 			isa = PBXGroup;
 			children = (
+				9AE2FC5A28F84599003EF4A5 /* AppConfig.swift */,
+				9AE2FC6028F851C3003EF4A5 /* CheckVersion.swift */,
 				9A790DCF28C9F358009F2AA4 /* AppDelegate.swift */,
+				9AE2FC5E28F84E47003EF4A5 /* AppDataStore.swift */,
 				9A4EE32728CF637D00905FF9 /* Extensions.swift */,
+				9AE2FC5C28F845EF003EF4A5 /* ios_config.pb.swift */,
 				9A790DF728CA1E82009F2AA4 /* ViewInput.swift */,
 				9A790DF528CA1E27009F2AA4 /* ViewOutput.swift */,
 				9A4EE32128CF56AB00905FF9 /* Reusable.swift */,
@@ -856,6 +868,7 @@
 			files = (
 				9ACBA99E28D8C00800E73AAF /* CSStakesCollection.swift in Sources */,
 				9A790E3A28CA29CB009F2AA4 /* etw_rpc_subscribe_match.pb.swift in Sources */,
+				9AE2FC5F28F84E47003EF4A5 /* AppDataStore.swift in Sources */,
 				9A79192428D08F6B00062946 /* errors.pb.swift in Sources */,
 				9A790E2228CA29CB009F2AA4 /* etw_model_sport.pb.swift in Sources */,
 				9AF76E1528DE12810040E574 /* CyberSportFilterSkeletonCell.swift in Sources */,
@@ -878,7 +891,9 @@
 				9A4EE32A28CF818600905FF9 /* CyberSportTournamentsCollection.swift in Sources */,
 				9A790E3228CA29CB009F2AA4 /* etw_rpc_unsubscribe_tournament.pb.swift in Sources */,
 				9A79191A28D08DC200062946 /* TournamentSkeletonCHeader.swift in Sources */,
+				9AE2FC5D28F845EF003EF4A5 /* ios_config.pb.swift in Sources */,
 				9A4EE34128D07DE500905FF9 /* CSPeriodScore.swift in Sources */,
+				9AE2FC5B28F84599003EF4A5 /* AppConfig.swift in Sources */,
 				9A790E3B28CA29CB009F2AA4 /* etw_rpc_unsubscribe_state.pb.swift in Sources */,
 				9A790E2328CA29CB009F2AA4 /* etw_model_tournament.pb.swift in Sources */,
 				9A790E4028CA29CB009F2AA4 /* CyberOdinWsServiceDependency.swift in Sources */,
@@ -900,6 +915,7 @@
 				9A79192B28D0907B00062946 /* stake.pb.swift in Sources */,
 				9A790DE428C9F8C7009F2AA4 /* MainViewController.swift in Sources */,
 				9A79193528D0947400062946 /* subscribe_state.pb.swift in Sources */,
+				9AE2FC6128F851C4003EF4A5 /* CheckVersion.swift in Sources */,
 				9A790E2E28CA29CB009F2AA4 /* etw__rpc_default.pb.swift in Sources */,
 				9A79192F28D093B800062946 /* match.pb.swift in Sources */,
 				9A4EE33628CF877B00905FF9 /* CSMatchBaseCell.swift in Sources */,

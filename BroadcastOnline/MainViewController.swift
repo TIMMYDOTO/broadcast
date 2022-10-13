@@ -33,7 +33,7 @@ class MainViewController: UIViewController, MainViewInput {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-   
+        releaseScenario()
         presenter = MainPresenter(view: self)
         setupGamesCollection()
      
@@ -43,7 +43,7 @@ class MainViewController: UIViewController, MainViewInput {
         tournamentsCollection.setLoading()
         gamesCollection.setLoading()
         filtersCollection.setLoading()
-        presenter.viewDidLoad()
+     
         
         bindFiltersCollection()
    
@@ -364,6 +364,54 @@ class MainViewController: UIViewController, MainViewInput {
         }
     }
 
+    func releaseScenario() {
+        let releaseEndpoints: (first: AppConfigEndpoint, second: AppConfigEndpoint) = (.google, .yandex)
+        requestAppConfig(endpoints: (.yandex, .google)) { [weak self] response in
+            guard let self = self else { return }
+            
+            switch response {
+            case let .success(result):
+                AppDataStore.shared.appConfig.configure(result, with: nil)
+                self.presenter.viewDidLoad()
+
+            
+//                self.startFinishStepLoad()
+            case .failure:
+                print("Неизвестная техническая ошибка")
+                
+            }
+        }
+    }
     
+    func requestAppConfig(
+        endpoints: (first: AppConfigEndpoint, second: AppConfigEndpoint),
+        completion: @escaping (_ result: AppConfigRequestResult) -> Void
+    ) {
+        getAppConfig(endpoint: endpoints.first) { [weak self] response in
+            guard let self = self else { return }
+            switch response {
+            case .success:
+                completion(response)
+            case .failure:
+                self.getAppConfig(endpoint: endpoints.second, completion: completion)
+            }
+        }
+    }
+    
+    func getAppConfig(endpoint: AppConfigEndpoint, completion: @escaping (_ result: AppConfigRequestResult) -> Void) {
+        CheckUpdate.shared.getAppConfig(endpoint: endpoint) { response, error in
+            if let result = response {
+                completion(.success(result))
+            } else {
+                completion(.failure)
+            }
+        }
+    }
+    
+    enum AppConfigRequestResult {
+        case success(Bb_IosConfig)
+        case failure
+    }
+
 
 }
