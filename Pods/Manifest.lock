@@ -1,5 +1,8 @@
 PODS:
   - Alamofire (5.5.0)
+  - AppsFlyerFramework (6.8.1):
+    - AppsFlyerFramework/Main (= 6.8.1)
+  - AppsFlyerFramework/Main (6.8.1)
   - Kingfisher (7.1.2)
   - lottie-ios (3.3.0)
   - R.swift (6.1.0):
@@ -17,6 +20,7 @@ PODS:
 
 DEPENDENCIES:
   - Alamofire
+  - AppsFlyerFramework
   - Kingfisher
   - lottie-ios
   - R.swift
@@ -33,6 +37,7 @@ DEPENDENCIES:
 SPEC REPOS:
   trunk:
     - Alamofire
+    - AppsFlyerFramework
     - Kingfisher
     - lottie-ios
     - R.swift
@@ -49,6 +54,7 @@ SPEC REPOS:
 
 SPEC CHECKSUMS:
   Alamofire: 1c4fb5369c3fe93d2857c780d8bbe09f06f97e7c
+  AppsFlyerFramework: a664325124485223296354b4eec335f5340a6df8
   Kingfisher: 44ed6a8504763f27bab46163adfac83f5deb240c
   lottie-ios: 6ac74dcc09904798f59b18cb3075c089d76be9ae
   R.swift: ec98ff71c4ab2f6fd01dd077e5afd15e63a4834c
@@ -63,6 +69,6 @@ SPEC CHECKSUMS:
   SwiftVideoBackground: 826e0567c737ded2a211aa309e9951c643695e8f
   YouTubePlayer: 2b5f2830d8f9b2cde942083211291e382c9e6bd5
 
-PODFILE CHECKSUM: 4ae25360cd6abdebe7ef82aa292f8218b2be93c7
+PODFILE CHECKSUM: 608195651dd136b8f8bfa46804f0b74916a201c3
 
 COCOAPODS: 1.11.3

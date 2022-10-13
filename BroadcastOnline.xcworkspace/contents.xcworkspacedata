@@ -2,7 +2,7 @@
 <Workspace
    version = "1.0">
    <FileRef
-      location = "group:BroadcastOnline.xcodeproj">
+      location = "group:/Users/artyom/Desktop/BroadcastOnline/Cyber Live.xcodeproj">
    </FileRef>
    <FileRef
       location = "group:Pods/Pods.xcodeproj">

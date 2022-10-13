@@ -6,7 +6,7 @@
 //
 
 import UIKit
-
+import AppsFlyerLib
 @main
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
@@ -17,7 +17,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     }
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
-        // Override point for customization after application launch.
+        setupAppsFlyer()
         return true
     }
 
@@ -35,6 +35,18 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         // Use this method to release any resources that were specific to the discarded scenes, as they will not return.
     }
 
-
+    func applicationDidBecomeActive(_ application: UIApplication) {
+        AppsFlyerLib.shared().start()
+    }
+    
+    func setupAppsFlyer() {
+        AppsFlyerLib.shared().appsFlyerDevKey = "ebEDZ4mtpS7VfmLqQrvXVn"
+        AppsFlyerLib.shared().appleAppID = "6443601769"
+        
+        AppsFlyerLib.shared().isDebug = false
+        if #available(iOS 14, *) {
+            AppsFlyerLib.shared().waitForATTUserAuthorization(timeoutInterval: 60)
+        }
+    }
 }
 
