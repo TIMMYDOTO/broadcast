@@ -1117,8 +1117,33 @@ struct R: Rswift.Validatable {
     fileprivate init() {}
   }
 
-  /// This `R.string` struct is generated, and contains static references to 3 localization tables.
+  /// This `R.string` struct is generated, and contains static references to 4 localization tables.
   struct string {
+    /// This `R.string.infoPlist` struct is generated, and contains static references to 1 localization keys.
+    struct infoPlist {
+      /// en translation: This permission will allow us to recommend you the most suitable promotions and make personalized offers.
+      ///
+      /// Locales: es, en, pt-PT, ru
+      static let nsUserTrackingUsageDescription = Rswift.StringResource(key: "NSUserTrackingUsageDescription", tableName: "InfoPlist", bundle: R.hostingBundle, locales: ["es", "en", "pt-PT", "ru"], comment: nil)
+
+      /// en translation: This permission will allow us to recommend you the most suitable promotions and make personalized offers.
+      ///
+      /// Locales: es, en, pt-PT, ru
+      static func nsUserTrackingUsageDescription(preferredLanguages: [String]? = nil) -> String {
+        guard let preferredLanguages = preferredLanguages else {
+          return NSLocalizedString("NSUserTrackingUsageDescription", tableName: "InfoPlist", bundle: hostingBundle, comment: "")
+        }
+
+        guard let (_, bundle) = localeBundle(tableName: "InfoPlist", preferredLanguages: preferredLanguages) else {
+          return "NSUserTrackingUsageDescription"
+        }
+
+        return NSLocalizedString("NSUserTrackingUsageDescription", tableName: "InfoPlist", bundle: bundle, comment: "")
+      }
+
+      fileprivate init() {}
+    }
+
     /// This `R.string.launchScreen` struct is generated, and contains static references to 0 localization keys.
     struct launchScreen {
       fileprivate init() {}
@@ -1128,36 +1153,36 @@ struct R: Rswift.Validatable {
     struct localizable {
       /// en translation: Follow prematch events
       ///
-      /// Locales: en, es, pt-PT, ru
-      static let followForPrematch = Rswift.StringResource(key: "FollowForPrematch", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en", "es", "pt-PT", "ru"], comment: nil)
+      /// Locales: en, pt-PT, ru
+      static let followForPrematch = Rswift.StringResource(key: "FollowForPrematch", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en", "pt-PT", "ru"], comment: nil)
       /// en translation: List of live  events is empty
       ///
-      /// Locales: en, es, pt-PT, ru
-      static let liveIsEmpty = Rswift.StringResource(key: "LiveIsEmpty", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en", "es", "pt-PT", "ru"], comment: nil)
+      /// Locales: en, pt-PT, ru
+      static let liveIsEmpty = Rswift.StringResource(key: "LiveIsEmpty", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en", "pt-PT", "ru"], comment: nil)
       /// en translation: Make sure your phone has a stable network Internet connection and try again
       ///
-      /// Locales: en, es, pt-PT, ru
-      static let makeSureConnection = Rswift.StringResource(key: "MakeSureConnection", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en", "es", "pt-PT", "ru"], comment: nil)
+      /// Locales: en, pt-PT, ru
+      static let makeSureConnection = Rswift.StringResource(key: "MakeSureConnection", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en", "pt-PT", "ru"], comment: nil)
       /// en translation: No connection
       ///
-      /// Locales: en, es, pt-PT, ru
-      static let noConnection = Rswift.StringResource(key: "NoConnection", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en", "es", "pt-PT", "ru"], comment: nil)
+      /// Locales: en, pt-PT, ru
+      static let noConnection = Rswift.StringResource(key: "NoConnection", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en", "pt-PT", "ru"], comment: nil)
       /// en translation: No events
       ///
-      /// Locales: en, es, pt-PT, ru
-      static let noMatches = Rswift.StringResource(key: "NoMatches", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en", "es", "pt-PT", "ru"], comment: nil)
+      /// Locales: en, pt-PT, ru
+      static let noMatches = Rswift.StringResource(key: "NoMatches", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en", "pt-PT", "ru"], comment: nil)
       /// en translation: Prematch
       ///
-      /// Locales: en, es, pt-PT, ru
-      static let prematchTitle = Rswift.StringResource(key: "PrematchTitle", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en", "es", "pt-PT", "ru"], comment: nil)
+      /// Locales: en, pt-PT, ru
+      static let prematchTitle = Rswift.StringResource(key: "PrematchTitle", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en", "pt-PT", "ru"], comment: nil)
       /// en translation: eSports
       ///
-      /// Locales: en, es, pt-PT, ru
-      static let cyberSportTitle = Rswift.StringResource(key: "CyberSportTitle", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en", "es", "pt-PT", "ru"], comment: nil)
+      /// Locales: en, pt-PT, ru
+      static let cyberSportTitle = Rswift.StringResource(key: "CyberSportTitle", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en", "pt-PT", "ru"], comment: nil)
 
       /// en translation: Follow prematch events
       ///
-      /// Locales: en, es, pt-PT, ru
+      /// Locales: en, pt-PT, ru
       static func followForPrematch(preferredLanguages: [String]? = nil) -> String {
         guard let preferredLanguages = preferredLanguages else {
           return NSLocalizedString("FollowForPrematch", bundle: hostingBundle, comment: "")
@@ -1172,7 +1197,7 @@ struct R: Rswift.Validatable {
 
       /// en translation: List of live  events is empty
       ///
-      /// Locales: en, es, pt-PT, ru
+      /// Locales: en, pt-PT, ru
       static func liveIsEmpty(preferredLanguages: [String]? = nil) -> String {
         guard let preferredLanguages = preferredLanguages else {
           return NSLocalizedString("LiveIsEmpty", bundle: hostingBundle, comment: "")
@@ -1187,7 +1212,7 @@ struct R: Rswift.Validatable {
 
       /// en translation: Make sure your phone has a stable network Internet connection and try again
       ///
-      /// Locales: en, es, pt-PT, ru
+      /// Locales: en, pt-PT, ru
       static func makeSureConnection(preferredLanguages: [String]? = nil) -> String {
         guard let preferredLanguages = preferredLanguages else {
           return NSLocalizedString("MakeSureConnection", bundle: hostingBundle, comment: "")
@@ -1202,7 +1227,7 @@ struct R: Rswift.Validatable {
 
       /// en translation: No connection
       ///
-      /// Locales: en, es, pt-PT, ru
+      /// Locales: en, pt-PT, ru
       static func noConnection(preferredLanguages: [String]? = nil) -> String {
         guard let preferredLanguages = preferredLanguages else {
           return NSLocalizedString("NoConnection", bundle: hostingBundle, comment: "")
@@ -1217,7 +1242,7 @@ struct R: Rswift.Validatable {
 
       /// en translation: No events
       ///
-      /// Locales: en, es, pt-PT, ru
+      /// Locales: en, pt-PT, ru
       static func noMatches(preferredLanguages: [String]? = nil) -> String {
         guard let preferredLanguages = preferredLanguages else {
           return NSLocalizedString("NoMatches", bundle: hostingBundle, comment: "")
@@ -1232,7 +1257,7 @@ struct R: Rswift.Validatable {
 
       /// en translation: Prematch
       ///
-      /// Locales: en, es, pt-PT, ru
+      /// Locales: en, pt-PT, ru
       static func prematchTitle(preferredLanguages: [String]? = nil) -> String {
         guard let preferredLanguages = preferredLanguages else {
           return NSLocalizedString("PrematchTitle", bundle: hostingBundle, comment: "")
@@ -1247,7 +1272,7 @@ struct R: Rswift.Validatable {
 
       /// en translation: eSports
       ///
-      /// Locales: en, es, pt-PT, ru
+      /// Locales: en, pt-PT, ru
       static func cyberSportTitle(preferredLanguages: [String]? = nil) -> String {
         guard let preferredLanguages = preferredLanguages else {
           return NSLocalizedString("CyberSportTitle", bundle: hostingBundle, comment: "")
@@ -1267,20 +1292,20 @@ struct R: Rswift.Validatable {
     struct main {
       /// en translation: Make a bet
       ///
-      /// Locales: es, pt-PT, ru, en
-      static let lu7HSHNPNormalTitle = Rswift.StringResource(key: "LU7-hS-HNP.normalTitle", tableName: "Main", bundle: R.hostingBundle, locales: ["es", "pt-PT", "ru", "en"], comment: nil)
+      /// Locales: pt-PT, ru, en
+      static let lu7HSHNPNormalTitle = Rswift.StringResource(key: "LU7-hS-HNP.normalTitle", tableName: "Main", bundle: R.hostingBundle, locales: ["pt-PT", "ru", "en"], comment: nil)
       /// en translation: Place bets in the BetBoom app
       ///
-      /// Locales: es, pt-PT, ru, en
-      static let giQGmVQEText = Rswift.StringResource(key: "GiQ-Gm-VQE.text", tableName: "Main", bundle: R.hostingBundle, locales: ["es", "pt-PT", "ru", "en"], comment: nil)
+      /// Locales: pt-PT, ru, en
+      static let giQGmVQEText = Rswift.StringResource(key: "GiQ-Gm-VQE.text", tableName: "Main", bundle: R.hostingBundle, locales: ["pt-PT", "ru", "en"], comment: nil)
       /// en translation: UNLOCK THE GAME WITH THE BEST BOOKMER
       ///
-      /// Locales: es, pt-PT, ru, en
-      static let c3QXCn0Text = Rswift.StringResource(key: "6c3-qX-cn0.text", tableName: "Main", bundle: R.hostingBundle, locales: ["es", "pt-PT", "ru", "en"], comment: nil)
+      /// Locales: pt-PT, ru, en
+      static let c3QXCn0Text = Rswift.StringResource(key: "6c3-qX-cn0.text", tableName: "Main", bundle: R.hostingBundle, locales: ["pt-PT", "ru", "en"], comment: nil)
 
       /// en translation: Make a bet
       ///
-      /// Locales: es, pt-PT, ru, en
+      /// Locales: pt-PT, ru, en
       static func lu7HSHNPNormalTitle(preferredLanguages: [String]? = nil) -> String {
         guard let preferredLanguages = preferredLanguages else {
           return NSLocalizedString("LU7-hS-HNP.normalTitle", tableName: "Main", bundle: hostingBundle, comment: "")
@@ -1295,7 +1320,7 @@ struct R: Rswift.Validatable {
 
       /// en translation: Place bets in the BetBoom app
       ///
-      /// Locales: es, pt-PT, ru, en
+      /// Locales: pt-PT, ru, en
       static func giQGmVQEText(preferredLanguages: [String]? = nil) -> String {
         guard let preferredLanguages = preferredLanguages else {
           return NSLocalizedString("GiQ-Gm-VQE.text", tableName: "Main", bundle: hostingBundle, comment: "")
@@ -1310,7 +1335,7 @@ struct R: Rswift.Validatable {
 
       /// en translation: UNLOCK THE GAME WITH THE BEST BOOKMER
       ///
-      /// Locales: es, pt-PT, ru, en
+      /// Locales: pt-PT, ru, en
       static func c3QXCn0Text(preferredLanguages: [String]? = nil) -> String {
         guard let preferredLanguages = preferredLanguages else {
           return NSLocalizedString("6c3-qX-cn0.text", tableName: "Main", bundle: hostingBundle, comment: "")

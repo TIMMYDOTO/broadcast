@@ -29,7 +29,8 @@ class CSDefaultMatchCell: CSMatchBaseCell {
     
     private weak var isLiveIcon: UIView!
     private weak var matchStatusLabel: UILabel!
-    
+    private weak var firstTeamScoreLabel: UILabel!
+    private weak var secondTeamScoreLabel: UILabel!
     private weak var liveVideoIcon: UIImageView!
     private weak var liveInfoIcon: UIImageView!
     
@@ -68,7 +69,47 @@ private extension CSDefaultMatchCell {
         setupMatchStatus()
     
         setupInfoStackView()
+        setupFirstTeamScoreLabel()
+        setupSecondTeamScoreLabel()
         
+    }
+    
+    func setupFirstTeamScoreLabel() {
+        let label = UILabel()
+        label.textAlignment = .right
+        label.numberOfLines = 1
+        label.textColor = .white
+        label.font = R.font.robotoBold(size: 16)
+        
+        firstTeamScoreLabel = label
+        
+        infoView.addSubview(firstTeamScoreLabel)
+        
+        firstTeamScoreLabel.snp.makeConstraints {
+            
+            $0.centerY.equalTo(isLiveIcon)
+            $0.trailing.equalTo(isLiveIcon.snp.leading).offset(-12)
+            $0.height.equalTo(22)
+        }
+    }
+    
+    func setupSecondTeamScoreLabel() {
+        let label = UILabel()
+        label.textAlignment = .right
+        label.numberOfLines = 1
+        label.textColor = .white
+        label.font = R.font.robotoBold(size: 16)
+        
+        secondTeamScoreLabel = label
+        
+        infoView.addSubview(secondTeamScoreLabel)
+        
+        secondTeamScoreLabel.snp.makeConstraints {
+            
+            $0.centerY.equalTo(matchStatusLabel)
+            $0.trailing.equalTo(isLiveIcon.snp.leading).offset(-12)
+            $0.height.equalTo(22)
+        }
     }
     
     func setupLiveInfoIcon() {
@@ -164,15 +205,15 @@ private extension CSDefaultMatchCell {
     // MARK: - Others
     func updateInfo(_ model: CSMatch) {
         if model.type == .live {
-//            firstTeamGameScoreLabel.isHidden = false
-//            firstTeamMatchScoreLabel.isHidden = false
-//            secondTeamGameScoreLabel.isHidden = model.teams.count == 1
+            firstTeamScoreLabel.isHidden = false
+            secondTeamScoreLabel.isHidden = false
+            secondTeamScoreLabel.isHidden = model.teams.count == 1
 //            secondTeamMatchScoreLabel.isHidden = model.teams.count == 1
             matchStatusLabel.text = model.matchStatus.isEmpty ? "Лайв" : model.matchStatus
             timeLabel.text = model.startDttm.getLocaleFormattedDate(format: "HH:mm")
         } else {
-//            firstTeamGameScoreLabel.isHidden = true
-//            firstTeamMatchScoreLabel.isHidden = true
+            firstTeamScoreLabel.isHidden = true
+            secondTeamScoreLabel.isHidden = true
 //            secondTeamGameScoreLabel.isHidden = true
 //            secondTeamMatchScoreLabel.isHidden = true
             timeLabel.text = model.startDttm.getLocaleFormattedDate(format: "HH:mm")
@@ -224,11 +265,13 @@ private extension CSDefaultMatchCell {
 //            [firstTeamGameScoreLabel!, secondTeamGameScoreLabel!].forEach {
 //                $0.snp.updateConstraints { $0.width.equalTo(gameScoreWidth + 8) }
 //            }
-//            firstTeamGameScoreLabel.text = firstGameScoreString
-//            secondTeamGameScoreLabel.text = secondGameScoreString
-//            firstTeamGameScoreLabel.isHidden = false
-//            secondTeamGameScoreLabel.isHidden = false
+            firstTeamScoreLabel.text = firstGameScoreString
+            secondTeamScoreLabel.text = secondGameScoreString
+            firstTeamScoreLabel.isHidden = false
+            secondTeamScoreLabel.isHidden = false
         } else {
+            firstTeamScoreLabel.isHidden = true
+            secondTeamScoreLabel.isHidden = true
 //            firstTeamGameScoreLabel.isHidden = true
 //            secondTeamGameScoreLabel.isHidden = true
         }

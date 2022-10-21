@@ -120,6 +120,7 @@
 		9A79193D28D0C07B00062946 /* CyberSportFilterCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A79193C28D0C07B00062946 /* CyberSportFilterCell.swift */; };
 		9A79194028D1E94800062946 /* BroadcastViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A79193F28D1E94800062946 /* BroadcastViewController.swift */; };
 		9A79194428D204CC00062946 /* CSDetailsHeaderTranslationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A79194328D204CB00062946 /* CSDetailsHeaderTranslationView.swift */; };
+		9ABECC432902E5AF00FE498B /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 9ABECC452902E5AF00FE498B /* InfoPlist.strings */; };
 		9ACBA99B28D485A300E73AAF /* NewCSStakesCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9ACBA99A28D485A300E73AAF /* NewCSStakesCell.swift */; };
 		9ACBA99D28D89FEE00E73AAF /* CSDefaultMatchCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9ACBA99C28D89FEE00E73AAF /* CSDefaultMatchCell.swift */; };
 		9ACBA99E28D8C00800E73AAF /* CSStakesCollection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A4EE33928CF8E3800905FF9 /* CSStakesCollection.swift */; };
@@ -269,9 +270,11 @@
 		9A79193C28D0C07B00062946 /* CyberSportFilterCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CyberSportFilterCell.swift; sourceTree = "<group>"; };
 		9A79193F28D1E94800062946 /* BroadcastViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BroadcastViewController.swift; sourceTree = "<group>"; };
 		9A79194328D204CB00062946 /* CSDetailsHeaderTranslationView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CSDetailsHeaderTranslationView.swift; sourceTree = SOURCE_ROOT; };
-		9ABECC2E2902CE6800FE498B /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = en; path = en.lproj/Info.plist; sourceTree = "<group>"; };
-		9ABECC302902CE7500FE498B /* ru */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = ru; path = ru.lproj/Info.plist; sourceTree = "<group>"; };
-		9ABECC312902CE8A00FE498B /* pt-PT */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = "pt-PT"; path = "pt-PT.lproj/Info.plist"; sourceTree = "<group>"; };
+		9ABECC442902E5AF00FE498B /* es */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = es; path = es.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		9ABECC462902E5B800FE498B /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		9ABECC472902E5BB00FE498B /* pt-PT */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "pt-PT"; path = "pt-PT.lproj/InfoPlist.strings"; sourceTree = "<group>"; };
+		9ABECC482902E5BB00FE498B /* ru */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ru; path = ru.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		9ABECC492902E5E700FE498B /* Base */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = Base; path = Base.lproj/Info.plist; sourceTree = "<group>"; };
 		9ACBA99A28D485A300E73AAF /* NewCSStakesCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewCSStakesCell.swift; sourceTree = "<group>"; };
 		9ACBA99C28D89FEE00E73AAF /* CSDefaultMatchCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CSDefaultMatchCell.swift; sourceTree = "<group>"; };
 		9ACBA99F28D9E99400E73AAF /* CyberSportPlaceholderView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CyberSportPlaceholderView.swift; sourceTree = "<group>"; };
@@ -507,6 +510,7 @@
 				9A790DE728CA1D0D009F2AA4 /* Main */,
 				9A79193E28D1E86E00062946 /* Broadcast */,
 				9A790DD828C9F35C009F2AA4 /* Assets.xcassets */,
+				9ABECC452902E5AF00FE498B /* InfoPlist.strings */,
 				9A790DDA28C9F35C009F2AA4 /* LaunchScreen.storyboard */,
 				9ABECC2F2902CE6800FE498B /* Info.plist */,
 				9A4EE33928CF8E3800905FF9 /* CSStakesCollection.swift */,
@@ -776,6 +780,7 @@
 				9A4EE36E28D0809300905FF9 /* Giorgio Sans LCG Black.otf in Resources */,
 				9A4EE36828D0809300905FF9 /* Giorgio Sans LCG Regular.otf in Resources */,
 				9A4EE37128D0809300905FF9 /* Lato_BB-Bold.otf in Resources */,
+				9ABECC432902E5AF00FE498B /* InfoPlist.strings in Resources */,
 				9A4EE37628D0809300905FF9 /* Lucita Grande.ttf in Resources */,
 				9AE4764628D3380800E59FC0 /* Roboto-Light.ttf in Resources */,
 				9A4EE36728D0809300905FF9 /* Giorgio Sans LCG Thin Italic.otf in Resources */,
@@ -995,11 +1000,20 @@
 		9ABECC2F2902CE6800FE498B /* Info.plist */ = {
 			isa = PBXVariantGroup;
 			children = (
-				9ABECC2E2902CE6800FE498B /* en */,
-				9ABECC302902CE7500FE498B /* ru */,
-				9ABECC312902CE8A00FE498B /* pt-PT */,
+				9ABECC492902E5E700FE498B /* Base */,
 			);
 			name = Info.plist;
+			sourceTree = "<group>";
+		};
+		9ABECC452902E5AF00FE498B /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				9ABECC442902E5AF00FE498B /* es */,
+				9ABECC462902E5B800FE498B /* en */,
+				9ABECC472902E5BB00FE498B /* pt-PT */,
+				9ABECC482902E5BB00FE498B /* ru */,
+			);
+			name = InfoPlist.strings;
 			sourceTree = "<group>";
 		};
 		9ACBA9A728DA10EE00E73AAF /* Localizable.strings */ = {

@@ -1,11 +1,0 @@
-
-/* Class = "UILabel"; text = "ОТКРОЙ ИГРУ  С ЛУЧШИМ БУКМЕРОМ"; ObjectID = "6c3-qX-cn0"; */
-"6c3-qX-cn0.text" = "Empieza a jugar con la mejor casa de apuestas";
-
-
-
-/* Class = "UILabel"; text = "Делай ставки в приложении BetBoom"; ObjectID = "GiQ-Gm-VQE"; */
-"GiQ-Gm-VQE.text" = "Haz apuestas en el sitio de BetBoom";
-
-/* Class = "UIButton"; normalTitle = "Сделать ставку"; ObjectID = "LU7-hS-HNP"; */
-"LU7-hS-HNP.normalTitle" = "Hacer una apuesta";
