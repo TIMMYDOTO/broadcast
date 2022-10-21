@@ -23,7 +23,7 @@
         <!--Main View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="MainViewController" customModule="BroadcastOnline" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="BYZ-38-t0r" customClass="MainViewController" customModule="Cyber_Live" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -40,12 +40,12 @@
         <!--Broadcast View Controller-->
         <scene sceneID="ptW-2k-GaV">
             <objects>
-                <viewController storyboardIdentifier="Broadcast" id="AFg-zJ-fJh" customClass="BroadcastViewController" customModule="BroadcastOnline" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="Broadcast" id="AFg-zJ-fJh" customClass="BroadcastViewController" customModule="Cyber_Live" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="rJh-VL-wxS">
                         <rect key="frame" x="0.0" y="0.0" width="365" height="812"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <viewLayoutGuide key="safeArea" id="JH2-Nk-TOR"/>
-                        <color key="backgroundColor" red="0.054901960784313725" green="0.066666666666666666" blue="0.090196078431372548" alpha="0.80320224383019456" colorSpace="custom" customColorSpace="calibratedRGB"/>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     </view>
                     <size key="freeformSize" width="365" height="812"/>
                 </viewController>
@@ -56,7 +56,7 @@
         <!--Make BetV Iew Controller-->
         <scene sceneID="rZa-9K-vtN">
             <objects>
-                <viewController storyboardIdentifier="MakeBetVIewController" id="Zyq-tO-BWf" customClass="MakeBetVIewController" customModule="BroadcastOnline" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="MakeBetVIewController" id="Zyq-tO-BWf" customClass="MakeBetVIewController" customModule="Cyber_Live" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="PBB-YU-cyk">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -155,7 +155,7 @@
         <!--Navigation Controller-->
         <scene sceneID="sD9-bW-lQg">
             <objects>
-                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="R38-9T-hYc" customClass="NavigationController" customModule="BroadcastOnline" customModuleProvider="target" sceneMemberID="viewController">
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="R38-9T-hYc" customClass="NavigationController" customModule="Cyber_Live" customModuleProvider="target" sceneMemberID="viewController">
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="15p-dc-K1Q">
                         <rect key="frame" x="0.0" y="44" width="414" height="44"/>

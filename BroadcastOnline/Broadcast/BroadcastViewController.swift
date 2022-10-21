@@ -91,9 +91,10 @@ class BroadcastViewController: UIViewController {
         view.addSubview(translationView)
         
         translationView.snp.makeConstraints {
-            $0.centerY.equalToSuperview()
+            
             $0.leading.trailing.equalToSuperview()
             $0.height.equalTo(height)
+            $0.bottom.equalToSuperview()
         }
     }
     
