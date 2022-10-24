@@ -162,7 +162,7 @@ class MainViewController: UIViewController, MainViewInput {
 
     override func viewWillAppear(_ animated: Bool) {
        super.viewWillAppear(animated)
-
+        
        AppUtility.lockOrientation(.portrait)
 
   

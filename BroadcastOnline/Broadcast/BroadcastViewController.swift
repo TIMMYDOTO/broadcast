@@ -28,7 +28,7 @@ class BroadcastViewController: UIViewController {
         setupCloseButton()
 //        setupVolumeButton()
         
-        view.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(dismissController)))
+        view.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(didClickDismiss)))
         setupFullscreenButton()
         addZalupkaView()
     }

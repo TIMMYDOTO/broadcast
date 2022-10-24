@@ -251,6 +251,8 @@ private extension CSDefaultMatchCell {
         if model.type == .live {
             firstTeamScoreLabel.isHidden = false
             secondTeamScoreLabel.isHidden = false
+            firstTeamMatchScoreLabel.isHidden = false
+            secondTeamMatchScoreLabel.isHidden = false
             secondTeamScoreLabel.isHidden = model.teams.count == 1
             secondTeamMatchScoreLabel.isHidden = model.teams.count == 1
             matchStatusLabel.text = model.matchStatus.isEmpty ? "Лайв" : model.matchStatus
