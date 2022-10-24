@@ -75,7 +75,7 @@ private extension NoConnectionViewController {
         let label = UILabel()
         label.font = R.font.lato_BBRegular(size: 16)
         label.textColor = #colorLiteral(red: 1, green: 0.9999999404, blue: 0.9999999404, alpha: 0.5)
-        label.numberOfLines = 2
+        label.numberOfLines = 3
         
         let style = NSMutableParagraphStyle()
         style.lineHeightMultiple = 1.25
@@ -92,7 +92,7 @@ private extension NoConnectionViewController {
             $0.leading.equalToSuperview().offset(16)
             $0.trailing.equalToSuperview().offset(-16)
             $0.top.equalTo(titleLabel.snp.bottom).offset(16)
-            $0.height.equalTo(48)
+            
         }
     }
     

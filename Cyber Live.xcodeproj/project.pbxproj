@@ -270,6 +270,8 @@
 		9A79193C28D0C07B00062946 /* CyberSportFilterCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CyberSportFilterCell.swift; sourceTree = "<group>"; };
 		9A79193F28D1E94800062946 /* BroadcastViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BroadcastViewController.swift; sourceTree = "<group>"; };
 		9A79194328D204CB00062946 /* CSDetailsHeaderTranslationView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CSDetailsHeaderTranslationView.swift; sourceTree = SOURCE_ROOT; };
+		9AA8D6E92906DD7A0095F0F1 /* es */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = es; path = es.lproj/Localizable.strings; sourceTree = "<group>"; };
+		9AA8D6EB2906DEB90095F0F1 /* es */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = es; path = es.lproj/Main.strings; sourceTree = "<group>"; };
 		9ABECC442902E5AF00FE498B /* es */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = es; path = es.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		9ABECC462902E5B800FE498B /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		9ABECC472902E5BB00FE498B /* pt-PT */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "pt-PT"; path = "pt-PT.lproj/InfoPlist.strings"; sourceTree = "<group>"; };
@@ -983,6 +985,7 @@
 				9ACBA9AB28DA131700E73AAF /* pt-PT */,
 				9ACBA9AE28DA134C00E73AAF /* ru */,
 				9ACBA9B228DA15A300E73AAF /* en */,
+				9AA8D6EB2906DEB90095F0F1 /* es */,
 			);
 			name = Main.storyboard;
 			sourceTree = "<group>";
@@ -1022,6 +1025,7 @@
 				9ACBA9A628DA10EE00E73AAF /* en */,
 				9ACBA9AD28DA131700E73AAF /* pt-PT */,
 				9ACBA9B028DA134C00E73AAF /* ru */,
+				9AA8D6E92906DD7A0095F0F1 /* es */,
 			);
 			name = Localizable.strings;
 			sourceTree = "<group>";
@@ -1152,7 +1156,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 7;
+				CURRENT_PROJECT_VERSION = 9;
 				DEVELOPMENT_TEAM = 5XHJ5W6A53;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = BroadcastOnline/Info.plist;
@@ -1185,7 +1189,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 7;
+				CURRENT_PROJECT_VERSION = 9;
 				DEVELOPMENT_TEAM = 5XHJ5W6A53;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = BroadcastOnline/Info.plist;

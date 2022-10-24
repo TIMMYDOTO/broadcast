@@ -69,9 +69,53 @@ private extension CSDefaultMatchCell {
         setupMatchStatus()
     
         setupInfoStackView()
+        
+        setupFirstTeamMatchScoreLabel()
+        setupSecondTeamMatchScoreLabel()
+        
         setupFirstTeamScoreLabel()
         setupSecondTeamScoreLabel()
         
+       
+        
+    }
+    
+    func setupFirstTeamMatchScoreLabel() {
+        let label = UILabel()
+        label.textAlignment = .right
+        label.numberOfLines = 1
+        label.textColor = .gray
+        label.font = R.font.robotoBold(size: 16)
+        
+        firstTeamMatchScoreLabel = label
+        
+        infoView.addSubview(firstTeamMatchScoreLabel)
+        
+        firstTeamMatchScoreLabel.snp.makeConstraints {
+            
+            $0.centerY.equalTo(isLiveIcon)
+            $0.trailing.equalTo(isLiveIcon.snp.leading).offset(-12)
+            $0.height.equalTo(22)
+        }
+    }
+    
+    func setupSecondTeamMatchScoreLabel() {
+        let label = UILabel()
+        label.textAlignment = .right
+        label.numberOfLines = 1
+        label.textColor = .gray
+        label.font = R.font.robotoBold(size: 16)
+        
+        secondTeamMatchScoreLabel = label
+        
+        infoView.addSubview(secondTeamMatchScoreLabel)
+        
+        secondTeamMatchScoreLabel.snp.makeConstraints {
+            
+            $0.centerY.equalTo(matchStatusLabel)
+            $0.trailing.equalTo(isLiveIcon.snp.leading).offset(-12)
+            $0.height.equalTo(22)
+        }
     }
     
     func setupFirstTeamScoreLabel() {
@@ -88,7 +132,7 @@ private extension CSDefaultMatchCell {
         firstTeamScoreLabel.snp.makeConstraints {
             
             $0.centerY.equalTo(isLiveIcon)
-            $0.trailing.equalTo(isLiveIcon.snp.leading).offset(-12)
+            $0.trailing.equalTo(firstTeamMatchScoreLabel.snp.leading).offset(-12)
             $0.height.equalTo(22)
         }
     }
@@ -107,7 +151,7 @@ private extension CSDefaultMatchCell {
         secondTeamScoreLabel.snp.makeConstraints {
             
             $0.centerY.equalTo(matchStatusLabel)
-            $0.trailing.equalTo(isLiveIcon.snp.leading).offset(-12)
+            $0.trailing.equalTo(secondTeamMatchScoreLabel.snp.leading).offset(-12)
             $0.height.equalTo(22)
         }
     }
@@ -172,14 +216,14 @@ private extension CSDefaultMatchCell {
         firstTeamNameLabel = first.team
         
         firstTeamGameScoreLabel = first.gameScore
-        firstTeamMatchScoreLabel = first.matchScore
+//        firstTeamMatchScoreLabel = first.matchScore
         
         let second = createTeamFieldView()
         secondTeamFieldView = second.view
         secondTeamLogo = second.logo
         secondTeamNameLabel = second.team
         secondTeamGameScoreLabel = second.gameScore
-        secondTeamMatchScoreLabel = second.matchScore
+//        secondTeamMatchScoreLabel = second.matchScore
         
         let status = createStatusStackView()
         let containerStatus = UIView()
@@ -208,14 +252,14 @@ private extension CSDefaultMatchCell {
             firstTeamScoreLabel.isHidden = false
             secondTeamScoreLabel.isHidden = false
             secondTeamScoreLabel.isHidden = model.teams.count == 1
-//            secondTeamMatchScoreLabel.isHidden = model.teams.count == 1
+            secondTeamMatchScoreLabel.isHidden = model.teams.count == 1
             matchStatusLabel.text = model.matchStatus.isEmpty ? "Лайв" : model.matchStatus
             timeLabel.text = model.startDttm.getLocaleFormattedDate(format: "HH:mm")
         } else {
             firstTeamScoreLabel.isHidden = true
             secondTeamScoreLabel.isHidden = true
-//            secondTeamGameScoreLabel.isHidden = true
-//            secondTeamMatchScoreLabel.isHidden = true
+            firstTeamMatchScoreLabel.isHidden = true
+            secondTeamMatchScoreLabel.isHidden = true
             timeLabel.text = model.startDttm.getLocaleFormattedDate(format: "HH:mm")
             matchStatusLabel.text = model.startDttm.getLocaleFormattedDate(format: "d MMMM")
         }
@@ -255,16 +299,17 @@ private extension CSDefaultMatchCell {
 //            $0.snp.updateConstraints { $0.width.equalTo(gameScoreWidth + 4) }
 //            $0.textColor = color
 //        }
-//        firstTeamMatchScoreLabel.text = firstMatchScoreString
-//        secondTeamMatchScoreLabel.text = secondMatchScoreString
+        firstTeamMatchScoreLabel.text = firstMatchScoreString
+        secondTeamMatchScoreLabel.text = secondMatchScoreString
         
         //
         if let gameScores = model.scoreboard?.getGameScore() {
             let firstGameScoreString = String(gameScores.home)
             let secondGameScoreString = String(gameScores.away)
-//            [firstTeamGameScoreLabel!, secondTeamGameScoreLabel!].forEach {
-//                $0.snp.updateConstraints { $0.width.equalTo(gameScoreWidth + 8) }
-//            }
+            [firstTeamGameScoreLabel!, secondTeamGameScoreLabel!].forEach {
+                $0.snp.updateConstraints { $0.width.equalTo(gameScoreWidth + 8) }
+            }
+            
             firstTeamScoreLabel.text = firstGameScoreString
             secondTeamScoreLabel.text = secondGameScoreString
             firstTeamScoreLabel.isHidden = false
@@ -272,8 +317,8 @@ private extension CSDefaultMatchCell {
         } else {
             firstTeamScoreLabel.isHidden = true
             secondTeamScoreLabel.isHidden = true
-//            firstTeamGameScoreLabel.isHidden = true
-//            secondTeamGameScoreLabel.isHidden = true
+            firstTeamGameScoreLabel.isHidden = true
+            secondTeamGameScoreLabel.isHidden = true
         }
         //
     }
