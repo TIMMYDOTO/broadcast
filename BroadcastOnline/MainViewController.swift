@@ -62,23 +62,12 @@ class MainViewController: UIViewController, MainViewInput {
         
     }
     
-    override func viewWillTransition(to size: CGSize, with coordinator: UIViewControllerTransitionCoordinator) {
-           super.viewWillTransition(to: size, with: coordinator)
-           
-//        tournamentsCollection.snp.remakeConstraints {
-//
-//                $0.top.equalTo(filtersCollection.snp.bottom).offset(16)
-//    //            $0.leading.trailing.bottom.equalToSuperview()
-//                $0.left.equalToSuperview()
-//                $0.right.equalToSuperview()
-//                $0.bottom.equalToSuperview()
-//
-//
-//
-//        }
+    private var windowInterfaceOrientation: UIInterfaceOrientation? {
+        let windowInterfaceOrientation = UIApplication.shared.windows.first?.windowScene?.interfaceOrientation
+        return windowInterfaceOrientation
        
-          
-       }
+       
+    }
     
     
     func setSelectedStakes(model: [String : Set<String>], reload: Bool) {
@@ -167,10 +156,14 @@ class MainViewController: UIViewController, MainViewInput {
 
   
    }
+    override func viewDidLayoutSubviews() {
+        super.viewDidLayoutSubviews()
 
-    override func willAnimateRotation(to toInterfaceOrientation: UIInterfaceOrientation, duration: TimeInterval) {
-         self.view.setNeedsUpdateConstraints()
+//        tournamentsCollection.collectionViewLayout.invalidateLayout()
+//        tournamentsCollection.layoutIfNeeded()
     }
+    
+
     func bindTournamentCollection() {
         tournamentsCollection.willSelectTournament = { [weak self] tournament in
             guard let self = self else { return }
@@ -374,8 +367,6 @@ class MainViewController: UIViewController, MainViewInput {
                 AppDataStore.shared.appConfig.configure(result, with: nil)
                 self.presenter.viewDidLoad()
 
-            
-//                self.startFinishStepLoad()
             case .failure:
                 print("Неизвестная техническая ошибка")
                 

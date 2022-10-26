@@ -274,9 +274,10 @@ private extension CSMatchBaseCell {
         stakesCollection.snp.makeConstraints {
 
             $0.bottom.equalToSuperview().offset(-16)
-            $0.trailing.equalToSuperview().offset(-16)
-            $0.leading.equalToSuperview().offset(16)
-
+//            $0.trailing.equalToSuperview().offset(-16)
+//            $0.leading.equalToSuperview().offset(16)
+            $0.centerX.equalToSuperview()
+            $0.width.equalTo(UIScreen.main.bounds.width-64)
             $0.height.equalTo(40)
         }
         stakesCollection.allowDelegates()
@@ -288,12 +289,7 @@ private extension CSMatchBaseCell {
 
         let tap = UITapGestureRecognizer(target: self, action: #selector(tapInfoView))
         view.addGestureRecognizer(tap)
-        /*
-        let pan = UIPanGestureRecognizer(target: self, action: #selector(panInfoView))
-        pan.delegate = self
-        favoritePan = pan
-        view.addGestureRecognizer(pan)
-        */
+  
         
         view.isUserInteractionEnabled = true
         

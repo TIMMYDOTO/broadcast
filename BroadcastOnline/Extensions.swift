@@ -496,6 +496,8 @@ struct AppUtility {
             delegate.orientationLock = orientation
         }
     }
+    
+    
 
     /// OPTIONAL Added method to adjust lock and rotate to the desired orientation
     static func lockOrientation(_ orientation: UIInterfaceOrientationMask, andRotateTo rotateOrientation:UIInterfaceOrientation) {
@@ -504,6 +506,21 @@ struct AppUtility {
     
         UIDevice.current.setValue(rotateOrientation.rawValue, forKey: "orientation")
         UINavigationController.attemptRotationToDeviceOrientation()
+    }
+    
+    static func rotateTo(_ orientation:UIInterfaceOrientationMask) {
+   
+        
+        if #available(iOS 16.0, *) {
+                  let windowScene = UIApplication.shared.connectedScenes.first as? UIWindowScene
+                  windowScene?.requestGeometryUpdate(.iOS(interfaceOrientations: orientation))
+                    
+            
+              } else {
+                  UIDevice.current.setValue(orientation.toUIInterfaceOrientation.rawValue, forKey: "orientation")
+                  UINavigationController.attemptRotationToDeviceOrientation()
+              }
+
     }
 
 }
@@ -521,5 +538,22 @@ extension UIView {
         gradient.locations = locations
         self.layer.insertSublayer(gradient, at: 0)
         return gradient
+    }
+}
+
+extension UIInterfaceOrientationMask {
+    var toUIInterfaceOrientation: UIInterfaceOrientation {
+        switch self {
+        case .portrait:
+            return UIInterfaceOrientation.portrait
+        case .portraitUpsideDown:
+            return UIInterfaceOrientation.portraitUpsideDown
+        case .landscapeRight:
+            return UIInterfaceOrientation.landscapeRight
+        case .landscapeLeft:
+            return UIInterfaceOrientation.landscapeLeft
+        default:
+            return UIInterfaceOrientation.unknown
+        }
     }
 }

@@ -11,7 +11,7 @@ class BroadcastViewController: UIViewController {
     
     var closeButton: UIButton!
     var fullscreenButton: UIButton!
-    var volumeButton: UIButton!
+    
     private weak var translationView: CSDetailsHeaderTranslationView!
     var hasClickedDismiss = false
     var match: CSMatch!
@@ -19,28 +19,31 @@ class BroadcastViewController: UIViewController {
     let height = UIScreen.main.bounds.width * 0.5625
     private weak var contentView: UIView!
     private weak var zalupkaView: UIView!
+    private weak var huitaView: UIView!
+    
+    var myInterfaceOrientation = UIInterfaceOrientation(rawValue: 1)
     override func viewDidLoad() {
         super.viewDidLoad()
+        
         setupContentView()
         
         setupTranslationView()
         translationView.configure(match.stream)
         setupCloseButton()
-//        setupVolumeButton()
         
-        view.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(didClickDismiss)))
+        
         setupFullscreenButton()
         addZalupkaView()
-    }
-    
+        addHuitaView()
+        
+
+        }
+
     
     override func viewWillAppear(_ animated: Bool) {
        super.viewWillAppear(animated)
        
        AppUtility.lockOrientation(.all)
-       // Or to rotate and lock
-       // AppUtility.lockOrientation(.portrait, andRotateTo: .portrait)
-       
    }
     
     private func addZalupkaView() {
@@ -56,6 +59,21 @@ class BroadcastViewController: UIViewController {
             make.height.equalTo(3)
             make.top.equalToSuperview().offset(8)
         }
+    }
+    
+    private func addHuitaView() {
+        let view = UIView()
+    
+        huitaView = view
+        self.view.addSubview(huitaView)
+        huitaView.snp.makeConstraints { make in
+            make.leading.equalToSuperview()
+            make.trailing.equalToSuperview()
+            make.top.equalToSuperview()
+            make.bottom.equalTo(zalupkaView.snp.top).offset(-40)
+            make.top.equalToSuperview().offset(8)
+        }
+        huitaView.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(didClickOutside)))
     }
     
     private func setupContentView() {
@@ -74,7 +92,7 @@ class BroadcastViewController: UIViewController {
     }
     
     @objc func handleDismiss(sender: UIPanGestureRecognizer) {
-        if !UIDevice.current.orientation.isLandscape {
+        if windowInterfaceOrientation!.isPortrait {
             switch sender.state {
             case .changed:
                 viewTranslation = sender.translation(in: view)
@@ -100,9 +118,6 @@ class BroadcastViewController: UIViewController {
         
     }
     
-    @objc func dismissController() {
-        dismiss(animated: true, completion: nil)
-    }
     
     private func setupFullscreenButton() {
         let image = UIImage(named: "fullscreen")
@@ -119,20 +134,7 @@ class BroadcastViewController: UIViewController {
         button.addTarget(self, action: #selector(didClickFullScreen), for: .touchUpInside)
     }
     
-    private func setupVolumeButton() {
-        let image = UIImage(named: "unmute")
-        let button = UIButton()
-        button.setImage(image, for: .normal)
-        volumeButton = button
-        translationView.addSubview(volumeButton)
-        volumeButton.snp.makeConstraints { make in
-            make.bottom.equalToSuperview().offset(-16)
-            make.trailing.equalToSuperview().offset(-16)
-            make.width.equalTo(24)
-            make.height.equalTo(24)
-        }
-        button.addTarget(self, action: #selector(didClickVolume), for: .touchUpInside)
-    }
+    
     
     private func setupCloseButton() {
         let image = UIImage(named: "CloseIcon")
@@ -165,105 +167,104 @@ class BroadcastViewController: UIViewController {
             $0.bottom.equalToSuperview()
         }
     }
-    
+    private var windowInterfaceOrientation: UIInterfaceOrientation? {
+        let windowInterfaceOrientation = UIApplication.shared.windows.first?.windowScene?.interfaceOrientation
+        return windowInterfaceOrientation
+       
+       
+    }
     override func viewWillTransition(to size: CGSize, with coordinator: UIViewControllerTransitionCoordinator) {
            super.viewWillTransition(to: size, with: coordinator)
-           if UIDevice.current.orientation.isLandscape {
-               closeButton.isHidden = false
-               zalupkaView.isHidden = true
-               translationView.webView.scrollView.contentSize = size
-               
-               contentView.snp.remakeConstraints { make in
-                   make.leading.equalToSuperview()
-                   make.trailing.equalToSuperview()
-                   make.top.equalToSuperview()
-                   make.bottom.equalToSuperview()
-               }
-               
-               
-               translationView.snp.remakeConstraints {
-                   $0.leading.equalToSuperview()
-                   $0.trailing.equalToSuperview()
-                   $0.height.equalTo(size.height+22)
-                   $0.width.equalTo(size.width)
-               }
-            
-           } else {
-               closeButton.isHidden = true
-               zalupkaView.isHidden = false
-               translationView.webView.scrollView.contentSize = size
-//               translationView.snp.remakeConstraints {
-//                   $0.centerY.equalToSuperview()
-//                   $0.leading.trailing.equalToSuperview()
-//                   $0.height.equalTo(height)
-//               }
-               
-               contentView.snp.remakeConstraints { make in
-                   make.leading.equalToSuperview()
-                   make.trailing.equalToSuperview()
-                   make.bottom.equalTo(self.bottomLayoutGuide.snp.top)
-                   make.height.equalTo(height + 30)
-               }
-               
-               translationView.snp.remakeConstraints {
-                   
-                   $0.leading.trailing.equalToSuperview()
-                   $0.height.equalTo(height)
-                   $0.bottom.equalToSuperview()
-               }
-               if hasClickedDismiss {
-               coordinator.animate(alongsideTransition: nil) { _ in
-                   self.dismiss(animated: true)
-                 }
-               }
-               
-           }
-        remakeConstraints()
+      
+        
+        coordinator.animate(alongsideTransition: { (context) in
+            guard let windowInterfaceOrientation = self.windowInterfaceOrientation else { return }
+            self.myInterfaceOrientation = windowInterfaceOrientation
+            if windowInterfaceOrientation.isLandscape {
+                self.closeButton.isHidden = false
+                self.zalupkaView.isHidden = true
+                self.translationView.webView.scrollView.contentSize = size
+                
+                self.contentView.snp.remakeConstraints { make in
+                    make.leading.equalToSuperview()
+                    make.trailing.equalToSuperview()
+                    make.top.equalToSuperview()
+                    make.bottom.equalToSuperview()
+                }
+                
+                
+                self.translationView.snp.remakeConstraints {
+                    $0.leading.equalToSuperview()
+                    $0.trailing.equalToSuperview()
+                    $0.height.equalTo(size.height+22)
+                    $0.width.equalTo(size.width)
+                }
+            } else {
+                self.closeButton.isHidden = true
+                self.zalupkaView.isHidden = false
+                self.translationView.webView.scrollView.contentSize = size
+                
+                
+                self.contentView.snp.remakeConstraints { make in
+                    make.leading.equalToSuperview()
+                    make.trailing.equalToSuperview()
+                    make.bottom.equalTo(self.bottomLayoutGuide.snp.top)
+                    make.height.equalTo(self.height + 30)
+                }
+                
+                self.translationView.snp.remakeConstraints {
+                    
+                    $0.leading.trailing.equalToSuperview()
+                    $0.height.equalTo(self.height)
+                    $0.bottom.equalToSuperview()
+                }
+                if self.hasClickedDismiss {
+                    coordinator.animate(alongsideTransition: nil) { _ in
+                        self.dismiss(animated: true)
+                    }
+                }
+            }
+            self.remakeConstraints(orientation: windowInterfaceOrientation)
+        })
+        
+
+    
        }
     
-
+    @objc func didClickOutside() {
+        AppUtility.lockOrientation(.portrait)
+        dismiss(animated: true)
+    }
+    
     @objc func didClickDismiss() {
         
         hasClickedDismiss = true
+        AppUtility.rotateTo(.portrait)
         AppUtility.lockOrientation(.portrait)
+     
         
-        UIDevice.current.setValue(UIInterfaceOrientation.portrait.rawValue, forKey: "orientation")
-        UINavigationController.attemptRotationToDeviceOrientation()
-        
-        if UIDevice.current.orientation.isPortrait {
-            self.dismiss(animated: true)
-        }
-        
+    
         
     }
     
-    @objc func didClickVolume() {
-        
-    }
+  
     
     @objc func didClickFullScreen() {
-        if UIDevice.current.orientation.isPortrait {
-    
-            let value = UIInterfaceOrientation.landscapeRight.rawValue
-            UIDevice.current.setValue(value, forKey: "orientation")
-    
+        
+        if myInterfaceOrientation!.isPortrait {
+
+            AppUtility.rotateTo(.landscapeLeft)
         }else{
-            
-            let value = UIInterfaceOrientation.portrait.rawValue
-            UIDevice.current.setValue(value, forKey: "orientation")
+
+            AppUtility.rotateTo(.portrait)
         }
+
         
     }
     
-    func remakeConstraints() {
-        if UIDevice.current.orientation.isPortrait {
+    func remakeConstraints(orientation: UIInterfaceOrientation) {
+        if orientation.isPortrait {
             
-//            volumeButton.snp.remakeConstraints { make in
-//                make.bottom.equalToSuperview().offset(-16)
-//                make.trailing.equalToSuperview().offset(-16)
-//                make.width.equalTo(24)
-//                make.height.equalTo(24)
-//            }
             
             fullscreenButton.snp.remakeConstraints { make in
                 make.bottom.equalToSuperview().offset(-16)
@@ -276,17 +277,12 @@ class BroadcastViewController: UIViewController {
             
             fullscreenButton.snp.remakeConstraints { make in
                 make.bottom.equalToSuperview().offset(-42)
-                make.leading.equalToSuperview().offset(32)
+                make.leading.equalToSuperview().offset(42)
                 make.width.equalTo(24)
                 make.height.equalTo(24)
             }
             
-//            volumeButton.snp.remakeConstraints { make in
-//                make.bottom.equalToSuperview().offset(-42)
-//                make.trailing.equalToSuperview().offset(-48)
-//                make.width.equalTo(24)
-//                make.height.equalTo(24)
-//            }
+
         }
     }
     

@@ -37,6 +37,8 @@ final class CSStakesCollection: UICollectionView, CSStakeCellDelegate {
         fatalError("init(coder:) has not been implemented")
     }
     
+    
+    
     func set(
         _ stakes: [CSStake],
         total: Int32,
