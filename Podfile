@@ -18,4 +18,5 @@ target 'Cyber Live' do
   pod 'lottie-ios'
   pod 'ReachabilitySwift'
   pod 'AppsFlyerFramework'
+  pod 'PIPKit'
 end

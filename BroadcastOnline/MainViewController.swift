@@ -289,7 +289,7 @@ class MainViewController: UIViewController, MainViewInput {
         
         tournamentsCollection.snp.makeConstraints {
             $0.top.equalTo(filtersCollection.snp.bottom).offset(16)
-//            $0.leading.trailing.bottom.equalToSuperview()
+//            $0.leading.ч>.bottom.equalToSuperview()
             $0.left.equalToSuperview()
             $0.width.equalTo(UIScreen.main.bounds.width)
             $0.bottom.equalToSuperview()

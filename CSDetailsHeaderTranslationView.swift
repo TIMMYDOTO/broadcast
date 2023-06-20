@@ -70,8 +70,15 @@ extension CSDetailsHeaderTranslationView: YouTubePlayerDelegate {
 
 extension CSDetailsHeaderTranslationView: WKNavigationDelegate {
     func webView(_ webView: WKWebView, didFinish navigation: WKNavigation!) {
-        let javascriptStyle = "var css = '*{-webkit-touch-callout:none;-webkit-user-select:none}'; var head = document.head || document.getElementsByTagName('head')[0]; var style = document.createElement('style'); style.type = 'text/css'; style.appendChild(document.createTextNode(css)); head.appendChild(style);"
-        webView.evaluateJavaScript(javascriptStyle, completionHandler: nil)
+        //        let javascriptStyle = "var css = '*{-webkit-touch-callout:none;-webkit-user-select:none}'; var head = document.head || document.getElementsByTagName('head')[0]; var style = document.createElement('style'); style.type = 'text/css'; style.appendChild(document.createTextNode(css)); head.appendChild(style);"
+        let javascriptStyle = "video.getMuted();"
+        webView.evaluateJavaScript(javascriptStyle) { (result, error) in
+            if error == nil {
+                print("result", result)
+            }else{
+                print("error", error)
+            }
+        }
     }
 }
 

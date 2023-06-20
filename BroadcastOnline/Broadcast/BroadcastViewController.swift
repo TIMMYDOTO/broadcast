@@ -6,9 +6,9 @@
 //
 
 import UIKit
-
-class BroadcastViewController: UIViewController {
-    
+import PIPKit
+class BroadcastViewController: UIViewController, PIPUsable {
+    var pipSize: CGSize { return CGSize(width: (UIScreen.main.bounds.width / 3) * 2 , height:  (UIScreen.main.bounds.width / 3) * 2 * 0.5625) }
     var closeButton: UIButton!
     var fullscreenButton: UIButton!
     

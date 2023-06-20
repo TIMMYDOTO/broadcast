@@ -3,8 +3,9 @@ PODS:
   - AppsFlyerFramework (6.8.1):
     - AppsFlyerFramework/Main (= 6.8.1)
   - AppsFlyerFramework/Main (6.8.1)
-  - Kingfisher (7.4.0)
+  - Kingfisher (7.6.2)
   - lottie-ios (3.5.0)
+  - PIPKit (1.0.7)
   - R.swift (6.1.0):
     - R.swift.Library (~> 5.3.0)
   - R.swift.Library (5.3.0)
@@ -23,6 +24,7 @@ DEPENDENCIES:
   - AppsFlyerFramework
   - Kingfisher
   - lottie-ios
+  - PIPKit
   - R.swift
   - ReachabilitySwift
   - RxSwift
@@ -40,6 +42,7 @@ SPEC REPOS:
     - AppsFlyerFramework
     - Kingfisher
     - lottie-ios
+    - PIPKit
     - R.swift
     - R.swift.Library
     - ReachabilitySwift
@@ -55,8 +58,9 @@ SPEC REPOS:
 SPEC CHECKSUMS:
   Alamofire: d368e1ff8a298e6dde360e35a3e68e6c610e7204
   AppsFlyerFramework: a664325124485223296354b4eec335f5340a6df8
-  Kingfisher: 596b207973051aae5e4c54a1c1cb39837ea10d36
+  Kingfisher: 6c5449c6450c5239166510ba04afe374a98afc4f
   lottie-ios: c55158d67d0629a260625cc2ded2052b829e3c3e
+  PIPKit: 7f498b6fe98c747b6a10a324fe433c7cc988b386
   R.swift: ec98ff71c4ab2f6fd01dd077e5afd15e63a4834c
   R.swift.Library: 0fc583cb55a99e28901299cc451614cad1161962
   ReachabilitySwift: 985039c6f7b23a1da463388634119492ff86c825
@@ -69,6 +73,6 @@ SPEC CHECKSUMS:
   SwiftVideoBackground: 826e0567c737ded2a211aa309e9951c643695e8f
   YouTubePlayer: 2b5f2830d8f9b2cde942083211291e382c9e6bd5
 
-PODFILE CHECKSUM: 608195651dd136b8f8bfa46804f0b74916a201c3
+PODFILE CHECKSUM: c44486e47e65ae6b0a8c335f997e4dde954912cf
 
-COCOAPODS: 1.11.3
+COCOAPODS: 1.12.1
