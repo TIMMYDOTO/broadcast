@@ -1307,7 +1307,7 @@ struct R: Rswift.Validatable {
       ///
       /// Locales: pt-PT, ru, en, es
       static let giQGmVQEText = Rswift.StringResource(key: "GiQ-Gm-VQE.text", tableName: "Main", bundle: R.hostingBundle, locales: ["pt-PT", "ru", "en", "es"], comment: nil)
-      /// en translation: UNLOCK THE GAME WITH THE BEST BOOKMER
+      /// en translation: YOU CAN ONLY BET      TO THE BETBOOM APP
       ///
       /// Locales: pt-PT, ru, en, es
       static let c3QXCn0Text = Rswift.StringResource(key: "6c3-qX-cn0.text", tableName: "Main", bundle: R.hostingBundle, locales: ["pt-PT", "ru", "en", "es"], comment: nil)
@@ -1342,7 +1342,7 @@ struct R: Rswift.Validatable {
         return NSLocalizedString("GiQ-Gm-VQE.text", tableName: "Main", bundle: bundle, comment: "")
       }
 
-      /// en translation: UNLOCK THE GAME WITH THE BEST BOOKMER
+      /// en translation: YOU CAN ONLY BET      TO THE BETBOOM APP
       ///
       /// Locales: pt-PT, ru, en, es
       static func c3QXCn0Text(preferredLanguages: [String]? = nil) -> String {
