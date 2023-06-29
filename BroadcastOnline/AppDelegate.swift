@@ -37,6 +37,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             }
         })
         setupAppsFlyer()
+        NotificationCenter.default.addObserver(self, selector: #selector(sendLaunch), name: UIApplication.didBecomeActiveNotification, object: nil)
         return true
     }
 
@@ -54,9 +55,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         // Use this method to release any resources that were specific to the discarded scenes, as they will not return.
     }
 
-    func applicationDidBecomeActive(_ application: UIApplication) {
+    @objc func sendLaunch() {
         AppsFlyerLib.shared().start()
     }
+  
     
     func setupAppsFlyer() {
         AppsFlyerLib.shared().appsFlyerDevKey = "ebEDZ4mtpS7VfmLqQrvXVn"
