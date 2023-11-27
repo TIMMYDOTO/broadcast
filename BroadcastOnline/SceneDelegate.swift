@@ -6,17 +6,63 @@
 //
 
 import UIKit
+import AppsFlyerLib
+import AppTrackingTransparency
+import AdSupport
 
 class SceneDelegate: UIResponder, UIWindowSceneDelegate {
 
     var window: UIWindow?
-
-
     func scene(_ scene: UIScene, willConnectTo session: UISceneSession, options connectionOptions: UIScene.ConnectionOptions) {
         // Use this method to optionally configure and attach the UIWindow `window` to the provided UIWindowScene `scene`.
         // If using a storyboard, the `window` property will automatically be initialized and attached to the scene.
         // This delegate does not imply the connecting scene or session are new (see `application:configurationForConnectingSceneSession` instead).
+        DispatchQueue.main.asyncAfter(deadline: .now() + 1.0, execute: {
+            if #available(iOS 14.5, *) {
+                ATTrackingManager.requestTrackingAuthorization { (status) in
+                    switch status {
+                    case .authorized:
+                        print("Yeah, we got permission :)")
+                    case .denied:
+                        print("Oh no, we didn't get the permission :(")
+                    case .notDetermined:
+                        print("Hmm, the user has not yet received an authorization request")
+                    case .restricted:
+                        print("Hmm, the permissions we got are restricted")
+                    @unknown default:
+                        print("Looks like we didn't get permission")
+                    }
+                }
+            }
+        })
+        setupAppsFlyer()
+        NotificationCenter.default.addObserver(self, selector: #selector(sendLaunch), name: UIApplication.didBecomeActiveNotification, object: nil)
         guard let _ = (scene as? UIWindowScene) else { return }
+    }
+    
+    @objc func sendLaunch() {
+        AppsFlyerLib.shared().start(completionHandler: { (dictionary, error) in
+                    if (error != nil){
+                        print(error ?? "")
+                        return
+                    } else {
+                        print(dictionary ?? "")
+                        return
+                    }
+                })
+        
+    }
+  
+    
+    func setupAppsFlyer() {
+        AppsFlyerLib.shared().appsFlyerDevKey = "ebEDZ4mtpS7VfmLqQrvXVn"
+        AppsFlyerLib.shared().appleAppID = "6443601769"
+
+        AppsFlyerLib.shared().delegate = self
+        
+        if #available(iOS 14, *) {
+            AppsFlyerLib.shared().waitForATTUserAuthorization(timeoutInterval: 60)
+        }
     }
 
     func sceneDidDisconnect(_ scene: UIScene) {
@@ -50,3 +96,20 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
 
 }
 
+
+
+extension SceneDelegate: AppsFlyerLibDelegate {
+    func onConversionDataSuccess(_ conversionInfo: [AnyHashable : Any]) {
+        debugPrint("onConversionDataSuccess APPSFLAYER ID \(AppsFlyerLib.shared().getAppsFlyerUID())")
+
+        /*
+        for (key, value) in conversionInfo {
+            print(key, ":", value)
+        }
+        */
+    }
+    
+    func onConversionDataFail(_ error: Error) {
+        debugPrint(error)
+    }
+}

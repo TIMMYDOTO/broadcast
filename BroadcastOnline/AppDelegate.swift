@@ -6,8 +6,7 @@
 //
 
 import UIKit
-import AppsFlyerLib
-import AppTrackingTransparency
+
 @main
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
@@ -18,26 +17,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     }
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
-        DispatchQueue.main.asyncAfter(deadline: .now() + 1.0, execute: {
-            if #available(iOS 14.5, *) {
-                ATTrackingManager.requestTrackingAuthorization { (status) in
-                    switch status {
-                    case .authorized:
-                        print("Yeah, we got permission :)")
-                    case .denied:
-                        print("Oh no, we didn't get the permission :(")
-                    case .notDetermined:
-                        print("Hmm, the user has not yet received an authorization request")
-                    case .restricted:
-                        print("Hmm, the permissions we got are restricted")
-                    @unknown default:
-                        print("Looks like we didn't get permission")
-                    }
-                }
-            }
-        })
-        setupAppsFlyer()
-        NotificationCenter.default.addObserver(self, selector: #selector(sendLaunch), name: UIApplication.didBecomeActiveNotification, object: nil)
+      
         return true
     }
 
@@ -54,20 +34,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         // If any sessions were discarded while the application was not running, this will be called shortly after application:didFinishLaunchingWithOptions.
         // Use this method to release any resources that were specific to the discarded scenes, as they will not return.
     }
-
-    @objc func sendLaunch() {
-        AppsFlyerLib.shared().start()
-    }
-  
     
-    func setupAppsFlyer() {
-        AppsFlyerLib.shared().appsFlyerDevKey = "ebEDZ4mtpS7VfmLqQrvXVn"
-        AppsFlyerLib.shared().appleAppID = "6443601769"
-        
-        AppsFlyerLib.shared().isDebug = false
-        if #available(iOS 14, *) {
-            AppsFlyerLib.shared().waitForATTUserAuthorization(timeoutInterval: 60)
-        }
-    }
+
+
 }
 
+extension AppDelegate : UNUserNotificationCenterDelegate {
+}
