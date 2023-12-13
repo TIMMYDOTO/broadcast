@@ -10,6 +10,7 @@ target 'Cyber Live' do
   pod 'SwiftProtobuf'
   pod 'SkeletonView'
   pod 'Kingfisher'
+  pod 'InAppStory', :git => 'https://github.com/inappstory/ios-sdk.git'
   pod 'SnapKit'
   pod 'SwiftTheme'
   pod 'R.swift'
@@ -19,4 +20,7 @@ target 'Cyber Live' do
   pod 'ReachabilitySwift'
   pod 'AppsFlyerFramework'
   pod 'PIPKit'
+  pod 'SwiftyJWT'
+  pod 'IQKeyboardManagerSwift'
 end
+    

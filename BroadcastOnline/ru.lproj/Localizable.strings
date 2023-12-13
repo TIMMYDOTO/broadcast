@@ -1,5 +1,6 @@
 "PrematchTitle" = "Прематч";
 "CyberSportTitle" = "Киберспорт";
+"LoginSportTitle" = "Войти";
 "NoMatches" = "Нет событий";
 "NoConnection" = "Нет соединения";
 "MakeSureConnection" = "Проверь подключение к интернету\n и возвращайся к нам";

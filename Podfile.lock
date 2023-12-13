@@ -3,7 +3,9 @@ PODS:
   - AppsFlyerFramework (6.8.1):
     - AppsFlyerFramework/Main (= 6.8.1)
   - AppsFlyerFramework/Main (6.8.1)
-  - Kingfisher (7.6.2)
+  - InAppStory (1.22.5)
+  - IQKeyboardManagerSwift (6.5.16)
+  - Kingfisher (7.10.0)
   - lottie-ios (3.5.0)
   - PIPKit (1.0.7)
   - R.swift (6.1.0):
@@ -17,11 +19,16 @@ PODS:
   - SwiftProtobuf (1.20.2)
   - SwiftTheme (0.6.4)
   - SwiftVideoBackground (3.4.0)
+  - SwiftyCrypto (0.0.1)
+  - SwiftyJWT (0.0.3):
+    - SwiftyCrypto (~> 0.0.1)
   - YouTubePlayer (0.7.2)
 
 DEPENDENCIES:
   - Alamofire
   - AppsFlyerFramework
+  - InAppStory (from `https://github.com/inappstory/ios-sdk.git`)
+  - IQKeyboardManagerSwift
   - Kingfisher
   - lottie-ios
   - PIPKit
@@ -34,12 +41,14 @@ DEPENDENCIES:
   - SwiftProtobuf
   - SwiftTheme
   - SwiftVideoBackground
+  - SwiftyJWT
   - YouTubePlayer
 
 SPEC REPOS:
   trunk:
     - Alamofire
     - AppsFlyerFramework
+    - IQKeyboardManagerSwift
     - Kingfisher
     - lottie-ios
     - PIPKit
@@ -53,12 +62,25 @@ SPEC REPOS:
     - SwiftProtobuf
     - SwiftTheme
     - SwiftVideoBackground
+    - SwiftyCrypto
+    - SwiftyJWT
     - YouTubePlayer
+
+EXTERNAL SOURCES:
+  InAppStory:
+    :git: https://github.com/inappstory/ios-sdk.git
+
+CHECKOUT OPTIONS:
+  InAppStory:
+    :commit: 71b2bb399d6e8c5c5ce6defffb219bbc0d096e0e
+    :git: https://github.com/inappstory/ios-sdk.git
 
 SPEC CHECKSUMS:
   Alamofire: d368e1ff8a298e6dde360e35a3e68e6c610e7204
   AppsFlyerFramework: a664325124485223296354b4eec335f5340a6df8
-  Kingfisher: 6c5449c6450c5239166510ba04afe374a98afc4f
+  InAppStory: 0252f4c9a419919054fe3c9511e3fba4099a06a4
+  IQKeyboardManagerSwift: 12d89768845bb77b55cc092ecc2b1f9370f06b76
+  Kingfisher: a18f05d3b6d37d8650ee4a3e61d57a28fc6207f6
   lottie-ios: c55158d67d0629a260625cc2ded2052b829e3c3e
   PIPKit: 7f498b6fe98c747b6a10a324fe433c7cc988b386
   R.swift: ec98ff71c4ab2f6fd01dd077e5afd15e63a4834c
@@ -71,8 +93,10 @@ SPEC CHECKSUMS:
   SwiftProtobuf: 9f458aaa7844a2fc0b910053e66578bc4e2da9c1
   SwiftTheme: 007cbaf1f9e171caf6448a4657533e54c682b285
   SwiftVideoBackground: 826e0567c737ded2a211aa309e9951c643695e8f
+  SwiftyCrypto: ab59cdb153a7ca99b657fa8d9ebd2ebbd7694bbe
+  SwiftyJWT: e46e8457138c6567a1a9ff05a6efc8ef678c1187
   YouTubePlayer: 2b5f2830d8f9b2cde942083211291e382c9e6bd5
 
-PODFILE CHECKSUM: c44486e47e65ae6b0a8c335f997e4dde954912cf
+PODFILE CHECKSUM: 3b414b7bc21991da5db83724cd3fcf39d60ace04
 
-COCOAPODS: 1.12.1
+COCOAPODS: 1.14.3

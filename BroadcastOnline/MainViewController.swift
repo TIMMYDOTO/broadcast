@@ -9,7 +9,7 @@ import UIKit
 import SkeletonView
 import SnapKit
 import Reachability
-
+import InAppStorySDK
 
 class MainViewController: UIViewController, MainViewInput {
     func showLoader() {
@@ -19,6 +19,8 @@ class MainViewController: UIViewController, MainViewInput {
     func hideLoader() {
         
     }
+    
+    weak var storyView: StoryView!
     private weak var noConnectionVC: NoConnectionViewController?
     var contentIsLoaded: Bool = false
      weak var tournamentsCollection: CyberSportTournamentsCollection!
@@ -26,13 +28,18 @@ class MainViewController: UIViewController, MainViewInput {
     private weak var gamesCollection: CyberSportGamesCollection!
     private weak var filtersCollection: CyberSportFiltersCollection!
     private weak var placeholderContainerView: UIView!
-    @IBOutlet var segmentedController: UISegmentedControl!
     private weak var placeholderView: CyberSportPlaceholderView!
+    private weak var topView: UIView!
+    
+    @IBOutlet var segmentedController: UISegmentedControl!
+ 
     
     private var reachability: Reachability!
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        setupTopView()
+        setupInAppStory()
         releaseScenario()
         presenter = MainPresenter(view: self)
         setupGamesCollection()
@@ -57,16 +64,46 @@ class MainViewController: UIViewController, MainViewInput {
         label.font = R.font.robotoBold(size: 24)
         
         self.navigationItem.leftBarButtonItem = UIBarButtonItem.init(customView: label)
+        
+        
+        let loginLabel = UILabel()
+        loginLabel.textColor = #colorLiteral(red: 0.5843137255, green: 0.7176470588, blue: 1, alpha: 1)
+        let loginSportTitle = NSLocalizedString("LoginSportTitle", comment: "LoginSportTitle Main")
+        loginLabel.text = loginSportTitle
+        loginLabel.font = R.font.robotoBold(size: 16)
+        
+        let gesture = UITapGestureRecognizer(target: self, action: #selector(tap))
+        loginLabel.addGestureRecognizer(gesture)
+        loginLabel.isUserInteractionEnabled = true
+        
+//        self.navigationItem.rightBarButtonItem = UIBarButtonItem.init(customView: loginLabel)
+        
+        
         setupNoConnection()
 
         
     }
     
+    @objc func tap() {
+        print("move top sign in")
+    }
+    
+    private func setupTopView() {
+        let view = UIView()
+        view.layer.cornerRadius = 16
+        view.clipsToBounds = true
+        topView = view
+        self.view.addSubview(topView)
+        topView.snp.makeConstraints { make in
+            make.top.equalToSuperview()
+            make.leading.trailing.equalToSuperview()
+            make.height.equalTo(236)
+        }
+    }
+    
     private var windowInterfaceOrientation: UIInterfaceOrientation? {
         let windowInterfaceOrientation = UIApplication.shared.windows.first?.windowScene?.interfaceOrientation
         return windowInterfaceOrientation
-       
-       
     }
     
     
@@ -158,11 +195,60 @@ class MainViewController: UIViewController, MainViewInput {
    }
     override func viewDidLayoutSubviews() {
         super.viewDidLayoutSubviews()
-
+        let firstColor = #colorLiteral(red: 0.09411764706, green: 0.1137254902, blue: 0.1607843137, alpha: 1)
+        let secondColor = #colorLiteral(red: 0.1764705882, green: 0.2117647059, blue: 0.3019607843, alpha: 1)
+        topView.applyGradient(isVertical: true, colorArray: [firstColor, secondColor])
 //        tournamentsCollection.collectionViewLayout.invalidateLayout()
 //        tournamentsCollection.layoutIfNeeded()
     }
     
+    
+    func setInAppStories(id: String, tags: [String]) {
+        DispatchQueue.main.async {
+            InAppStory.shared.settings = Settings(userID: id, tags: tags)
+            
+            InAppStory.shared.showOnboardings(from: self, delegate: self) { item in
+                print("intem ", item)
+            }
+            
+//            self.stopStorySkeletonState()
+            self.storyView.create()
+            self.storyView.refresh()
+        }
+    }
+    
+    
+    func setupInAppStory() {
+        InAppStory.shared.cellBorderColor = BBTheme.isNight() ? Color.electricYellow : Color.carmineRed
+        InAppStory.shared.cellFont = R.font.lato_BBRegular(size: 12)!
+        
+        let story = StoryView()
+        story.backgroundColor = .clear
+        story.target = self
+        story.storiesDelegate = self
+//        story.deleagateFlowLayout = self
+        
+        storyView = story
+        topView.addSubview(storyView)
+        storyView.snp.makeConstraints {
+            $0.top.equalToSuperview().offset(100)
+            $0.leading.trailing.equalToSuperview()
+            
+            $0.height.equalTo(124)
+        }
+    }
+    
+    
+    func updateInAppStories(_ model: (id: String, tags: [String])?) {
+        DispatchQueue.main.async {
+            if let model = model {
+                InAppStory.shared.settings = Settings(userID: model.id, tags: model.tags)
+                
+                self.storyView.refresh()
+                
+            }
+        }
+    }
 
     func bindTournamentCollection() {
         tournamentsCollection.willSelectTournament = { [weak self] tournament in
@@ -245,18 +331,16 @@ class MainViewController: UIViewController, MainViewInput {
     
     func setupGamesCollection() {
         let collection = CyberSportGamesCollection()
-        collection.backgroundColor = #colorLiteral(red: 0.1176470588, green: 0.1411764706, blue: 0.2, alpha: 1)
-        
+        collection.backgroundColor = .clear
         collection.isSkeletonable = true
         
         gamesCollection = collection
         view.addSubview(gamesCollection)
         gamesCollection.snp.makeConstraints {
-            $0.top.equalToSuperview().offset(0)
+            $0.top.equalToSuperview().offset(238)
             $0.leading.trailing.equalToSuperview()
-//            $0.height.equalTo(83)
-//            $0.height.equalTo(130)
-            $0.height.equalTo(192)
+
+            $0.height.equalTo(72)
         }
         
         gamesCollection.layer.cornerRadius = 16
@@ -405,4 +489,43 @@ class MainViewController: UIViewController, MainViewInput {
     }
 
 
+}
+
+extension MainViewController: InAppStoryDelegate {
+    func storiesDidUpdated(isContent: Bool, from storyType: StoriesType) {
+    }
+    
+    func storyReaderDidClose(with storyType: InAppStorySDK.StoriesType) {
+        presenter?.isNeedToUpdateStories = true
+        storyView.refresh()
+    }
+    
+    func storyReader(actionWith target: String, for type: ActionType, from storyType: StoriesType) {
+        if type == .deeplink {
+//            presenter?.inAppStoryAction(action: type, for: target)
+            presenter?.isNeedToUpdateStories = true
+        } else {
+            InAppStory.shared.closeReader {
+//                self.presenter?.inAppStoryAction(action: type, for: target)
+            }
+        }
+    }
+}
+
+extension MainViewController: StoryViewDelegateFlowLayout {
+    func sizeForItem() -> CGSize {
+        return CGSize(width: 96.0, height: 104.0)
+    }
+    
+    func insetForSection() -> UIEdgeInsets {
+        return UIEdgeInsets(top: 10.0, left: 16, bottom: 10.0, right: 16.0)
+    }
+    
+    func minimumLineSpacingForSection() -> CGFloat {
+        return 2.0
+    }
+    
+    func minimumInteritemSpacingForSection() -> CGFloat {
+        return 2.0
+    }
 }

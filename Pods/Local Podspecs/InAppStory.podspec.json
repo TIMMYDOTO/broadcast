@@ -1,0 +1,22 @@
+{
+  "name": "InAppStory",
+  "version": "1.22.5",
+  "platforms": {
+    "ios": "10.0"
+  },
+  "license": {
+    "type": "MIT",
+    "file": "LICENSE"
+  },
+  "homepage": "https://github.com/inappstory/ios-sdk",
+  "authors": {
+    "St.Pashik": "stpashik@gmail.com"
+  },
+  "source": {
+    "git": "https://github.com/inappstory/ios-sdk.git",
+    "tag": "1.22.5"
+  },
+  "summary": "Библиотека для представления Stories с возможностью кастомизации.",
+  "description": "Библиотека для представления Stories с возможностью кастомизации предоставляемая для работы с сайтом casestory.ioYou can customize every detail. Make Stories of your dream! :)",
+  "vendored_frameworks": "InAppStorySDK.xcframework"
+}

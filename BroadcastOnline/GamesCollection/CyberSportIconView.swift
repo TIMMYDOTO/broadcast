@@ -32,7 +32,8 @@ class CyberSportIconView: UIView {
                 setImages(vm.icon)
                 return
             }
-            let resource = ImageResource(downloadURL: url)
+    
+            let resource = KF.ImageResource(downloadURL: url)
             self.downloadTask = KingfisherManager.shared.retrieveImage(with: resource) { [weak self] result in
                 guard let self = self else { return }
                 if case let .success(response) = result {

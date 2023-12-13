@@ -747,12 +747,26 @@ struct R: Rswift.Validatable {
     fileprivate init() {}
   }
 
-  /// This `R.image` struct is generated, and contains static references to 38 images.
+  /// This `R.image` struct is generated, and contains static references to 50 images.
   struct image {
+    /// Image `ButtonActive`.
+    static let buttonActive = Rswift.ImageResource(bundle: R.hostingBundle, name: "ButtonActive")
+    /// Image `CheckBoxEmpty`.
+    static let checkBoxEmpty = Rswift.ImageResource(bundle: R.hostingBundle, name: "CheckBoxEmpty")
     /// Image `CloseIcon`.
     static let closeIcon = Rswift.ImageResource(bundle: R.hostingBundle, name: "CloseIcon")
+    /// Image `Close`.
+    static let close = Rswift.ImageResource(bundle: R.hostingBundle, name: "Close")
     /// Image `MakeBet`.
     static let makeBet = Rswift.ImageResource(bundle: R.hostingBundle, name: "MakeBet")
+    /// Image `ShownPS`.
+    static let shownPS = Rswift.ImageResource(bundle: R.hostingBundle, name: "ShownPS")
+    /// Image `background`.
+    static let background = Rswift.ImageResource(bundle: R.hostingBundle, name: "background")
+    /// Image `backgroundframe`.
+    static let backgroundframe = Rswift.ImageResource(bundle: R.hostingBundle, name: "backgroundframe")
+    /// Image `checkbox`.
+    static let checkbox = Rswift.ImageResource(bundle: R.hostingBundle, name: "checkbox")
     /// Image `cyberSport`.
     static let cyberSport = Rswift.ImageResource(bundle: R.hostingBundle, name: "cyberSport")
     /// Image `fullscreen`.
@@ -815,16 +829,47 @@ struct R: Rswift.Validatable {
     static let icCyberWildRift = Rswift.ImageResource(bundle: R.hostingBundle, name: "icCyberWildRift")
     /// Image `icLiveInfo`.
     static let icLiveInfo = Rswift.ImageResource(bundle: R.hostingBundle, name: "icLiveInfo")
+    /// Image `image`.
+    static let image = Rswift.ImageResource(bundle: R.hostingBundle, name: "image")
+    /// Image `locker`.
+    static let locker = Rswift.ImageResource(bundle: R.hostingBundle, name: "locker")
+    /// Image `logo`.
+    static let logo = Rswift.ImageResource(bundle: R.hostingBundle, name: "logo")
     /// Image `mute`.
     static let mute = Rswift.ImageResource(bundle: R.hostingBundle, name: "mute")
     /// Image `palm`.
     static let palm = Rswift.ImageResource(bundle: R.hostingBundle, name: "palm")
+    /// Image `phone`.
+    static let phone = Rswift.ImageResource(bundle: R.hostingBundle, name: "phone")
     /// Image `red`.
     static let red = Rswift.ImageResource(bundle: R.hostingBundle, name: "red")
+    /// Image `repeat`.
+    static let `repeat` = Rswift.ImageResource(bundle: R.hostingBundle, name: "repeat")
     /// Image `smile`.
     static let smile = Rswift.ImageResource(bundle: R.hostingBundle, name: "smile")
     /// Image `unmute`.
     static let unmute = Rswift.ImageResource(bundle: R.hostingBundle, name: "unmute")
+
+    #if os(iOS) || os(tvOS)
+    /// `UIImage(named: "ButtonActive", bundle: ..., traitCollection: ...)`
+    static func buttonActive(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIImage? {
+      return UIKit.UIImage(resource: R.image.buttonActive, compatibleWith: traitCollection)
+    }
+    #endif
+
+    #if os(iOS) || os(tvOS)
+    /// `UIImage(named: "CheckBoxEmpty", bundle: ..., traitCollection: ...)`
+    static func checkBoxEmpty(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIImage? {
+      return UIKit.UIImage(resource: R.image.checkBoxEmpty, compatibleWith: traitCollection)
+    }
+    #endif
+
+    #if os(iOS) || os(tvOS)
+    /// `UIImage(named: "Close", bundle: ..., traitCollection: ...)`
+    static func close(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIImage? {
+      return UIKit.UIImage(resource: R.image.close, compatibleWith: traitCollection)
+    }
+    #endif
 
     #if os(iOS) || os(tvOS)
     /// `UIImage(named: "CloseIcon", bundle: ..., traitCollection: ...)`
@@ -837,6 +882,34 @@ struct R: Rswift.Validatable {
     /// `UIImage(named: "MakeBet", bundle: ..., traitCollection: ...)`
     static func makeBet(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIImage? {
       return UIKit.UIImage(resource: R.image.makeBet, compatibleWith: traitCollection)
+    }
+    #endif
+
+    #if os(iOS) || os(tvOS)
+    /// `UIImage(named: "ShownPS", bundle: ..., traitCollection: ...)`
+    static func shownPS(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIImage? {
+      return UIKit.UIImage(resource: R.image.shownPS, compatibleWith: traitCollection)
+    }
+    #endif
+
+    #if os(iOS) || os(tvOS)
+    /// `UIImage(named: "background", bundle: ..., traitCollection: ...)`
+    static func background(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIImage? {
+      return UIKit.UIImage(resource: R.image.background, compatibleWith: traitCollection)
+    }
+    #endif
+
+    #if os(iOS) || os(tvOS)
+    /// `UIImage(named: "backgroundframe", bundle: ..., traitCollection: ...)`
+    static func backgroundframe(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIImage? {
+      return UIKit.UIImage(resource: R.image.backgroundframe, compatibleWith: traitCollection)
+    }
+    #endif
+
+    #if os(iOS) || os(tvOS)
+    /// `UIImage(named: "checkbox", bundle: ..., traitCollection: ...)`
+    static func checkbox(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIImage? {
+      return UIKit.UIImage(resource: R.image.checkbox, compatibleWith: traitCollection)
     }
     #endif
 
@@ -1058,6 +1131,27 @@ struct R: Rswift.Validatable {
     #endif
 
     #if os(iOS) || os(tvOS)
+    /// `UIImage(named: "image", bundle: ..., traitCollection: ...)`
+    static func image(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIImage? {
+      return UIKit.UIImage(resource: R.image.image, compatibleWith: traitCollection)
+    }
+    #endif
+
+    #if os(iOS) || os(tvOS)
+    /// `UIImage(named: "locker", bundle: ..., traitCollection: ...)`
+    static func locker(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIImage? {
+      return UIKit.UIImage(resource: R.image.locker, compatibleWith: traitCollection)
+    }
+    #endif
+
+    #if os(iOS) || os(tvOS)
+    /// `UIImage(named: "logo", bundle: ..., traitCollection: ...)`
+    static func logo(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIImage? {
+      return UIKit.UIImage(resource: R.image.logo, compatibleWith: traitCollection)
+    }
+    #endif
+
+    #if os(iOS) || os(tvOS)
     /// `UIImage(named: "mute", bundle: ..., traitCollection: ...)`
     static func mute(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIImage? {
       return UIKit.UIImage(resource: R.image.mute, compatibleWith: traitCollection)
@@ -1072,9 +1166,23 @@ struct R: Rswift.Validatable {
     #endif
 
     #if os(iOS) || os(tvOS)
+    /// `UIImage(named: "phone", bundle: ..., traitCollection: ...)`
+    static func phone(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIImage? {
+      return UIKit.UIImage(resource: R.image.phone, compatibleWith: traitCollection)
+    }
+    #endif
+
+    #if os(iOS) || os(tvOS)
     /// `UIImage(named: "red", bundle: ..., traitCollection: ...)`
     static func red(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIImage? {
       return UIKit.UIImage(resource: R.image.red, compatibleWith: traitCollection)
+    }
+    #endif
+
+    #if os(iOS) || os(tvOS)
+    /// `UIImage(named: "repeat", bundle: ..., traitCollection: ...)`
+    static func `repeat`(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIImage? {
+      return UIKit.UIImage(resource: R.image.`repeat`, compatibleWith: traitCollection)
     }
     #endif
 
@@ -1158,7 +1266,7 @@ struct R: Rswift.Validatable {
       fileprivate init() {}
     }
 
-    /// This `R.string.localizable` struct is generated, and contains static references to 7 localization keys.
+    /// This `R.string.localizable` struct is generated, and contains static references to 8 localization keys.
     struct localizable {
       /// en translation: Follow prematch events
       ///
@@ -1168,6 +1276,10 @@ struct R: Rswift.Validatable {
       ///
       /// Locales: en, pt-PT, ru, es
       static let liveIsEmpty = Rswift.StringResource(key: "LiveIsEmpty", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en", "pt-PT", "ru", "es"], comment: nil)
+      /// en translation: Login
+      ///
+      /// Locales: en, ru
+      static let loginSportTitle = Rswift.StringResource(key: "LoginSportTitle", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en", "ru"], comment: nil)
       /// en translation: Make sure your phone has a stable network Internet connection and try again
       ///
       /// Locales: en, pt-PT, ru, es
@@ -1217,6 +1329,21 @@ struct R: Rswift.Validatable {
         }
 
         return NSLocalizedString("LiveIsEmpty", bundle: bundle, comment: "")
+      }
+
+      /// en translation: Login
+      ///
+      /// Locales: en, ru
+      static func loginSportTitle(preferredLanguages: [String]? = nil) -> String {
+        guard let preferredLanguages = preferredLanguages else {
+          return NSLocalizedString("LoginSportTitle", bundle: hostingBundle, comment: "")
+        }
+
+        guard let (_, bundle) = localeBundle(tableName: "Localizable", preferredLanguages: preferredLanguages) else {
+          return "LoginSportTitle"
+        }
+
+        return NSLocalizedString("LoginSportTitle", bundle: bundle, comment: "")
       }
 
       /// en translation: Make sure your phone has a stable network Internet connection and try again
@@ -1414,10 +1541,15 @@ struct _R: Rswift.Validatable {
     struct main: Rswift.StoryboardResourceWithInitialControllerType, Rswift.Validatable {
       typealias InitialController = NavigationController
 
+      let authViewController = StoryboardViewControllerResource<AuthViewController>(identifier: "AuthViewController")
       let broadcast = StoryboardViewControllerResource<BroadcastViewController>(identifier: "Broadcast")
       let bundle = R.hostingBundle
       let makeBetVIewController = StoryboardViewControllerResource<MakeBetVIewController>(identifier: "MakeBetVIewController")
       let name = "Main"
+
+      func authViewController(_: Void = ()) -> AuthViewController? {
+        return UIKit.UIStoryboard(resource: self).instantiateViewController(withResource: authViewController)
+      }
 
       func broadcast(_: Void = ()) -> BroadcastViewController? {
         return UIKit.UIStoryboard(resource: self).instantiateViewController(withResource: broadcast)
@@ -1429,8 +1561,12 @@ struct _R: Rswift.Validatable {
 
       static func validate() throws {
         if UIKit.UIImage(named: "MakeBet", in: R.hostingBundle, compatibleWith: nil) == nil { throw Rswift.ValidationError(description: "[R.swift] Image named 'MakeBet' is used in storyboard 'Main', but couldn't be loaded.") }
+        if UIKit.UIImage(named: "background", in: R.hostingBundle, compatibleWith: nil) == nil { throw Rswift.ValidationError(description: "[R.swift] Image named 'background' is used in storyboard 'Main', but couldn't be loaded.") }
+        if UIKit.UIImage(named: "logo", in: R.hostingBundle, compatibleWith: nil) == nil { throw Rswift.ValidationError(description: "[R.swift] Image named 'logo' is used in storyboard 'Main', but couldn't be loaded.") }
+        if UIKit.UIImage(named: "repeat", in: R.hostingBundle, compatibleWith: nil) == nil { throw Rswift.ValidationError(description: "[R.swift] Image named 'repeat' is used in storyboard 'Main', but couldn't be loaded.") }
         if #available(iOS 11.0, tvOS 11.0, *) {
         }
+        if _R.storyboard.main().authViewController() == nil { throw Rswift.ValidationError(description:"[R.swift] ViewController with identifier 'authViewController' could not be loaded from storyboard 'Main' as 'AuthViewController'.") }
         if _R.storyboard.main().broadcast() == nil { throw Rswift.ValidationError(description:"[R.swift] ViewController with identifier 'broadcast' could not be loaded from storyboard 'Main' as 'BroadcastViewController'.") }
         if _R.storyboard.main().makeBetVIewController() == nil { throw Rswift.ValidationError(description:"[R.swift] ViewController with identifier 'makeBetVIewController' could not be loaded from storyboard 'Main' as 'MakeBetVIewController'.") }
       }

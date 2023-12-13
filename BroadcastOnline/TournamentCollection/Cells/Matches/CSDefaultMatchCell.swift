@@ -327,14 +327,14 @@ private extension CSDefaultMatchCell {
     
     func configureLogo(home: CSTeam, away: CSTeam) {
         if let url = URL(string: home.image) {
-            let resource = ImageResource(downloadURL: url)
+            let resource = KF.ImageResource(downloadURL: url)
             self.firstLogoDownloadTask = KingfisherManager.shared.retrieveImage(with: resource) { [weak self] result in
                 guard let self = self, case let .success(response) = result else { return }
                 self.firstTeamLogo.image = response.image
             }
         }
         if let url = URL(string: away.image) {
-            let resource = ImageResource(downloadURL: url)
+            let resource = KF.ImageResource(downloadURL: url)
             self.secondLogoDownloadTask = KingfisherManager.shared.retrieveImage(with: resource) { [weak self] result in
                 guard let self = self, case let .success(response) = result else { return }
                 self.secondTeamLogo.image = response.image

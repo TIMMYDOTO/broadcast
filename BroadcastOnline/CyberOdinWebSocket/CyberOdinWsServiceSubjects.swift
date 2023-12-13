@@ -9,7 +9,7 @@ import RxSwift
 
 class CyberOdinWsServiceSubjects {
     
-    let appState = PublishSubject<AppState>()
+    let appState = PublishSubject<AppActiveState>()
     
     let wsConnected = PublishSubject<Bool>()
     
@@ -43,8 +43,3 @@ class CyberOdinWsServiceSubjects {
     
 }
 
-
-enum AppState {
-    case background
-    case foreground
-}

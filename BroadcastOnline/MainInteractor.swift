@@ -7,8 +7,9 @@
 
 import Foundation
 import RxSwift
+import Alamofire
 
-final class MainInteractor: CyberOdinWsServiceDependency, ConnectManagerDependency {
+final class MainInteractor: CyberOdinWsServiceDependency, ConnectManagerDependency, ApiServiceDependency, SessionServiceDependency{
     
     let disposeBag = DisposeBag()
     func checkConnected() -> Bool { cyberSportWs.checkConnected() }
@@ -24,7 +25,8 @@ final class MainInteractor: CyberOdinWsServiceDependency, ConnectManagerDependen
             .subscribe(onNext: onNext)
             .disposed(by: disposeBag)
     }
-    func subscribeAppState(onNext: @escaping (AppState) -> Void) {
+    
+    func subscribeAppState(onNext: @escaping (AppActiveState) -> Void) {
         cyberSportWs.subjects.appState
             .subscribe(onNext: onNext)
             .disposed(by: disposeBag)
@@ -35,6 +37,7 @@ final class MainInteractor: CyberOdinWsServiceDependency, ConnectManagerDependen
             .subscribe(onNext: onNext)
             .disposed(by: disposeBag)
     }
+    
     func sendUnsubscribeTournament(sportId: String, tournamentId: String, type: SportLivePrematch) {
         var request = Bb_Mobile_OddinTreeWs_UnsubscribeTournamentRequest()
         request.tournamentID = tournamentId
@@ -229,4 +232,24 @@ final class MainInteractor: CyberOdinWsServiceDependency, ConnectManagerDependen
         }.disposed(by: disposeBag)
     }
     
+    func gamblerTagsRequest(
+        _ completion: @escaping (Result<Bb_StoriesInappstoryGetGamblerTagsResponse, Endpoint.ApiError>) -> ()
+    ) {
+        api.getGamblerTags(completion)
+    }
+    
+    func getGamblerId() -> String {
+        let gamblerId = session.getCustomFields()?["gamblerId"]?.value as? Int
+        
+        if let id = gamblerId {
+            return "\(id)"
+        } else { return "" }
+    }
+    
+}
+
+
+enum AppActiveState {
+    case background
+    case foreground
 }

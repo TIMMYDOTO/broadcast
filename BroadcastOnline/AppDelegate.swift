@@ -6,7 +6,8 @@
 //
 
 import UIKit
-
+import InAppStorySDK
+import IQKeyboardManagerSwift
 @main
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
@@ -17,8 +18,18 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     }
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
-      
+        InAppStory.shared.initWith(serviceKey: "Bb8CAAAAAAAAAAAAABEaIThgEhYUJk9CMBlDT0RBDslI4x3FthKC61MMca18BzWlw0Spe5gEeKnsqTDs2FSy")
+        setupIQKeyboardManager()
         return true
+    }
+    
+    func setupIQKeyboardManager() {
+        IQKeyboardManager.shared.enable = true
+        IQKeyboardManager.shared.keyboardDistanceFromTextField = 145
+        
+        IQKeyboardManager.shared.toolbarTintColor = Colors.backgroundColor
+        IQKeyboardManager.shared.shouldResignOnTouchOutside = true
+        IQKeyboardManager.shared.enableAutoToolbar = true
     }
 
     // MARK: UISceneSession Lifecycle

@@ -17,7 +17,7 @@ class CyberSportIconImageView: UIImageView {
             clear()
             return
         }
-        let resource = ImageResource(downloadURL: url)
+        let resource = KF.ImageResource(downloadURL: url)
         self.downloadTask = KingfisherManager.shared.retrieveImage(with: resource) { [weak self] result in
             guard let self = self, case let .success(response) = result else { return }
             self.image = selected ? response.image : self.convertToGrayScale(image: response.image)

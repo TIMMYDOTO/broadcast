@@ -151,6 +151,44 @@
 		9AF76E1128DDB9730040E574 /* NoConnectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9AF76E1028DDB9730040E574 /* NoConnectionViewController.swift */; };
 		9AF76E1328DDC3EB0040E574 /* illustration_6.json in Resources */ = {isa = PBXBuildFile; fileRef = 9AF76E1228DDC3EB0040E574 /* illustration_6.json */; };
 		9AF76E1528DE12810040E574 /* CyberSportFilterSkeletonCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9AF76E1428DE12810040E574 /* CyberSportFilterSkeletonCell.swift */; };
+		DE04B6A12B14EFD300F56E8D /* stories_inappstory_get_gambler_tags.pb.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE04B6A02B14EFD300F56E8D /* stories_inappstory_get_gambler_tags.pb.swift */; };
+		DE31C3012B18EF37001E45D6 /* BBCheckBox.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE31C3002B18EF37001E45D6 /* BBCheckBox.swift */; };
+		DE40F6292B28EFF90088F06D /* CaptchaTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE40F6282B28EFF90088F06D /* CaptchaTextField.swift */; };
+		DE522DD42B160DB300850E61 /* ProtobufService.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE522DD32B160DB300850E61 /* ProtobufService.swift */; };
+		DE522DD82B16144900850E61 /* SessionServiceDependency.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE522DD72B16144900850E61 /* SessionServiceDependency.swift */; };
+		DE522DDB2B1615F300850E61 /* SessionServiceInterface.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE522DD92B1615F300850E61 /* SessionServiceInterface.swift */; };
+		DE522DDC2B1615F300850E61 /* SessionService.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE522DDA2B1615F300850E61 /* SessionService.swift */; };
+		DE522DDE2B16169D00850E61 /* refresh_token.pb.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE522DDD2B16169D00850E61 /* refresh_token.pb.swift */; };
+		DE522DE02B1616A600850E61 /* token_refresh.pb.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE522DDF2B1616A600850E61 /* token_refresh.pb.swift */; };
+		DE522DE22B1616DB00850E61 /* BBTheme.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE522DE12B1616DB00850E61 /* BBTheme.swift */; };
+		DE522DE42B16178E00850E61 /* AppState.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE522DE32B16178E00850E61 /* AppState.swift */; };
+		DE522DE62B161BF300850E61 /* StorageServiceDependency.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE522DE52B161BF200850E61 /* StorageServiceDependency.swift */; };
+		DE522DE82B161C1F00850E61 /* StorageServiceInterface.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE522DE72B161C1F00850E61 /* StorageServiceInterface.swift */; };
+		DE522DEA2B161C9400850E61 /* StorageServiceDependencyImpl.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE522DE92B161C9400850E61 /* StorageServiceDependencyImpl.swift */; };
+		DE522DEC2B161CD100850E61 /* StorageService.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE522DEB2B161CD100850E61 /* StorageService.swift */; };
+		DE522DEE2B16253900850E61 /* ApiServiceDependency.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE522DED2B16253900850E61 /* ApiServiceDependency.swift */; };
+		DE522DF02B16254900850E61 /* ApiServiceInterface.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE522DEF2B16254900850E61 /* ApiServiceInterface.swift */; };
+		DE522DF22B16362B00850E61 /* ApiServiceDependencyImpl.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE522DF12B16362B00850E61 /* ApiServiceDependencyImpl.swift */; };
+		DEC556352B1DD99300B39C49 /* register_auth_phone.pb.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEC556342B1DD99300B39C49 /* register_auth_phone.pb.swift */; };
+		DEC556372B1DF12300B39C49 /* Gambler.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEC556362B1DF12300B39C49 /* Gambler.swift */; };
+		DEC556392B1E11D500B39C49 /* CaretString.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEC556382B1E11D500B39C49 /* CaretString.swift */; };
+		DEC5563B2B1E126C00B39C49 /* PhoneTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEC5563A2B1E126C00B39C49 /* PhoneTextField.swift */; };
+		DEC5563D2B1E127C00B39C49 /* PasswordTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEC5563C2B1E127C00B39C49 /* PasswordTextField.swift */; };
+		DEC5563F2B1E37F900B39C49 /* KeyboardAccessoryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEC5563E2B1E37F900B39C49 /* KeyboardAccessoryView.swift */; };
+		DEC8B0462B1A1873000411E5 /* AuthPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEC8B0452B1A1873000411E5 /* AuthPresenter.swift */; };
+		DEC8B0482B1A240D000411E5 /* AuthViewInput.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEC8B0472B1A240D000411E5 /* AuthViewInput.swift */; };
+		DEC8B04C2B1A2EB9000411E5 /* password_recovery_send_sms.pb.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEC8B0492B1A2EB8000411E5 /* password_recovery_send_sms.pb.swift */; };
+		DEC8B04D2B1A2EB9000411E5 /* change_password.pb.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEC8B04A2B1A2EB8000411E5 /* change_password.pb.swift */; };
+		DEC8B04E2B1A2EB9000411E5 /* check_sms.pb.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEC8B04B2B1A2EB9000411E5 /* check_sms.pb.swift */; };
+		DEC8B0502B1A2EEB000411E5 /* get_captcha.pb.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEC8B04F2B1A2EEB000411E5 /* get_captcha.pb.swift */; };
+		DEC8B0522B1A2F39000411E5 /* register_auth_phone_repeat.pb.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEC8B0512B1A2F39000411E5 /* register_auth_phone_repeat.pb.swift */; };
+		DEC8B0542B1A33C2000411E5 /* AuthInput.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEC8B0532B1A33C2000411E5 /* AuthInput.swift */; };
+		DED68A672B1A4149005E9545 /* SignTypeCollectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DED68A662B1A4149005E9545 /* SignTypeCollectionView.swift */; };
+		DED68A692B1A46ED005E9545 /* SignTypeCollectionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DED68A682B1A46ED005E9545 /* SignTypeCollectionCell.swift */; };
+		DED68A6B2B1A4741005E9545 /* SignType.swift in Sources */ = {isa = PBXBuildFile; fileRef = DED68A6A2B1A4741005E9545 /* SignType.swift */; };
+		DEDFFDCE2B188EB8004BB1CE /* AuthViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEDFFDCD2B188EB8004BB1CE /* AuthViewController.swift */; };
+		DEDFFDD02B189685004BB1CE /* GradientView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEDFFDCF2B189685004BB1CE /* GradientView.swift */; };
+		DEDFFDD22B18C1D3004BB1CE /* TextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEDFFDD12B18C1D3004BB1CE /* TextField.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -315,6 +353,44 @@
 		9AF76E1228DDC3EB0040E574 /* illustration_6.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = illustration_6.json; sourceTree = "<group>"; };
 		9AF76E1428DE12810040E574 /* CyberSportFilterSkeletonCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CyberSportFilterSkeletonCell.swift; sourceTree = "<group>"; };
 		CACC7C6A92B9EE89D98C20E0 /* Pods-Cyber Live.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Cyber Live.release.xcconfig"; path = "Target Support Files/Pods-Cyber Live/Pods-Cyber Live.release.xcconfig"; sourceTree = "<group>"; };
+		DE04B6A02B14EFD300F56E8D /* stories_inappstory_get_gambler_tags.pb.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = stories_inappstory_get_gambler_tags.pb.swift; sourceTree = "<group>"; };
+		DE31C3002B18EF37001E45D6 /* BBCheckBox.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BBCheckBox.swift; sourceTree = "<group>"; };
+		DE40F6282B28EFF90088F06D /* CaptchaTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CaptchaTextField.swift; sourceTree = "<group>"; };
+		DE522DD32B160DB300850E61 /* ProtobufService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProtobufService.swift; sourceTree = SOURCE_ROOT; };
+		DE522DD72B16144900850E61 /* SessionServiceDependency.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SessionServiceDependency.swift; sourceTree = SOURCE_ROOT; };
+		DE522DD92B1615F300850E61 /* SessionServiceInterface.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SessionServiceInterface.swift; sourceTree = "<group>"; };
+		DE522DDA2B1615F300850E61 /* SessionService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SessionService.swift; sourceTree = "<group>"; };
+		DE522DDD2B16169D00850E61 /* refresh_token.pb.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = refresh_token.pb.swift; sourceTree = "<group>"; };
+		DE522DDF2B1616A600850E61 /* token_refresh.pb.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = token_refresh.pb.swift; sourceTree = "<group>"; };
+		DE522DE12B1616DB00850E61 /* BBTheme.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BBTheme.swift; sourceTree = "<group>"; };
+		DE522DE32B16178E00850E61 /* AppState.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppState.swift; sourceTree = "<group>"; };
+		DE522DE52B161BF200850E61 /* StorageServiceDependency.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StorageServiceDependency.swift; sourceTree = "<group>"; };
+		DE522DE72B161C1F00850E61 /* StorageServiceInterface.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StorageServiceInterface.swift; sourceTree = "<group>"; };
+		DE522DE92B161C9400850E61 /* StorageServiceDependencyImpl.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StorageServiceDependencyImpl.swift; sourceTree = "<group>"; };
+		DE522DEB2B161CD100850E61 /* StorageService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StorageService.swift; sourceTree = "<group>"; };
+		DE522DED2B16253900850E61 /* ApiServiceDependency.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ApiServiceDependency.swift; sourceTree = "<group>"; };
+		DE522DEF2B16254900850E61 /* ApiServiceInterface.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ApiServiceInterface.swift; sourceTree = "<group>"; };
+		DE522DF12B16362B00850E61 /* ApiServiceDependencyImpl.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ApiServiceDependencyImpl.swift; sourceTree = "<group>"; };
+		DEC556342B1DD99300B39C49 /* register_auth_phone.pb.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = register_auth_phone.pb.swift; sourceTree = "<group>"; };
+		DEC556362B1DF12300B39C49 /* Gambler.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Gambler.swift; sourceTree = "<group>"; };
+		DEC556382B1E11D500B39C49 /* CaretString.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CaretString.swift; sourceTree = "<group>"; };
+		DEC5563A2B1E126C00B39C49 /* PhoneTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhoneTextField.swift; sourceTree = "<group>"; };
+		DEC5563C2B1E127C00B39C49 /* PasswordTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PasswordTextField.swift; sourceTree = "<group>"; };
+		DEC5563E2B1E37F900B39C49 /* KeyboardAccessoryView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KeyboardAccessoryView.swift; sourceTree = SOURCE_ROOT; };
+		DEC8B0452B1A1873000411E5 /* AuthPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthPresenter.swift; sourceTree = "<group>"; };
+		DEC8B0472B1A240D000411E5 /* AuthViewInput.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthViewInput.swift; sourceTree = "<group>"; };
+		DEC8B0492B1A2EB8000411E5 /* password_recovery_send_sms.pb.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = password_recovery_send_sms.pb.swift; sourceTree = "<group>"; };
+		DEC8B04A2B1A2EB8000411E5 /* change_password.pb.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = change_password.pb.swift; sourceTree = "<group>"; };
+		DEC8B04B2B1A2EB9000411E5 /* check_sms.pb.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = check_sms.pb.swift; sourceTree = "<group>"; };
+		DEC8B04F2B1A2EEB000411E5 /* get_captcha.pb.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = get_captcha.pb.swift; sourceTree = "<group>"; };
+		DEC8B0512B1A2F39000411E5 /* register_auth_phone_repeat.pb.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = register_auth_phone_repeat.pb.swift; sourceTree = "<group>"; };
+		DEC8B0532B1A33C2000411E5 /* AuthInput.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AuthInput.swift; sourceTree = "<group>"; };
+		DED68A662B1A4149005E9545 /* SignTypeCollectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignTypeCollectionView.swift; sourceTree = "<group>"; };
+		DED68A682B1A46ED005E9545 /* SignTypeCollectionCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignTypeCollectionCell.swift; sourceTree = "<group>"; };
+		DED68A6A2B1A4741005E9545 /* SignType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignType.swift; sourceTree = "<group>"; };
+		DEDFFDCD2B188EB8004BB1CE /* AuthViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthViewController.swift; sourceTree = "<group>"; };
+		DEDFFDCF2B189685004BB1CE /* GradientView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GradientView.swift; sourceTree = "<group>"; };
+		DEDFFDD12B18C1D3004BB1CE /* TextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = TextField.swift; path = /Users/av_shkepu/broadcast/BroadcastOnline/TextField.swift; sourceTree = "<absolute>"; };
 		F44A24DBE9FF638C35EB38AE /* Pods-BroadcastOnline.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BroadcastOnline.debug.xcconfig"; path = "Target Support Files/Pods-BroadcastOnline/Pods-BroadcastOnline.debug.xcconfig"; sourceTree = "<group>"; };
 		FE7501537DFD11AE83E49500 /* Pods-BroadcastOnline.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BroadcastOnline.release.xcconfig"; path = "Target Support Files/Pods-BroadcastOnline/Pods-BroadcastOnline.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -492,18 +568,42 @@
 		9A790DCE28C9F358009F2AA4 /* BroadcastOnline */ = {
 			isa = PBXGroup;
 			children = (
+				DEDFFDCD2B188EB8004BB1CE /* AuthViewController.swift */,
+				DEC8B0452B1A1873000411E5 /* AuthPresenter.swift */,
+				9A790DD528C9F358009F2AA4 /* Main.storyboard */,
+				DEC5563A2B1E126C00B39C49 /* PhoneTextField.swift */,
+				DEC5563C2B1E127C00B39C49 /* PasswordTextField.swift */,
+				DE40F6282B28EFF90088F06D /* CaptchaTextField.swift */,
+				DE31C3002B18EF37001E45D6 /* BBCheckBox.swift */,
+				DEDFFDD12B18C1D3004BB1CE /* TextField.swift */,
+				DEC5563E2B1E37F900B39C49 /* KeyboardAccessoryView.swift */,
+				DE522DD72B16144900850E61 /* SessionServiceDependency.swift */,
+				DE522DDA2B1615F300850E61 /* SessionService.swift */,
+				DE522DD92B1615F300850E61 /* SessionServiceInterface.swift */,
+				DE522DD32B160DB300850E61 /* ProtobufService.swift */,
+				DEC556382B1E11D500B39C49 /* CaretString.swift */,
 				9AE2FC5A28F84599003EF4A5 /* AppConfig.swift */,
+				DE522DE92B161C9400850E61 /* StorageServiceDependencyImpl.swift */,
 				9AE2FC6028F851C3003EF4A5 /* CheckVersion.swift */,
 				9A790DCF28C9F358009F2AA4 /* AppDelegate.swift */,
+				DE522DF12B16362B00850E61 /* ApiServiceDependencyImpl.swift */,
 				9AE2FC5E28F84E47003EF4A5 /* AppDataStore.swift */,
+				DE522DDD2B16169D00850E61 /* refresh_token.pb.swift */,
+				DE522DDF2B1616A600850E61 /* token_refresh.pb.swift */,
+				DE522DE52B161BF200850E61 /* StorageServiceDependency.swift */,
+				DE522DEB2B161CD100850E61 /* StorageService.swift */,
+				DE522DE72B161C1F00850E61 /* StorageServiceInterface.swift */,
 				9A4EE32728CF637D00905FF9 /* Extensions.swift */,
+				DE522DE32B16178E00850E61 /* AppState.swift */,
+				DE522DE12B1616DB00850E61 /* BBTheme.swift */,
 				9AE2FC5C28F845EF003EF4A5 /* ios_config.pb.swift */,
 				9A790DF728CA1E82009F2AA4 /* ViewInput.swift */,
 				9A790DF528CA1E27009F2AA4 /* ViewOutput.swift */,
 				9A4EE32128CF56AB00905FF9 /* Reusable.swift */,
 				9A790DD128C9F358009F2AA4 /* SceneDelegate.swift */,
 				9A4EE32528CF5C8000905FF9 /* UIColor.swift */,
-				9A790DD528C9F358009F2AA4 /* Main.storyboard */,
+				DED68A662B1A4149005E9545 /* SignTypeCollectionView.swift */,
+				DEC8B0472B1A240D000411E5 /* AuthViewInput.swift */,
 				9AE4765328D355F100E59FC0 /* MakeBetVIewController.swift */,
 				9ACBA9A728DA10EE00E73AAF /* Localizable.strings */,
 				9A4EE32328CF570300905FF9 /* CSType.swift */,
@@ -521,6 +621,7 @@
 				9A79193828D0976700062946 /* R.generated.swift */,
 				9A790E7A28CA3616009F2AA4 /* WsService.swift */,
 				9A4EE31428CF43F900905FF9 /* CSFilters.swift */,
+				DED68A6A2B1A4741005E9545 /* SignType.swift */,
 				9A790EA928CA368B009F2AA4 /* CSMatch.swift */,
 				9A4EE33B28CF8E7F00905FF9 /* CSStake.swift */,
 				9A4EE33D28D07DE400905FF9 /* CSPeriodScore.swift */,
@@ -538,13 +639,24 @@
 				9A79193428D0947400062946 /* subscribe_state.pb.swift */,
 				9A79192E28D093B800062946 /* match.pb.swift */,
 				9A79192328D08F6B00062946 /* errors.pb.swift */,
+				DEC8B0532B1A33C2000411E5 /* AuthInput.swift */,
 				9A79193628D094A300062946 /* ws2_errors.pb.swift */,
+				DEC556362B1DF12300B39C49 /* Gambler.swift */,
+				DEC8B0512B1A2F39000411E5 /* register_auth_phone_repeat.pb.swift */,
+				DEC8B04A2B1A2EB8000411E5 /* change_password.pb.swift */,
+				DEC556342B1DD99300B39C49 /* register_auth_phone.pb.swift */,
+				DEC8B04F2B1A2EEB000411E5 /* get_captcha.pb.swift */,
+				DEC8B04B2B1A2EB9000411E5 /* check_sms.pb.swift */,
+				DEC8B0492B1A2EB8000411E5 /* password_recovery_send_sms.pb.swift */,
 				9A79191D28D08E5700062946 /* CSStakeCell.swift */,
 				9A79191128D08CF200062946 /* bets_history_v3_get_event_result.pb.swift */,
 				9A79191928D08DC200062946 /* TournamentSkeletonCHeader.swift */,
 				9A79192528D08FA300062946 /* Colors.swift */,
 				9A79193228D0943A00062946 /* sport.pb.swift */,
+				DEDFFDCF2B189685004BB1CE /* GradientView.swift */,
+				DE04B6A02B14EFD300F56E8D /* stories_inappstory_get_gambler_tags.pb.swift */,
 				9A4EE34528D0809200905FF9 /* Fonts */,
+				DED68A682B1A46ED005E9545 /* SignTypeCollectionCell.swift */,
 			);
 			path = BroadcastOnline;
 			sourceTree = "<group>";
@@ -561,6 +673,8 @@
 				9AE4765128D33BD500E59FC0 /* NavigationController.swift */,
 				9A790DE828CA1D1C009F2AA4 /* MainPresenter.swift */,
 				9A790DEA28CA1D24009F2AA4 /* MainInteractor.swift */,
+				DE522DED2B16253900850E61 /* ApiServiceDependency.swift */,
+				DE522DEF2B16254900850E61 /* ApiServiceInterface.swift */,
 				9A4EE27C28CB5A9300905FF9 /* CSState.swift */,
 				9A4EE30F28CB613F00905FF9 /* CSTournament.swift */,
 				9A4EE30D28CB610600905FF9 /* CSSport.swift */,
@@ -875,23 +989,31 @@
 			buildActionMask = 2147483647;
 			files = (
 				9ACBA99E28D8C00800E73AAF /* CSStakesCollection.swift in Sources */,
+				DE04B6A12B14EFD300F56E8D /* stories_inappstory_get_gambler_tags.pb.swift in Sources */,
 				9A790E3A28CA29CB009F2AA4 /* etw_rpc_subscribe_match.pb.swift in Sources */,
 				9AE2FC5F28F84E47003EF4A5 /* AppDataStore.swift in Sources */,
 				9A79192428D08F6B00062946 /* errors.pb.swift in Sources */,
+				DEC8B0462B1A1873000411E5 /* AuthPresenter.swift in Sources */,
+				DEC5563D2B1E127C00B39C49 /* PasswordTextField.swift in Sources */,
 				9A790E2228CA29CB009F2AA4 /* etw_model_sport.pb.swift in Sources */,
 				9AF76E1528DE12810040E574 /* CyberSportFilterSkeletonCell.swift in Sources */,
 				9A790DE928CA1D1C009F2AA4 /* MainPresenter.swift in Sources */,
 				9A4EE31028CB613F00905FF9 /* CSTournament.swift in Sources */,
+				DE522DEC2B161CD100850E61 /* StorageService.swift in Sources */,
 				9A790E2528CA29CB009F2AA4 /* etw_rpc_subscribe_sport.pb.swift in Sources */,
+				DEC8B0542B1A33C2000411E5 /* AuthInput.swift in Sources */,
 				9A4EE31D28CF4D5200905FF9 /* CyberSportGamesCollection.swift in Sources */,
 				9A790E3828CA29CB009F2AA4 /* etw_rpc_subscribe_full_tournament.pb.swift in Sources */,
 				9A4EE32828CF637D00905FF9 /* Extensions.swift in Sources */,
+				DEC8B04D2B1A2EB9000411E5 /* change_password.pb.swift in Sources */,
 				9A790E2428CA29CB009F2AA4 /* etw_common_errors.pb.swift in Sources */,
 				9A4EE31E28CF4D5200905FF9 /* CyberSportIconView.swift in Sources */,
+				DE522DE42B16178E00850E61 /* AppState.swift in Sources */,
 				9A79191E28D08E5700062946 /* CSStakeCell.swift in Sources */,
 				9A790EA828CA3617009F2AA4 /* WsService.swift in Sources */,
 				9A4EE33428CF877B00905FF9 /* CSTournamentHeader.swift in Sources */,
 				9A79193928D0976700062946 /* R.generated.swift in Sources */,
+				DE522DE22B1616DB00850E61 /* BBTheme.swift in Sources */,
 				9A790DEE28CA1D77009F2AA4 /* MainOutput.swift in Sources */,
 				9A790E3D28CA29CB009F2AA4 /* CyberOdinWsService.swift in Sources */,
 				9AF76E1128DDB9730040E574 /* NoConnectionViewController.swift in Sources */,
@@ -903,6 +1025,9 @@
 				9A4EE34128D07DE500905FF9 /* CSPeriodScore.swift in Sources */,
 				9AE2FC5B28F84599003EF4A5 /* AppConfig.swift in Sources */,
 				9A790E3B28CA29CB009F2AA4 /* etw_rpc_unsubscribe_state.pb.swift in Sources */,
+				DEC8B04C2B1A2EB9000411E5 /* password_recovery_send_sms.pb.swift in Sources */,
+				DE522DF02B16254900850E61 /* ApiServiceInterface.swift in Sources */,
+				DEDFFDCE2B188EB8004BB1CE /* AuthViewController.swift in Sources */,
 				9A790E2328CA29CB009F2AA4 /* etw_model_tournament.pb.swift in Sources */,
 				9A790E4028CA29CB009F2AA4 /* CyberOdinWsServiceDependency.swift in Sources */,
 				9A790DD028C9F358009F2AA4 /* AppDelegate.swift in Sources */,
@@ -913,10 +1038,12 @@
 				9A79192028D08ECD00062946 /* CSMoreStakesCell.swift in Sources */,
 				9A790E2128CA29CB009F2AA4 /* etw_model_stake.pb.swift in Sources */,
 				9AE4765228D33BD500E59FC0 /* NavigationController.swift in Sources */,
+				DED68A672B1A4149005E9545 /* SignTypeCollectionView.swift in Sources */,
 				9A79192628D08FA300062946 /* Colors.swift in Sources */,
 				9A790DD228C9F358009F2AA4 /* SceneDelegate.swift in Sources */,
 				9A790E2F28CA29CB009F2AA4 /* etw_rpc_set_settings.pb.swift in Sources */,
 				9A79193D28D0C07B00062946 /* CyberSportFilterCell.swift in Sources */,
+				DEC5563F2B1E37F900B39C49 /* KeyboardAccessoryView.swift in Sources */,
 				9A4EE32428CF570300905FF9 /* CSType.swift in Sources */,
 				9A4EE31F28CF4D5200905FF9 /* CyberSportGameSkeletonCell.swift in Sources */,
 				9A790E3928CA29CB009F2AA4 /* etw_rpc_subscribe_tournament.pb.swift in Sources */,
@@ -924,6 +1051,7 @@
 				9A790DE428C9F8C7009F2AA4 /* MainViewController.swift in Sources */,
 				9A79193528D0947400062946 /* subscribe_state.pb.swift in Sources */,
 				9AE2FC6128F851C4003EF4A5 /* CheckVersion.swift in Sources */,
+				DE522DDC2B1615F300850E61 /* SessionService.swift in Sources */,
 				9A790E2E28CA29CB009F2AA4 /* etw__rpc_default.pb.swift in Sources */,
 				9A79192F28D093B800062946 /* match.pb.swift in Sources */,
 				9A4EE33628CF877B00905FF9 /* CSMatchBaseCell.swift in Sources */,
@@ -931,13 +1059,25 @@
 				9A790E2B28CA29CB009F2AA4 /* etw_rpc_newsletter_tournament.pb.swift in Sources */,
 				9A4EE34328D07DE500905FF9 /* CSStream.swift in Sources */,
 				9A790E3728CA29CB009F2AA4 /* etw_rpc_unsubscribe_match.pb.swift in Sources */,
+				DEC556372B1DF12300B39C49 /* Gambler.swift in Sources */,
 				9A790E3328CA29CB009F2AA4 /* etw_rpc_ping.pb.swift in Sources */,
 				9A79193328D0943A00062946 /* sport.pb.swift in Sources */,
 				9A790E2728CA29CB009F2AA4 /* etw_rpc_newsletter_stake.pb.swift in Sources */,
+				DE522DEE2B16253900850E61 /* ApiServiceDependency.swift in Sources */,
+				DEC556392B1E11D500B39C49 /* CaretString.swift in Sources */,
 				9AF4CE7E28E33EE8002CBC2D /* ConnectManager.swift in Sources */,
+				DE40F6292B28EFF90088F06D /* CaptchaTextField.swift in Sources */,
+				DEC8B0502B1A2EEB000411E5 /* get_captcha.pb.swift in Sources */,
 				9A790E3E28CA29CB009F2AA4 /* CyberOdinWsServiceSubjects.swift in Sources */,
+				DEC8B0522B1A2F39000411E5 /* register_auth_phone_repeat.pb.swift in Sources */,
+				DE31C3012B18EF37001E45D6 /* BBCheckBox.swift in Sources */,
+				DEDFFDD02B189685004BB1CE /* GradientView.swift in Sources */,
+				DE522DE02B1616A600850E61 /* token_refresh.pb.swift in Sources */,
 				9A790DF628CA1E27009F2AA4 /* ViewOutput.swift in Sources */,
+				DE522DD42B160DB300850E61 /* ProtobufService.swift in Sources */,
 				9A4EE32228CF56AB00905FF9 /* Reusable.swift in Sources */,
+				DE522DF22B16362B00850E61 /* ApiServiceDependencyImpl.swift in Sources */,
+				DE522DE62B161BF300850E61 /* StorageServiceDependency.swift in Sources */,
 				9A790E3628CA29CB009F2AA4 /* etw_rpc_unsubscribe_full_match.pb.swift in Sources */,
 				9A790EAA28CA368B009F2AA4 /* CSMatch.swift in Sources */,
 				9ACBA99D28D89FEE00E73AAF /* CSDefaultMatchCell.swift in Sources */,
@@ -945,6 +1085,7 @@
 				9A790DF028CA1D81009F2AA4 /* MainViewInput.swift in Sources */,
 				9AF4CE7F28E33EE8002CBC2D /* ConnectManagerInterface.swift in Sources */,
 				9A79192D28D0934900062946 /* Sport.swift in Sources */,
+				DED68A692B1A46ED005E9545 /* SignTypeCollectionCell.swift in Sources */,
 				9A4EE27D28CB5A9300905FF9 /* CSState.swift in Sources */,
 				9A790E2028CA29CB009F2AA4 /* etw_model_match.pb.swift in Sources */,
 				9AE4765428D355F100E59FC0 /* MakeBetVIewController.swift in Sources */,
@@ -952,26 +1093,37 @@
 				9A790E2A28CA29CB009F2AA4 /* etw_rpc_newsletter_state.pb.swift in Sources */,
 				9A790DF828CA1E82009F2AA4 /* ViewInput.swift in Sources */,
 				9A790E3028CA29CB009F2AA4 /* etw_rpc_unsubscribe_sport.pb.swift in Sources */,
+				DE522DE82B161C1F00850E61 /* StorageServiceInterface.swift in Sources */,
 				9A79193728D094A300062946 /* ws2_errors.pb.swift in Sources */,
 				9ACBA99B28D485A300E73AAF /* NewCSStakesCell.swift in Sources */,
 				9A79191228D08CF200062946 /* bets_history_v3_get_event_result.pb.swift in Sources */,
 				9A79194428D204CC00062946 /* CSDetailsHeaderTranslationView.swift in Sources */,
 				9A4EE32628CF5C8000905FF9 /* UIColor.swift in Sources */,
 				9A790E2928CA29CB009F2AA4 /* etw_rpc_newsletter_match.pb.swift in Sources */,
+				DED68A6B2B1A4741005E9545 /* SignType.swift in Sources */,
 				9A4EE31C28CF4D5200905FF9 /* CyberSportGameCell.swift in Sources */,
 				9ACBA9A028D9E99500E73AAF /* CyberSportPlaceholderView.swift in Sources */,
 				9A4EE34428D07DE500905FF9 /* CSTeam.swift in Sources */,
+				DE522DDE2B16169D00850E61 /* refresh_token.pb.swift in Sources */,
 				9A790E3528CA29CB009F2AA4 /* etw_rpc_subscribe_state.pb.swift in Sources */,
 				9A79193B28D0B9C000062946 /* CyberSportFiltersCollection.swift in Sources */,
+				DEC556352B1DD99300B39C49 /* register_auth_phone.pb.swift in Sources */,
 				9A79193128D0940000062946 /* tournament.pb.swift in Sources */,
+				DEC5563B2B1E126C00B39C49 /* PhoneTextField.swift in Sources */,
 				9A790E3428CA29CB009F2AA4 /* etw_rpc_unsubscribe_stake.pb.swift in Sources */,
+				DE522DEA2B161C9400850E61 /* StorageServiceDependencyImpl.swift in Sources */,
 				9A790E2C28CA29CB009F2AA4 /* etw_rpc_newsletter_sport.pb.swift in Sources */,
+				DEDFFDD22B18C1D3004BB1CE /* TextField.swift in Sources */,
+				DE522DDB2B1615F300850E61 /* SessionServiceInterface.swift in Sources */,
 				9A4EE34228D07DE500905FF9 /* CSScoreboard.swift in Sources */,
+				DEC8B04E2B1A2EB9000411E5 /* check_sms.pb.swift in Sources */,
 				9A790DEB28CA1D24009F2AA4 /* MainInteractor.swift in Sources */,
 				9A790E3128CA29CB009F2AA4 /* etw_rpc_unsubscribe_full_tournament.pb.swift in Sources */,
 				9A790E2828CA29CB009F2AA4 /* etw_rpc_newsletter_full_match.pb.swift in Sources */,
 				9A4EE32028CF4D5200905FF9 /* CyberSportIconImageView.swift in Sources */,
 				9AF4CE8028E33EE8002CBC2D /* ConnectManagerDependency.swift in Sources */,
+				DE522DD82B16144900850E61 /* SessionServiceDependency.swift in Sources */,
+				DEC8B0482B1A240D000411E5 /* AuthViewInput.swift in Sources */,
 				9A79194028D1E94800062946 /* BroadcastViewController.swift in Sources */,
 				9A790E2D28CA29CB009F2AA4 /* etw_rpc_unsubscribe.pb.swift in Sources */,
 			);
@@ -1161,7 +1313,7 @@
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = QC3379N7C7;
+				DEVELOPMENT_TEAM = 5XHJ5W6A53;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = BroadcastOnline/Info.plist;
 				INFOPLIST_KEY_CFBundleDisplayName = "Cyber live";
@@ -1197,7 +1349,7 @@
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = QC3379N7C7;
+				DEVELOPMENT_TEAM = 5XHJ5W6A53;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = BroadcastOnline/Info.plist;
 				INFOPLIST_KEY_CFBundleDisplayName = "Cyber live";

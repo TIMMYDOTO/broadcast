@@ -19,8 +19,11 @@ final class MainPresenter: MainOutput {
     private var willAppeared = false
     private var isLostConnect = false
     private var stateAwait: Bool = false
+    var isNeedToUpdateStories = false
+    var firstLaunch: Bool = true
+    var tags = [String]()
     // MARK: - Constructor
-    
+   
     public init(view: MainViewInput ) {
         self.view = view
     }
@@ -44,17 +47,39 @@ final class MainPresenter: MainOutput {
             needSwitchPrematchIfLivesEmpty = true
             didLoaded = true
         }
+        getGamblerTags()
     }
     
-//    func viewWillAppear(animated: Bool) {
-//        view?.setSelectedStakes(model: [:], reload: true)
-//        if willAppeared, state.getType() == .live {
-//            awaitSetSettingAction = .state
-//            interactor.sendSetSetting(filter: state.currentFilter.getValue())
-//        }
-//        willAppeared = true
-//    }
-//
+    func viewWillAppear(animated: Bool) {
+        
+    }
+    
+    
+    func getGamblerTags() {
+        interactor.gamblerTagsRequest { [weak self] response in
+            guard let self = self else { return }
+            
+            let id = self.interactor.getGamblerId()
+            let newTags: [String]
+            
+            switch response {
+            case let .success(result):
+                newTags = result.gamblerTags
+            case let .failure(error):
+                newTags = []
+                debugPrint(error)
+            }
+            
+            if self.firstLaunch {
+                self.view?.setInAppStories(id: id, tags: newTags)
+                self.firstLaunch = newTags.isEmpty ? true : false
+            } else if newTags != self.tags || isNeedToUpdateStories {
+                self.view?.updateInAppStories((id: id, tags: newTags))
+                isNeedToUpdateStories = false
+            }
+            self.tags = newTags
+        }
+    }
    
     
     
