@@ -79,25 +79,6 @@
                                             <action selector="didTapCheckBox:" destination="4W2-cl-8yU" eventType="touchUpInside" id="MgC-uR-Q5p"/>
                                         </connections>
                                     </button>
-                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="uOx-97-ZHM">
-                                        <rect key="frame" x="300" y="314" width="66" height="24"/>
-                                        <constraints>
-                                            <constraint firstAttribute="height" constant="24" id="Wy8-OX-whU"/>
-                                            <constraint firstAttribute="width" constant="66" id="qSE-6l-lnc"/>
-                                        </constraints>
-                                    </imageView>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="3TY-hQ-vz5">
-                                        <rect key="frame" x="374" y="314" width="24" height="24"/>
-                                        <constraints>
-                                            <constraint firstAttribute="height" constant="24" id="PWf-y0-ILL"/>
-                                            <constraint firstAttribute="width" constant="24" id="eaq-Jq-pbb"/>
-                                        </constraints>
-                                        <state key="normal" title="Button"/>
-                                        <buttonConfiguration key="configuration" style="plain" image="repeat" title=" "/>
-                                        <connections>
-                                            <action selector="didTapRepeatButton:" destination="4W2-cl-8yU" eventType="touchUpInside" id="s1b-Et-vuc"/>
-                                        </connections>
-                                    </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="NAz-zJ-Rig">
                                         <rect key="frame" x="16" y="524" width="382" height="56"/>
                                         <constraints>
@@ -107,52 +88,84 @@
                                         <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
                                         <state key="normal" title="Зарегистрироваться"/>
                                         <connections>
-                                            <action selector="didTapSign:" destination="4W2-cl-8yU" eventType="touchUpInside" id="yvU-Lb-DmT"/>
+                                            <action selector="didClickSign:" destination="4W2-cl-8yU" eventType="touchUpInside" id="IRw-a4-sPF"/>
                                         </connections>
                                     </button>
-                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="EWI-xB-zaM" customClass="PhoneTextField" customModule="Cyber_Live" customModuleProvider="target">
-                                        <rect key="frame" x="16" y="174" width="382" height="48"/>
-                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="16" translatesAutoresizingMaskIntoConstraints="NO" id="r4X-Iq-W52">
+                                        <rect key="frame" x="16" y="174" width="382" height="178"/>
+                                        <subviews>
+                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="EWI-xB-zaM" customClass="PhoneTextField" customModule="Cyber_Live" customModuleProvider="target">
+                                                <rect key="frame" x="0.0" y="0.0" width="382" height="48"/>
+                                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="48" id="WTh-xQ-Xid"/>
+                                                </constraints>
+                                            </view>
+                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="hV7-Pd-0fq" customClass="PasswordTextField" customModule="Cyber_Live" customModuleProvider="target">
+                                                <rect key="frame" x="0.0" y="64" width="382" height="48"/>
+                                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="48" id="Xzb-EH-PcV"/>
+                                                </constraints>
+                                            </view>
+                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="nlV-KG-ham" userLabel="Captchaview">
+                                                <rect key="frame" x="0.0" y="128" width="382" height="50"/>
+                                                <subviews>
+                                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Q7i-sa-avT" customClass="CaptchaTextField" customModule="Cyber_Live" customModuleProvider="target">
+                                                        <rect key="frame" x="0.0" y="0.0" width="268" height="48"/>
+                                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                        <constraints>
+                                                            <constraint firstAttribute="height" constant="48" id="6IE-DA-ZTp"/>
+                                                        </constraints>
+                                                    </view>
+                                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="uOx-97-ZHM">
+                                                        <rect key="frame" x="284" y="12" width="66" height="24"/>
+                                                        <constraints>
+                                                            <constraint firstAttribute="height" constant="24" id="Wy8-OX-whU"/>
+                                                            <constraint firstAttribute="width" constant="66" id="qSE-6l-lnc"/>
+                                                        </constraints>
+                                                    </imageView>
+                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="3TY-hQ-vz5">
+                                                        <rect key="frame" x="358" y="12" width="24" height="24"/>
+                                                        <constraints>
+                                                            <constraint firstAttribute="height" constant="24" id="PWf-y0-ILL"/>
+                                                            <constraint firstAttribute="width" constant="24" id="eaq-Jq-pbb"/>
+                                                        </constraints>
+                                                        <state key="normal" title="Button"/>
+                                                        <buttonConfiguration key="configuration" style="plain" image="repeat" title=" "/>
+                                                        <connections>
+                                                            <action selector="didTapRepeatButton:" destination="4W2-cl-8yU" eventType="touchUpInside" id="s1b-Et-vuc"/>
+                                                        </connections>
+                                                    </button>
+                                                </subviews>
+                                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                <constraints>
+                                                    <constraint firstItem="3TY-hQ-vz5" firstAttribute="leading" secondItem="uOx-97-ZHM" secondAttribute="trailing" constant="8" id="3v9-Os-16u"/>
+                                                    <constraint firstItem="Q7i-sa-avT" firstAttribute="top" secondItem="nlV-KG-ham" secondAttribute="top" id="594-uE-BoB"/>
+                                                    <constraint firstItem="Q7i-sa-avT" firstAttribute="leading" secondItem="nlV-KG-ham" secondAttribute="leading" id="MJO-jb-may"/>
+                                                    <constraint firstItem="uOx-97-ZHM" firstAttribute="leading" secondItem="Q7i-sa-avT" secondAttribute="trailing" constant="16" id="bob-Hc-36I"/>
+                                                    <constraint firstAttribute="trailing" secondItem="3TY-hQ-vz5" secondAttribute="trailing" id="oSp-kZ-iIB"/>
+                                                    <constraint firstItem="3TY-hQ-vz5" firstAttribute="centerY" secondItem="uOx-97-ZHM" secondAttribute="centerY" id="rLq-r8-4a7"/>
+                                                    <constraint firstItem="uOx-97-ZHM" firstAttribute="centerY" secondItem="Q7i-sa-avT" secondAttribute="centerY" id="z0U-Xx-6OQ"/>
+                                                </constraints>
+                                            </view>
+                                        </subviews>
                                         <constraints>
-                                            <constraint firstAttribute="height" constant="48" id="WTh-xQ-Xid"/>
+                                            <constraint firstAttribute="height" constant="178" id="yZc-Vh-NzN"/>
                                         </constraints>
-                                    </view>
-                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="hV7-Pd-0fq" customClass="PasswordTextField" customModule="Cyber_Live" customModuleProvider="target">
-                                        <rect key="frame" x="16" y="238" width="382" height="48"/>
-                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                        <constraints>
-                                            <constraint firstAttribute="height" constant="48" id="Xzb-EH-PcV"/>
-                                        </constraints>
-                                    </view>
-                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Q7i-sa-avT" customClass="CaptchaTextField" customModule="Cyber_Live" customModuleProvider="target">
-                                        <rect key="frame" x="16" y="302" width="268" height="48"/>
-                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                        <constraints>
-                                            <constraint firstAttribute="height" constant="48" id="6IE-DA-ZTp"/>
-                                        </constraints>
-                                    </view>
+                                    </stackView>
                                 </subviews>
                                 <color key="backgroundColor" systemColor="labelColor"/>
                                 <constraints>
-                                    <constraint firstItem="EWI-xB-zaM" firstAttribute="leading" secondItem="mzo-it-KmH" secondAttribute="leading" constant="16" id="0fz-kW-CFH"/>
-                                    <constraint firstItem="uOx-97-ZHM" firstAttribute="centerY" secondItem="Q7i-sa-avT" secondAttribute="centerY" id="2f9-qs-Ldf"/>
-                                    <constraint firstItem="Q7i-sa-avT" firstAttribute="leading" secondItem="mzo-it-KmH" secondAttribute="leading" constant="16" id="4uk-Fh-gPA"/>
-                                    <constraint firstItem="3TY-hQ-vz5" firstAttribute="leading" secondItem="uOx-97-ZHM" secondAttribute="trailing" constant="8" id="9hO-F0-7Wy"/>
                                     <constraint firstAttribute="height" constant="628" id="C4h-Uj-xA3"/>
-                                    <constraint firstAttribute="trailing" secondItem="hV7-Pd-0fq" secondAttribute="trailing" constant="16" id="FwP-vg-oCV"/>
-                                    <constraint firstItem="hV7-Pd-0fq" firstAttribute="leading" secondItem="mzo-it-KmH" secondAttribute="leading" constant="16" id="Gl3-bg-RMR"/>
-                                    <constraint firstItem="EWI-xB-zaM" firstAttribute="top" secondItem="mzo-it-KmH" secondAttribute="top" constant="174" id="Gmw-fT-zyC"/>
+                                    <constraint firstItem="r4X-Iq-W52" firstAttribute="leading" secondItem="mzo-it-KmH" secondAttribute="leading" constant="16" id="NsC-lP-Aat"/>
+                                    <constraint firstItem="uw8-jg-Ir0" firstAttribute="top" secondItem="r4X-Iq-W52" secondAttribute="bottom" constant="22" id="Q0h-9L-I9t"/>
                                     <constraint firstAttribute="bottom" secondItem="NAz-zJ-Rig" secondAttribute="bottom" constant="48" id="SRt-e0-F3l"/>
                                     <constraint firstAttribute="trailing" secondItem="NAz-zJ-Rig" secondAttribute="trailing" constant="16" id="Sbv-Vo-ZxF"/>
-                                    <constraint firstAttribute="trailing" secondItem="3TY-hQ-vz5" secondAttribute="trailing" constant="16" id="cxl-g3-al0"/>
-                                    <constraint firstItem="hV7-Pd-0fq" firstAttribute="top" secondItem="EWI-xB-zaM" secondAttribute="bottom" constant="16" id="da5-nK-qme"/>
+                                    <constraint firstItem="r4X-Iq-W52" firstAttribute="top" secondItem="mzo-it-KmH" secondAttribute="top" constant="174" id="cki-Kk-ASZ"/>
                                     <constraint firstItem="NAz-zJ-Rig" firstAttribute="leading" secondItem="mzo-it-KmH" secondAttribute="leading" constant="16" id="hdH-uw-oEa"/>
-                                    <constraint firstItem="Q7i-sa-avT" firstAttribute="top" secondItem="hV7-Pd-0fq" secondAttribute="bottom" constant="16" id="lPf-yB-wIa"/>
-                                    <constraint firstItem="uw8-jg-Ir0" firstAttribute="top" secondItem="Q7i-sa-avT" secondAttribute="bottom" constant="24" id="ogh-nV-B2P"/>
-                                    <constraint firstAttribute="trailing" secondItem="EWI-xB-zaM" secondAttribute="trailing" constant="16" id="okk-GL-Pe5"/>
-                                    <constraint firstItem="uOx-97-ZHM" firstAttribute="leading" secondItem="Q7i-sa-avT" secondAttribute="trailing" constant="16" id="rD4-Y1-u1d"/>
+                                    <constraint firstAttribute="trailing" secondItem="r4X-Iq-W52" secondAttribute="trailing" constant="16" id="jiA-Ct-ea4"/>
                                     <constraint firstItem="uw8-jg-Ir0" firstAttribute="leading" secondItem="mzo-it-KmH" secondAttribute="leading" constant="16" id="uXS-l3-4Xg"/>
-                                    <constraint firstItem="3TY-hQ-vz5" firstAttribute="centerY" secondItem="uOx-97-ZHM" secondAttribute="centerY" id="xwJ-C0-7uj"/>
                                 </constraints>
                                 <userDefinedRuntimeAttributes>
                                     <userDefinedRuntimeAttribute type="color" keyPath="firstColor">
@@ -185,11 +198,14 @@
                     <connections>
                         <outlet property="captchaImageView" destination="uOx-97-ZHM" id="htq-Wh-PIv"/>
                         <outlet property="captchaTextField" destination="Q7i-sa-avT" id="MnR-PZ-jmE"/>
+                        <outlet property="catpchaView" destination="nlV-KG-ham" id="D45-mj-hCd"/>
                         <outlet property="checkBox" destination="uw8-jg-Ir0" id="nWI-Lr-u62"/>
                         <outlet property="containerView" destination="mzo-it-KmH" id="Kku-zm-UlZ"/>
                         <outlet property="logoImageView" destination="aKb-Vj-ZAe" id="daO-A0-RBr"/>
                         <outlet property="phoneTextFieldView" destination="EWI-xB-zaM" id="oaw-Og-qPW"/>
                         <outlet property="signUpButton" destination="NAz-zJ-Rig" id="k2c-hf-iQ7"/>
+                        <outlet property="stackView" destination="r4X-Iq-W52" id="lqw-80-6n8"/>
+                        <outlet property="stackViewHeightConstraint" destination="yZc-Vh-NzN" id="rNy-xL-Wtg"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dPi-8k-EAH" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>

@@ -130,8 +130,11 @@ class PhoneTextField: UIView {
     
     @objc func didEndEditing() {
         self.backgroundView.layer.borderColor = #colorLiteral(red: 0.2, green: 0.2, blue: 0.2, alpha: 1)
-        let options = UIView.AnimationOptions.curveEaseOut.union(.beginFromCurrentState)
-        animateViewsOnResignFirstResponder(duration: 0.25, options:options)
+        let text = textField.text ?? ""
+        if text.isEmpty {
+            let options = UIView.AnimationOptions.curveEaseOut.union(.beginFromCurrentState)
+            animateViewsOnResignFirstResponder(duration: 0.25, options:options)
+        }
     }
     
     @objc func editingChanged() {

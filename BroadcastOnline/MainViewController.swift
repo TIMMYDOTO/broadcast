@@ -337,7 +337,7 @@ class MainViewController: UIViewController, MainViewInput {
         gamesCollection = collection
         view.addSubview(gamesCollection)
         gamesCollection.snp.makeConstraints {
-            $0.top.equalToSuperview().offset(238)
+            $0.top.equalTo(topView.snp.bottom).offset(16)
             $0.leading.trailing.equalToSuperview()
 
             $0.height.equalTo(72)

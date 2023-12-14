@@ -8,8 +8,11 @@
 import UIKit
 
 class AuthViewController: UIViewController, AuthViewInput {
-
-  
+    @IBOutlet weak var stackView: UIStackView!
+    
+    @IBOutlet weak var stackViewHeightConstraint: NSLayoutConstraint!
+    @IBOutlet weak var catpchaView: UIView!
+    
     @IBOutlet weak var phoneTextFieldView: PhoneTextField!{
         didSet{
             let gr = UITapGestureRecognizer()
@@ -169,7 +172,7 @@ class AuthViewController: UIViewController, AuthViewInput {
         view.addSubview(self.textView)
         textView.snp.makeConstraints { make in
             make.leading.equalTo(checkBox.snp.trailing).offset(12)
-            make.top.equalTo(captchaTextField.snp.bottom).offset(24)
+            make.top.equalTo(stackView.snp.bottom).offset(24)
             make.height.equalTo(74)
             make.trailing.equalToSuperview().offset(28)
         }
@@ -193,21 +196,28 @@ class AuthViewController: UIViewController, AuthViewInput {
     }
     
     func updateCaptcha(isEnabled: Bool, data: String) {
+        if !isEnabled{
+            catpchaView.isHidden = true
+            stackViewHeightConstraint.constant = stackViewHeightConstraint.constant - 48
+        }else{
+            captchaImageView.image = UIImage(base64: data)
+            catpchaView.isHidden = false
+        }
         
-        captchaImageView.image = UIImage(base64: data)
     }
     
     @IBAction func didTapRepeatButton(_ sender: UIButton) {
         presenter?.didTapRepeatCaptcha()
     }
     
-    
-    @IBAction func didTapSign(_ sender: UIButton) {
+    @IBAction func didClickSign(_ sender: UIButton) {
         let phone = phoneTextField.text ?? ""
         let password = passwordTextField.text ?? ""
         let gambler = Gambler(phone: phone, password: password)
         presenter?.didTapSignUp(gambler: gambler)
     }
+    
+
     
     @objc func tapClearPhone() {
         presenter?.didClearPhone()
