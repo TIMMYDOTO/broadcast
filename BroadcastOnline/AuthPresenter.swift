@@ -18,7 +18,7 @@ final class AuthPresenter: ApiServiceDependency {
     
     
     func viewDidLoad() {
-        getCaptcha()
+      
     
     }
     
@@ -36,9 +36,53 @@ final class AuthPresenter: ApiServiceDependency {
     }
     
     func didTapSignUp(gambler: Gambler) {
-        api.authPhone(gambler: gambler) { result in
+//        api.authPhone(gambler: gambler, captchaKey: self.state.captchaKey) { result in
+//            if case .success(let success) = result {
+//                print("succes", success)
+//                self.view?.addTimerToSubmitButton()
+//                self.view?.showCheckSmsController(sessionId: success.sessionID)
+//            }else{
+//                print("failure")
+//            }
+//        }
+        
+        api.registerAuthPhone(gambler: gambler, captchaKey: self.state.captchaKey) { result in
+            if case .success(let success) = result {
+                print("success", success)
+                self.view?.addTimerToSubmitButton()
+                self.view?.showCheckSmsController(sessionId: success.sessionID)
+            }else{
+                print("failure")
+            }
+        }
+    }
+    
+    
+    func didChangeEditingCaptcha(_ cs: CaretString) {
+        let stringCount = cs.string.count
+        switch stringCount {
+        case 0:
+            state.captcha.validationState = .errorMessage("Обязательное поле")
+        case 4:
+            state.phone.validationState = .success
+        default:
+            state.phone.validationState = .errorMessage("Неверный формат")
+        }
+        
+    }
+    
+    func viewWillAppear() {
+        getCaptcha()
+    }
+    
+    func didTapSignIn(gambler: Gambler) {
+        api.login(gambler: gambler) { result in
             if case .success(let success) = result {
                 print("succes", success)
+                self.view?.popViewController()
+//                self.view?.showCheckSmsController(sessionId: success.sessionID)
+            }else{
+                print("failure")
             }
         }
     }
@@ -51,6 +95,18 @@ final class AuthPresenter: ApiServiceDependency {
         view?.setSelectedFilter(model)
     }
     
+    func didChangeEditingPassword(cs: CaretString) {
+        let string = cs.string
+        print("string", string)
+        if string.count >= 8 {
+            state.password.validationState = .success
+            print("stringsucces", string)
+        }else{
+            state.password.validationState = .errorMessage("Неверный формат")
+        }
+        
+        updateSubmitButton()
+    }
     
     func didChangeEditingPhone(_ cs: CaretString) {
         var digitsOnly = cs.filtered(with: .decimalDigits)
@@ -89,17 +145,19 @@ final class AuthPresenter: ApiServiceDependency {
     
     
     private func updateSubmitButton() {
-//        guard leftSeconds == nil else { return }
-//        let requiredInputs: [AnyAuthInput] = [
-//            state.phone.erased, state.password.erased, state.birthDate.erased, state.captcha.erased, state.ageConfirmed.erased
-//        ]
-//        for input in requiredInputs {
-//            if input.isEnabled, input.validationState != .success {
-//                view?.disableSubmitButton(isRetry: state.isRetry)
-//                return
-//            }
-//        }
-//        view?.enableSubmitButton(isRetry: state.isRetry)
+            if state.captcha.isEnabled{
+                if state.phone.validationState == .success && state.password.validationState == .success && state.captcha.validationState == .success {
+                    view?.enableSubmitButton()
+                }else{
+                    view?.disableSubmitButton()
+            }
+        } else {
+            if state.phone.validationState == .success && state.password.validationState == .success {
+                view?.enableSubmitButton()
+            }else{
+                view?.disableSubmitButton()
+            }
+        }
     }
     
     func didClearPhone() {

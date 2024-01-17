@@ -11,12 +11,12 @@ struct Gambler: CustomStringConvertible {
     
     var phone: String
     var password: String
+    var birthDate: Date
     
-    
-    init(phone: String, password: String) {
+    init(phone: String, password: String, birthDate: Date = Date()) {
         self.phone = phone
         self.password = password
-        
+        self.birthDate = birthDate
    
     }
     

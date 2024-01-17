@@ -12,9 +12,9 @@ class CaptchaTextField: UIView {
     
     var didResignFirstResponder: ((PhoneTextField) -> Void)?
     
-    
+    @IBInspectable var isValidated: Bool = false
     var didChangeEditing: ((CaretString) -> Void)?
-    
+    let fieldHeight: CGFloat = 48.0
     var textField: UITextField!
     var errorLabel: UILabel!
     var backgroundView: UIView!
@@ -55,6 +55,21 @@ class CaptchaTextField: UIView {
         setupTextField()
         setupRightView()
         setupPlaceholderLayer()
+        setupErrorLabel()
+    }
+    
+    private func setupErrorLabel() {
+        let l = UILabel()
+//        l.text = "Обязательное поле"
+        
+        let font = UIFont(name: "Lato_BB-Regular", size: 14)
+        l.frame = CGRect(x: 0, y: fieldHeight + 13, width: bounds.width, height: font!.lineHeight)
+        l.font = font
+        l.adjustsFontSizeToFitWidth = true
+        l.textColor = #colorLiteral(red: 0.8980392157, green: 0.337254902, blue: 0.2784313725, alpha: 1)
+        addSubview(l)
+        
+        self.errorLabel = l
     }
     
     private func setupPlaceholderLayer() {
@@ -134,6 +149,7 @@ class CaptchaTextField: UIView {
         self.backgroundView.layer.borderColor = #colorLiteral(red: 0.5843137255, green: 0.7176470588, blue: 1, alpha: 1)
         let options = UIView.AnimationOptions.curveEaseIn.union(.beginFromCurrentState)
         animateViewsOnBecomingFirstResponder(duration: 0.25, options:options)
+        updateStatus(message: "")
     }
     
     @objc func didEndEditing() {
@@ -143,6 +159,73 @@ class CaptchaTextField: UIView {
             let options = UIView.AnimationOptions.curveEaseOut.union(.beginFromCurrentState)
             animateViewsOnResignFirstResponder(duration: 0.25, options:options)
         }
+        if text.isEmpty {
+            let options = UIView.AnimationOptions.curveEaseOut.union(.beginFromCurrentState)
+            animateViewsOnResignFirstResponder(duration: 0.25, options:options)
+            updateStatus(message: "Обязательное поле")
+        }else {
+            let errorMsg = hasError(textField: textField)
+            updateStatus(message: errorMsg)
+        }
+        
+    }
+    
+    func hasError(textField: UITextField) -> String {
+        return textField.text!.count < 4 ? "Минимум 4 символа" : ""
+    }
+    
+    
+    func updateStatus(message: String) {
+        
+        if !message.isEmpty {
+            isValidated = false
+            if !textField.isEditing {
+                addError(message: message)
+            }
+
+        }else{
+            isValidated = true
+            removeError()
+        }
+    }
+    
+    func addError(message: String? = nil) {
+        if let message = message {
+            backgroundView.layer.borderColor = UIColor(hex: 0xE55647).cgColor
+            errorLabel.text = message
+            let height = fieldHeight + errorLabel.bounds.size.height
+            
+            if let constraint = getHeightConstraint(), constraint.constant < height {
+                UIView.animate(withDuration: 0.6) {
+                    constraint.constant = height
+                    self.superview?.layoutIfNeeded()
+       
+                }
+                
+            }
+        }
+    }
+    
+    func removeError() {
+//        if redLine.superview != nil {
+//            redLine.removeFromSuperview()
+//        }
+        if let constraint = getHeightConstraint(), constraint.constant > fieldHeight {
+            UIView.animate(withDuration: 0.4, animations: {
+                constraint.constant = self.fieldHeight
+                self.errorLabel.text = ""
+                self.window?.layoutIfNeeded()
+            })
+        }
+    }
+    
+    private func getHeightConstraint() -> NSLayoutConstraint? {
+        return constraints.filter {
+            if $0.firstAttribute == .height, $0.relation == .equal, $0.firstItem === self {
+                return true
+            }
+            return false
+        }.first
     }
     
     private func animateViewsOnBecomingFirstResponder(duration: CGFloat, options: UIView.AnimationOptions) {
@@ -197,6 +280,8 @@ class CaptchaTextField: UIView {
         let text = textField.text ?? ""
         let img: UIImage? = !text.isEmpty ? UIImage(named: "Close") : nil
         setRightImage(image: img, animated: true)
+        let caretString = CaretString(string: text, caretPosition: text.index(text.startIndex, offsetBy: 0))
+        didChangeEditing?(caretString)
         if !textField.isEditing {
 //            didEndEditing?(text)
 //            animateViewsOnResigningFirstResponder(

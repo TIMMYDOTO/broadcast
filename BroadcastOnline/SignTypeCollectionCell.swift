@@ -22,15 +22,20 @@ class SignTypeCollectionCell: UICollectionViewCell {
     func configure(_ value: SignType, selected: Bool) {
         let model = value.getModel()
         titleLabel.text = model.title
-        
+        clipsToBounds = true
         if selected {
-            backgroundColor = .white
-            titleLabel.textColor = #colorLiteral(red: 0.1402209699, green: 0.1697322726, blue: 0.2372379601, alpha: 1)
+            let firstColor = #colorLiteral(red: 0.5158827305, green: 0.6132621169, blue: 0.8050376773, alpha: 1)
+            let secondColor = #colorLiteral(red: 0.3490196078, green: 0.3647058824, blue: 0.6941176471, alpha: 1)
+            applyGradient(isVertical: true, colorArray: [firstColor, secondColor])
+            titleLabel.textColor = #colorLiteral(red: 1, green: 1, blue: 1, alpha: 1)
             titleLabel.font = R.font.robotoBold(size: 12)
         } else {
             titleLabel.font = R.font.robotoBold(size: 12)
-            backgroundColor = .clear
-            titleLabel.textColor = .white
+            let firstColor = UIColor.clear
+            let secondColor = UIColor.clear
+            
+            applyGradient(isVertical: true, colorArray: [firstColor, secondColor])
+            titleLabel.textColor = #colorLiteral(red: 0.5843137255, green: 0.7176470588, blue: 1, alpha: 1)
         }
     }
     

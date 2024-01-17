@@ -14,7 +14,7 @@ class PasswordTextField: UIView {
     
     
     var didChangeEditing: ((CaretString) -> Void)?
-    
+    let fieldHeight: CGFloat = 48.0
     var textField: UITextField!
     var errorLabel: UILabel!
     var backgroundView: UIView!
@@ -24,7 +24,7 @@ class PasswordTextField: UIView {
     var lastKnownKeyboardAnimationDuration = 0.25
     var lastKnownKeyboardAnimationOptions: UIView.AnimationOptions = []
     var placeholderLayer: CATextLayer!
-    
+    @IBInspectable var isValidated: Bool = false
     override init(frame: CGRect) {
         super.init(frame: frame)
         setup()
@@ -55,7 +55,46 @@ class PasswordTextField: UIView {
         setupTextField()
         setupRightView()
         setupPlaceholderLayer()
+        setupErrorLabel()
+//        showErrorMessage("Минимум 8 символов")
     }
+    
+    func showErrorMessage(_ text: String) {
+        errorLabel.text = text
+        let d = lastKnownKeyboardAnimationDuration
+        let b = CABasicAnimation(keyPath: "borderColor")
+        b.fromValue = backgroundView.layer.borderColor
+        b.toValue = UIColor(hex: 0xFF0025).cgColor
+        b.duration = d
+        backgroundView.layer.add(b, forKey: nil)
+        backgroundView.layer.borderColor = UIColor(hex: 0xFF0025).cgColor
+        
+        UIView.animate(withDuration: d) {
+            self.snp.updateConstraints {
+                $0.height.equalTo(80)
+            }
+            self.errorLabel.alpha = 1
+            self.textField.snp.updateConstraints {
+                $0.top.equalToSuperview().offset(16)
+            }
+            self.window?.layoutIfNeeded()
+        }
+    }
+    
+    private func setupErrorLabel() {
+        let l = UILabel()
+//        l.text = "Обязательное поле"
+        
+        let font = UIFont(name: "Lato_BB-Regular", size: 14)
+        l.frame = CGRect(x: 0, y: fieldHeight + 13, width: bounds.width, height: font!.lineHeight)
+        l.font = font
+        l.adjustsFontSizeToFitWidth = true
+        l.textColor = #colorLiteral(red: 0.8980392157, green: 0.337254902, blue: 0.2784313725, alpha: 1)
+        addSubview(l)
+        
+        self.errorLabel = l
+    }
+    
     
     private func setupPlaceholderLayer() {
         let l = CATextLayer()
@@ -134,6 +173,7 @@ class PasswordTextField: UIView {
         self.backgroundView.layer.borderColor = #colorLiteral(red: 0.5843137255, green: 0.7176470588, blue: 1, alpha: 1)
         let options = UIView.AnimationOptions.curveEaseIn.union(.beginFromCurrentState)
         animateViewsOnBecomingFirstResponder(duration: 0.25, options:options)
+        updateStatus(message: "")
     }
     
     @objc func didEndEditing() {
@@ -142,8 +182,72 @@ class PasswordTextField: UIView {
         if text.isEmpty {
             let options = UIView.AnimationOptions.curveEaseOut.union(.beginFromCurrentState)
             animateViewsOnResignFirstResponder(duration: 0.25, options:options)
+            updateStatus(message: "Обязательное поле")
+        }else {
+            let errorMsg = hasError(textField: textField)
+            updateStatus(message: errorMsg)
         }
     }
+    
+    
+    func hasError(textField: UITextField) -> String {
+        return textField.text!.count < 8 ? "Минимум 8 символов" : ""
+    }
+    
+    func updateStatus(message: String) {
+        
+        if !message.isEmpty {
+            isValidated = false
+            if !textField.isEditing {
+                addError(message: message)
+            }
+
+        }else{
+            isValidated = true
+            removeError()
+        }
+    }
+    
+    func removeError() {
+//        if redLine.superview != nil {
+//            redLine.removeFromSuperview()
+//        }
+        if let constraint = getHeightConstraint(), constraint.constant > fieldHeight {
+            UIView.animate(withDuration: 0.4, animations: {
+                constraint.constant = self.fieldHeight
+                self.errorLabel.text = ""
+                self.window?.layoutIfNeeded()
+            })
+        }
+    }
+    
+    func addError(message: String? = nil) {
+        if let message = message {
+            backgroundView.layer.borderColor = UIColor(hex: 0xE55647).cgColor
+            errorLabel.text = message
+            let height = fieldHeight + errorLabel.bounds.size.height
+            
+            if let constraint = getHeightConstraint(), constraint.constant < height {
+                UIView.animate(withDuration: 0.6) {
+                    constraint.constant = height
+                    self.superview?.layoutIfNeeded()
+       
+                }
+                
+            }
+        }
+    }
+    
+    
+    private func getHeightConstraint() -> NSLayoutConstraint? {
+        return constraints.filter {
+            if $0.firstAttribute == .height, $0.relation == .equal, $0.firstItem === self {
+                return true
+            }
+            return false
+        }.first
+    }
+    
     
     private func animateViewsOnBecomingFirstResponder(duration: CGFloat, options: UIView.AnimationOptions) {
 
@@ -197,6 +301,9 @@ class PasswordTextField: UIView {
         let text = textField.text ?? ""
         let img: UIImage? = !text.isEmpty ? UIImage(named: "ShownPS") : nil
         setRightImage(image: img, animated: true)
+        let caretString = CaretString(string: text, caretPosition: text.index(text.startIndex, offsetBy: 0))
+        
+        didChangeEditing?(caretString)
         if !textField.isEditing {
 //            didEndEditing?(text)
 //            animateViewsOnResigningFirstResponder(

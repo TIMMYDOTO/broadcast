@@ -140,7 +140,7 @@ struct R: Rswift.Validatable {
     fileprivate init() {}
   }
 
-  /// This `R.file` struct is generated, and contains static references to 38 files.
+  /// This `R.file` struct is generated, and contains static references to 39 files.
   struct file {
     /// Resource file `Gilroy-Bold.otf`.
     static let gilroyBoldOtf = Rswift.FileResource(bundle: R.hostingBundle, name: "Gilroy-Bold", pathExtension: "otf")
@@ -214,6 +214,8 @@ struct R: Rswift.Validatable {
     static let robotoThinItalicTtf = Rswift.FileResource(bundle: R.hostingBundle, name: "Roboto-ThinItalic", pathExtension: "ttf")
     /// Resource file `SFProDisplay-Regular.ttf`.
     static let sfProDisplayRegularTtf = Rswift.FileResource(bundle: R.hostingBundle, name: "SFProDisplay-Regular", pathExtension: "ttf")
+    /// Resource file `illustration_10.json`.
+    static let illustration_10Json = Rswift.FileResource(bundle: R.hostingBundle, name: "illustration_10", pathExtension: "json")
     /// Resource file `illustration_6.json`.
     static let illustration_6Json = Rswift.FileResource(bundle: R.hostingBundle, name: "illustration_6", pathExtension: "json")
     /// Resource file `illustration_7.json`.
@@ -432,6 +434,12 @@ struct R: Rswift.Validatable {
     /// `bundle.url(forResource: "SFProDisplay-Regular", withExtension: "ttf")`
     static func sfProDisplayRegularTtf(_: Void = ()) -> Foundation.URL? {
       let fileResource = R.file.sfProDisplayRegularTtf
+      return fileResource.bundle.url(forResource: fileResource)
+    }
+
+    /// `bundle.url(forResource: "illustration_10", withExtension: "json")`
+    static func illustration_10Json(_: Void = ()) -> Foundation.URL? {
+      let fileResource = R.file.illustration_10Json
       return fileResource.bundle.url(forResource: fileResource)
     }
 
@@ -747,8 +755,10 @@ struct R: Rswift.Validatable {
     fileprivate init() {}
   }
 
-  /// This `R.image` struct is generated, and contains static references to 50 images.
+  /// This `R.image` struct is generated, and contains static references to 52 images.
   struct image {
+    /// Image `BackButton`.
+    static let backButton = Rswift.ImageResource(bundle: R.hostingBundle, name: "BackButton")
     /// Image `ButtonActive`.
     static let buttonActive = Rswift.ImageResource(bundle: R.hostingBundle, name: "ButtonActive")
     /// Image `CheckBoxEmpty`.
@@ -757,6 +767,8 @@ struct R: Rswift.Validatable {
     static let closeIcon = Rswift.ImageResource(bundle: R.hostingBundle, name: "CloseIcon")
     /// Image `Close`.
     static let close = Rswift.ImageResource(bundle: R.hostingBundle, name: "Close")
+    /// Image `Fingers`.
+    static let fingers = Rswift.ImageResource(bundle: R.hostingBundle, name: "Fingers")
     /// Image `MakeBet`.
     static let makeBet = Rswift.ImageResource(bundle: R.hostingBundle, name: "MakeBet")
     /// Image `ShownPS`.
@@ -851,6 +863,13 @@ struct R: Rswift.Validatable {
     static let unmute = Rswift.ImageResource(bundle: R.hostingBundle, name: "unmute")
 
     #if os(iOS) || os(tvOS)
+    /// `UIImage(named: "BackButton", bundle: ..., traitCollection: ...)`
+    static func backButton(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIImage? {
+      return UIKit.UIImage(resource: R.image.backButton, compatibleWith: traitCollection)
+    }
+    #endif
+
+    #if os(iOS) || os(tvOS)
     /// `UIImage(named: "ButtonActive", bundle: ..., traitCollection: ...)`
     static func buttonActive(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIImage? {
       return UIKit.UIImage(resource: R.image.buttonActive, compatibleWith: traitCollection)
@@ -875,6 +894,13 @@ struct R: Rswift.Validatable {
     /// `UIImage(named: "CloseIcon", bundle: ..., traitCollection: ...)`
     static func closeIcon(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIImage? {
       return UIKit.UIImage(resource: R.image.closeIcon, compatibleWith: traitCollection)
+    }
+    #endif
+
+    #if os(iOS) || os(tvOS)
+    /// `UIImage(named: "Fingers", bundle: ..., traitCollection: ...)`
+    static func fingers(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIImage? {
+      return UIKit.UIImage(resource: R.image.fingers, compatibleWith: traitCollection)
     }
     #endif
 
@@ -1544,8 +1570,12 @@ struct _R: Rswift.Validatable {
       let authViewController = StoryboardViewControllerResource<AuthViewController>(identifier: "AuthViewController")
       let broadcast = StoryboardViewControllerResource<BroadcastViewController>(identifier: "Broadcast")
       let bundle = R.hostingBundle
+      let forgetPasswordViewController = StoryboardViewControllerResource<ForgetPasswordViewController>(identifier: "ForgetPasswordViewController")
       let makeBetVIewController = StoryboardViewControllerResource<MakeBetVIewController>(identifier: "MakeBetVIewController")
       let name = "Main"
+      let newPasswordFinishedViewController = StoryboardViewControllerResource<NewPasswordFinishedViewController>(identifier: "NewPasswordFinishedViewController")
+      let newPasswordViewController = StoryboardViewControllerResource<NewPasswordViewController>(identifier: "NewPasswordViewController")
+      let signUpFinishedViewController = StoryboardViewControllerResource<SignUpFinishedViewController>(identifier: "SignUpFinishedViewController")
 
       func authViewController(_: Void = ()) -> AuthViewController? {
         return UIKit.UIStoryboard(resource: self).instantiateViewController(withResource: authViewController)
@@ -1555,11 +1585,28 @@ struct _R: Rswift.Validatable {
         return UIKit.UIStoryboard(resource: self).instantiateViewController(withResource: broadcast)
       }
 
+      func forgetPasswordViewController(_: Void = ()) -> ForgetPasswordViewController? {
+        return UIKit.UIStoryboard(resource: self).instantiateViewController(withResource: forgetPasswordViewController)
+      }
+
       func makeBetVIewController(_: Void = ()) -> MakeBetVIewController? {
         return UIKit.UIStoryboard(resource: self).instantiateViewController(withResource: makeBetVIewController)
       }
 
+      func newPasswordFinishedViewController(_: Void = ()) -> NewPasswordFinishedViewController? {
+        return UIKit.UIStoryboard(resource: self).instantiateViewController(withResource: newPasswordFinishedViewController)
+      }
+
+      func newPasswordViewController(_: Void = ()) -> NewPasswordViewController? {
+        return UIKit.UIStoryboard(resource: self).instantiateViewController(withResource: newPasswordViewController)
+      }
+
+      func signUpFinishedViewController(_: Void = ()) -> SignUpFinishedViewController? {
+        return UIKit.UIStoryboard(resource: self).instantiateViewController(withResource: signUpFinishedViewController)
+      }
+
       static func validate() throws {
+        if UIKit.UIImage(named: "Fingers", in: R.hostingBundle, compatibleWith: nil) == nil { throw Rswift.ValidationError(description: "[R.swift] Image named 'Fingers' is used in storyboard 'Main', but couldn't be loaded.") }
         if UIKit.UIImage(named: "MakeBet", in: R.hostingBundle, compatibleWith: nil) == nil { throw Rswift.ValidationError(description: "[R.swift] Image named 'MakeBet' is used in storyboard 'Main', but couldn't be loaded.") }
         if UIKit.UIImage(named: "background", in: R.hostingBundle, compatibleWith: nil) == nil { throw Rswift.ValidationError(description: "[R.swift] Image named 'background' is used in storyboard 'Main', but couldn't be loaded.") }
         if UIKit.UIImage(named: "logo", in: R.hostingBundle, compatibleWith: nil) == nil { throw Rswift.ValidationError(description: "[R.swift] Image named 'logo' is used in storyboard 'Main', but couldn't be loaded.") }
@@ -1568,7 +1615,11 @@ struct _R: Rswift.Validatable {
         }
         if _R.storyboard.main().authViewController() == nil { throw Rswift.ValidationError(description:"[R.swift] ViewController with identifier 'authViewController' could not be loaded from storyboard 'Main' as 'AuthViewController'.") }
         if _R.storyboard.main().broadcast() == nil { throw Rswift.ValidationError(description:"[R.swift] ViewController with identifier 'broadcast' could not be loaded from storyboard 'Main' as 'BroadcastViewController'.") }
+        if _R.storyboard.main().forgetPasswordViewController() == nil { throw Rswift.ValidationError(description:"[R.swift] ViewController with identifier 'forgetPasswordViewController' could not be loaded from storyboard 'Main' as 'ForgetPasswordViewController'.") }
         if _R.storyboard.main().makeBetVIewController() == nil { throw Rswift.ValidationError(description:"[R.swift] ViewController with identifier 'makeBetVIewController' could not be loaded from storyboard 'Main' as 'MakeBetVIewController'.") }
+        if _R.storyboard.main().newPasswordFinishedViewController() == nil { throw Rswift.ValidationError(description:"[R.swift] ViewController with identifier 'newPasswordFinishedViewController' could not be loaded from storyboard 'Main' as 'NewPasswordFinishedViewController'.") }
+        if _R.storyboard.main().newPasswordViewController() == nil { throw Rswift.ValidationError(description:"[R.swift] ViewController with identifier 'newPasswordViewController' could not be loaded from storyboard 'Main' as 'NewPasswordViewController'.") }
+        if _R.storyboard.main().signUpFinishedViewController() == nil { throw Rswift.ValidationError(description:"[R.swift] ViewController with identifier 'signUpFinishedViewController' could not be loaded from storyboard 'Main' as 'SignUpFinishedViewController'.") }
       }
 
       fileprivate init() {}

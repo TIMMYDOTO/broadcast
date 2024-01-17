@@ -10,7 +10,8 @@
 import Foundation
 
 fileprivate let apiService = ProtobufService(
-    baseUrl: "https://mobileappv2.betboom.ru/api/mobile/v2",
+//    baseUrl: "https://mobileappv2.betboom.ru/api/mobile/v2",
+    baseUrl: "https://market-cyb-2.bb-online-stage.com",
     contentUrl: "https://bboncyp-newapp.bb-online-stage.com"
 )
 

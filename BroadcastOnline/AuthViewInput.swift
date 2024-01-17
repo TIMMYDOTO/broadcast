@@ -12,5 +12,10 @@ protocol AuthViewInput:NSObjectProtocol {
     func showPhone(_ cs: CaretString)
     func setClearPhoneButtonIsShown(_ isShown: Bool) 
     func setPhoneIsConfirmable(_ isConfirmable: Bool) 
-    
+    func enableSubmitButton()
+    func disableSubmitButton()
+    func showCheckSmsController(sessionId: String)
+    func popViewController()
+    func addTimerToSubmitButton()
+    func setPasswordIsConfirmable(_ isConfirmable: Bool)
 }

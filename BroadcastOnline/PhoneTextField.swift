@@ -12,9 +12,9 @@ class PhoneTextField: UIView {
     
     var didResignFirstResponder: ((PhoneTextField) -> Void)?
     
-    
+    let fieldHeight: CGFloat = 48.0
     var didChangeEditing: ((CaretString) -> Void)?
-    
+    @IBInspectable var isValidated: Bool = false
     var textField: UITextField!
     var errorLabel: UILabel!
     var backgroundView: UIView!
@@ -55,6 +55,21 @@ class PhoneTextField: UIView {
         setupTextField()
         setupRightView()
         setupPlaceholderLayer()
+        setupErrorLabel()
+    }
+    
+    private func setupErrorLabel() {
+        let l = UILabel()
+//        l.text = "Обязательное поле"
+        
+        let font = UIFont(name: "Lato_BB-Regular", size: 14)
+        l.frame = CGRect(x: 0, y: fieldHeight + 13, width: bounds.width, height: font!.lineHeight)
+        l.font = font
+        l.adjustsFontSizeToFitWidth = true
+        l.textColor = #colorLiteral(red: 0.8980392157, green: 0.337254902, blue: 0.2784313725, alpha: 1)
+        addSubview(l)
+        
+        self.errorLabel = l
     }
     
     private func setupPlaceholderLayer() {
@@ -126,6 +141,7 @@ class PhoneTextField: UIView {
 
         
          animateViewsOnBecomingFirstResponder(duration: 0.25, options:options)
+        updateStatus(message: "")
     }
     
     @objc func didEndEditing() {
@@ -134,6 +150,15 @@ class PhoneTextField: UIView {
         if text.isEmpty {
             let options = UIView.AnimationOptions.curveEaseOut.union(.beginFromCurrentState)
             animateViewsOnResignFirstResponder(duration: 0.25, options:options)
+        }
+        let textCount = text.digits.count
+        switch textCount {
+        case 0:
+            updateStatus(message: "Обязательное поле")
+        case ..<11:
+            updateStatus(message: "Неверный формат")
+        default:
+            updateStatus(message: "")
         }
     }
     
@@ -146,12 +171,60 @@ class PhoneTextField: UIView {
 
         let caretString = CaretString(string: text, caretPosition: text.index(text.startIndex, offsetBy: caretOffset))
         didChangeEditing?(caretString)
-        if !textField.isEditing {
-//            didEndEditing?(text)
-//            animateViewsOnResigningFirstResponder(
-//                duration: 0.25, options: .curveEaseOut
-//            )
+
+    }
+    
+    func updateStatus(message: String) {
+        
+        if !message.isEmpty {
+            isValidated = false
+            if !textField.isEditing {
+                addError(message: message)
+            }
+
+        }else{
+            isValidated = true
+            removeError()
         }
+    }
+    
+    func addError(message: String? = nil) {
+        if let message = message {
+            backgroundView.layer.borderColor = UIColor(hex: 0xE55647).cgColor
+            errorLabel.text = message
+            let height = fieldHeight + errorLabel.bounds.size.height
+            
+            if let constraint = getHeightConstraint(), constraint.constant < height {
+                UIView.animate(withDuration: 0.6) {
+                    constraint.constant = height
+                    self.superview?.layoutIfNeeded()
+       
+                }
+                
+            }
+        }
+    }
+    
+    func removeError() {
+//        if redLine.superview != nil {
+//            redLine.removeFromSuperview()
+//        }
+        if let constraint = getHeightConstraint(), constraint.constant > fieldHeight {
+            UIView.animate(withDuration: 0.4, animations: {
+                constraint.constant = self.fieldHeight
+                self.errorLabel.text = ""
+                self.window?.layoutIfNeeded()
+            })
+        }
+    }
+    
+    private func getHeightConstraint() -> NSLayoutConstraint? {
+        return constraints.filter {
+            if $0.firstAttribute == .height, $0.relation == .equal, $0.firstItem === self {
+                return true
+            }
+            return false
+        }.first
     }
     
     private func animateViewsOnBecomingFirstResponder(duration: CGFloat, options: UIView.AnimationOptions) {

@@ -152,8 +152,24 @@
 		9AF76E1328DDC3EB0040E574 /* illustration_6.json in Resources */ = {isa = PBXBuildFile; fileRef = 9AF76E1228DDC3EB0040E574 /* illustration_6.json */; };
 		9AF76E1528DE12810040E574 /* CyberSportFilterSkeletonCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9AF76E1428DE12810040E574 /* CyberSportFilterSkeletonCell.swift */; };
 		DE04B6A12B14EFD300F56E8D /* stories_inappstory_get_gambler_tags.pb.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE04B6A02B14EFD300F56E8D /* stories_inappstory_get_gambler_tags.pb.swift */; };
+		DE2B8FEB2B343E1E00D12FC9 /* BirthdayTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE2B8FEA2B343E1E00D12FC9 /* BirthdayTextField.swift */; };
+		DE2B8FEE2B34434100D12FC9 /* BBFieldBirthdayPicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE2B8FEC2B34434100D12FC9 /* BBFieldBirthdayPicker.swift */; };
+		DE2B8FEF2B34434100D12FC9 /* BBField.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE2B8FED2B34434100D12FC9 /* BBField.swift */; };
+		DE2B8FF12B345CE700D12FC9 /* PasswordChangedViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE2B8FF02B345CE700D12FC9 /* PasswordChangedViewController.swift */; };
+		DE2B8FF32B345CF700D12FC9 /* SignUpFinishedViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE2B8FF22B345CF700D12FC9 /* SignUpFinishedViewController.swift */; };
+		DE2B8FF52B346C8400D12FC9 /* NewPasswordFinishedViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE2B8FF42B346C8400D12FC9 /* NewPasswordFinishedViewController.swift */; };
+		DE2B8FF72B3480AB00D12FC9 /* login.pb.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE2B8FF62B3480AB00D12FC9 /* login.pb.swift */; };
 		DE31C3012B18EF37001E45D6 /* BBCheckBox.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE31C3002B18EF37001E45D6 /* BBCheckBox.swift */; };
+		DE38F28E2B3194790009884E /* ButtonWithLoader.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE38F28D2B3194790009884E /* ButtonWithLoader.swift */; };
+		DE38F2902B319A570009884E /* register_check_sms.pb.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE38F28F2B319A570009884E /* register_check_sms.pb.swift */; };
+		DE38F2922B31EBC00009884E /* ResultAlreadyRegisteredViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE38F2912B31EBC00009884E /* ResultAlreadyRegisteredViewController.swift */; };
+		DE38F2942B31EFF40009884E /* illustration_10.json in Resources */ = {isa = PBXBuildFile; fileRef = DE38F2932B31EFF40009884E /* illustration_10.json */; };
+		DE38F2962B33208A0009884E /* ForgetPasswordViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE38F2952B33208A0009884E /* ForgetPasswordViewController.swift */; };
+		DE38F2982B3320B00009884E /* NewPasswordViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE38F2972B3320B00009884E /* NewPasswordViewController.swift */; };
 		DE40F6292B28EFF90088F06D /* CaptchaTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE40F6282B28EFF90088F06D /* CaptchaTextField.swift */; };
+		DE40F62B2B2C59E20088F06D /* register_start.pb.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE40F62A2B2C59E10088F06D /* register_start.pb.swift */; };
+		DE40F62D2B304A640088F06D /* CheckSmsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE40F62C2B304A640088F06D /* CheckSmsViewController.swift */; };
+		DE40F62F2B304A910088F06D /* AuthSmsCodeStackView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE40F62E2B304A910088F06D /* AuthSmsCodeStackView.swift */; };
 		DE522DD42B160DB300850E61 /* ProtobufService.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE522DD32B160DB300850E61 /* ProtobufService.swift */; };
 		DE522DD82B16144900850E61 /* SessionServiceDependency.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE522DD72B16144900850E61 /* SessionServiceDependency.swift */; };
 		DE522DDB2B1615F300850E61 /* SessionServiceInterface.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE522DD92B1615F300850E61 /* SessionServiceInterface.swift */; };
@@ -354,8 +370,24 @@
 		9AF76E1428DE12810040E574 /* CyberSportFilterSkeletonCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CyberSportFilterSkeletonCell.swift; sourceTree = "<group>"; };
 		CACC7C6A92B9EE89D98C20E0 /* Pods-Cyber Live.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Cyber Live.release.xcconfig"; path = "Target Support Files/Pods-Cyber Live/Pods-Cyber Live.release.xcconfig"; sourceTree = "<group>"; };
 		DE04B6A02B14EFD300F56E8D /* stories_inappstory_get_gambler_tags.pb.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = stories_inappstory_get_gambler_tags.pb.swift; sourceTree = "<group>"; };
+		DE2B8FEA2B343E1E00D12FC9 /* BirthdayTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BirthdayTextField.swift; sourceTree = "<group>"; };
+		DE2B8FEC2B34434100D12FC9 /* BBFieldBirthdayPicker.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BBFieldBirthdayPicker.swift; sourceTree = "<group>"; };
+		DE2B8FED2B34434100D12FC9 /* BBField.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BBField.swift; sourceTree = "<group>"; };
+		DE2B8FF02B345CE700D12FC9 /* PasswordChangedViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PasswordChangedViewController.swift; sourceTree = "<group>"; };
+		DE2B8FF22B345CF700D12FC9 /* SignUpFinishedViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpFinishedViewController.swift; sourceTree = "<group>"; };
+		DE2B8FF42B346C8400D12FC9 /* NewPasswordFinishedViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = NewPasswordFinishedViewController.swift; path = /Users/av_shkepu/broadcast/BroadcastOnline/NewPasswordFinishedViewController.swift; sourceTree = "<absolute>"; };
+		DE2B8FF62B3480AB00D12FC9 /* login.pb.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = login.pb.swift; sourceTree = SOURCE_ROOT; };
 		DE31C3002B18EF37001E45D6 /* BBCheckBox.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BBCheckBox.swift; sourceTree = "<group>"; };
+		DE38F28D2B3194790009884E /* ButtonWithLoader.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ButtonWithLoader.swift; sourceTree = "<group>"; };
+		DE38F28F2B319A570009884E /* register_check_sms.pb.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = register_check_sms.pb.swift; sourceTree = SOURCE_ROOT; };
+		DE38F2912B31EBC00009884E /* ResultAlreadyRegisteredViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ResultAlreadyRegisteredViewController.swift; sourceTree = "<group>"; };
+		DE38F2932B31EFF40009884E /* illustration_10.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = illustration_10.json; sourceTree = "<group>"; };
+		DE38F2952B33208A0009884E /* ForgetPasswordViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ForgetPasswordViewController.swift; sourceTree = "<group>"; };
+		DE38F2972B3320B00009884E /* NewPasswordViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewPasswordViewController.swift; sourceTree = "<group>"; };
 		DE40F6282B28EFF90088F06D /* CaptchaTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CaptchaTextField.swift; sourceTree = "<group>"; };
+		DE40F62A2B2C59E10088F06D /* register_start.pb.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = register_start.pb.swift; sourceTree = "<group>"; };
+		DE40F62C2B304A640088F06D /* CheckSmsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CheckSmsViewController.swift; sourceTree = "<group>"; };
+		DE40F62E2B304A910088F06D /* AuthSmsCodeStackView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AuthSmsCodeStackView.swift; sourceTree = "<group>"; };
 		DE522DD32B160DB300850E61 /* ProtobufService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProtobufService.swift; sourceTree = SOURCE_ROOT; };
 		DE522DD72B16144900850E61 /* SessionServiceDependency.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SessionServiceDependency.swift; sourceTree = SOURCE_ROOT; };
 		DE522DD92B1615F300850E61 /* SessionServiceInterface.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SessionServiceInterface.swift; sourceTree = "<group>"; };
@@ -569,23 +601,38 @@
 			isa = PBXGroup;
 			children = (
 				DEDFFDCD2B188EB8004BB1CE /* AuthViewController.swift */,
+				DE38F2952B33208A0009884E /* ForgetPasswordViewController.swift */,
 				DEC8B0452B1A1873000411E5 /* AuthPresenter.swift */,
+				DE2B8FF42B346C8400D12FC9 /* NewPasswordFinishedViewController.swift */,
 				9A790DD528C9F358009F2AA4 /* Main.storyboard */,
+				DE2B8FF02B345CE700D12FC9 /* PasswordChangedViewController.swift */,
+				DE2B8FF22B345CF700D12FC9 /* SignUpFinishedViewController.swift */,
+				DE38F2972B3320B00009884E /* NewPasswordViewController.swift */,
+				DE40F62C2B304A640088F06D /* CheckSmsViewController.swift */,
+				DE40F62E2B304A910088F06D /* AuthSmsCodeStackView.swift */,
 				DEC5563A2B1E126C00B39C49 /* PhoneTextField.swift */,
 				DEC5563C2B1E127C00B39C49 /* PasswordTextField.swift */,
 				DE40F6282B28EFF90088F06D /* CaptchaTextField.swift */,
+				DE2B8FEA2B343E1E00D12FC9 /* BirthdayTextField.swift */,
+				DE2B8FED2B34434100D12FC9 /* BBField.swift */,
+				DE2B8FEC2B34434100D12FC9 /* BBFieldBirthdayPicker.swift */,
 				DE31C3002B18EF37001E45D6 /* BBCheckBox.swift */,
 				DEDFFDD12B18C1D3004BB1CE /* TextField.swift */,
 				DEC5563E2B1E37F900B39C49 /* KeyboardAccessoryView.swift */,
 				DE522DD72B16144900850E61 /* SessionServiceDependency.swift */,
 				DE522DDA2B1615F300850E61 /* SessionService.swift */,
+				DE38F2912B31EBC00009884E /* ResultAlreadyRegisteredViewController.swift */,
+				DE38F28D2B3194790009884E /* ButtonWithLoader.swift */,
 				DE522DD92B1615F300850E61 /* SessionServiceInterface.swift */,
 				DE522DD32B160DB300850E61 /* ProtobufService.swift */,
 				DEC556382B1E11D500B39C49 /* CaretString.swift */,
 				9AE2FC5A28F84599003EF4A5 /* AppConfig.swift */,
+				DE38F28F2B319A570009884E /* register_check_sms.pb.swift */,
 				DE522DE92B161C9400850E61 /* StorageServiceDependencyImpl.swift */,
 				9AE2FC6028F851C3003EF4A5 /* CheckVersion.swift */,
 				9A790DCF28C9F358009F2AA4 /* AppDelegate.swift */,
+				DE40F62A2B2C59E10088F06D /* register_start.pb.swift */,
+				DE2B8FF62B3480AB00D12FC9 /* login.pb.swift */,
 				DE522DF12B16362B00850E61 /* ApiServiceDependencyImpl.swift */,
 				9AE2FC5E28F84E47003EF4A5 /* AppDataStore.swift */,
 				DE522DDD2B16169D00850E61 /* refresh_token.pb.swift */,
@@ -634,6 +681,7 @@
 				9A79193028D093FF00062946 /* tournament.pb.swift */,
 				9ACBA9A128D9EAF500E73AAF /* illustration_7.json */,
 				9AF76E1228DDC3EB0040E574 /* illustration_6.json */,
+				DE38F2932B31EFF40009884E /* illustration_10.json */,
 				9A4EE34028D07DE500905FF9 /* CSTeam.swift */,
 				9ACBA99F28D9E99400E73AAF /* CyberSportPlaceholderView.swift */,
 				9A79193428D0947400062946 /* subscribe_state.pb.swift */,
@@ -908,6 +956,7 @@
 				9A790DD728C9F358009F2AA4 /* Main.storyboard in Resources */,
 				9AE4764B28D3380800E59FC0 /* Roboto-LightItalic.ttf in Resources */,
 				9AE4764528D3380800E59FC0 /* Roboto-Medium.ttf in Resources */,
+				DE38F2942B31EFF40009884E /* illustration_10.json in Resources */,
 				9ACBA9A528DA10EE00E73AAF /* Localizable.strings in Resources */,
 				9AE4764928D3380800E59FC0 /* Roboto-ThinItalic.ttf in Resources */,
 				9AE4764E28D3380800E59FC0 /* Roboto-Bold.ttf in Resources */,
@@ -992,13 +1041,16 @@
 				DE04B6A12B14EFD300F56E8D /* stories_inappstory_get_gambler_tags.pb.swift in Sources */,
 				9A790E3A28CA29CB009F2AA4 /* etw_rpc_subscribe_match.pb.swift in Sources */,
 				9AE2FC5F28F84E47003EF4A5 /* AppDataStore.swift in Sources */,
+				DE38F2982B3320B00009884E /* NewPasswordViewController.swift in Sources */,
 				9A79192428D08F6B00062946 /* errors.pb.swift in Sources */,
 				DEC8B0462B1A1873000411E5 /* AuthPresenter.swift in Sources */,
 				DEC5563D2B1E127C00B39C49 /* PasswordTextField.swift in Sources */,
 				9A790E2228CA29CB009F2AA4 /* etw_model_sport.pb.swift in Sources */,
+				DE40F62B2B2C59E20088F06D /* register_start.pb.swift in Sources */,
 				9AF76E1528DE12810040E574 /* CyberSportFilterSkeletonCell.swift in Sources */,
 				9A790DE928CA1D1C009F2AA4 /* MainPresenter.swift in Sources */,
 				9A4EE31028CB613F00905FF9 /* CSTournament.swift in Sources */,
+				DE2B8FEF2B34434100D12FC9 /* BBField.swift in Sources */,
 				DE522DEC2B161CD100850E61 /* StorageService.swift in Sources */,
 				9A790E2528CA29CB009F2AA4 /* etw_rpc_subscribe_sport.pb.swift in Sources */,
 				DEC8B0542B1A33C2000411E5 /* AuthInput.swift in Sources */,
@@ -1023,6 +1075,9 @@
 				9A79191A28D08DC200062946 /* TournamentSkeletonCHeader.swift in Sources */,
 				9AE2FC5D28F845EF003EF4A5 /* ios_config.pb.swift in Sources */,
 				9A4EE34128D07DE500905FF9 /* CSPeriodScore.swift in Sources */,
+				DE38F2922B31EBC00009884E /* ResultAlreadyRegisteredViewController.swift in Sources */,
+				DE38F2962B33208A0009884E /* ForgetPasswordViewController.swift in Sources */,
+				DE2B8FF52B346C8400D12FC9 /* NewPasswordFinishedViewController.swift in Sources */,
 				9AE2FC5B28F84599003EF4A5 /* AppConfig.swift in Sources */,
 				9A790E3B28CA29CB009F2AA4 /* etw_rpc_unsubscribe_state.pb.swift in Sources */,
 				DEC8B04C2B1A2EB9000411E5 /* password_recovery_send_sms.pb.swift in Sources */,
@@ -1033,6 +1088,7 @@
 				9A790DD028C9F358009F2AA4 /* AppDelegate.swift in Sources */,
 				9A4EE31528CF43F900905FF9 /* CSFilters.swift in Sources */,
 				9A790E3F28CA29CB009F2AA4 /* CyberOdinWsServiceInterface.swift in Sources */,
+				DE38F2902B319A570009884E /* register_check_sms.pb.swift in Sources */,
 				9A790E2628CA29CB009F2AA4 /* etw_rpc_subscribe_full_match.pb.swift in Sources */,
 				9A4EE33528CF877B00905FF9 /* CSMatchSkeletonCell.swift in Sources */,
 				9A79192028D08ECD00062946 /* CSMoreStakesCell.swift in Sources */,
@@ -1059,6 +1115,7 @@
 				9A790E2B28CA29CB009F2AA4 /* etw_rpc_newsletter_tournament.pb.swift in Sources */,
 				9A4EE34328D07DE500905FF9 /* CSStream.swift in Sources */,
 				9A790E3728CA29CB009F2AA4 /* etw_rpc_unsubscribe_match.pb.swift in Sources */,
+				DE2B8FEB2B343E1E00D12FC9 /* BirthdayTextField.swift in Sources */,
 				DEC556372B1DF12300B39C49 /* Gambler.swift in Sources */,
 				9A790E3328CA29CB009F2AA4 /* etw_rpc_ping.pb.swift in Sources */,
 				9A79193328D0943A00062946 /* sport.pb.swift in Sources */,
@@ -1070,6 +1127,7 @@
 				DEC8B0502B1A2EEB000411E5 /* get_captcha.pb.swift in Sources */,
 				9A790E3E28CA29CB009F2AA4 /* CyberOdinWsServiceSubjects.swift in Sources */,
 				DEC8B0522B1A2F39000411E5 /* register_auth_phone_repeat.pb.swift in Sources */,
+				DE40F62D2B304A640088F06D /* CheckSmsViewController.swift in Sources */,
 				DE31C3012B18EF37001E45D6 /* BBCheckBox.swift in Sources */,
 				DEDFFDD02B189685004BB1CE /* GradientView.swift in Sources */,
 				DE522DE02B1616A600850E61 /* token_refresh.pb.swift in Sources */,
@@ -1085,6 +1143,7 @@
 				9A790DF028CA1D81009F2AA4 /* MainViewInput.swift in Sources */,
 				9AF4CE7F28E33EE8002CBC2D /* ConnectManagerInterface.swift in Sources */,
 				9A79192D28D0934900062946 /* Sport.swift in Sources */,
+				DE2B8FF32B345CF700D12FC9 /* SignUpFinishedViewController.swift in Sources */,
 				DED68A692B1A46ED005E9545 /* SignTypeCollectionCell.swift in Sources */,
 				9A4EE27D28CB5A9300905FF9 /* CSState.swift in Sources */,
 				9A790E2028CA29CB009F2AA4 /* etw_model_match.pb.swift in Sources */,
@@ -1100,19 +1159,24 @@
 				9A79194428D204CC00062946 /* CSDetailsHeaderTranslationView.swift in Sources */,
 				9A4EE32628CF5C8000905FF9 /* UIColor.swift in Sources */,
 				9A790E2928CA29CB009F2AA4 /* etw_rpc_newsletter_match.pb.swift in Sources */,
+				DE2B8FEE2B34434100D12FC9 /* BBFieldBirthdayPicker.swift in Sources */,
 				DED68A6B2B1A4741005E9545 /* SignType.swift in Sources */,
 				9A4EE31C28CF4D5200905FF9 /* CyberSportGameCell.swift in Sources */,
+				DE38F28E2B3194790009884E /* ButtonWithLoader.swift in Sources */,
 				9ACBA9A028D9E99500E73AAF /* CyberSportPlaceholderView.swift in Sources */,
 				9A4EE34428D07DE500905FF9 /* CSTeam.swift in Sources */,
+				DE2B8FF72B3480AB00D12FC9 /* login.pb.swift in Sources */,
 				DE522DDE2B16169D00850E61 /* refresh_token.pb.swift in Sources */,
 				9A790E3528CA29CB009F2AA4 /* etw_rpc_subscribe_state.pb.swift in Sources */,
 				9A79193B28D0B9C000062946 /* CyberSportFiltersCollection.swift in Sources */,
 				DEC556352B1DD99300B39C49 /* register_auth_phone.pb.swift in Sources */,
+				DE40F62F2B304A910088F06D /* AuthSmsCodeStackView.swift in Sources */,
 				9A79193128D0940000062946 /* tournament.pb.swift in Sources */,
 				DEC5563B2B1E126C00B39C49 /* PhoneTextField.swift in Sources */,
 				9A790E3428CA29CB009F2AA4 /* etw_rpc_unsubscribe_stake.pb.swift in Sources */,
 				DE522DEA2B161C9400850E61 /* StorageServiceDependencyImpl.swift in Sources */,
 				9A790E2C28CA29CB009F2AA4 /* etw_rpc_newsletter_sport.pb.swift in Sources */,
+				DE2B8FF12B345CE700D12FC9 /* PasswordChangedViewController.swift in Sources */,
 				DEDFFDD22B18C1D3004BB1CE /* TextField.swift in Sources */,
 				DE522DDB2B1615F300850E61 /* SessionServiceInterface.swift in Sources */,
 				9A4EE34228D07DE500905FF9 /* CSScoreboard.swift in Sources */,
@@ -1238,7 +1302,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 15.5;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
@@ -1293,7 +1357,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 15.5;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
 				SDKROOT = iphoneos;
@@ -1312,8 +1376,8 @@
 				CODE_SIGN_ENTITLEMENTS = "Cyber Live.entitlements";
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = 5XHJ5W6A53;
+				CURRENT_PROJECT_VERSION = 4;
+				DEVELOPMENT_TEAM = QC3379N7C7;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = BroadcastOnline/Info.plist;
 				INFOPLIST_KEY_CFBundleDisplayName = "Cyber live";
@@ -1333,6 +1397,9 @@
 				PRODUCT_BUNDLE_IDENTIFIER = cxx.BroadcastOnline;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
+				SUPPORTS_MACCATALYST = NO;
+				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = 1;
@@ -1348,8 +1415,8 @@
 				CODE_SIGN_ENTITLEMENTS = "Cyber Live.entitlements";
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = 5XHJ5W6A53;
+				CURRENT_PROJECT_VERSION = 4;
+				DEVELOPMENT_TEAM = QC3379N7C7;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = BroadcastOnline/Info.plist;
 				INFOPLIST_KEY_CFBundleDisplayName = "Cyber live";
@@ -1369,6 +1436,9 @@
 				PRODUCT_BUNDLE_IDENTIFIER = cxx.BroadcastOnline;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
+				SUPPORTS_MACCATALYST = NO;
+				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = 1;

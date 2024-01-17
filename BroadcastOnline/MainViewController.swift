@@ -11,7 +11,7 @@ import SnapKit
 import Reachability
 import InAppStorySDK
 
-class MainViewController: UIViewController, MainViewInput {
+class MainViewController: UIViewController, MainViewInput, SessionServiceDependency {
     func showLoader() {
         
     }
@@ -33,7 +33,7 @@ class MainViewController: UIViewController, MainViewInput {
     
     @IBOutlet var segmentedController: UISegmentedControl!
  
-    
+    var loginLabel = UILabel()
     private var reachability: Reachability!
     
     override func viewDidLoad() {
@@ -66,26 +66,32 @@ class MainViewController: UIViewController, MainViewInput {
         self.navigationItem.leftBarButtonItem = UIBarButtonItem.init(customView: label)
         
         
-        let loginLabel = UILabel()
+  
         loginLabel.textColor = #colorLiteral(red: 0.5843137255, green: 0.7176470588, blue: 1, alpha: 1)
         let loginSportTitle = NSLocalizedString("LoginSportTitle", comment: "LoginSportTitle Main")
-        loginLabel.text = loginSportTitle
+//        loginLabel.text = loginSportTitle
         loginLabel.font = R.font.robotoBold(size: 16)
         
         let gesture = UITapGestureRecognizer(target: self, action: #selector(tap))
         loginLabel.addGestureRecognizer(gesture)
         loginLabel.isUserInteractionEnabled = true
         
-//        self.navigationItem.rightBarButtonItem = UIBarButtonItem.init(customView: loginLabel)
-        
+        self.navigationItem.rightBarButtonItem = UIBarButtonItem.init(customView: loginLabel)
         
         setupNoConnection()
-
-        
     }
     
+  
+    
     @objc func tap() {
-        print("move top sign in")
+        if session.hasToken {
+            session.removeToken()
+            loginLabel.text = "Войти"
+        }else{
+            let vc = storyboard?.instantiateViewController(identifier: "AuthViewController") as! AuthViewController
+            navigationController?.pushViewController(vc, animated: true)
+        }
+     
     }
     
     private func setupTopView() {
@@ -190,7 +196,9 @@ class MainViewController: UIViewController, MainViewInput {
        super.viewWillAppear(animated)
         
        AppUtility.lockOrientation(.portrait)
-
+        
+        loginLabel.text = session.hasToken ? "Выйти" : "Войти"
+        self.navigationItem.rightBarButtonItem?.title = title
   
    }
     override func viewDidLayoutSubviews() {
@@ -198,23 +206,30 @@ class MainViewController: UIViewController, MainViewInput {
         let firstColor = #colorLiteral(red: 0.09411764706, green: 0.1137254902, blue: 0.1607843137, alpha: 1)
         let secondColor = #colorLiteral(red: 0.1764705882, green: 0.2117647059, blue: 0.3019607843, alpha: 1)
         topView.applyGradient(isVertical: true, colorArray: [firstColor, secondColor])
-//        tournamentsCollection.collectionViewLayout.invalidateLayout()
-//        tournamentsCollection.layoutIfNeeded()
     }
     
     
     func setInAppStories(id: String, tags: [String]) {
-        DispatchQueue.main.async {
-            InAppStory.shared.settings = Settings(userID: id, tags: tags)
-            
-            InAppStory.shared.showOnboardings(from: self, delegate: self) { item in
-                print("intem ", item)
+        if tags.isEmpty {
+            topView.snp.remakeConstraints {
+                $0.top.equalToSuperview()
+                $0.leading.trailing.equalToSuperview()
+                $0.height.equalTo(100)
             }
-            
-//            self.stopStorySkeletonState()
-            self.storyView.create()
-            self.storyView.refresh()
+        }else{
+            DispatchQueue.main.async {
+                InAppStory.shared.settings = Settings(userID: id, tags: tags)
+                
+                InAppStory.shared.showOnboardings(from: self, delegate: self) { item in
+                    print("intem ", item)
+                }
+                
+    //            self.stopStorySkeletonState()
+                self.storyView.create()
+                self.storyView.refresh()
+            }
         }
+
     }
     
     
@@ -285,7 +300,6 @@ class MainViewController: UIViewController, MainViewInput {
     
     func updateTournament(model: CSTournament, scroll: Bool) {
         DispatchQueue.main.async {
-       
             self.tournamentsCollection.updateTournament(model, scroll: scroll)
         }
     }
@@ -359,7 +373,6 @@ class MainViewController: UIViewController, MainViewInput {
     func setSelectedSport(_ id: String, scrollToCenter: Bool) {
         DispatchQueue.main.async {
             self.gamesCollection.select(id, scrollToCenter: scrollToCenter)
-            
         }
     }
     
@@ -393,8 +406,6 @@ class MainViewController: UIViewController, MainViewInput {
     func setTournaments(model: [CSTournament]) {
         DispatchQueue.main.async {
             self.placeholderState(active: false)
-//
-    
             self.tournamentsCollection.set(model)
             if !self.contentIsLoaded {
                 self.stopSkeletonState()

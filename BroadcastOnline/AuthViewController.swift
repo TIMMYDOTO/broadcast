@@ -10,7 +10,7 @@ import UIKit
 class AuthViewController: UIViewController, AuthViewInput {
     @IBOutlet weak var stackView: UIStackView!
     
-    @IBOutlet weak var stackViewHeightConstraint: NSLayoutConstraint!
+    
     @IBOutlet weak var catpchaView: UIView!
     
     @IBOutlet weak var phoneTextFieldView: PhoneTextField!{
@@ -24,6 +24,7 @@ class AuthViewController: UIViewController, AuthViewInput {
         }
     }
     
+    @IBOutlet weak var passwordTextFieldView: PasswordTextField!
     @IBOutlet weak var containerView: GradientView!
     @IBOutlet weak var logoImageView: UIImageView!
     @IBOutlet weak var captchaImageView: UIImageView!
@@ -35,33 +36,34 @@ class AuthViewController: UIViewController, AuthViewInput {
 //            captchaTextField.layer.cornerRadius = 16
         }
     }
-    @IBOutlet weak var passwordTextField: TextField!{
-        didSet{
-            passwordTextField.layer.borderWidth = 1.0
-            passwordTextField.layer.borderColor = #colorLiteral(red: 0.5843137255, green: 0.7176470588, blue: 1, alpha: 1)
-            passwordTextField.layer.cornerRadius = 16
-        }
-    }
-    @IBOutlet weak var phoneTextField: UITextField!{
-        didSet{
-            phoneTextField.layer.borderWidth = 1.0
-            phoneTextField.layer.borderColor = #colorLiteral(red: 0.2274509804, green: 0.2705882353, blue: 0.368627451, alpha: 1)
-            phoneTextField.layer.cornerRadius = 16
-        }
-    }
+
+    @IBOutlet weak var forgetPasswordButton: UIButton!
+    
     
     @IBOutlet weak var signUpButton: UIButton!{
         didSet{
             signUpButton.setTitleColor(#colorLiteral(red: 0.3529411765, green: 0.4274509804, blue: 0.6, alpha: 1), for: .normal)
+            signUpButton.disableButton()
             signUpButton.layer.cornerRadius = 12
             signUpButton.clipsToBounds = true
-     
+            
         }
     }
     
-    fileprivate weak var textView: NonSelectableTextViewWithTappableLink!
+    @IBOutlet weak var textView: NonSelectableTextViewWithTappableLink!
+    
     private weak var signTypeCollectionView: SignTypeCollectionView!
     public var presenter: AuthPresenter!
+    var currentType: SignType = .signUp{
+        didSet{
+            if currentType == .signUp {
+                makeSignUpType()
+            }else{
+                makeSignInType()
+            }
+        }
+    }
+    var capchaIsEnabled = true
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -69,23 +71,65 @@ class AuthViewController: UIViewController, AuthViewInput {
         setup()
         presenter.viewDidLoad()
         binding()
+        setupNavigationBar()
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        presenter?.viewWillAppear()
+    }
+    
+    
+    func setupNavigationBar() {
+        navigationItem.hidesBackButton = true
+        let backButton = UIBarButtonItem(image: UIImage(named: "BackButton"), style: .plain, target: self, action: #selector(goBack))
+        backButton.theme_tintColor = ThemeColor.iconPrimary
+        self.navigationItem.leftBarButtonItem = backButton
+        
+        navigationController?.navigationBar.isTranslucent = true
+    }
+    
+    @objc func goBack() {
+        navigationController?.popViewController(animated: true)
     }
     
     
     override func viewDidLayoutSubviews() {
         super.viewDidLayoutSubviews()
-        let firstColor = #colorLiteral(red: 0.1764705882, green: 0.2117647059, blue: 0.3019607843, alpha: 1)
-        let secondColor = #colorLiteral(red: 0.1450980392, green: 0.1725490196, blue: 0.2392156863, alpha: 1)
-        self.signUpButton.applyGradient(colours: [firstColor, secondColor])
+
+    }
+    
+    func addTimerToSubmitButton() {
+        signUpButton.disableButton()
+        var runCount = 30
+        Timer.scheduledTimer(withTimeInterval: 1.0, repeats: true) { timer in
+          
+            runCount -= 1
+            self.signUpButton.setTitle("Повторный запрос кода через \(runCount) сек", for: .normal)
+            if runCount == 0 {
+                timer.invalidate()
+                self.signUpButton.enbaleButton()
+                self.signUpButton.setTitle("Зарегистрироваться", for: .normal)
+            }
+        }
     }
     
     func binding() {
         signTypeCollectionView.willSelect = { [weak self] type in
+            self?.currentType = type
             self?.presenter?.changeCurrentSignType(type)
         }
         
         phoneTextFieldView.didChangeEditing = { [weak self] str in
             self?.presenter?.didChangeEditingPhone(str)
+        }
+        
+        passwordTextFieldView.didChangeEditing = { [weak self] str in
+            self?.presenter?.didChangeEditingPassword(cs: str)
+        }
+        
+        captchaTextField.didChangeEditing = { [weak self] str in
+            self?.presenter?.didChangeEditingCaptcha(str)
         }
     }
     
@@ -95,6 +139,32 @@ class AuthViewController: UIViewController, AuthViewInput {
         phoneTextFieldView.rightView.isUserInteractionEnabled = isShown
     }
     
+    
+    func makeSignUpType() {
+        signUpButton.setTitle("Зарегистрироваться", for: .normal)
+        checkBox.isHidden = false
+        textView.isHidden = false
+        forgetPasswordButton.isHidden = true
+        if capchaIsEnabled {
+            catpchaView.isHidden = false
+//            stackViewHeightConstraint.constant = stackViewHeightConstraint.constant + 48
+        }
+    }
+    
+    func setPasswordIsConfirmable(_ isConfirmable: Bool) {
+        passwordTextFieldView.setConfirmButtonEnabled(isConfirmable)
+    }
+    
+    func makeSignInType() {
+        signUpButton.setTitle("Войти", for: .normal)
+        checkBox.isHidden = true
+        textView.isHidden = true
+        forgetPasswordButton.isHidden = false
+//        if capchaIsEnabled {
+            catpchaView.isHidden = true
+//            stackViewHeightConstraint.constant = stackViewHeightConstraint.constant - 48
+//        }
+    }
     
     func showPhone(_ cs: CaretString) {
         let mas = NSMutableAttributedString(string: cs.string, attributes: [
@@ -117,7 +187,15 @@ class AuthViewController: UIViewController, AuthViewInput {
         }
     }
     
+    func enableSubmitButton() {
+        
+        signUpButton.enbaleButton()
+    }
     
+    func disableSubmitButton() {
+        signUpButton.disableButton()
+        
+    }
     func setSelectedFilter(_ filter: SignType) {
         DispatchQueue.main.async {
             self.signTypeCollectionView.updateSelected(filter)
@@ -150,14 +228,14 @@ class AuthViewController: UIViewController, AuthViewInput {
     }
     
     func setupAgeRestrictionTextView() {
-        let tv = NonSelectableTextViewWithTappableLink()
-        tv.isScrollEnabled = false
-        tv.isEditable = false
-        tv.backgroundColor = .clear
-        tv.font = R.font.lato_BBRegular(size: 13)
-        tv.isUserInteractionEnabled = true
         
-        tv.linkTextAttributes = [.foregroundColor: UIColor(hex: 0xFFFFFF)]
+        textView.isScrollEnabled = false
+        textView.isEditable = false
+        textView.backgroundColor = .clear
+        textView.font = R.font.lato_BBRegular(size: 13)
+        textView.isUserInteractionEnabled = true
+        
+        textView.linkTextAttributes = [.foregroundColor: UIColor(hex: 0xFFFFFF)]
         let mas = NSMutableAttributedString(string: "Подтверждаю, что мне больше 18 лет, а также ознакомлен и согласен со всеми установленными букмекерской конторой правилами и положениями. ", attributes: [
                 .foregroundColor: UIColor(hex: 0x989FAB)
             ])
@@ -165,25 +243,25 @@ class AuthViewController: UIViewController, AuthViewInput {
             .link: "https://betboom.ru/pages/agreement?webview=1"
         ]))
         mas.append(NSAttributedString(string: " "))
-        tv.attributedText = mas
-        tv.textContainerInset =  .zero
-        tv.textContainer.lineFragmentPadding = 0
-        self.textView = tv
-        view.addSubview(self.textView)
-        textView.snp.makeConstraints { make in
-            make.leading.equalTo(checkBox.snp.trailing).offset(12)
-            make.top.equalTo(stackView.snp.bottom).offset(24)
-            make.height.equalTo(74)
-            make.trailing.equalToSuperview().offset(28)
-        }
+        textView.attributedText = mas
+        textView.textContainerInset =  .zero
+        textView.textContainer.lineFragmentPadding = 0
+        
+//        stackView.addSubview(self.textView)
+//        textView.snp.makeConstraints { make in
+//            make.leading.equalTo(checkBox.snp.trailing).offset(12)
+//            make.top.equalTo(stackView.snp.bottom).offset(24)
+//            make.height.equalTo(74)
+//            make.trailing.equalToSuperview().offset(28)
+//        }
     }
     
     @IBAction func phoneDidTapRemove(_ sender: UIButton) {
-        phoneTextField.text = ""
+        phoneTextFieldView.textField.text = ""
     }
     
     @IBAction func passwordDidTapRemove(_ sender: UIButton) {
-        passwordTextField.text = ""
+        passwordTextFieldView.textField.text = ""
     }
     
     
@@ -196,9 +274,10 @@ class AuthViewController: UIViewController, AuthViewInput {
     }
     
     func updateCaptcha(isEnabled: Bool, data: String) {
+        self.capchaIsEnabled = isEnabled
         if !isEnabled{
             catpchaView.isHidden = true
-            stackViewHeightConstraint.constant = stackViewHeightConstraint.constant - 48
+//            stackViewHeightConstraint.constant = stackViewHeightConstraint.constant - 48
         }else{
             captchaImageView.image = UIImage(base64: data)
             catpchaView.isHidden = false
@@ -210,11 +289,28 @@ class AuthViewController: UIViewController, AuthViewInput {
         presenter?.didTapRepeatCaptcha()
     }
     
+    func showCheckSmsController(sessionId: String) {
+        let phone = phoneTextFieldView.textField.text ?? ""
+        let vc = CheckSmsViewController(phoneNumber: phone, sessionId: sessionId)
+        navigationController?.pushViewController(vc, animated: true)
+        
+    }
+    
     @IBAction func didClickSign(_ sender: UIButton) {
-        let phone = phoneTextField.text ?? ""
-        let password = passwordTextField.text ?? ""
+        let phone = phoneTextFieldView.textField.text ?? ""
+        let password = passwordTextFieldView.textField.text ?? ""
         let gambler = Gambler(phone: phone, password: password)
-        presenter?.didTapSignUp(gambler: gambler)
+        if currentType == .signUp{
+       
+            presenter?.didTapSignUp(gambler: gambler)
+        }else{
+            presenter?.didTapSignIn(gambler: gambler)
+        }
+     
+    }
+    
+    func popViewController() {
+        navigationController?.popViewController(animated: true)
     }
     
 
@@ -223,9 +319,15 @@ class AuthViewController: UIViewController, AuthViewInput {
         presenter?.didClearPhone()
     }
     
+    
+    @IBAction func didTapForgetPassword(_ sender: UIButton) {
+        let vc = storyboard?.instantiateViewController(identifier: "ForgetPasswordViewController") as! ForgetPasswordViewController
+        navigationController?.pushViewController(vc, animated: true)
+    }
+    
 }
 
-private class NonSelectableTextViewWithTappableLink: UITextView {
+ class NonSelectableTextViewWithTappableLink: UITextView {
     
     override func point(inside point: CGPoint, with event: UIEvent?) -> Bool {
         guard let pos = closestPosition(to: point) else { return false }

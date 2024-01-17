@@ -21,7 +21,10 @@ enum Endpoint: String {
     case passwordRecoveryCheckSms = "/password_recovery/check_sms"
     case passwordRecoveryChangePassword = "/password_recovery/change_password"
     case authPhoneRepeat = "/register/auth_phone_repeat"
-    case authPhone = "/register/auth_phone"
+    case authPhone = "/register/start"
+    case registerCheckSms = "/register/check_sms"
+    case login = "/auth/login"
+    case registerAuthPhone = "/register/authPhone"
     
     enum ApiError: Error {
         case noData
@@ -36,34 +39,24 @@ enum Endpoint: String {
 
 final class ProtobufService: SessionServiceDependency, ConnectManagerDependency, ApiServiceInterface {
 
+    
+    private let dateFormatter: DateFormatter = {
+        let df = DateFormatter()
+        df.dateFormat = "yyyy-MM-dd"
+        return df
+    }()
+
     let contentUrl: String
     
     private var headers = HTTPHeaders(["Content-Type": "application/octet-stream",
                                        "x-device-os-name": "ios",
                                        "version": "2",
                                        "x-device-os-version": UIDevice.current.systemVersion])
-//    private var baseUrl: String {
-//                if let nameSpace = UserDefaults.standard.object(forKey: "namespace") as? String{
-//                    print("HAS NAMESPACE", nameSpace)
-//                    return nameSpace
-//
-//                }else{
-//                    print("DEFAULT NAMESPACE", baseUrl)
-//                return AppConfig.shared.apiUrlProd
-//               }
-//    }
     
     private var baseUrl: String
     
     init(baseUrl: String, contentUrl: String) {
-//        if let nameSpace = UserDefaults.standard.object(forKey: "namespace") as? String{
-//            print("HAS NAMESPACE", nameSpace)
-//            self.baseUrl = nameSpace
-//
-//        }else{
-//            print("DEFAULT NAMESPACE", baseUrl)
-      //  self.baseUrl = AppConfig.shared.apiUrl
- //       }
+
 
     
 
@@ -154,10 +147,10 @@ final class ProtobufService: SessionServiceDependency, ConnectManagerDependency,
     }
     
     
-    func authPhone(gambler: Gambler, _ completion: @escaping (Result<Bb_RegisterAuthPhoneResponse, Endpoint.ApiError>) -> ()) {
+    func registerAuthPhone(gambler: Gambler, captchaKey: String, _ completion: @escaping (Result<Bb_RegisterAuthPhoneResponse, Endpoint.ApiError>) -> ()) {
         var sessionId: String!
         
-        let endpoint = Endpoint.authPhone.rawValue
+        let endpoint = Endpoint.registerAuthPhone.rawValue
         var signUp = Bb_RegisterAuthPhoneRequest()
         signUp.phone = gambler.phone
         signUp.password = gambler.password
@@ -166,13 +159,59 @@ final class ProtobufService: SessionServiceDependency, ConnectManagerDependency,
         headers.remove(name: "x-access-token")
         
         AF.upload(try! signUp.serializedData(), to: baseUrl + endpoint, headers: self.headers).responseData { (apiResponse) in
-            guard let data = apiResponse.data,
-                  let response = try? Bb_RegisterAuthPhoneResponse(serializedData: data) else {
-          
+            guard let data = apiResponse.data else {
+                completion(.failure(.noData))
                 return
             }
-            sessionId = response.sessionID
+            
+            
+            if let response = try? Bb_RegisterAuthPhoneResponse(serializedData: data) {
+                if self.checkResponse(response.code, response.status) {
+                    completion(.success((response)))
+                } else {
+                    print("response", response)
+                    completion(.failure(.bbError(response.error)))
+                }
+            } else {
+                completion(.failure(.wrongData))
+            }
+        }
        
+    }
+    
+    
+    func authPhone(gambler: Gambler, captchaKey: String, _ completion: @escaping (Result<Bb_RegisterStartResponse, Endpoint.ApiError>) -> ()){
+        var sessionId: String!
+        
+        let endpoint = Endpoint.authPhone.rawValue
+        var signUp = Bb_RegisterStartRequest()
+        signUp.phone = gambler.phone.digits
+        signUp.password = gambler.password
+        signUp.confirmInfo = Int32(1)
+        signUp.captchaKey = captchaKey
+        signUp.birthDate = dateFormatter.string(from: Calendar.current.date(byAdding: .year, value: -18, to: Date()) ?? Date())
+
+        
+        headers.remove(name: "x-access-token")
+        
+        AF.upload(try! signUp.serializedData(), to: baseUrl + endpoint, headers: self.headers).responseData { (apiResponse) in
+            guard let data = apiResponse.data else {
+                completion(.failure(.noData))
+                return
+            }
+            
+            
+            if let response = try? Bb_RegisterStartResponse(serializedData: data) {
+                if self.checkResponse(response.code, response.status) {
+                    completion(.success((response)))
+                } else {
+                    print("response", response)
+                    completion(.failure(.bbError(response.error)))
+                }
+            } else {
+                completion(.failure(.wrongData))
+            }
+
        
         }
        
@@ -301,6 +340,66 @@ final class ProtobufService: SessionServiceDependency, ConnectManagerDependency,
     }
     
     
+    func checkSms(code: String, sessionId: String, _ completion: @escaping (Result<Bb_RegisterCheckSmsResponse, Endpoint.ApiError>) -> ()) {
+        let endpoint = Endpoint.registerCheckSms.rawValue
+        var request = Bb_RegisterCheckSmsRequest()
+        request.sessionID = sessionId
+        request.smsCode = code
+        
+        AF.upload(try! request.serializedData(), to: baseUrl + endpoint, headers: headers).responseData { (apiResponse) in
+            guard let data = apiResponse.data else {
+                completion(.failure(.noData))
+                return
+            }
+            if let response = try? Bb_RegisterCheckSmsResponse(serializedData: data) {
+                if self.checkResponse(response.code, response.status) {
+                    
+                    completion(.success((response)))
+                } else {
+                    completion(.failure(.bbError(response.error)))
+                }
+            }
+            else {
+                completion(.failure(.wrongData))
+            }
+        }
+    }
+    
+    
+    func login(gambler: Gambler, _ completion: @escaping (Result<Bb_AuthLoginResponse, Endpoint.ApiError>) -> ()) {
+        let endpoint = Endpoint.login.rawValue
+        updateHeaders()
+        var auth = Bb_AuthLoginRequest()
+        auth.phone = gambler.phone.digits
+        auth.password = gambler.password
+        var features = Bb_AuthLoginRequest.Features()
+        features.isWrongDataSupport = true
+        auth.features = features
+        
+        AF.upload(try! auth.serializedData(), to: baseUrl + endpoint, headers: headers).responseData { (apiResponse) in
+            guard let data = apiResponse.data else {
+                completion(.failure(.noData))
+                return
+            }
+            
+            if let response = try? Bb_AuthLoginResponse(serializedData: data) {
+                if self.checkResponse(response.code, response.status) {
+                    self.session.token = response.token
+                    
+                    self.session.refreshToken = response.refreshToken
+                    print("response", response)
+                    completion(.success((response)))
+                } else {
+                    print("response", response)
+                    completion(.failure(.bbError(response.error)))
+                }
+            } else {
+                completion(.failure(.wrongData))
+            }
+        }
+    }
+    
+
     
 //    private func refreshToken(completion: (() -> Void)? = nil) {
 //        if let token = session.token,
