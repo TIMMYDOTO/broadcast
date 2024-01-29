@@ -17,3 +17,4 @@ ${BUILT_PRODUCTS_DIR}/SwiftyJWT/SwiftyJWT.framework
 ${BUILT_PRODUCTS_DIR}/YouTubePlayer/YouTubePlayer.framework
 ${BUILT_PRODUCTS_DIR}/lottie-ios/Lottie.framework
 ${PODS_XCFRAMEWORKS_BUILD_DIR}/InAppStory/InAppStorySDK.framework/InAppStorySDK
+${PODS_XCFRAMEWORKS_BUILD_DIR}/StorifyMe/StorifyMe.framework/StorifyMe

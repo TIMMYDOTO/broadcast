@@ -202,9 +202,11 @@
 		DED68A672B1A4149005E9545 /* SignTypeCollectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DED68A662B1A4149005E9545 /* SignTypeCollectionView.swift */; };
 		DED68A692B1A46ED005E9545 /* SignTypeCollectionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DED68A682B1A46ED005E9545 /* SignTypeCollectionCell.swift */; };
 		DED68A6B2B1A4741005E9545 /* SignType.swift in Sources */ = {isa = PBXBuildFile; fileRef = DED68A6A2B1A4741005E9545 /* SignType.swift */; };
+		DED8D3772B5AC3C800B1746D /* Models.swift in Sources */ = {isa = PBXBuildFile; fileRef = DED8D3762B5AC3C800B1746D /* Models.swift */; };
 		DEDFFDCE2B188EB8004BB1CE /* AuthViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEDFFDCD2B188EB8004BB1CE /* AuthViewController.swift */; };
 		DEDFFDD02B189685004BB1CE /* GradientView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEDFFDCF2B189685004BB1CE /* GradientView.swift */; };
 		DEDFFDD22B18C1D3004BB1CE /* TextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEDFFDD12B18C1D3004BB1CE /* TextField.swift */; };
+		DEE58CBA2B63FECD0003341D /* MainViewController2.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEE58CB92B63FECD0003341D /* MainViewController2.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -420,9 +422,11 @@
 		DED68A662B1A4149005E9545 /* SignTypeCollectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignTypeCollectionView.swift; sourceTree = "<group>"; };
 		DED68A682B1A46ED005E9545 /* SignTypeCollectionCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignTypeCollectionCell.swift; sourceTree = "<group>"; };
 		DED68A6A2B1A4741005E9545 /* SignType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignType.swift; sourceTree = "<group>"; };
+		DED8D3762B5AC3C800B1746D /* Models.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Models.swift; sourceTree = "<group>"; };
 		DEDFFDCD2B188EB8004BB1CE /* AuthViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthViewController.swift; sourceTree = "<group>"; };
 		DEDFFDCF2B189685004BB1CE /* GradientView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GradientView.swift; sourceTree = "<group>"; };
 		DEDFFDD12B18C1D3004BB1CE /* TextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = TextField.swift; path = /Users/av_shkepu/broadcast/BroadcastOnline/TextField.swift; sourceTree = "<absolute>"; };
+		DEE58CB92B63FECD0003341D /* MainViewController2.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainViewController2.swift; sourceTree = "<group>"; };
 		F44A24DBE9FF638C35EB38AE /* Pods-BroadcastOnline.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BroadcastOnline.debug.xcconfig"; path = "Target Support Files/Pods-BroadcastOnline/Pods-BroadcastOnline.debug.xcconfig"; sourceTree = "<group>"; };
 		FE7501537DFD11AE83E49500 /* Pods-BroadcastOnline.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BroadcastOnline.release.xcconfig"; path = "Target Support Files/Pods-BroadcastOnline/Pods-BroadcastOnline.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -632,6 +636,7 @@
 				9AE2FC6028F851C3003EF4A5 /* CheckVersion.swift */,
 				9A790DCF28C9F358009F2AA4 /* AppDelegate.swift */,
 				DE40F62A2B2C59E10088F06D /* register_start.pb.swift */,
+				DED8D3762B5AC3C800B1746D /* Models.swift */,
 				DE2B8FF62B3480AB00D12FC9 /* login.pb.swift */,
 				DE522DF12B16362B00850E61 /* ApiServiceDependencyImpl.swift */,
 				9AE2FC5E28F84E47003EF4A5 /* AppDataStore.swift */,
@@ -718,6 +723,7 @@
 				9A4EE31628CF4D5200905FF9 /* GamesCollection */,
 				9A790DEC28CA1D5D009F2AA4 /* Protocol */,
 				9A790DE328C9F8C7009F2AA4 /* MainViewController.swift */,
+				DEE58CB92B63FECD0003341D /* MainViewController2.swift */,
 				9AE4765128D33BD500E59FC0 /* NavigationController.swift */,
 				9A790DE828CA1D1C009F2AA4 /* MainPresenter.swift */,
 				9A790DEA28CA1D24009F2AA4 /* MainInteractor.swift */,
@@ -1065,6 +1071,7 @@
 				9A790EA828CA3617009F2AA4 /* WsService.swift in Sources */,
 				9A4EE33428CF877B00905FF9 /* CSTournamentHeader.swift in Sources */,
 				9A79193928D0976700062946 /* R.generated.swift in Sources */,
+				DEE58CBA2B63FECD0003341D /* MainViewController2.swift in Sources */,
 				DE522DE22B1616DB00850E61 /* BBTheme.swift in Sources */,
 				9A790DEE28CA1D77009F2AA4 /* MainOutput.swift in Sources */,
 				9A790E3D28CA29CB009F2AA4 /* CyberOdinWsService.swift in Sources */,
@@ -1092,6 +1099,7 @@
 				9A790E2628CA29CB009F2AA4 /* etw_rpc_subscribe_full_match.pb.swift in Sources */,
 				9A4EE33528CF877B00905FF9 /* CSMatchSkeletonCell.swift in Sources */,
 				9A79192028D08ECD00062946 /* CSMoreStakesCell.swift in Sources */,
+				DED8D3772B5AC3C800B1746D /* Models.swift in Sources */,
 				9A790E2128CA29CB009F2AA4 /* etw_model_stake.pb.swift in Sources */,
 				9AE4765228D33BD500E59FC0 /* NavigationController.swift in Sources */,
 				DED68A672B1A4149005E9545 /* SignTypeCollectionView.swift in Sources */,
@@ -1376,7 +1384,7 @@
 				CODE_SIGN_ENTITLEMENTS = "Cyber Live.entitlements";
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 4;
+				CURRENT_PROJECT_VERSION = 6;
 				DEVELOPMENT_TEAM = QC3379N7C7;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = BroadcastOnline/Info.plist;
@@ -1415,7 +1423,7 @@
 				CODE_SIGN_ENTITLEMENTS = "Cyber Live.entitlements";
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 4;
+				CURRENT_PROJECT_VERSION = 6;
 				DEVELOPMENT_TEAM = QC3379N7C7;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = BroadcastOnline/Info.plist;

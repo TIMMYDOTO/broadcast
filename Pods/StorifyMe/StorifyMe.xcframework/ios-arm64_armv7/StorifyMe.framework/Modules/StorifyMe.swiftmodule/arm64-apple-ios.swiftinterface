@@ -1,0 +1,460 @@
+// swift-interface-format-version: 1.0
+// swift-compiler-version: Apple Swift version 5.4.2 (swiftlang-1205.0.28.2 clang-1205.0.19.57)
+// swift-module-flags: -target arm64-apple-ios9.0 -enable-objc-interop -enable-library-evolution -swift-version 5 -enforce-exclusivity=checked -O -module-name StorifyMe
+import AVFoundation
+import CoreGraphics
+import Foundation
+import SafariServices
+@_exported import StorifyMe
+import Swift
+import UIKit.UICollectionView
+import UIKit.UICollectionViewCell
+import UIKit.UICollectionViewFlowLayout
+import UIKit.UIDevice
+import UIKit.UIFont
+import UIKit
+import UIKit.UIScrollView
+import UIKit.UIView
+import WebKit
+public protocol StorifyMeAdEventProtocol : AnyObject {
+  func onFail(error: StorifyMe.StorifyMeError)
+  func onAdDisplayed(story: StorifyMe.StorifyMeStoryModel, index: Swift.Int)
+  func onAction(type: Swift.String, data: [Swift.String : Any]?)
+  func onEvent(type: Swift.String, data: [Swift.String : Any]?)
+  func register(_ webView: WebKit.WKWebView)
+}
+extension StorifyMeAdEventProtocol {
+  public func register(_ webView: WebKit.WKWebView)
+}
+@_hasMissingDesignatedInitializers public class StorifyMeInstance {
+  public static let shared: StorifyMe.StorifyMeInstance
+  public func initialize(accountId: Swift.String, apiKey: Swift.String)
+  public func initialize(accountId: Swift.String, apiKey: Swift.String, env: StorifyMe.StorifyMeEnv)
+  @available(iOS, obsoleted: 9.0, renamed: "initialize", message: "The parameters have changed to (accountId:,apiKey:)")
+  public func initialization(apiKey: Swift.String, accountId: Swift.String)
+  public func openStoryByHandle(handle: Swift.String, config: StorifyMe.StorifyMeWidgetConfig? = nil, playbackOptions: StorifyMe.StorifyMeStoryPlaybackOptions? = nil, audioOptions: StorifyMe.StorifyMeStoryAudioOptions? = nil, urlPresentationOptions: StorifyMe.StorifyMeURLPresentationOptions? = nil, storyEventDelegate: StorifyMe.StorifyMeStoryEventProtocol? = nil)
+  public func showNotification(title: Swift.String, message: Swift.String?, duration: Swift.Double = 3.0)
+  public var playbackController: StorifyMe.StorifyMePlaybackController {
+    get
+  }
+  @objc deinit
+}
+public struct StorifyMeStoryPlaybackOptions {
+  public enum PlaybackBehaviour {
+    case restartStoriesOnAppLaunch
+    case restartStoriesWhenOpen
+    case alwaysResumeStoryWhereStopped
+    public static func == (a: StorifyMe.StorifyMeStoryPlaybackOptions.PlaybackBehaviour, b: StorifyMe.StorifyMeStoryPlaybackOptions.PlaybackBehaviour) -> Swift.Bool
+    public func hash(into hasher: inout Swift.Hasher)
+    public var hashValue: Swift.Int {
+      get
+    }
+  }
+  public let behaviour: StorifyMe.StorifyMeStoryPlaybackOptions.PlaybackBehaviour
+  public init(behaviour: StorifyMe.StorifyMeStoryPlaybackOptions.PlaybackBehaviour)
+}
+@available(iOS, obsoleted: 9.0, renamed: "StorifyMeWidget")
+public class StoryView {
+  public init()
+  @objc deinit
+}
+@objc @_inheritsConvenienceInitializers @_hasMissingDesignatedInitializers public class StorifyMeWidget : UIKit.UIView {
+  weak public var eventDelegate: StorifyMe.StorifyMeStoryEventProtocol? {
+    get
+    set
+  }
+  weak public var adEventDelegate: StorifyMe.StorifyMeAdEventProtocol? {
+    get
+    set
+  }
+  weak public var sizeDelegate: StorifyMe.StorifyMeSizeProtocol?
+  @objc override dynamic public init(frame: CoreGraphics.CGRect)
+  public func prepareForReuse()
+  public func setWidgetConfig(config: StorifyMe.StorifyMeWidgetConfig)
+  public func setDynamicData(dynamicIntegrationId: Swift.String, data: [Swift.String : Any])
+  public func setCustomAds(_ customAds: [StorifyMe.StorifyMeAd])
+  public func load()
+  @available(*, deprecated, message: "The parameter widgetId has been changed from String to Int")
+  public func setWidgetId(widgetId: Swift.String)
+  public func setWidgetId(widgetId: Swift.Int)
+  @objc deinit
+}
+extension StorifyMeWidget {
+  @available(*, deprecated, message: "Local UI styling is deprecated. The best way to style and customize the widget is using StorifyMe Widget Editor, which is a visual tool available inside StorifyMe platform.")
+  public func setStoryImageStyle(imageStyle: StorifyMe.StorifyMeStoryImageStyle)
+  @available(*, deprecated, message: "Local UI styling is deprecated. The best way to style and customize the widget is using StorifyMe Widget Editor, which is a visual tool available inside StorifyMe platform.")
+  public func setWidgetBackgroundColor(color: UIKit.UIColor)
+  @available(*, deprecated, message: "Local UI styling is deprecated. The best way to style and customize the widget is using StorifyMe Widget Editor, which is a visual tool available inside StorifyMe platform.")
+  public func setWidgetBorderWidth(dimension: CoreGraphics.CGFloat)
+  @available(*, deprecated, message: "Local UI styling is deprecated. The best way to style and customize the widget is using StorifyMe Widget Editor, which is a visual tool available inside StorifyMe platform.")
+  public func setWidgetBorderColor(color: UIKit.UIColor)
+  @available(*, deprecated, message: "Local UI styling is deprecated. The best way to style and customize the widget is using StorifyMe Widget Editor, which is a visual tool available inside StorifyMe platform.")
+  public func setWidgetBorderRadius(dimension: CoreGraphics.CGFloat)
+  @available(*, deprecated, message: "Local UI styling is deprecated. The best way to style and customize the widget is using StorifyMe Widget Editor, which is a visual tool available inside StorifyMe platform.")
+  public func setWidgetTitleStyle(widgetTitleStyle: StorifyMe.StorifyMeWidgetTitleStyle)
+  @available(*, deprecated, message: "Local UI styling is deprecated. The best way to style and customize the widget is using StorifyMe Widget Editor, which is a visual tool available inside StorifyMe platform.")
+  public func setWidgetTitleBorderWidth(dimension: Swift.Int)
+  @available(*, deprecated, message: "Local UI styling is deprecated. The best way to style and customize the widget is using StorifyMe Widget Editor, which is a visual tool available inside StorifyMe platform.")
+  public func setWidgetTitleBorderColor(color: UIKit.UIColor)
+  @available(*, deprecated, message: "Local UI styling is deprecated. The best way to style and customize the widget is using StorifyMe Widget Editor, which is a visual tool available inside StorifyMe platform.")
+  public func setWidgetInnerHorizontalPadding(padding: CoreGraphics.CGFloat)
+  @available(*, deprecated, message: "Local UI styling is deprecated. The best way to style and customize the widget is using StorifyMe Widget Editor, which is a visual tool available inside StorifyMe platform.")
+  public func setWidgetInnerVerticalPadding(padding: CoreGraphics.CGFloat)
+  @available(*, deprecated, message: "Local UI styling is deprecated. The best way to style and customize the widget is using StorifyMe Widget Editor, which is a visual tool available inside StorifyMe platform.")
+  public func setItemTitleStyle(titleStyle: StorifyMe.StorifyMeStoryTitleStyle)
+  @available(*, deprecated, message: "Local UI styling is deprecated. The best way to style and customize the widget is using StorifyMe Widget Editor, which is a visual tool available inside StorifyMe platform.")
+  public func setStoryLiveStyle(options: StorifyMe.StorifyMeStoryLiveStyleOptions)
+  @available(*, deprecated, message: "Local UI styling is deprecated. The best way to style and customize the widget is using StorifyMe Widget Editor, which is a visual tool available inside StorifyMe platform.")
+  public func setStorySeenStyle(options: StorifyMe.StorifyMeStorySeenStyleOptions)
+  @available(*, deprecated, message: "Local UI styling is deprecated. The best way to style and customize the widget is using StorifyMe Widget Editor, which is a visual tool available inside StorifyMe platform.")
+  public func setStoryNewStyle(options: StorifyMe.StorifyMeStoryNewStyleOptions)
+  @available(iOS, obsoleted: 9.0, renamed: "setPlaybackOptions")
+  public func setWidgetPlaybackOptions(options: StorifyMe.StorifyMeStoryPlaybackOptions)
+  @available(iOS, obsoleted: 9.0, renamed: "setAudioOptions")
+  public func setWidgetAudioOptions(options: StorifyMe.StorifyMeStoryAudioOptions)
+  public func setStoryTitleHorizontalPadding(_ padding: CoreGraphics.CGFloat?)
+  public func setMaxNumberOfStoriesInGridView(length: Swift.Int?)
+  public func setStoryViewerOptions(options: StorifyMe.StorifyMeStoryViewerOptions)
+  public func setWidgetLoadingAnimationStyle(type: StorifyMe.StorifyMeWidgetLoadingAnimationStyle.LoadingAnimation = .default, enabled: Swift.Bool)
+  public func setAudioOptions(options: StorifyMe.StorifyMeStoryAudioOptions)
+  public func setPlaybackOptions(options: StorifyMe.StorifyMeStoryPlaybackOptions)
+  public func setURLPresentationOptions(options: StorifyMe.StorifyMeURLPresentationOptions)
+}
+extension StorifyMeWidget : StorifyMe.StorifyMeWidgetStoryNavigator {
+  public func openWidgetStoryByPosition(_ position: Swift.Int, completion: ((StorifyMe.StorifyMeWidgetStoryNavigatorExecutionResult) -> Swift.Void)?)
+  public func openWidgetStoryByHandle(_ handle: Swift.String, completion: ((StorifyMe.StorifyMeWidgetStoryNavigatorExecutionResult) -> Swift.Void)?)
+  public func openWidgetStoryById(_ id: Swift.Int, completion: ((StorifyMe.StorifyMeWidgetStoryNavigatorExecutionResult) -> Swift.Void)?)
+}
+extension UIColor {
+  convenience public init(hex: Swift.String)
+}
+public enum StorifyMeStoryTextPosition : Swift.String {
+  case undefined
+  case inline
+  case outsideRight
+  public init?(rawValue: Swift.String)
+  public typealias RawValue = Swift.String
+  public var rawValue: Swift.String {
+    get
+  }
+}
+public struct StorifyMeError {
+  public let type: StorifyMe.StorifyMeError.ErrorType
+  public let objectType: StorifyMe.StorifyMeError.ObjectType
+  public let objectId: Swift.Int?
+  public let message: Swift.String
+  public let error: Swift.Error?
+  public enum ErrorType {
+    case networkError
+    case localDecodeFailure
+    case remoteDecodeFailure
+    case storyLoadFailed
+    case adLoadFailed
+    public static func == (a: StorifyMe.StorifyMeError.ErrorType, b: StorifyMe.StorifyMeError.ErrorType) -> Swift.Bool
+    public func hash(into hasher: inout Swift.Hasher)
+    public var hashValue: Swift.Int {
+      get
+    }
+  }
+  public enum ObjectType {
+    case story
+    case widget
+    case shorts
+    case ads
+    public static func == (a: StorifyMe.StorifyMeError.ObjectType, b: StorifyMe.StorifyMeError.ObjectType) -> Swift.Bool
+    public func hash(into hasher: inout Swift.Hasher)
+    public var hashValue: Swift.Int {
+      get
+    }
+  }
+}
+public struct StorifyMeStoryImageStyle {
+  public init(imageHeight: Swift.Int, imageWidth: Swift.Int, imageRadius: Swift.Int, imageBorderWidth: Swift.Int, imageBorderColor: UIKit.UIColor, imageBorderPadding: CoreGraphics.CGFloat, imageOverlayColor: UIKit.UIColor? = nil, imageOverlayOpacity: Swift.Double? = nil)
+  public init(imageShape: StorifyMe.StorifyMeImageShape)
+}
+public enum StorifyMeWidgetStoryNavigatorExecutionResult {
+  case success, notFound
+  public static func == (a: StorifyMe.StorifyMeWidgetStoryNavigatorExecutionResult, b: StorifyMe.StorifyMeWidgetStoryNavigatorExecutionResult) -> Swift.Bool
+  public func hash(into hasher: inout Swift.Hasher)
+  public var hashValue: Swift.Int {
+    get
+  }
+}
+public struct StorifyMeStoryTitleStyle {
+  public init(titleIsVisible: Swift.Bool, titleFont: UIKit.UIFont, titleSize: CoreGraphics.CGFloat, titleColor: UIKit.UIColor, titleAlign: UIKit.NSTextAlignment)
+}
+public protocol StorifyMeWidgetStoryNavigator : AnyObject {
+  func openWidgetStoryByPosition(_ position: Swift.Int, completion: ((StorifyMe.StorifyMeWidgetStoryNavigatorExecutionResult) -> Swift.Void)?)
+  func openWidgetStoryByHandle(_ handle: Swift.String, completion: ((StorifyMe.StorifyMeWidgetStoryNavigatorExecutionResult) -> Swift.Void)?)
+  func openWidgetStoryById(_ id: Swift.Int, completion: ((StorifyMe.StorifyMeWidgetStoryNavigatorExecutionResult) -> Swift.Void)?)
+}
+public struct StorifyMeAccount {
+  public init(accountId: Swift.String, apiKey: Swift.String, env: StorifyMe.StorifyMeEnv)
+}
+public struct StorifyMeStorySeenStyleOptions {
+  public let opacity: CoreGraphics.CGFloat?
+  public let borderWidth: Swift.Int?
+  public let borderColor: UIKit.UIColor?
+  public let enabled: Swift.Bool?
+  public init(opacity: CoreGraphics.CGFloat? = nil, borderWidth: Swift.Int? = nil, borderColor: UIKit.UIColor? = nil, enabled: Swift.Bool? = nil)
+}
+public struct StorifyMeStoryAudioOptions {
+  public enum AudioState {
+    case muted, unmuted
+    public static func == (a: StorifyMe.StorifyMeStoryAudioOptions.AudioState, b: StorifyMe.StorifyMeStoryAudioOptions.AudioState) -> Swift.Bool
+    public func hash(into hasher: inout Swift.Hasher)
+    public var hashValue: Swift.Int {
+      get
+    }
+  }
+  public enum AudioBehaviour {
+    case applyLastUserChangeForAllFutureStories
+    case applyChangeForSingleStory
+    case applyChangeForPresentedStories
+    public static func == (a: StorifyMe.StorifyMeStoryAudioOptions.AudioBehaviour, b: StorifyMe.StorifyMeStoryAudioOptions.AudioBehaviour) -> Swift.Bool
+    public func hash(into hasher: inout Swift.Hasher)
+    public var hashValue: Swift.Int {
+      get
+    }
+  }
+  public let behaviour: StorifyMe.StorifyMeStoryAudioOptions.AudioBehaviour
+  public let defaultState: StorifyMe.StorifyMeStoryAudioOptions.AudioState
+  public init(behaviour: StorifyMe.StorifyMeStoryAudioOptions.AudioBehaviour, defaultState: StorifyMe.StorifyMeStoryAudioOptions.AudioState = .unmuted)
+}
+public struct StorifyMeWidgetLoadingAnimationStyle {
+  public enum LoadingAnimation {
+    case `default`
+    case custom(view: UIKit.UIView)
+  }
+  public let type: StorifyMe.StorifyMeWidgetLoadingAnimationStyle.LoadingAnimation
+  public let enabled: Swift.Bool
+  public init(type: StorifyMe.StorifyMeWidgetLoadingAnimationStyle.LoadingAnimation = .default, enabled: Swift.Bool)
+}
+@_hasMissingDesignatedInitializers public class StorifyMeStoryModel : Swift.Codable, Swift.Equatable {
+  final public let id: Swift.Int
+  final public let name: Swift.String
+  final public let handle: Swift.String
+  final public let url: Swift.String
+  final public let resized_poster: Swift.String?
+  final public let original_poster: Swift.String
+  final public let thumbnail: Swift.String?
+  final public let live: Swift.Bool
+  final public let updated_at: Swift.Int
+  final public let tags: [Swift.String]
+  final public let deeplink: Swift.String?
+  public var isSeen: Swift.Bool {
+    get
+  }
+  public var isAlreadyPresented: Swift.Bool {
+    get
+  }
+  required public init(from decoder: Swift.Decoder) throws
+  public static func == (lhs: StorifyMe.StorifyMeStoryModel, rhs: StorifyMe.StorifyMeStoryModel) -> Swift.Bool
+  @objc deinit
+  public func encode(to encoder: Swift.Encoder) throws
+}
+public protocol StorifyMePlaybackController : AnyObject {
+  func resumePlayback(mode: StorifyMe.StorifyMePlaybackMode)
+  func pausePlayback(controlsVisibility: StorifyMe.StorifyMeControlsVisibility)
+  func closePlayback()
+}
+public struct StorifyMeStoryNewStyleOptions {
+  public let label: Swift.String?
+  public let background: UIKit.UIColor?
+  public let labelColor: UIKit.UIColor?
+  public let labelFont: UIKit.UIFont?
+  public let labelTextSize: Swift.Int?
+  public let verticalPadding: CoreGraphics.CGFloat?
+  public let horizontalPadding: CoreGraphics.CGFloat?
+  public let cornerRadius: CoreGraphics.CGFloat?
+  public let enabled: Swift.Bool?
+  public init(label: Swift.String? = nil, background: UIKit.UIColor? = nil, labelColor: UIKit.UIColor? = nil, labelFont: UIKit.UIFont? = nil, labelTextSize: Swift.Int? = nil, horizontalPadding: CoreGraphics.CGFloat? = nil, verticalPadding: CoreGraphics.CGFloat? = nil, cornerRadius: CoreGraphics.CGFloat? = nil, enabled: Swift.Bool? = nil)
+}
+@available(iOS, obsoleted: 9.0, renamed: "StorifyMeStoryEventProtocol")
+public protocol StoryEventProtocol : AnyObject {
+}
+public protocol StorifyMeStoryEventProtocol : AnyObject {
+  func onLoad(widgetId: Swift.Int, stories: [StorifyMe.StorifyMeStoryModel])
+  func onFail(error: StorifyMe.StorifyMeError)
+  func onStoryOpened(story: StorifyMe.StorifyMeStoryModel?, index: Swift.Int)
+  func onStoryFinished(story: StorifyMe.StorifyMeStoryModel?, index: Swift.Int)
+  func onStoryClose(story: StorifyMe.StorifyMeStoryModel?)
+  func onStoryShared(story: StorifyMe.StorifyMeStoryModel?)
+  func onWidgetScrollViewDidScroll(widgetId: Swift.Int, scrollView: UIKit.UIScrollView)
+  func onAction(type: Swift.String, data: [Swift.String : Any]?)
+  func onEvent(type: Swift.String, data: [Swift.String : Any]?)
+  func onStoryDeeplinkTriggered(story: StorifyMe.StorifyMeStoryModel, completion: @escaping ((StorifyMe.StorifyMeStoryDeeplinkTriggerCompletion) -> Swift.Void))
+}
+extension StorifyMeStoryEventProtocol {
+  public func onWidgetScrollViewDidScroll(widgetId: Swift.Int, scrollView: UIKit.UIScrollView)
+  public func onStoryDeeplinkTriggered(story: StorifyMe.StorifyMeStoryModel, completion: @escaping ((StorifyMe.StorifyMeStoryDeeplinkTriggerCompletion) -> Swift.Void))
+}
+public struct StorifyMeWidgetTitleStyle {
+  public init(titleIsVisible: Swift.Bool, titleFont: UIKit.UIFont, titleSize: CoreGraphics.CGFloat, titleColor: UIKit.UIColor, titleAlign: UIKit.NSTextAlignment)
+}
+extension StorifyMeWidgetTitleStyle : Swift.Equatable {
+  public static func == (lhs: StorifyMe.StorifyMeWidgetTitleStyle, rhs: StorifyMe.StorifyMeWidgetTitleStyle) -> Swift.Bool
+}
+public struct StorifyMeStoryLiveStyleOptions {
+  public let label: Swift.String?
+  public let background: UIKit.UIColor?
+  public let labelColor: UIKit.UIColor?
+  public let labelFont: UIKit.UIFont?
+  public let labelTextSize: Swift.Int?
+  public let labelPosition: StorifyMe.StorifyMeLiveLabelPosition?
+  public let verticalPadding: CoreGraphics.CGFloat?
+  public let horizontalPadding: CoreGraphics.CGFloat?
+  public let cornerRadius: CoreGraphics.CGFloat?
+  public let borderWidth: Swift.Int?
+  public let borderColor: UIKit.UIColor?
+  public init(label: Swift.String? = nil, background: UIKit.UIColor? = nil, labelColor: UIKit.UIColor? = nil, labelFont: UIKit.UIFont? = nil, labelTextSize: Swift.Int? = nil, labelPosition: StorifyMe.StorifyMeLiveLabelPosition? = nil, borderWidth: Swift.Int? = nil, borderColor: UIKit.UIColor? = nil, horizontalPadding: CoreGraphics.CGFloat? = nil, verticalPadding: CoreGraphics.CGFloat? = nil, cornerRadius: CoreGraphics.CGFloat? = nil)
+}
+public protocol StorifyMeSizeProtocol : AnyObject {
+  func storifyMeViewDidChangeHeight(widgetId: Swift.Int, height: CoreGraphics.CGFloat)
+}
+public struct StorifyMeURLPresentationOptions {
+  public enum PresentationMode {
+    case inAppBrowser
+    case externalBrowser
+    public static func == (a: StorifyMe.StorifyMeURLPresentationOptions.PresentationMode, b: StorifyMe.StorifyMeURLPresentationOptions.PresentationMode) -> Swift.Bool
+    public func hash(into hasher: inout Swift.Hasher)
+    public var hashValue: Swift.Int {
+      get
+    }
+  }
+  public let presentationMode: StorifyMe.StorifyMeURLPresentationOptions.PresentationMode
+  public init(presentationMode: StorifyMe.StorifyMeURLPresentationOptions.PresentationMode)
+}
+@available(iOS, obsoleted: 9.0, renamed: "StorifyMeWidgetConfig")
+public struct WidgetConfig {
+  public init()
+}
+public struct StorifyMeWidgetConfig {
+  public init()
+  public mutating func setQueryParameter(name: Swift.String, value: Swift.String)
+  public mutating func setSegments(tags: [Swift.String])
+  public mutating func setCustomerId(customerId: Swift.String)
+}
+public enum StorifyMeControlsVisibility {
+  case hidden
+  case visible
+  public static func == (a: StorifyMe.StorifyMeControlsVisibility, b: StorifyMe.StorifyMeControlsVisibility) -> Swift.Bool
+  public func hash(into hasher: inout Swift.Hasher)
+  public var hashValue: Swift.Int {
+    get
+  }
+}
+public struct StorifyMeAd : Swift.Encodable {
+  public enum CreativeType : Swift.String, Swift.Codable {
+    case display
+    case video
+    public init?(rawValue: Swift.String)
+    public typealias RawValue = Swift.String
+    public var rawValue: Swift.String {
+      get
+    }
+  }
+  public let id: Swift.Int
+  public let advertiserName: Swift.String
+  public let creativeType: StorifyMe.StorifyMeAd.CreativeType
+  public let videoURL: Swift.String
+  public let imageURL: Swift.String
+  public let trackingURL: Swift.String?
+  public let clickURL: Swift.String?
+  public let clickThroughCTA: Swift.String?
+  public let fullScreenCTA: Swift.Bool?
+  public let adDuration: Swift.Double?
+  public init(id: Swift.Int, advertiserName: Swift.String, creativeType: StorifyMe.StorifyMeAd.CreativeType, videoURL: Swift.String?, imageURL: Swift.String?, trackingURL: Swift.String?, clickURL: Swift.String?, clickThroughCTA: Swift.String?, fullScreenCTA: Swift.Bool?, adDuration: Swift.Double?)
+  public func encode(to encoder: Swift.Encoder) throws
+}
+public enum StorifyMePlaybackMode {
+  case fromBeginning
+  case `continue`
+  public static func == (a: StorifyMe.StorifyMePlaybackMode, b: StorifyMe.StorifyMePlaybackMode) -> Swift.Bool
+  public func hash(into hasher: inout Swift.Hasher)
+  public var hashValue: Swift.Int {
+    get
+  }
+}
+public enum StorifyMeEnv : Swift.String {
+  case EU
+  case US
+  case DEV
+  public init?(rawValue: Swift.String)
+  public typealias RawValue = Swift.String
+  public var rawValue: Swift.String {
+    get
+  }
+}
+public struct StorifyMeStoryViewerOptions {
+  public let thumbnailItemOpeningAnimationDuration: Swift.Double?
+  public let thumbnailItemClosingAnimationDuration: Swift.Double?
+  public let storyPreviewerOpeningAnimationDuration: Swift.Double?
+  public let storyPreviewerClosingAnimationDuration: Swift.Double?
+  public let enabled: Swift.Bool
+  public init(thumbnailItemOpeningAnimationDuration: Swift.Double? = nil, thumbnailItemClosingAnimationDuration: Swift.Double? = nil, storyPreviewerOpeningAnimationDuration: Swift.Double? = nil, storyPreviewerClosingAnimationDuration: Swift.Double? = nil, enabled: Swift.Bool = true)
+}
+public enum StorifyMeLiveLabelPosition : Swift.String {
+  case inside
+  case outside
+  public init?(rawValue: Swift.String)
+  public typealias RawValue = Swift.String
+  public var rawValue: Swift.String {
+    get
+  }
+}
+public enum StorifyMeImageShape {
+  case circle
+  case square
+  public static func == (a: StorifyMe.StorifyMeImageShape, b: StorifyMe.StorifyMeImageShape) -> Swift.Bool
+  public func hash(into hasher: inout Swift.Hasher)
+  public var hashValue: Swift.Int {
+    get
+  }
+}
+public struct StorifyMeDynamicData : Swift.Equatable {
+  public init(dynamicIntegrationId: Swift.String, data: [Swift.String : Any])
+  public static func == (lhs: StorifyMe.StorifyMeDynamicData, rhs: StorifyMe.StorifyMeDynamicData) -> Swift.Bool
+}
+public enum StorifyMeStoryDeeplinkTriggerCompletion {
+  case openStoryByDefault, ignorePresentingStory
+  public static func == (a: StorifyMe.StorifyMeStoryDeeplinkTriggerCompletion, b: StorifyMe.StorifyMeStoryDeeplinkTriggerCompletion) -> Swift.Bool
+  public func hash(into hasher: inout Swift.Hasher)
+  public var hashValue: Swift.Int {
+    get
+  }
+}
+extension StorifyMe.StorifyMeStoryPlaybackOptions.PlaybackBehaviour : Swift.Equatable {}
+extension StorifyMe.StorifyMeStoryPlaybackOptions.PlaybackBehaviour : Swift.Hashable {}
+extension StorifyMe.StorifyMeStoryTextPosition : Swift.Equatable {}
+extension StorifyMe.StorifyMeStoryTextPosition : Swift.Hashable {}
+extension StorifyMe.StorifyMeStoryTextPosition : Swift.RawRepresentable {}
+extension StorifyMe.StorifyMeError.ErrorType : Swift.Equatable {}
+extension StorifyMe.StorifyMeError.ErrorType : Swift.Hashable {}
+extension StorifyMe.StorifyMeError.ObjectType : Swift.Equatable {}
+extension StorifyMe.StorifyMeError.ObjectType : Swift.Hashable {}
+extension StorifyMe.StorifyMeWidgetStoryNavigatorExecutionResult : Swift.Equatable {}
+extension StorifyMe.StorifyMeWidgetStoryNavigatorExecutionResult : Swift.Hashable {}
+extension StorifyMe.StorifyMeStoryAudioOptions.AudioState : Swift.Equatable {}
+extension StorifyMe.StorifyMeStoryAudioOptions.AudioState : Swift.Hashable {}
+extension StorifyMe.StorifyMeStoryAudioOptions.AudioBehaviour : Swift.Equatable {}
+extension StorifyMe.StorifyMeStoryAudioOptions.AudioBehaviour : Swift.Hashable {}
+extension StorifyMe.StorifyMeURLPresentationOptions.PresentationMode : Swift.Equatable {}
+extension StorifyMe.StorifyMeURLPresentationOptions.PresentationMode : Swift.Hashable {}
+extension StorifyMe.StorifyMeControlsVisibility : Swift.Equatable {}
+extension StorifyMe.StorifyMeControlsVisibility : Swift.Hashable {}
+extension StorifyMe.StorifyMeAd.CreativeType : Swift.Equatable {}
+extension StorifyMe.StorifyMeAd.CreativeType : Swift.Hashable {}
+extension StorifyMe.StorifyMeAd.CreativeType : Swift.RawRepresentable {}
+extension StorifyMe.StorifyMePlaybackMode : Swift.Equatable {}
+extension StorifyMe.StorifyMePlaybackMode : Swift.Hashable {}
+extension StorifyMe.StorifyMeEnv : Swift.Equatable {}
+extension StorifyMe.StorifyMeEnv : Swift.Hashable {}
+extension StorifyMe.StorifyMeEnv : Swift.RawRepresentable {}
+extension StorifyMe.StorifyMeLiveLabelPosition : Swift.Equatable {}
+extension StorifyMe.StorifyMeLiveLabelPosition : Swift.Hashable {}
+extension StorifyMe.StorifyMeLiveLabelPosition : Swift.RawRepresentable {}
+extension StorifyMe.StorifyMeImageShape : Swift.Equatable {}
+extension StorifyMe.StorifyMeImageShape : Swift.Hashable {}
+extension StorifyMe.StorifyMeStoryDeeplinkTriggerCompletion : Swift.Equatable {}
+extension StorifyMe.StorifyMeStoryDeeplinkTriggerCompletion : Swift.Hashable {}

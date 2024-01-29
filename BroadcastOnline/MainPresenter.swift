@@ -60,7 +60,7 @@ final class MainPresenter: MainOutput {
             guard let self = self else { return }
             
             let id = self.interactor.getGamblerId()
-            let newTags: [String]
+            var newTags: [String]
             
             switch response {
             case let .success(result):
@@ -69,16 +69,46 @@ final class MainPresenter: MainOutput {
                 newTags = []
                 debugPrint(error)
             }
-            
+          
             if self.firstLaunch {
-                self.view?.setInAppStories(id: id, tags: newTags)
+//                self.view?.setInAppStories(id: id, tags: newTags)
+                self.view?.setTagsStoryAndLoad(tags: newTags)
                 self.firstLaunch = newTags.isEmpty ? true : false
             } else if newTags != self.tags || isNeedToUpdateStories {
-                self.view?.updateInAppStories((id: id, tags: newTags))
+//                self.view?.updateInAppStories((id: id, tags: newTags))
+                self.view?.setTagsStoryAndLoad(tags: newTags)
                 isNeedToUpdateStories = false
             }
             self.tags = newTags
         }
+    }
+    
+    
+    func onAction(type: String, data: [String: Any]?) {
+//        var action: RedirectOption
+//        guard let data = data?["data"] as? [String: Any] else { return }
+//        guard let tupleTwo = data["tupleTwo"] as? String else { return }
+//        
+//        let jsonData = tupleTwo.data(using: .utf8)!
+//        
+//        do {
+//            action = try JSONDecoder().decode(RedirectOption.self, from: jsonData)
+//        } catch { return }
+//        
+//        onInAppStoryAction?(action)
+    }
+    
+    
+    
+    func onDeepLinkAction(deepLink: String) {
+//        var action: RedirectOption
+//        let jsonData = deepLink.data(using: .utf8)!
+//        
+//        do {
+//            action = try JSONDecoder().decode(RedirectOption.self, from: jsonData)
+//        } catch { return }
+//        
+//        onInAppStoryAction?(action)
     }
    
     

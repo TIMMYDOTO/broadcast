@@ -22,5 +22,6 @@ target 'Cyber Live' do
   pod 'PIPKit'
   pod 'SwiftyJWT'
   pod 'IQKeyboardManagerSwift'
+  pod 'StorifyMe'
 end
     

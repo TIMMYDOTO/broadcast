@@ -1,0 +1,11 @@
+framework module StorifyMe {
+  umbrella header "StorifyMe.h"
+
+  export *
+  module * { export * }
+}
+
+module StorifyMe.Swift {
+    header "StorifyMe-Swift.h"
+    requires objc
+}

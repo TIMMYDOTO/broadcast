@@ -184,7 +184,7 @@ class CheckSmsViewController: UIViewController, ApiServiceDependency {
     }
     
     private func setupStackView() {
-        let sv = AuthSmsCodeStackView(length: 4, frame: .zero)
+        let sv = AuthSmsCodeStackView(length: 6, frame: .zero)
         let gr = UITapGestureRecognizer()
         gr.addTarget(self, action: #selector(tapShowKeyboard))
         sv.addGestureRecognizer(gr)
@@ -222,10 +222,10 @@ class CheckSmsViewController: UIViewController, ApiServiceDependency {
     
     func didChangeEditing(text: String) {
         hideError()
-        code = String(text.prefix(4))
+        code = String(text.prefix(6))
        
         showCode(code)
-        if code.count == 4 {
+        if code.count == 6 {
             checkCode()
         }
     }
@@ -254,9 +254,6 @@ class CheckSmsViewController: UIViewController, ApiServiceDependency {
                     
                 case .alreadyRegistered:
                     print("alreadyRegistered")
-//                    self.interactor.authSession(token: result.token, refresh: result.refreshToken)
-//                    self.interactor.getState()
-                    
                     self.showAlreadyRegistered()
                     
                 case .none:

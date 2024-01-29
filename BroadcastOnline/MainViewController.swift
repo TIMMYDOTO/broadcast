@@ -1,15 +1,16 @@
+////
+////  MainViewController.swift
+////  BroadcastOnline
+////
+////  Created by Artyom on 08.09.2022.
+////
 //
-//  MainViewController.swift
-//  BroadcastOnline
-//
-//  Created by Artyom on 08.09.2022.
-//
-
 import UIKit
 import SkeletonView
 import SnapKit
 import Reachability
 import InAppStorySDK
+import StorifyMe
 
 class MainViewController: UIViewController, MainViewInput, SessionServiceDependency {
     func showLoader() {
@@ -19,8 +20,9 @@ class MainViewController: UIViewController, MainViewInput, SessionServiceDepende
     func hideLoader() {
         
     }
-    
+     var storyViewWidget = StorifyMeWidget()
     weak var storyView: StoryView!
+
     private weak var noConnectionVC: NoConnectionViewController?
     var contentIsLoaded: Bool = false
      weak var tournamentsCollection: CyberSportTournamentsCollection!
@@ -39,7 +41,8 @@ class MainViewController: UIViewController, MainViewInput, SessionServiceDepende
     override func viewDidLoad() {
         super.viewDidLoad()
         setupTopView()
-        setupInAppStory()
+        
+        setupStoryWidget()
         releaseScenario()
         presenter = MainPresenter(view: self)
         setupGamesCollection()
@@ -105,6 +108,7 @@ class MainViewController: UIViewController, MainViewInput, SessionServiceDepende
             make.leading.trailing.equalToSuperview()
             make.height.equalTo(236)
         }
+        topView.backgroundColor = .red
     }
     
     private var windowInterfaceOrientation: UIInterfaceOrientation? {
@@ -199,6 +203,7 @@ class MainViewController: UIViewController, MainViewInput, SessionServiceDepende
         
         loginLabel.text = session.hasToken ? "Выйти" : "Войти"
         self.navigationItem.rightBarButtonItem?.title = title
+        
   
    }
     override func viewDidLayoutSubviews() {
@@ -208,51 +213,34 @@ class MainViewController: UIViewController, MainViewInput, SessionServiceDepende
         topView.applyGradient(isVertical: true, colorArray: [firstColor, secondColor])
     }
     
-    
-    func setInAppStories(id: String, tags: [String]) {
-        if tags.isEmpty {
-            topView.snp.remakeConstraints {
-                $0.top.equalToSuperview()
-                $0.leading.trailing.equalToSuperview()
-                $0.height.equalTo(100)
-            }
-        }else{
-            DispatchQueue.main.async {
-                InAppStory.shared.settings = Settings(userID: id, tags: tags)
-                
-                InAppStory.shared.showOnboardings(from: self, delegate: self) { item in
-                    print("intem ", item)
-                }
-                
-    //            self.stopStorySkeletonState()
-                self.storyView.create()
-                self.storyView.refresh()
-            }
-        }
-
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+      
     }
     
-    
-    func setupInAppStory() {
-        InAppStory.shared.cellBorderColor = BBTheme.isNight() ? Color.electricYellow : Color.carmineRed
-        InAppStory.shared.cellFont = R.font.lato_BBRegular(size: 12)!
-        
-        let story = StoryView()
-        story.backgroundColor = .clear
-        story.target = self
-        story.storiesDelegate = self
-//        story.deleagateFlowLayout = self
-        
-        storyView = story
-        topView.addSubview(storyView)
-        storyView.snp.makeConstraints {
-            $0.top.equalToSuperview().offset(100)
-            $0.leading.trailing.equalToSuperview()
-            
-            $0.height.equalTo(124)
-        }
-    }
-    
+//    func setInAppStories(id: String, tags: [String]) {
+//        if tags.isEmpty {
+//            topView.snp.remakeConstraints {
+//                $0.top.equalToSuperview()
+//                $0.leading.trailing.equalToSuperview()
+//                $0.height.equalTo(100)
+//            }
+//        }else{
+//            DispatchQueue.main.async {
+//                InAppStory.shared.settings = Settings(userID: id, tags: tags)
+//                
+//                InAppStory.shared.showOnboardings(from: self, delegate: self) { item in
+//                    print("intem ", item)
+//                }
+//                
+//                //            self.stopStorySkeletonState()
+//                self.storyView.create()
+//                self.storyView.refresh()
+//                
+//            }
+//        }
+//
+//    }
     
     func updateInAppStories(_ model: (id: String, tags: [String])?) {
         DispatchQueue.main.async {
@@ -264,6 +252,42 @@ class MainViewController: UIViewController, MainViewInput, SessionServiceDepende
             }
         }
     }
+
+    
+
+    
+    func setupStoryWidget() {
+        let storifyMeWidget = StorifyMeWidget()
+        storifyMeWidget.setWidgetId(widgetId: 7629)
+        
+        view.addSubview(storifyMeWidget)
+        
+        storifyMeWidget.snp.makeConstraints {
+            $0.top.equalToSuperview().offset(100)
+            $0.leading.trailing.equalToSuperview()
+            $0.height.equalTo(124)
+        }
+        
+        storifyMeWidget.sizeDelegate = self
+        storifyMeWidget.eventDelegate = self
+        
+        self.storyViewWidget = storifyMeWidget
+        
+    }
+    
+    func setTagsStoryAndLoad(tags: [String]) {
+        var widgetConf = StorifyMeWidgetConfig()
+//        widgetConf.setSegments(tags: tags)
+        self.storyViewWidget.setWidgetConfig(config: widgetConf)
+        self.storyViewWidget.load()
+    }
+    
+    func showStory(id: String) {
+        storyViewWidget.openWidgetStoryByHandle(id, completion: nil)
+    }
+    
+    
+
 
     func bindTournamentCollection() {
         tournamentsCollection.willSelectTournament = { [weak self] tournament in
@@ -502,41 +526,61 @@ class MainViewController: UIViewController, MainViewInput, SessionServiceDepende
 
 }
 
-extension MainViewController: InAppStoryDelegate {
-    func storiesDidUpdated(isContent: Bool, from storyType: StoriesType) {
+
+extension MainViewController: StorifyMeSizeProtocol, StorifyMeStoryEventProtocol {
+    
+    func onLoad(widgetId: Int, stories: [StorifyMe.StorifyMeStoryModel]) {
+        print("123Widget is loaded with \(stories.count) stories")
+        let onBoardingStories = stories.filter { $0.tags.contains(where: {$0 == "onboarding"})}.filter {!$0.isSeen}
+//        self.storyViewWidget.openWidgetStoryByHandle(onBoardingStories.first?.handle ?? "", completion: nil)
+    
     }
     
-    func storyReaderDidClose(with storyType: InAppStorySDK.StoriesType) {
-        presenter?.isNeedToUpdateStories = true
-        storyView.refresh()
+    func onStoryFinished(story: StorifyMe.StorifyMeStoryModel?, index: Int) {
+        
     }
     
-    func storyReader(actionWith target: String, for type: ActionType, from storyType: StoriesType) {
-        if type == .deeplink {
-//            presenter?.inAppStoryAction(action: type, for: target)
-            presenter?.isNeedToUpdateStories = true
+    func onStoryShared(story: StorifyMe.StorifyMeStoryModel?) {
+        
+    }
+    
+    func onFail(error: StorifyMeError) {
+        print("123Error loading widget \(error)")
+    }
+    
+    func onStoryOpened(story: StorifyMeStoryModel?, index: Int) {
+        print("123Opened story \(String(describing: story)) with index \(index)")
+    }
+    
+    func onStoryClose(story: StorifyMeStoryModel?) {
+        print("123Close story \(String(describing: story))")
+    }
+    
+    func onAction(type: String, data: [String: Any]?) {
+        print("123On action : \(type) , data : \(String(describing: data))")
+        StorifyMeInstance.shared.playbackController.closePlayback()
+        self.presenter?.onAction(type: type, data: data)
+    }
+    
+    func onEvent(type: String, data: [String: Any]?) {
+        print("123On event : \(type) , event : \(String(describing: data))")
+    }
+    
+    func storifyMeViewDidChangeHeight(widgetId: Int, height: CGFloat) {
+        
+    }
+    
+    func onStoryDeeplinkTriggered(story: StorifyMeStoryModel, completion: @escaping((StorifyMeStoryDeeplinkTriggerCompletion) -> Void)) {
+        
+        let deepLink = story.deeplink ?? ""
+        if (!deepLink.isEmpty) {
+            presenter?.onDeepLinkAction(deepLink: deepLink)
+            completion(.ignorePresentingStory)
         } else {
-            InAppStory.shared.closeReader {
-//                self.presenter?.inAppStoryAction(action: type, for: target)
-            }
+            // Continue with default behaviour
+            completion(.openStoryByDefault)
         }
     }
-}
-
-extension MainViewController: StoryViewDelegateFlowLayout {
-    func sizeForItem() -> CGSize {
-        return CGSize(width: 96.0, height: 104.0)
-    }
     
-    func insetForSection() -> UIEdgeInsets {
-        return UIEdgeInsets(top: 10.0, left: 16, bottom: 10.0, right: 16.0)
-    }
     
-    func minimumLineSpacingForSection() -> CGFloat {
-        return 2.0
-    }
-    
-    func minimumInteritemSpacingForSection() -> CGFloat {
-        return 2.0
-    }
 }

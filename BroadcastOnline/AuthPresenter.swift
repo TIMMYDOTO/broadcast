@@ -50,7 +50,7 @@ final class AuthPresenter: ApiServiceDependency {
             if case .success(let success) = result {
                 print("success", success)
                 self.view?.addTimerToSubmitButton()
-                self.view?.showCheckSmsController(sessionId: success.sessionID)
+                self.view?.showCheckSmsController(sessionId: success.sessionId)
             }else{
                 print("failure")
             }

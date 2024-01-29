@@ -113,7 +113,7 @@ private extension ResultAlreadyRegisteredViewController {
         
         button.layer.cornerRadius = 16
         button.clipsToBounds = true
-        button.addTarget(self, action: #selector(tapBetsButton), for: .touchUpInside)
+        button.addTarget(self, action: #selector(goToMain), for: .touchUpInside)
         
         
         betsButton = button
@@ -214,12 +214,9 @@ private extension ResultAlreadyRegisteredViewController {
     }
     
     @objc func tapPasswordRecoveryButton() {
-        
-        
-//        session.removeToken()
-//        userService.clearUserState()
-        
-//        onShowPasswordRecovery?()
+        let forgetPasswordViewController = UIStoryboard.init(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "ForgetPasswordViewController") as! ForgetPasswordViewController
+ 
+        navigationController?.pushViewController(forgetPasswordViewController, animated: true)
     }
     
     @objc func tapBetsButton() {
@@ -227,11 +224,11 @@ private extension ResultAlreadyRegisteredViewController {
 
     }
     
-    func goToMain() {
-        navigationController?.popViewController(animated: true)
+    @objc func goToMain() {
+        navigationController?.popToRootViewController(animated: true)
     }
     
-    func goToAuth() {
+    @objc func goToAuth() {
         
     }
 }

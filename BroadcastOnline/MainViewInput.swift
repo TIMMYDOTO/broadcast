@@ -19,6 +19,8 @@ protocol MainViewInput: ViewInput {
     func hideGameFilterSkeleton()
     var tournamentsCollection: CyberSportTournamentsCollection! { get  }
     func setSelectedStakes(model: [String : Set<String>], reload: Bool)
-    func setInAppStories(id: String, tags: [String])
+//    func setInAppStories(id: String, tags: [String])
+    func setTagsStoryAndLoad(tags: [String]) 
     func updateInAppStories(_ model: (id: String, tags: [String])?)
+    
 }

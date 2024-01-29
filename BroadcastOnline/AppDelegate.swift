@@ -8,6 +8,7 @@
 import UIKit
 import InAppStorySDK
 import IQKeyboardManagerSwift
+import StorifyMe
 @main
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
@@ -20,6 +21,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         InAppStory.shared.initWith(serviceKey: "Bb8CAAAAAAAAAAAAABEaIThgEhYUJk9CMBlDT0RBDslI4x3FthKC61MMca18BzWlw0Spe5gEeKnsqTDs2FSy")
         setupIQKeyboardManager()
+        StorifyMeInstance.shared.initialize(accountId: "hakob-6561994", apiKey: "f498b6bb-3295-41c6-949e-c64f5d4ddd69", env: StorifyMeEnv.EU)
         return true
     }
     

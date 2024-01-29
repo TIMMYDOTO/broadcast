@@ -10,7 +10,7 @@ import UIKit
 class ForgetPasswordViewController: UIViewController {
 
     @IBOutlet weak var containerView: GradientView!
-    @IBOutlet weak var birthdayField: BirthdayTextField!
+    @IBOutlet weak var birthdayField: CaptchaTextField!
     @IBOutlet weak var phoneTextField: PhoneTextField!
     @IBOutlet weak var continueButton: UIButton!{
         didSet{

@@ -533,6 +533,17 @@ THE SOFTWARE.
 		</dict>
 		<dict>
 			<key>FooterText</key>
+			<string>StorifyMe SDK, 2023, StorifyMe GmbH. All Rights Reserved
+</string>
+			<key>License</key>
+			<string>Copyright</string>
+			<key>Title</key>
+			<string>StorifyMe</string>
+			<key>Type</key>
+			<string>PSGroupSpecifier</string>
+		</dict>
+		<dict>
+			<key>FooterText</key>
 			<string>                                 Apache License
                            Version 2.0, January 2004
                         http://www.apache.org/licenses/

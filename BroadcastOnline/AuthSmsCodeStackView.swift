@@ -58,9 +58,14 @@ class AuthSmsCodeStackView: UIStackView {
         for (i, s) in padded.enumerated() {
             let l = labels[i]
             l.text = String(s)
-            l.theme_backgroundColor = s == "•" ?
-                .init(colors: .clear, .clear) :
-                .init(colors: "#262626", "#FFFFFF")
+            let firstColor = #colorLiteral(red: 0.3176470588, green: 0.3803921569, blue: 0.5411764706, alpha: 0)
+            let secondColor = #colorLiteral(red: 0.2039215686, green: 0.2431372549, blue: 0.3411764706, alpha: 1)
+            if  s == "•" {
+                l.backgroundColor = .clear
+            }else{
+                l.applyGradient(isVertical: true, colorArray: [firstColor, secondColor])
+            }
+                
             l.layer.theme_borderWidth = s == "•" ?
                 .init(floats: 1, 1) :
                 .init(floats: 1, 0)

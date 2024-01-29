@@ -28,10 +28,10 @@ protocol ApiServiceInterface {
     
     func authPhone(gambler: Gambler, captchaKey: String, _ completion: @escaping (Result<Bb_RegisterStartResponse, Endpoint.ApiError>) -> ())
     
-    func checkSms(code: String, sessionId: String, _ completion: @escaping (Result<Bb_RegisterCheckSmsResponse, Endpoint.ApiError>) -> ())
+    func checkSms(code: String, sessionId: String, _ completion: @escaping (Result<RegisterCheckSmsResponse, Endpoint.ApiError>) -> ())
     
-    func login(gambler: Gambler, _ completion: @escaping (Result<Bb_AuthLoginResponse, Endpoint.ApiError>) -> ())
+    func login(gambler: Gambler, _ completion: @escaping (Result<AuthLoginResponse, Endpoint.ApiError>) -> ())
     
-    func registerAuthPhone(gambler: Gambler, captchaKey: String, _ completion: @escaping (Result<Bb_RegisterAuthPhoneResponse, Endpoint.ApiError>) -> ())
+    func registerAuthPhone(gambler: Gambler, captchaKey: String, _ completion: @escaping (Result<RegisterAuthPhoneResponse, Endpoint.ApiError>) -> ())
 }
 
