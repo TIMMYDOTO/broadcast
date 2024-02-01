@@ -290,8 +290,8 @@
                                         <color key="textColor" red="1" green="1" blue="1" alpha="0.87430909863945583" colorSpace="custom" customColorSpace="sRGB"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" spacing="16" translatesAutoresizingMaskIntoConstraints="NO" id="OuF-e2-jMI">
-                                        <rect key="frame" x="16" y="180" width="382" height="112"/>
+                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="equalSpacing" spacing="16" translatesAutoresizingMaskIntoConstraints="NO" id="OuF-e2-jMI">
+                                        <rect key="frame" x="16" y="180" width="382" height="114"/>
                                         <subviews>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="aPE-se-2Tx" customClass="PhoneTextField" customModule="Cyber_Live" customModuleProvider="target">
                                                 <rect key="frame" x="0.0" y="0.0" width="382" height="48"/>
@@ -301,18 +301,43 @@
                                                 </constraints>
                                             </view>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="pvU-ut-ioW">
-                                                <rect key="frame" x="0.0" y="64" width="382" height="48"/>
+                                                <rect key="frame" x="0.0" y="64" width="382" height="50"/>
                                                 <subviews>
                                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="WYo-AQ-fec" customClass="CaptchaTextField" customModule="Cyber_Live" customModuleProvider="target">
-                                                        <rect key="frame" x="0.0" y="0.0" width="382" height="48"/>
+                                                        <rect key="frame" x="0.0" y="0.0" width="268" height="50"/>
                                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                     </view>
+                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="RAJ-2T-D03">
+                                                        <rect key="frame" x="358" y="13" width="24" height="24"/>
+                                                        <constraints>
+                                                            <constraint firstAttribute="height" constant="24" id="16s-jP-lUD"/>
+                                                            <constraint firstAttribute="width" constant="24" id="Z88-Vn-lDo"/>
+                                                        </constraints>
+                                                        <state key="normal" title="Button"/>
+                                                        <buttonConfiguration key="configuration" style="plain" image="repeat" title=" "/>
+                                                        <connections>
+                                                            <action selector="didTapRepeat:" destination="rcv-vo-mkc" eventType="touchUpInside" id="9ke-cG-urF"/>
+                                                        </connections>
+                                                    </button>
+                                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="2oO-uR-kjx">
+                                                        <rect key="frame" x="284" y="13" width="66" height="24"/>
+                                                        <constraints>
+                                                            <constraint firstAttribute="height" constant="24" id="IYA-4e-OVZ"/>
+                                                            <constraint firstAttribute="width" constant="66" id="qBs-aM-cRU"/>
+                                                        </constraints>
+                                                    </imageView>
                                                 </subviews>
                                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <constraints>
                                                     <constraint firstItem="WYo-AQ-fec" firstAttribute="top" secondItem="pvU-ut-ioW" secondAttribute="top" id="E57-rW-6tS"/>
+                                                    <constraint firstItem="RAJ-2T-D03" firstAttribute="top" secondItem="pvU-ut-ioW" secondAttribute="top" constant="13" id="P1e-he-7nt"/>
+                                                    <constraint firstItem="RAJ-2T-D03" firstAttribute="centerY" secondItem="pvU-ut-ioW" secondAttribute="centerY" id="UJY-jC-BWT"/>
+                                                    <constraint firstItem="RAJ-2T-D03" firstAttribute="leading" secondItem="2oO-uR-kjx" secondAttribute="trailing" constant="8" id="Upe-9J-TzH"/>
+                                                    <constraint firstAttribute="bottom" secondItem="RAJ-2T-D03" secondAttribute="bottom" constant="13" id="Ytz-E2-sMP"/>
                                                     <constraint firstAttribute="bottom" secondItem="WYo-AQ-fec" secondAttribute="bottom" id="a8k-m2-ink"/>
-                                                    <constraint firstAttribute="trailing" secondItem="WYo-AQ-fec" secondAttribute="trailing" id="ol2-qz-vjJ"/>
+                                                    <constraint firstItem="2oO-uR-kjx" firstAttribute="leading" secondItem="WYo-AQ-fec" secondAttribute="trailing" constant="16" id="ldm-h3-dp9"/>
+                                                    <constraint firstItem="2oO-uR-kjx" firstAttribute="centerY" secondItem="pvU-ut-ioW" secondAttribute="centerY" id="qvd-Ns-eNE"/>
+                                                    <constraint firstAttribute="trailing" secondItem="RAJ-2T-D03" secondAttribute="trailing" id="xnh-bV-l2n"/>
                                                     <constraint firstItem="WYo-AQ-fec" firstAttribute="leading" secondItem="pvU-ut-ioW" secondAttribute="leading" id="yqC-LQ-rVv"/>
                                                 </constraints>
                                             </view>
@@ -369,6 +394,8 @@
                     <size key="freeformSize" width="414" height="809"/>
                     <connections>
                         <outlet property="birthdayField" destination="WYo-AQ-fec" id="j3D-HI-U7r"/>
+                        <outlet property="captchaImageView" destination="2oO-uR-kjx" id="IVx-5K-dxy"/>
+                        <outlet property="captchaView" destination="pvU-ut-ioW" id="Nzo-Hf-7Al"/>
                         <outlet property="containerView" destination="Qry-Q3-zr9" id="PwB-yE-hZs"/>
                         <outlet property="continueButton" destination="wvX-8J-BQF" id="JY3-lf-UpF"/>
                         <outlet property="phoneTextField" destination="aPE-se-2Tx" id="FeY-OK-1OD"/>
@@ -597,6 +624,8 @@
                     <size key="freeformSize" width="414" height="812"/>
                     <connections>
                         <outlet property="acceptButton" destination="wJN-Bf-Kjh" id="bmx-lP-HOS"/>
+                        <outlet property="firstPasswordTextField" destination="sda-DL-fj7" id="Fok-cd-ErM"/>
+                        <outlet property="secondPasswordTextField" destination="Phb-mO-mGo" id="DFf-Gk-iBM"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="r6N-7J-Yd4" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -716,8 +745,7 @@
                                         <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
                                         <state key="normal" title="Перейти к событиям"/>
                                         <connections>
-                                            <action selector="didClickSign:" destination="4W2-cl-8yU" eventType="touchUpInside" id="I7t-qs-WCQ"/>
-                                            <action selector="didTapAcceptButton:" destination="RnT-0V-eiZ" eventType="touchUpInside" id="gDo-A2-WhM"/>
+                                            <action selector="goToMain:" destination="RnT-0V-eiZ" eventType="touchUpInside" id="0FD-Dq-LaV"/>
                                         </connections>
                                     </button>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Регистрация завершена!" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6gO-SV-U5D">
@@ -777,12 +805,12 @@
                     </view>
                     <size key="freeformSize" width="414" height="812"/>
                     <connections>
-                        <outlet property="acceptButton" destination="oeP-gG-m86" id="c2I-8c-Jnh"/>
+                        <outlet property="goToMainButton" destination="oeP-gG-m86" id="avo-iU-aKD"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="4sn-Ig-vMM" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="5313" y="102"/>
+            <point key="canvasLocation" x="5311.594202898551" y="101.78571428571428"/>
         </scene>
     </scenes>
     <resources>

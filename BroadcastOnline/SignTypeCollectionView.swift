@@ -13,8 +13,9 @@ class SignTypeCollectionView: UICollectionView {
     var willSelect: ((SignType) -> Void)?
     
     private let model: [SignType] = [
-        .signUp,
         .signIn,
+        .signUp,
+       
        
 
     ]

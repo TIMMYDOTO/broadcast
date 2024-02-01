@@ -16,15 +16,17 @@ import InAppStorySDK
 enum Endpoint: String {
 
     case getGamblerTags = "/stories/inappstory/get_gambler_tags"
-    case getCaptcha = "/get_captcha"
-    case passwordRecoverySendSms = "/password_recovery/send_sms"
-    case passwordRecoveryCheckSms = "/password_recovery/check_sms"
-    case passwordRecoveryChangePassword = "/password_recovery/change_password"
+    case getCaptcha = "/getCaptcha"
+    case passwordRecoverySendSms = "/passwordRecovery/sendSms"
+    case passwordRecoveryCheckSms = "/passwordRecovery/checkSms"
+    case passwordRecoveryChangePassword = "/passwordRecovery/changePassword"
     case authPhoneRepeat = "/register/auth_phone_repeat"
     case authPhone = "/register/start"
     case registerCheckSms = "/register/authSms"
     case login = "/login"
     case registerAuthPhone = "/register/authPhone"
+    
+
     
     enum ApiError: Error {
         case noData
@@ -39,7 +41,6 @@ enum Endpoint: String {
 
 final class ProtobufService: SessionServiceDependency, ConnectManagerDependency, ApiServiceInterface {
 
-    
     private let dateFormatter: DateFormatter = {
         let df = DateFormatter()
         df.dateFormat = "yyyy-MM-dd"
@@ -220,97 +221,122 @@ final class ProtobufService: SessionServiceDependency, ConnectManagerDependency,
        
     }
     
-    func getCaptcha(color: String, state: String, _ completion: @escaping (Result<Bb_GetCaptchaResponse, Endpoint.ApiError>) -> ()) {
+    func getCaptcha(color: String, state: String, _ completion: @escaping (Result<GetCaptchaResponse, Endpoint.ApiError>) -> ()) {
         let endpoint = Endpoint.getCaptcha.rawValue
-        var parameters = Bb_GetCaptchaRequest()
-        parameters.color = color
-        parameters.state = state
-        var features = Bb_GetCaptchaRequest.Features()
-        features.isSupportConditionalCaptcha = true
-        parameters.features = features
         
-        AF.upload(try! parameters.serializedData(), to: baseUrl + endpoint, headers: headers).responseData { (apiResponse) in
-            guard let data = apiResponse.data else {
-                completion(.failure(.noData))
-                return
-            }
-            
-            if let response = try? Bb_GetCaptchaResponse(serializedData: data) {
-                if self.checkResponse(response.code, response.status) {
-                    
-                    completion(.success((response)))
-                } else {
-                    completion(.failure(.serverError(response.error.message)))
+        
+        AF.request(self.baseUrl + endpoint,
+                   method: .get,
+                   parameters: nil,
+                   encoding: JSONEncoding.default,
+                   headers: self.headers)
+            .responseData { (apiResponse) in
+                guard let data = apiResponse.data else {
+                    completion(.failure(.noData))
+                    return
                 }
-            } else {
-                completion(.failure(.wrongData))
+                do {
+                    let captchaResponse = try JSONDecoder().decode(GetCaptchaResponse.self, from: data)
+                    completion(.success(captchaResponse))
+                    
+                } catch let error {
+                    print("error", error)
+                    completion(.failure(.wrongData))
+                }
             }
-        }
+
     }
     
-    func passwordRecoverySendSms(request: Bb_PasswordRecoverySendSmsRequest, _ completion: @escaping (Result<Bb_PasswordRecoverySendSmsResponse, Endpoint.ApiError>) -> ()) {
+    func passwordRecoverySendSms(phone: String, captcha_key: String?, captcha: String?, _ completion: @escaping (Result<PasswordRecoverySendSmsResponse, Endpoint.ApiError>) -> ()) {
         let endpoint = Endpoint.passwordRecoverySendSms.rawValue
         updateHeaders()
-        AF.upload(try! request.serializedData(), to: baseUrl + endpoint, headers: headers).responseData { (apiResponse) in
+        
+        
+        let parameters: [String: Any] = ["phone": phone,
+                                         "captcha_key": captcha_key ?? "",
+                                         "captcha": captcha ?? ""]
+        
+        AF.request(self.baseUrl + endpoint,
+                   method: .post,
+                   parameters: parameters,
+                   encoding: JSONEncoding.default,
+                   headers: self.headers)
+            .responseData  { (apiResponse) in
             guard let data = apiResponse.data else {
                 completion(.failure(.noData))
                 return
             }
-            if let response = try? Bb_PasswordRecoverySendSmsResponse(serializedData: data) {
-                if self.checkResponse(response.code, response.status) {
-                    
-                    completion(.success((response)))
-                } else {
-                    completion(.failure(.bbError(response.error)))
+                
+                if let passwordRecoverySendSms = try? JSONDecoder().decode(PasswordRecoverySendSmsResponse.self, from: data) {
+                    completion(.success(passwordRecoverySendSms))
+                }else if let json = try? JSONSerialization.jsonObject(with: data, options: .allowFragments) as? [String:Any] {
+                    let meessage = json["message"] as? String
+                    completion(.failure(.serverError(meessage ?? "Неизвестная Ошибка. Попробуйте позже")))
+                }else{
+                    completion(.failure(.wrongData))
                 }
-            } else {
-                completion(.failure(.wrongData))
-            }
-            
         }
     }
     
-    func passwordRecoveryCheckSms(request: Bb_PasswordRecoveryCheckSmsRequest, _ completion: @escaping (Result<Bb_PasswordRecoveryCheckSmsResponse, Endpoint.ApiError>) -> ()) {
+    func passwordRecoveryCheckSms(smsCode: String, sessionId: String, _ completion: @escaping (Result<PasswordRecoveryCheckSmsResponse, Endpoint.ApiError>) -> ()) {
         let endpoint = Endpoint.passwordRecoveryCheckSms.rawValue
         
-        AF.upload(try! request.serializedData(), to: baseUrl + endpoint, headers: headers).responseData { (apiResponse) in
+        let parameters: [String: Any] = ["smsCode": smsCode,
+                                         "sessionId": sessionId]
+        
+        AF.request(self.baseUrl + endpoint,
+                   method: .post,
+                   parameters: parameters,
+                   encoding: JSONEncoding.default,
+                   headers: self.headers)
+            .responseData  { (apiResponse) in
             guard let data = apiResponse.data else {
                 completion(.failure(.noData))
                 return
             }
-            
-            if let response = try? Bb_PasswordRecoveryCheckSmsResponse(serializedData: data) {
-                if self.checkResponse(response.code, response.status) {
-                    completion(.success((response)))
-                } else {
-                    completion(.failure(.bbError(response.error)))
+                do {
+//                    let json = try JSONSerialization.jsonObject(with: data, options: .allowFragments) as! [String:Any]
+//
+//                    let meessage = json["message"] as? String
+                    let changePasswordResponse = try JSONDecoder().decode(PasswordRecoveryCheckSmsResponse.self, from: data)
+                    completion(.success(changePasswordResponse))
+                    
+                } catch let decodingEror{
+                    print("decodingEror", decodingEror)
+                    completion(.failure(.wrongData))
                 }
-            } else {
-                completion(.failure(.wrongData))
-            }
         }
     }
     
-    func passwordRecoveryChangePassword(request: Bb_PasswordRecoveryChangePasswordRequest, _ completion: @escaping (Result<Bb_PasswordRecoveryChangePasswordResponse, Endpoint.ApiError>) -> ()) {
+    func passwordRecoveryChangePassword(password: String, sessionId: String, _ completion: @escaping (Result<PasswordRecoveryChangePasswordResponse, Endpoint.ApiError>) -> ()) {
         let endpoint = Endpoint.passwordRecoveryChangePassword.rawValue
         
-        AF.upload(try! request.serializedData(), to: baseUrl + endpoint, headers: headers).responseData { (apiResponse) in
+        
+        let parameters: [String: Any] = ["password": password,
+                                         "sessionId": sessionId]
+        
+        AF.request(self.baseUrl + endpoint,
+                   method: .post,
+                   parameters: parameters,
+                   encoding: JSONEncoding.default,
+                   headers: self.headers)
+            .responseData  { (apiResponse) in
             guard let data = apiResponse.data else {
                 completion(.failure(.noData))
                 return
             }
             
-            if let response = try? Bb_PasswordRecoveryChangePasswordResponse(serializedData: data) {
-                if self.checkResponse(response.code, response.status) {
+                do {
+//                    let json = try JSONSerialization.jsonObject(with: data, options: .allowFragments) as! [String:Any]
+//
+//                    let meessage = json["message"] as? String
+                    let changePasswordResponse = try JSONDecoder().decode(PasswordRecoveryChangePasswordResponse.self, from: data)
+                    completion(.success(changePasswordResponse))
                     
-                    completion(.success(response))
-                    
-                } else {
-                    
+                } catch let decodingEror{
+                    print("decodingEror", decodingEror)
                     completion(.failure(.wrongData))
-                    
                 }
-            }
             
         }
     }
@@ -362,14 +388,56 @@ final class ProtobufService: SessionServiceDependency, ConnectManagerDependency,
                 return
             }
                 do {
+                    let json = try JSONSerialization.jsonObject(with: data, options: .allowFragments) as! [String:Any]
+  //
+  //                    let meessage = json["message"] as? String
+                    
+                    
                     let registerResponse = try JSONDecoder().decode(RegisterCheckSmsResponse.self, from: data)
+                    self.session.token = registerResponse.token
+                    self.session.refreshToken = registerResponse.refreshToken
                     completion(.success(registerResponse))
+            
+                } catch let decodingEror{
+                    print("decodingEror", decodingEror)
+                    completion(.failure(.wrongData))
+                }
+        }
+    }
+    
+    func newPassword(password: String, sessionId: String,  _ completion: @escaping (Result<PasswordRecoveryChangePasswordResponse, Endpoint.ApiError>) -> ()) {
+        updateHeaders()
+        
+        let endpoint = Endpoint.passwordRecoveryChangePassword.rawValue
+        
+        let parameters: [String: Any] = ["password": password,
+                                         "sessionId": sessionId
+        ]
+
+        
+        AF.request(self.baseUrl + endpoint,
+                   method: .post,
+                   parameters: parameters,
+                   encoding: JSONEncoding.default,
+                   headers: self.headers)
+            .responseData  { (apiResponse) in
+            guard let data = apiResponse.data else {
+                completion(.failure(.noData))
+                return
+            }
+                do {
+//                    let json = try JSONSerialization.jsonObject(with: data, options: .allowFragments) as! [String:Any]
+//
+//                    let meessage = json["message"] as? String
+                    let passwordRecoverySendSms = try JSONDecoder().decode(PasswordRecoveryChangePasswordResponse.self, from: data)
+                    completion(.success(passwordRecoverySendSms))
                     
                 } catch let decodingEror{
                     print("decodingEror", decodingEror)
                     completion(.failure(.wrongData))
                 }
         }
+        
     }
     
     
@@ -393,15 +461,20 @@ final class ProtobufService: SessionServiceDependency, ConnectManagerDependency,
                     return
                 }
                 do {
+                    let json = try JSONSerialization.jsonObject(with: data, options: .allowFragments) as! [String:Any]
+//
+//                    let meessage = json["message"] as? String
                     let loginResponse = try JSONDecoder().decode(AuthLoginResponse.self, from: data)
+                    self.session.token = loginResponse.token
+                    self.session.refreshToken = loginResponse.refreshToken
                     completion(.success(loginResponse))
                     
-                } catch {
+                } catch let decodingEror{
+                    print("decodingEror", decodingEror)
                     completion(.failure(.wrongData))
                 }
             }
     }
-    
 
     
 //    private func refreshToken(completion: (() -> Void)? = nil) {

@@ -26,15 +26,16 @@ class CheckSmsViewController: UIViewController, ApiServiceDependency {
     private var code = String()
     
     private var errorLabel: UILabel!
-    
+    private var isRecovery: Bool!
     var phoneNumber: String!
     var sessionId: String!
     
 
-    init(phoneNumber: String, sessionId: String) {
+    init(phoneNumber: String, sessionId: String, isRecovery: Bool) {
         super.init(nibName: nil, bundle: nil)
         self.phoneNumber = phoneNumber
         self.sessionId = sessionId
+        self.isRecovery = isRecovery
     }
     
     required init?(coder: NSCoder) {
@@ -230,41 +231,54 @@ class CheckSmsViewController: UIViewController, ApiServiceDependency {
         }
     }
     
+    func goToNewPasswordController() {
+        let vc = UIStoryboard.init(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "NewPasswordViewController") as! NewPasswordViewController
+        vc.sessionId = self.sessionId
+        navigationController?.pushViewController(vc, animated: true)
+    }
+    
     func checkCode() {
-        api.checkSms(code: code, sessionId: sessionId) { [weak self] response in
-            guard let self = self else { return }
-            switch response {
-            case let .success(result):
-                let status = ConfirmCodeSuccess(rawValue: result.userStatus)
-                switch status {
-                case .alreadyIdentified:
-//                    self.interactor.authSession(token: result.token, refresh: result.refreshToken)
-//                    self.interactor.getState()
+        if isRecovery {
+            
+            api.passwordRecoveryCheckSms(smsCode: code, sessionId: sessionId) { result in
+                if case .success(let success) = result {
+                    print("success", success)
+                    self.goToNewPasswordController()
                     
-                    
-//                    self.onShowAlreadyIdentified?()
-                    print("alreadyIdentified")
-                case .notIdentfied:
-                    print("notIdentfied")
-//                    self.interactor.authSession(token: result.token, refresh: result.refreshToken)
-//                    self.interactor.getState()
-                    
-                    
-//                    self.onShowNotIdentified?()
-                    
-                case .alreadyRegistered:
-                    print("alreadyRegistered")
-                    self.showAlreadyRegistered()
-                    
-                case .none:
-                    print("none")
-//                    self.view?.showError("Неизвестная ошибка")
-                    
+                }else{
+                    print("failure")
                 }
-            case let .failure(error):
-                print("failure")
+            }
+        }else{
+            api.checkSms(code: code, sessionId: sessionId) { [weak self] response in
+                guard let self = self else { return }
+                switch response {
+                case let .success(result):
+                    let status = ConfirmCodeSuccess(rawValue: result.userStatus)
+                    
+                    switch status {
+                    case .alreadyIdentified:
+                        self.showSuccess()
+                    case .notIdentfied:
+                        self.showSuccess()
+                    case .alreadyRegistered:
+                        self.showAlreadyRegistered()
+                        
+                    case .none:
+                        print("none")
+    //                    self.view?.showError("Неизвестная ошибка")
+                    }
+                case let .failure(error):
+                    print("failure")
+                }
             }
         }
+      
+    }
+    
+    func showSuccess() {
+        let vc = UIStoryboard.init(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "SignUpFinishedViewController") as! SignUpFinishedViewController
+        navigationController?.pushViewController(vc, animated: true)
     }
     
     func showAlreadyRegistered() {

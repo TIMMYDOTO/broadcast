@@ -13,16 +13,11 @@ protocol ApiServiceInterface {
     var contentUrl: String { get }
     
     func getGamblerTags(_ completion: @escaping (Result<Bb_StoriesInappstoryGetGamblerTagsResponse, Endpoint.ApiError> ) -> ())
-    func getCaptcha(
-        color: String,
-        state: String,
-        _ completion: @escaping (Result<Bb_GetCaptchaResponse, Endpoint.ApiError>) -> ())
+    func getCaptcha(color: String, state: String, _ completion: @escaping (Result<GetCaptchaResponse, Endpoint.ApiError>) -> ())
     
-    func passwordRecoverySendSms(request: Bb_PasswordRecoverySendSmsRequest,_ completion: @escaping (Result<Bb_PasswordRecoverySendSmsResponse, Endpoint.ApiError>) -> ())
+    func passwordRecoveryCheckSms(smsCode: String, sessionId: String, _ completion: @escaping (Result<PasswordRecoveryCheckSmsResponse, Endpoint.ApiError>) -> ())
     
-    func passwordRecoveryCheckSms(request: Bb_PasswordRecoveryCheckSmsRequest, _ completion: @escaping (Result<Bb_PasswordRecoveryCheckSmsResponse, Endpoint.ApiError>) -> ())
-    
-    func passwordRecoveryChangePassword(request: Bb_PasswordRecoveryChangePasswordRequest, _ completion: @escaping (Result<Bb_PasswordRecoveryChangePasswordResponse, Endpoint.ApiError>) -> ())
+    func passwordRecoveryChangePassword(password: String, sessionId: String, _ completion: @escaping (Result<PasswordRecoveryChangePasswordResponse, Endpoint.ApiError>) -> ()) 
     
     func smsRepeat(sessionId: String, _ completion: @escaping (Bb_RegisterAuthPhoneRepeatResponse?, Endpoint.ApiError?) -> ())
     
@@ -33,5 +28,9 @@ protocol ApiServiceInterface {
     func login(gambler: Gambler, _ completion: @escaping (Result<AuthLoginResponse, Endpoint.ApiError>) -> ())
     
     func registerAuthPhone(gambler: Gambler, captchaKey: String, _ completion: @escaping (Result<RegisterAuthPhoneResponse, Endpoint.ApiError>) -> ())
+    
+    func passwordRecoverySendSms(phone: String, captcha_key: String?, captcha: String?, _ completion: @escaping (Result<PasswordRecoverySendSmsResponse, Endpoint.ApiError>) -> ())
+    
+    func newPassword(password: String, sessionId: String,  _ completion: @escaping (Result<PasswordRecoveryChangePasswordResponse, Endpoint.ApiError>) -> ())
 }
 

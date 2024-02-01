@@ -25,10 +25,10 @@ final class AuthPresenter: ApiServiceDependency {
     func getCaptcha() {
         api.getCaptcha(color: "white", state: "captcha_register_enabled") { result in
             if case .success(let response) = result {
-                self.state.captcha.isEnabled = response.isEnabled
-                self.state.captchaKey = response.key
-                print("response ", response.isEnabled, response.key)
-                self.view?.updateCaptcha(isEnabled: response.isEnabled, data: response.data)
+                
+                self.state.captchaKey = response.key ?? ""
+                
+                self.view?.updateCaptcha(isEnabled: response.status != "fail", data: response.data ?? "")
 //                self.updateSubmitButton()
 //                completion(response.isEnabled, response.data, response.key)
             }
@@ -80,7 +80,7 @@ final class AuthPresenter: ApiServiceDependency {
             if case .success(let success) = result {
                 print("succes", success)
                 self.view?.popViewController()
-//                self.view?.showCheckSmsController(sessionId: success.sessionID)
+
             }else{
                 print("failure")
             }
@@ -143,16 +143,21 @@ final class AuthPresenter: ApiServiceDependency {
         updateSubmitButton()
     }
     
+    func checkboxIsChecked() -> Bool {
+        guard let view = self.view else {return false}
+       return view.checkboxIsChecked()
+    }
     
-    private func updateSubmitButton() {
+     func updateSubmitButton() {
+        let checkboxIsChecked = checkboxIsChecked()
             if state.captcha.isEnabled{
-                if state.phone.validationState == .success && state.password.validationState == .success && state.captcha.validationState == .success {
+                if state.phone.validationState == .success && state.password.validationState == .success && state.captcha.validationState == .success && checkboxIsChecked {
                     view?.enableSubmitButton()
                 }else{
                     view?.disableSubmitButton()
             }
         } else {
-            if state.phone.validationState == .success && state.password.validationState == .success {
+            if state.phone.validationState == .success && state.password.validationState == .success && checkboxIsChecked{
                 view?.enableSubmitButton()
             }else{
                 view?.disableSubmitButton()

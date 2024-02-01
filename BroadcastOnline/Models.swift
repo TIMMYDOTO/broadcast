@@ -28,14 +28,40 @@ struct RegisterCheckSmsResponse: Codable {
     var refreshToken: String?
 }
 
-
-
 struct AuthLoginResponse: Codable {
     var code: Int32 = Int32()
     var codeText: String = String()
     var status: String = String()
-    var token: Int = Int()
+    var token: String = String()
     var refreshToken: String = String()
     var international: Bool = Bool()
 }
 
+struct GetCaptchaResponse: Codable {
+    var code: Int32 = Int32()
+    var codeText: String = String()
+    var status: String = String()
+    var key: String?
+    var data: String?
+    
+}
+
+struct PasswordRecoverySendSmsResponse: Codable {
+    var code: Int32 = Int32()
+    var codeText: String = String()
+    var status: String = String()
+    var sessionId: String = String()
+}
+
+
+struct PasswordRecoveryCheckSmsResponse: Codable {
+    var code: Int32 = Int32()
+    var codeText: String = String()
+    var status: String = String()
+}
+
+struct PasswordRecoveryChangePasswordResponse: Codable {
+    var code: Int32 = Int32()
+    var codeText: String = String()
+    var status: String = String()
+}

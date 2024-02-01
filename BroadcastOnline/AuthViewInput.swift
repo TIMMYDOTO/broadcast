@@ -18,4 +18,5 @@ protocol AuthViewInput:NSObjectProtocol {
     func popViewController()
     func addTimerToSubmitButton()
     func setPasswordIsConfirmable(_ isConfirmable: Bool)
+    func checkboxIsChecked() -> Bool 
 }

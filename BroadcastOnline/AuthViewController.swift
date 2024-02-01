@@ -54,7 +54,7 @@ class AuthViewController: UIViewController, AuthViewInput {
     
     private weak var signTypeCollectionView: SignTypeCollectionView!
     public var presenter: AuthPresenter!
-    var currentType: SignType = .signUp{
+    var currentType: SignType = .signIn{
         didSet{
             if currentType == .signUp {
                 makeSignUpType()
@@ -72,6 +72,7 @@ class AuthViewController: UIViewController, AuthViewInput {
         presenter.viewDidLoad()
         binding()
         setupNavigationBar()
+        currentType = .signIn
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -267,6 +268,7 @@ class AuthViewController: UIViewController, AuthViewInput {
     
     @IBAction func didTapCheckBox(_ sender: BBCheckBox) {
         checkBox.isSelected.toggle()
+        presenter?.updateSubmitButton()
     }
     
     @IBAction func captchDidTapRemove(_ sender: Any) {
@@ -291,7 +293,7 @@ class AuthViewController: UIViewController, AuthViewInput {
     
     func showCheckSmsController(sessionId: String) {
         let phone = phoneTextFieldView.textField.text ?? ""
-        let vc = CheckSmsViewController(phoneNumber: phone, sessionId: sessionId)
+        let vc = CheckSmsViewController(phoneNumber: phone, sessionId: sessionId, isRecovery: false)
         navigationController?.pushViewController(vc, animated: true)
         
     }
@@ -313,7 +315,9 @@ class AuthViewController: UIViewController, AuthViewInput {
         navigationController?.popViewController(animated: true)
     }
     
-
+    func checkboxIsChecked() -> Bool {
+        return checkBox.isSelected
+    }
     
     @objc func tapClearPhone() {
         presenter?.didClearPhone()

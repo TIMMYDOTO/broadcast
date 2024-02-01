@@ -7,17 +7,50 @@
 
 import UIKit
 
-class NewPasswordViewController: UIViewController {
+class NewPasswordViewController: UIViewController, ApiServiceDependency {
 
+    @IBOutlet weak var firstPasswordTextField: PasswordTextField!
+    
+    @IBOutlet weak var secondPasswordTextField: PasswordTextField!
+    
     @IBOutlet weak var acceptButton: UIButton!{
         didSet{
-            
+            acceptButton.clipsToBounds = true
+            acceptButton.layer.cornerRadius = 12
+            acceptButton.disableButton()
         }
     }
+    
+    var sessionId: String!
+
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         setupNavigationBar()
+        binding()
     }
+    
+    func binding() {
+        firstPasswordTextField.didChangeEditing = {  [weak self] str in
+            self?.checkFields()
+        }
+        
+        secondPasswordTextField.didChangeEditing = {  [weak self] str in
+            self?.checkFields()
+        }
+    }
+    
+    func checkFields() {
+        let firstPassword = firstPasswordTextField.textField.text ?? ""
+        let secondPassword = secondPasswordTextField.textField.text ?? ""
+        
+        if firstPassword.count == secondPassword.count && !firstPassword.isEmpty && !secondPassword.isEmpty{
+            acceptButton.enbaleButton()
+        }else{
+            acceptButton.disableButton()
+        }
+    }
+    
     
     func setupNavigationBar() {
         navigationItem.hidesBackButton = true
@@ -33,6 +66,23 @@ class NewPasswordViewController: UIViewController {
     }
 
     @IBAction func didTapAcceptButton(_ sender: UIButton) {
+        
+        let paasword = firstPasswordTextField.textField.text ?? ""
+        api.newPassword(password: paasword, sessionId: sessionId) { result in
+            if case .success(let success) = result {
+                print("success", success)
+                self.moveToFinishedViewController()
+        
+            }else{
+                print("failure")
+            }
+        }
+        
+    
+    
+    }
+    
+    func moveToFinishedViewController() {
         let vc = storyboard?.instantiateViewController(identifier: "NewPasswordFinishedViewController") as! NewPasswordFinishedViewController
         navigationController?.pushViewController(vc, animated: true)
     }
