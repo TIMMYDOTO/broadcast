@@ -11,7 +11,7 @@ final class AuthPresenter: ApiServiceDependency {
     
     weak var view: AuthViewInput!
     private var state: SignUpStartState = .init()
-    
+    var signType: SignType = .signIn
     public init(view: AuthViewInput ) {
         self.view = view
     }
@@ -92,6 +92,8 @@ final class AuthPresenter: ApiServiceDependency {
     }
     
     func changeCurrentSignType(_ model: SignType) {
+        signType = model
+        updateSubmitButton()
         view?.setSelectedFilter(model)
     }
     
@@ -148,21 +150,40 @@ final class AuthPresenter: ApiServiceDependency {
        return view.checkboxIsChecked()
     }
     
-     func updateSubmitButton() {
-        let checkboxIsChecked = checkboxIsChecked()
+    func updateSubmitButton() {
+        if signType == .signUp {
+            let checkboxIsChecked = checkboxIsChecked()
             if state.captcha.isEnabled{
                 if state.phone.validationState == .success && state.password.validationState == .success && state.captcha.validationState == .success && checkboxIsChecked {
                     view?.enableSubmitButton()
                 }else{
                     view?.disableSubmitButton()
-            }
-        } else {
-            if state.phone.validationState == .success && state.password.validationState == .success && checkboxIsChecked{
-                view?.enableSubmitButton()
-            }else{
-                view?.disableSubmitButton()
+                }
+            } else {
+                if state.phone.validationState == .success && state.password.validationState == .success && checkboxIsChecked{
+                    view?.enableSubmitButton()
+                }else{
+                    view?.disableSubmitButton()
+                }
             }
         }
+        
+        if signType  == .signIn {
+            if state.captcha.isEnabled{
+                if state.phone.validationState == .success && state.password.validationState == .success && state.captcha.validationState == .success {
+                    view?.enableSubmitButton()
+                }else{
+                    view?.disableSubmitButton()
+                }
+            } else {
+                if state.phone.validationState == .success && state.password.validationState == .success{
+                    view?.enableSubmitButton()
+                }else{
+                    view?.disableSubmitButton()
+                }
+            }
+        }
+        
     }
     
     func didClearPhone() {

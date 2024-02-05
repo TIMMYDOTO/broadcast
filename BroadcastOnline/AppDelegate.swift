@@ -27,7 +27,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     
     func setupIQKeyboardManager() {
         IQKeyboardManager.shared.enable = true
-        IQKeyboardManager.shared.keyboardDistanceFromTextField = 145
+//        IQKeyboardManager.shared.keyboardDistanceFromTextField = 145
         
         IQKeyboardManager.shared.toolbarTintColor = Colors.backgroundColor
         IQKeyboardManager.shared.shouldResignOnTouchOutside = true

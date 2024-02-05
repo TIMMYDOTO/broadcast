@@ -80,7 +80,7 @@
                                         </connections>
                                     </button>
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="equalSpacing" spacing="16" translatesAutoresizingMaskIntoConstraints="NO" id="r4X-Iq-W52">
-                                        <rect key="frame" x="16" y="174" width="382" height="276"/>
+                                        <rect key="frame" x="16" y="174" width="382" height="274"/>
                                         <subviews>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="EWI-xB-zaM" customClass="PhoneTextField" customModule="Cyber_Live" customModuleProvider="target">
                                                 <rect key="frame" x="0.0" y="0.0" width="382" height="48"/>
@@ -97,7 +97,7 @@
                                                 </constraints>
                                             </view>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="nlV-KG-ham" userLabel="Captchaview">
-                                                <rect key="frame" x="0.0" y="128" width="382" height="50"/>
+                                                <rect key="frame" x="0.0" y="128" width="382" height="48"/>
                                                 <subviews>
                                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Q7i-sa-avT" customClass="CaptchaTextField" customModule="Cyber_Live" customModuleProvider="target">
                                                         <rect key="frame" x="0.0" y="0.0" width="268" height="48"/>
@@ -131,15 +131,16 @@
                                                     <constraint firstItem="3TY-hQ-vz5" firstAttribute="leading" secondItem="uOx-97-ZHM" secondAttribute="trailing" constant="8" id="3v9-Os-16u"/>
                                                     <constraint firstItem="Q7i-sa-avT" firstAttribute="top" secondItem="nlV-KG-ham" secondAttribute="top" id="594-uE-BoB"/>
                                                     <constraint firstItem="Q7i-sa-avT" firstAttribute="leading" secondItem="nlV-KG-ham" secondAttribute="leading" id="MJO-jb-may"/>
-                                                    <constraint firstAttribute="height" constant="50" id="T3r-Oc-k5U"/>
+                                                    <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="48" id="T3r-Oc-k5U"/>
                                                     <constraint firstItem="uOx-97-ZHM" firstAttribute="leading" secondItem="Q7i-sa-avT" secondAttribute="trailing" constant="16" id="bob-Hc-36I"/>
+                                                    <constraint firstAttribute="bottom" secondItem="Q7i-sa-avT" secondAttribute="bottom" id="gSw-6q-cxW"/>
                                                     <constraint firstAttribute="trailing" secondItem="3TY-hQ-vz5" secondAttribute="trailing" id="oSp-kZ-iIB"/>
                                                     <constraint firstItem="3TY-hQ-vz5" firstAttribute="centerY" secondItem="uOx-97-ZHM" secondAttribute="centerY" id="rLq-r8-4a7"/>
                                                     <constraint firstItem="uOx-97-ZHM" firstAttribute="centerY" secondItem="Q7i-sa-avT" secondAttribute="centerY" id="z0U-Xx-6OQ"/>
                                                 </constraints>
                                             </view>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="z30-ei-Yqn">
-                                                <rect key="frame" x="0.0" y="194" width="382" height="82"/>
+                                                <rect key="frame" x="0.0" y="192" width="382" height="82"/>
                                                 <subviews>
                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="uw8-jg-Ir0" customClass="BBCheckBox" customModule="Cyber_Live" customModuleProvider="target">
                                                         <rect key="frame" x="0.0" y="8" width="16" height="16"/>
@@ -168,6 +169,7 @@
                                                 <constraints>
                                                     <constraint firstItem="uw8-jg-Ir0" firstAttribute="top" secondItem="z30-ei-Yqn" secondAttribute="top" constant="8" id="1qS-6z-5sC"/>
                                                     <constraint firstItem="uw8-jg-Ir0" firstAttribute="leading" secondItem="z30-ei-Yqn" secondAttribute="leading" id="37U-yG-T7o"/>
+                                                    <constraint firstAttribute="height" constant="82" id="VOj-k3-NcL"/>
                                                     <constraint firstItem="MPC-zl-4lC" firstAttribute="leading" secondItem="uw8-jg-Ir0" secondAttribute="trailing" constant="12" id="VuL-YD-nj5"/>
                                                     <constraint firstAttribute="bottom" secondItem="MPC-zl-4lC" secondAttribute="bottom" id="amZ-Gt-5e0"/>
                                                     <constraint firstItem="MPC-zl-4lC" firstAttribute="top" secondItem="z30-ei-Yqn" secondAttribute="top" constant="8" id="ege-gr-y4K"/>
