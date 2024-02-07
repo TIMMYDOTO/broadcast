@@ -61,18 +61,18 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="812"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="background" translatesAutoresizingMaskIntoConstraints="NO" id="fey-lE-emN">
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="background" translatesAutoresizingMaskIntoConstraints="NO" id="fey-lE-emN">
                                 <rect key="frame" x="0.0" y="0.0" width="414" height="812"/>
                             </imageView>
                             <view clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="mzo-it-KmH" customClass="GradientView" customModule="Cyber_Live" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="184" width="414" height="628"/>
                                 <subviews>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="NAz-zJ-Rig">
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="NAz-zJ-Rig">
                                         <rect key="frame" x="16" y="524" width="382" height="56"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="56" id="dU0-Uu-bpA"/>
                                         </constraints>
-                                        <fontDescription key="fontDescription" name="Roboto-Bold" family="Roboto" pointSize="16"/>
+                                        <fontDescription key="fontDescription" name="Roboto-Bold" family="Roboto" pointSize="18"/>
                                         <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
                                         <state key="normal" title="Зарегистрироваться"/>
                                         <connections>
@@ -179,16 +179,16 @@
                                             </view>
                                         </subviews>
                                     </stackView>
-                                    <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Cgo-Ru-Zh8">
-                                        <rect key="frame" x="258.5" y="310" width="139.5" height="22"/>
+                                    <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Cgo-Ru-Zh8">
+                                        <rect key="frame" x="282" y="310" width="116" height="22"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="22" id="BEP-mB-4FC"/>
                                         </constraints>
-                                        <state key="normal" title="Button"/>
-                                        <buttonConfiguration key="configuration" style="plain" title="Забыл пароль?">
-                                            <fontDescription key="titleFontDescription" name="Roboto-Bold" family="Roboto" pointSize="16"/>
-                                            <color key="baseForegroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                        </buttonConfiguration>
+                                        <fontDescription key="fontDescription" name="Roboto-Bold" family="Roboto" pointSize="16"/>
+                                        <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                                        <state key="normal" title="Забыл пароль?">
+                                            <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        </state>
                                         <connections>
                                             <action selector="didTapForgetPassword:" destination="4W2-cl-8yU" eventType="touchUpInside" id="MgW-wt-vz3"/>
                                         </connections>
@@ -223,7 +223,7 @@
                             </imageView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="141-AY-fAk"/>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstAttribute="bottom" secondItem="mzo-it-KmH" secondAttribute="bottom" id="4wh-ra-C7J"/>
                             <constraint firstItem="mzo-it-KmH" firstAttribute="leading" secondItem="141-AY-fAk" secondAttribute="leading" id="6d3-jL-J0F"/>
@@ -265,7 +265,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="809"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="background" translatesAutoresizingMaskIntoConstraints="NO" id="Ugo-cF-FtY">
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="background" translatesAutoresizingMaskIntoConstraints="NO" id="Ugo-cF-FtY">
                                 <rect key="frame" x="0.0" y="0.0" width="414" height="809"/>
                             </imageView>
                             <view clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Qry-Q3-zr9" customClass="GradientView" customModule="Cyber_Live" customModuleProvider="target">
@@ -532,7 +532,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="812"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="background" translatesAutoresizingMaskIntoConstraints="NO" id="OQh-bd-MEr">
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="background" translatesAutoresizingMaskIntoConstraints="NO" id="OQh-bd-MEr">
                                 <rect key="frame" x="0.0" y="0.0" width="414" height="812"/>
                             </imageView>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="nOv-qL-vVa" customClass="GradientView" customModule="Cyber_Live" customModuleProvider="target">
@@ -642,7 +642,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="812"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="background" translatesAutoresizingMaskIntoConstraints="NO" id="1rr-nI-uib">
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="background" translatesAutoresizingMaskIntoConstraints="NO" id="1rr-nI-uib">
                                 <rect key="frame" x="0.0" y="0.0" width="414" height="812"/>
                             </imageView>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="QP8-Ws-4qF" customClass="GradientView" customModule="Cyber_Live" customModuleProvider="target">
@@ -732,7 +732,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="812"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="background" translatesAutoresizingMaskIntoConstraints="NO" id="V0m-9x-eZN">
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="background" translatesAutoresizingMaskIntoConstraints="NO" id="V0m-9x-eZN">
                                 <rect key="frame" x="0.0" y="0.0" width="414" height="812"/>
                             </imageView>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Kxr-hd-ueP" customClass="GradientView" customModule="Cyber_Live" customModuleProvider="target">

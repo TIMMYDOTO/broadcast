@@ -53,7 +53,7 @@ class CheckSmsViewController: UIViewController, ApiServiceDependency {
   
         setupTextField()
       
-//        setupErrorLabel()
+
 //        setupSubmitButton()
 //        setupResignFirstResponderGesture()
 //        setupNotifications()
@@ -115,7 +115,7 @@ class CheckSmsViewController: UIViewController, ApiServiceDependency {
         view.addSubview(containerView)
         containerView.snp.makeConstraints { make in
             make.leading.trailing.bottom.equalToSuperview()
-            make.top.equalTo(topBackgroundImageView.snp.bottom)
+            make.top.equalTo(topBackgroundImageView.snp.bottom).offset(-10)
         }
   
         self.containerView = containerView
@@ -245,8 +245,15 @@ class CheckSmsViewController: UIViewController, ApiServiceDependency {
                     print("success", success)
                     self.goToNewPasswordController()
                     
-                }else{
-                    print("failure")
+                }else if case .failure(let failure) = result {
+                    switch failure {
+                    case .serverError(let message):
+                        self.showError(message)
+                        
+                    default:
+                        self.showError("Неизвестная ошибка")
+                    }
+                    
                 }
             }
         }else{
@@ -269,7 +276,14 @@ class CheckSmsViewController: UIViewController, ApiServiceDependency {
     //                    self.view?.showError("Неизвестная ошибка")
                     }
                 case let .failure(error):
-                    print("failure")
+                    switch error {
+                    case .serverError(let message):
+                        self.showError(message)
+                        
+                    default:
+                        self.showError("Неизвестная ошибка")
+                    }
+
                 }
             }
         }
@@ -293,6 +307,11 @@ class CheckSmsViewController: UIViewController, ApiServiceDependency {
     
     func hideError() {
         errorLabel.isHidden = true
+    }
+    
+    func showError(_ message: String) {
+        errorLabel.text = message
+        errorLabel.isHidden = false
     }
 }
 

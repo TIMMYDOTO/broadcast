@@ -9,9 +9,17 @@ import UIKit
 
 class NewPasswordViewController: UIViewController, ApiServiceDependency {
 
-    @IBOutlet weak var firstPasswordTextField: PasswordTextField!
+    @IBOutlet weak var firstPasswordTextField: PasswordTextField!{
+        didSet{
+            firstPasswordTextField.placeholderLayer.string = "Введи новый пароль *"
+        }
+    }
     
-    @IBOutlet weak var secondPasswordTextField: PasswordTextField!
+    @IBOutlet weak var secondPasswordTextField: PasswordTextField!{
+        didSet{
+            secondPasswordTextField.placeholderLayer.string = "Повтори новый пароль *"
+        }
+    }
     
     @IBOutlet weak var acceptButton: UIButton!{
         didSet{

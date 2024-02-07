@@ -172,12 +172,14 @@ final class ProtobufService: SessionServiceDependency, ConnectManagerDependency,
                     completion(.failure(.noData))
                     return
                 }
-                do {
-                    let registerResponse = try JSONDecoder().decode(RegisterAuthPhoneResponse.self, from: data)
+                
+                if let registerResponse = try? JSONDecoder().decode(RegisterAuthPhoneResponse.self, from: data) {
                     completion(.success(registerResponse))
-                    
-                } catch {
-                    completion(.failure(.wrongData))
+                }else if let json = try? JSONSerialization.jsonObject(with: data, options: .allowFragments) as? [String:Any] {
+                    let meessage = json["message"] as? String
+                    completion(.failure(.serverError(meessage ?? "Неизвестная Ошибка. Попробуйте позже")))
+                }else{
+                    completion(.failure(.serverError("Неизвестная Ошибка. Попробуйте позже")))
                 }
             }
     }
@@ -267,14 +269,41 @@ final class ProtobufService: SessionServiceDependency, ConnectManagerDependency,
                 return
             }
                 
-                if let passwordRecoverySendSms = try? JSONDecoder().decode(PasswordRecoverySendSmsResponse.self, from: data) {
-                    completion(.success(passwordRecoverySendSms))
-                }else if let json = try? JSONSerialization.jsonObject(with: data, options: .allowFragments) as? [String:Any] {
-                    let meessage = json["message"] as? String
-                    completion(.failure(.serverError(meessage ?? "Неизвестная Ошибка. Попробуйте позже")))
-                }else{
+                do {
+                    let json = try JSONSerialization.jsonObject(with: data, options: .allowFragments) as! [String:Any]
+                    
+//                    let meessage = json["message"] as? String
+                    let passwordRecoverySendSms = try JSONDecoder().decode(PasswordRecoverySendSmsResponse.self, from: data)
+                    
+                    guard let error = passwordRecoverySendSms.errors?.first?["message"] else {
+           
+                        completion(.success(passwordRecoverySendSms))
+                        return}
+                    
+                    switch error {
+                    case .message(let msg):
+                        completion(.failure(.serverError(msg)))
+                    
+                    case .reason(_):
+                        break
+                    }
+                } catch let decodingEror{
+                    print("123decodingEror", decodingEror)
                     completion(.failure(.wrongData))
                 }
+                
+                
+                
+                
+//                if let passwordRecoverySendSms = try? JSONDecoder().decode(PasswordRecoverySendSmsResponse.self, from: data) {
+//                    completion(.success(passwordRecoverySendSms))
+//                }else if let json = try? JSONSerialization.jsonObject(with: data, options: .allowFragments) as? [String:Any] {
+//                    let meessage = json["message"] as? String
+//                    
+//                    completion(.failure(.serverError(meessage ?? "Неизвестная Ошибка. Попробуйте позже")))
+//                }else{
+//                    completion(.failure(.wrongData))
+//                }
         }
     }
     
@@ -295,14 +324,24 @@ final class ProtobufService: SessionServiceDependency, ConnectManagerDependency,
                 return
             }
                 do {
-//                    let json = try JSONSerialization.jsonObject(with: data, options: .allowFragments) as! [String:Any]
-//
+                    let json = try JSONSerialization.jsonObject(with: data, options: .allowFragments) as! [String:Any]
+                    
 //                    let meessage = json["message"] as? String
                     let changePasswordResponse = try JSONDecoder().decode(PasswordRecoveryCheckSmsResponse.self, from: data)
-                    completion(.success(changePasswordResponse))
                     
+                    guard let error = changePasswordResponse.errors?.first?["message"] else {
+                        completion(.success(changePasswordResponse))
+                        return}
+                    
+                    switch error {
+                    case .message(let msg):
+                        completion(.failure(.serverError(msg)))
+                    
+                    case .reason(_):
+                        break
+                    }
                 } catch let decodingEror{
-                    print("decodingEror", decodingEror)
+                    print("123decodingEror", decodingEror)
                     completion(.failure(.wrongData))
                 }
         }
@@ -387,21 +426,50 @@ final class ProtobufService: SessionServiceDependency, ConnectManagerDependency,
                 completion(.failure(.noData))
                 return
             }
+                
                 do {
                     let json = try JSONSerialization.jsonObject(with: data, options: .allowFragments) as! [String:Any]
-  //
-  //                    let meessage = json["message"] as? String
                     
-                    
+//                    let meessage = json["message"] as? String
                     let registerResponse = try JSONDecoder().decode(RegisterCheckSmsResponse.self, from: data)
-                    self.session.token = registerResponse.token
-                    self.session.refreshToken = registerResponse.refreshToken
-                    completion(.success(registerResponse))
-            
+                    
+                    guard let error = registerResponse.errors?.first?["message"] else {
+                        self.session.token = registerResponse.token
+                        self.session.refreshToken = registerResponse.refreshToken
+                        completion(.success(registerResponse))
+                        return}
+                    
+                    switch error {
+                    case .message(let msg):
+                        completion(.failure(.serverError(msg)))
+                    
+                    case .reason(_):
+                        break
+                    }
                 } catch let decodingEror{
-                    print("decodingEror", decodingEror)
+                    print("123decodingEror", decodingEror)
                     completion(.failure(.wrongData))
                 }
+                
+                
+                
+                
+                
+//                
+//                do {
+//                    let json = try JSONSerialization.jsonObject(with: data, options: .allowFragments) as! [String:Any]
+//  //
+//  //                let meessage = json["message"] as? String
+//                    
+//                    let registerResponse = try JSONDecoder().decode(RegisterCheckSmsResponse.self, from: data)
+//                    self.session.token = registerResponse.token
+//                    self.session.refreshToken = registerResponse.refreshToken
+//                    completion(.success(registerResponse))
+//            
+//                } catch let decodingEror{
+//                    print("decodingEror", decodingEror)
+//                    completion(.failure(.wrongData))
+//                }
         }
     }
     
@@ -460,86 +528,33 @@ final class ProtobufService: SessionServiceDependency, ConnectManagerDependency,
                     completion(.failure(.noData))
                     return
                 }
+                
                 do {
                     let json = try JSONSerialization.jsonObject(with: data, options: .allowFragments) as! [String:Any]
-//
+                    
 //                    let meessage = json["message"] as? String
                     let loginResponse = try JSONDecoder().decode(AuthLoginResponse.self, from: data)
-                    self.session.token = loginResponse.token
-                    self.session.refreshToken = loginResponse.refreshToken
-                    completion(.success(loginResponse))
                     
+                    guard let error = loginResponse.errors?.first?["message"] else {
+                        self.session.token = loginResponse.token
+                        self.session.refreshToken = loginResponse.refreshToken
+                        completion(.success(loginResponse))
+                        return}
+                    
+                    switch error {
+                    case .message(let msg):
+                        completion(.failure(.serverError(msg)))
+                    
+                    case .reason(_):
+                        break
+                    }
                 } catch let decodingEror{
-                    print("decodingEror", decodingEror)
+                    print("123decodingEror", decodingEror)
                     completion(.failure(.wrongData))
                 }
             }
     }
 
-    
-//    private func refreshToken(completion: (() -> Void)? = nil) {
-//        if let token = session.token,
-//           let refreshToken = session.refreshToken {
-//            let endpoint = Endpoint.refreshToken.rawValue
-//            print(baseUrl + endpoint)
-//            var request = Bb_AuthRefreshTokenRequest()
-//            request.token = token
-//            request.refreshToken = refreshToken
-//            
-//            print("test2509 token: ", token, "\nrefresh: ", refreshToken)
-//            self.headers.remove(name: "x-access-token")
-//            
-//            AF.upload(try! request.serializedData(), to: baseUrl + endpoint, headers: headers).responseData { (apiResponse) in
-//                guard let data = apiResponse.data else {
-//                    return
-//                }
-//                
-//                if let response = try? Bb_AuthRefreshTokenResponse(serializedData: data) {
-//                    if response.code == 200 {
-//                        self.session.token = response.token
-//                        self.session.refreshToken = response.refreshToken
-//                        completion?()
-//                    } else {
-//                        if response.code == 400 {
-//                            do {
-//                                let errorModel = try Bb_TokenNotExpiredErrorDetails(serializedData: response.error.details.value)
-//                                print(errorModel)
-//       //                         return
-//                                
-//                            }
-//                            catch let error  {
-//                                print(error.localizedDescription)
-//                            }
-//                            
-//                            do {
-//                                let errorModel = try Bb_UserIsBlockedDetails(serializedData: response.error.details.value)
-//                                BBAlert.showPushMessage(type: .error, title: errorModel.blockReason, message: errorModel.blockComment)
-//                                
-//                            }
-//                            catch let error  {
-//                                print(error.localizedDescription)
-//                            }
-//                            if self.session.hasToken {
-//                                AppMetricaService.shared.send(SignOutEvent.ReauthorizationError(
-//                                    isConnected: self.connectManager.checkIsConnected(),
-//                                    refreshToken: self.session.refreshToken,
-//                                    error: response.error.message
-//                                ))
-//                            }
-//                            GibService.shared.onUserWillLogout()
-//                            self.session.removeToken()
-//                            self.userService.clearUserState()
-//                            self.userService.resetBalanceType()
-//                            if let myDelegate = UIApplication.shared.delegate as? AppDelegate {
-//                                myDelegate.restartRootView()
-//                            }
-//                        }
-//                        
-//                    }
-//                }
-//            }
-//        }
-//    }
     
     private func checkResponse(_ code: Int32, _ status: String) -> Bool {
         switch code {

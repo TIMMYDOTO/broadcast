@@ -36,23 +36,19 @@ final class AuthPresenter: ApiServiceDependency {
     }
     
     func didTapSignUp(gambler: Gambler) {
-//        api.authPhone(gambler: gambler, captchaKey: self.state.captchaKey) { result in
-//            if case .success(let success) = result {
-//                print("succes", success)
-//                self.view?.addTimerToSubmitButton()
-//                self.view?.showCheckSmsController(sessionId: success.sessionID)
-//            }else{
-//                print("failure")
-//            }
-//        }
-        
         api.registerAuthPhone(gambler: gambler, captchaKey: self.state.captchaKey) { result in
             if case .success(let success) = result {
                 print("success", success)
                 self.view?.addTimerToSubmitButton()
                 self.view?.showCheckSmsController(sessionId: success.sessionId)
-            }else{
-                print("failure")
+            } else if case .failure(let failure) = result {
+                switch failure {
+                case .serverError(let message):
+                    self.view?.showAlertError(title: "Ошибка", message: message)
+                default:
+                    self.view?.showAlertError(title: "Ошибка", message: "Неизвестная ошибка")
+                }
+        
             }
         }
     }
@@ -81,9 +77,16 @@ final class AuthPresenter: ApiServiceDependency {
                 print("succes", success)
                 self.view?.popViewController()
 
-            }else{
-                print("failure")
+            }else if case .failure(let failure) = result {
+                switch failure {
+                case .serverError(let message):
+                    self.view?.showAlertError(title: "Ошибка", message: message)
+                default:
+                    self.view?.showAlertError(title: "Ошибка", message: "Неизвестная ошибка")
+                }
+        
             }
+
         }
     }
     

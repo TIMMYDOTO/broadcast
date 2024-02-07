@@ -15,7 +15,16 @@ class ForgetPasswordViewController: UIViewController, ApiServiceDependency {
     @IBOutlet weak var captchaView: UIView!
     @IBOutlet weak var containerView: GradientView!
     @IBOutlet weak var birthdayField: CaptchaTextField!
-    @IBOutlet weak var phoneTextField: PhoneTextField!
+    @IBOutlet weak var phoneTextField: PhoneTextField!{
+        didSet{
+            let gr = UITapGestureRecognizer()
+            gr.addTarget(self, action: #selector(tapClearPhone))
+            gr.cancelsTouchesInView = true
+            phoneTextField.rightView.addGestureRecognizer(gr)
+            phoneTextField.rightView.isUserInteractionEnabled = false
+       
+        }
+    }
     @IBOutlet weak var continueButton: UIButton!{
         didSet{
             continueButton.setTitleColor(#colorLiteral(red: 0.3529411765, green: 0.4274509804, blue: 0.6, alpha: 1), for: .normal)
@@ -82,6 +91,16 @@ class ForgetPasswordViewController: UIViewController, ApiServiceDependency {
             setClearPhoneButtonIsShown(!newText.string.isEmpty)
             updateSubmitButton()
         }
+    }
+    
+    @objc func tapClearPhone() {
+        let empty = CaretString(string: "", caretPosition: "".startIndex)
+        state.phone.data = empty.string
+        state.phone.validationState = .errorMessage("Обязательное поле")
+        showPhone(empty)
+        setPhoneIsConfirmable(false)
+        setClearPhoneButtonIsShown(false)
+        updateSubmitButton()
     }
     
     private func updateSubmitButton() {
@@ -161,7 +180,7 @@ class ForgetPasswordViewController: UIViewController, ApiServiceDependency {
         api.passwordRecoverySendSms(phone: phone, captcha_key: captchaKey, captcha: captcha) { result in
             if case .success(let success) = result {
                 print("succes", success)
-                self.showCheckSmsController(sessionId: success.sessionId)
+                self.showCheckSmsController(sessionId: success.sessionId ?? "")
 
             }else if case .failure(let failure) = result {
                 switch failure {
@@ -176,7 +195,8 @@ class ForgetPasswordViewController: UIViewController, ApiServiceDependency {
     }
     
     func showCheckSmsController(sessionId: String) {
-        let vc = CheckSmsViewController(phoneNumber: "", sessionId: sessionId, isRecovery: true)
+        let phoneNumber = phoneTextField.textField.text ?? ""
+        let vc = CheckSmsViewController(phoneNumber: phoneNumber, sessionId: sessionId, isRecovery: true)
         navigationController?.pushViewController(vc, animated: true)
     }
     

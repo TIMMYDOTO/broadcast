@@ -100,6 +100,10 @@ class AuthViewController: UIViewController, AuthViewInput {
 
     }
     
+    func showAlertError(title: String, message: String) {
+        showAlert(title: title, message: message)
+    }
+    
     func addTimerToSubmitButton() {
         signUpButton.disableButton()
         var runCount = 30
