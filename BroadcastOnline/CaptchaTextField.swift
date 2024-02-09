@@ -111,6 +111,7 @@ class CaptchaTextField: UIView {
         let iv = UIImageView()
         iv.contentMode = .center
         iv.image = UIImage(named: "image")
+        iv.tintColor = #colorLiteral(red: 0.3490196078, green: 0.431372549, blue: 0.6, alpha: 1)
         backgroundView.addSubview(iv)
         iv.snp.makeConstraints {
             $0.leading.top.bottom.equalToSuperview()
@@ -150,10 +151,12 @@ class CaptchaTextField: UIView {
         let options = UIView.AnimationOptions.curveEaseIn.union(.beginFromCurrentState)
         animateViewsOnBecomingFirstResponder(duration: 0.25, options:options)
         updateStatus(message: "")
+        self.leftView.tintColor = #colorLiteral(red: 0.5843137255, green: 0.7176470588, blue: 1, alpha: 1)
     }
     
     @objc func didEndEditing() {
         self.backgroundView.layer.borderColor = #colorLiteral(red: 0.2, green: 0.2, blue: 0.2, alpha: 1)
+        self.leftView.tintColor = #colorLiteral(red: 0.3490196078, green: 0.431372549, blue: 0.6, alpha: 1)
         let text = textField.text ?? ""
         if text.isEmpty {
             let options = UIView.AnimationOptions.curveEaseOut.union(.beginFromCurrentState)
@@ -198,7 +201,7 @@ class CaptchaTextField: UIView {
             if let constraint = getHeightConstraint(), constraint.constant < height {
                 UIView.animate(withDuration: 0.6) {
                     constraint.constant = height
-                    self.superview?.layoutIfNeeded()
+//                    self.superview?.layoutIfNeeded()
        
                 }
                 
@@ -214,7 +217,7 @@ class CaptchaTextField: UIView {
             UIView.animate(withDuration: 0.4, animations: {
                 constraint.constant = self.fieldHeight
                 self.errorLabel.text = ""
-                self.window?.layoutIfNeeded()
+//                self.window?.layoutIfNeeded()
             })
         }
     }

@@ -102,6 +102,7 @@ class PhoneTextField: UIView {
         let iv = UIImageView()
         iv.contentMode = .center
         iv.image = UIImage(named: "phone")
+        iv.tintColor = #colorLiteral(red: 0.3490196078, green: 0.431372549, blue: 0.6, alpha: 1)
         backgroundView.addSubview(iv)
         iv.snp.makeConstraints {
             $0.leading.top.bottom.equalToSuperview()
@@ -139,13 +140,14 @@ class PhoneTextField: UIView {
         self.backgroundView.layer.borderColor = #colorLiteral(red: 0.5843137255, green: 0.7176470588, blue: 1, alpha: 1)
         let options = UIView.AnimationOptions.curveEaseIn.union(.beginFromCurrentState)
 
-        
+        self.leftView.tintColor = #colorLiteral(red: 0.5843137255, green: 0.7176470588, blue: 1, alpha: 1)
          animateViewsOnBecomingFirstResponder(duration: 0.25, options:options)
         updateStatus(message: "")
     }
     
     @objc func didEndEditing() {
         self.backgroundView.layer.borderColor = #colorLiteral(red: 0.2, green: 0.2, blue: 0.2, alpha: 1)
+        self.leftView.tintColor = #colorLiteral(red: 0.3490196078, green: 0.431372549, blue: 0.6, alpha: 1)
         let text = textField.text ?? ""
         if text.isEmpty {
             let options = UIView.AnimationOptions.curveEaseOut.union(.beginFromCurrentState)
@@ -197,7 +199,7 @@ class PhoneTextField: UIView {
             if let constraint = getHeightConstraint(), constraint.constant < height {
                 UIView.animate(withDuration: 0.6) {
                     constraint.constant = height
-                    self.superview?.layoutIfNeeded()
+//                    self.superview?.layoutIfNeeded()
        
                 }
                 
@@ -213,7 +215,7 @@ class PhoneTextField: UIView {
             UIView.animate(withDuration: 0.4, animations: {
                 constraint.constant = self.fieldHeight
                 self.errorLabel.text = ""
-                self.window?.layoutIfNeeded()
+//                self.window?.layoutIfNeeded()
             })
         }
     }
@@ -266,7 +268,9 @@ class PhoneTextField: UIView {
         pp.duration = duration
         self.placeholderLayer.add(pp, forKey: nil)
         self.placeholderLayer.position.y = 28
-    
+        
+        
+        
         let oa = CABasicAnimation(keyPath: "opacity")
         oa.fromValue = self.placeholderLayer.opacity
         oa.toValue = 1

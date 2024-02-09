@@ -52,7 +52,11 @@ class NewPasswordViewController: UIViewController, ApiServiceDependency {
         let firstPassword = firstPasswordTextField.textField.text ?? ""
         let secondPassword = secondPasswordTextField.textField.text ?? ""
         
-        if firstPassword.count == secondPassword.count && !firstPassword.isEmpty && !secondPassword.isEmpty{
+        if firstPassword.count == secondPassword.count && 
+            !firstPassword.isEmpty &&
+            !secondPassword.isEmpty &&
+            firstPassword.count >= 8 &&
+            secondPassword.count >= 8{
             acceptButton.enbaleButton()
         }else{
             acceptButton.disableButton()
@@ -74,20 +78,23 @@ class NewPasswordViewController: UIViewController, ApiServiceDependency {
     }
 
     @IBAction func didTapAcceptButton(_ sender: UIButton) {
-        
-        let paasword = firstPasswordTextField.textField.text ?? ""
-        api.newPassword(password: paasword, sessionId: sessionId) { result in
-            if case .success(let success) = result {
-                print("success", success)
-                self.moveToFinishedViewController()
-        
-            }else{
-                print("failure")
+        let firstPassword = firstPasswordTextField.textField.text ?? ""
+        let secondPassword = secondPasswordTextField.textField.text ?? ""
+        if firstPassword != secondPassword {
+            showAlert(title: "Ошибка", message: "Пароли не совпадают")
+        }else{
+            let paasword = firstPasswordTextField.textField.text ?? ""
+            api.newPassword(password: paasword, sessionId: sessionId) { result in
+                if case .success(let success) = result {
+                    print("success", success)
+                    self.moveToFinishedViewController()
+                    
+                }else{
+                    print("failure")
+                }
             }
         }
         
-    
-    
     }
     
     func moveToFinishedViewController() {
