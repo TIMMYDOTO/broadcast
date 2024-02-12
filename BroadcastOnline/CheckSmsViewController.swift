@@ -73,7 +73,7 @@ class CheckSmsViewController: UIViewController, ApiServiceDependency {
         super.viewDidLayoutSubviews()
         let firstColor = #colorLiteral(red: 0.05098039216, green: 0.06274509804, blue: 0.09019607843, alpha: 1)
         let secondColor = #colorLiteral(red: 0.1098039216, green: 0.1333333333, blue: 0.1882352941, alpha: 1)
-        self.containerView.applyGradient(colours: [firstColor, secondColor])
+        self.containerView.applyGradient(isVertical: true, colorArray: [firstColor, secondColor])
     }
     
     func setupLogoImageView() {
@@ -115,7 +115,8 @@ class CheckSmsViewController: UIViewController, ApiServiceDependency {
         view.addSubview(containerView)
         containerView.snp.makeConstraints { make in
             make.leading.trailing.bottom.equalToSuperview()
-            make.top.equalTo(topBackgroundImageView.snp.bottom).offset(-22)
+            
+            make.height.equalToSuperview().multipliedBy(0.77)
         }
   
         self.containerView = containerView
@@ -126,7 +127,7 @@ class CheckSmsViewController: UIViewController, ApiServiceDependency {
         view.addSubview(imageView)
         imageView.snp.makeConstraints { make in
             make.top.leading.trailing.equalToSuperview()
-            make.height.equalTo(view.frame.height * 0.26)
+            make.height.equalTo(view.frame.height)
         }
         topBackgroundImageView = imageView
     }

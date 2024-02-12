@@ -359,7 +359,7 @@
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
             uuid = "9AD0A8C6-EC3F-46C6-A092-015B7ADD2734"
-            shouldBeEnabled = "Yes"
+            shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "ProtobufService.swift"
@@ -551,7 +551,7 @@
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
             uuid = "16B7B1FB-FDB2-46C3-932E-F5E5A06E5E90"
-            shouldBeEnabled = "Yes"
+            shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "ProtobufService.swift"
@@ -646,24 +646,8 @@
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            uuid = "ADC6F4FD-DBF4-4B44-83E0-376A3F010D60"
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "ProtobufService.swift"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "166"
-            endingLineNumber = "166"
-            landmarkName = "registerAuthPhone(gambler:captchaKey:captcha:_:)"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
             uuid = "2EEDC19E-E08C-4A34-A732-54F70D618066"
-            shouldBeEnabled = "Yes"
+            shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "BroadcastOnline/AuthViewController.swift"
@@ -804,71 +788,8 @@
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            uuid = "CE16CC5B-B75E-404E-89B9-C4AC7649F122"
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "BroadcastOnline/ForgetPasswordViewController.swift"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "180"
-            endingLineNumber = "180"
-            landmarkName = "sendSms()"
-            landmarkType = "7">
-            <Locations>
-               <Location
-                  uuid = "CE16CC5B-B75E-404E-89B9-C4AC7649F122 - fb194d31f9efe637"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "Cyber_Live.ForgetPasswordViewController.sendSms() -&gt; ()"
-                  moduleName = "Cyber Live"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/av_shkepu/broadcast/BroadcastOnline/ForgetPasswordViewController.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "180"
-                  endingLineNumber = "180"
-                  offsetFromSymbolStart = "1488">
-               </Location>
-               <Location
-                  uuid = "CE16CC5B-B75E-404E-89B9-C4AC7649F122 - 6af44d1f428a40b8"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "closure #1 (Swift.Result&lt;Cyber_Live.PasswordRecoverySendSmsResponse, Cyber_Live.Endpoint.ApiError&gt;) -&gt; () in Cyber_Live.ForgetPasswordViewController.sendSms() -&gt; ()"
-                  moduleName = "Cyber Live"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/av_shkepu/broadcast/BroadcastOnline/ForgetPasswordViewController.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "181"
-                  endingLineNumber = "181"
-                  offsetFromSymbolStart = "68">
-               </Location>
-               <Location
-                  uuid = "CE16CC5B-B75E-404E-89B9-C4AC7649F122 - fb194d31f9efe637"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "Cyber_Live.ForgetPasswordViewController.sendSms() -&gt; ()"
-                  moduleName = "Cyber Live"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/av_shkepu/broadcast/BroadcastOnline/ForgetPasswordViewController.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "180"
-                  endingLineNumber = "180"
-                  offsetFromSymbolStart = "1972">
-               </Location>
-            </Locations>
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
             uuid = "E28C23A6-83E3-4D4C-A32D-21768AC8F79E"
-            shouldBeEnabled = "Yes"
+            shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "ProtobufService.swift"
