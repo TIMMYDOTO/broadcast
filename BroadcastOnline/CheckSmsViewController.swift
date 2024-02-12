@@ -261,7 +261,7 @@ class CheckSmsViewController: UIViewController, ApiServiceDependency {
                 guard let self = self else { return }
                 switch response {
                 case let .success(result):
-                    let status = ConfirmCodeSuccess(rawValue: result.userStatus)
+                    let status = ConfirmCodeSuccess(rawValue: (result.userStatus ?? .none)!)
                     
                     switch status {
                     case .alreadyIdentified:
@@ -273,7 +273,8 @@ class CheckSmsViewController: UIViewController, ApiServiceDependency {
                         
                     case .none:
                         print("none")
-    //                    self.view?.showError("Неизвестная ошибка")
+                        self.showError("Неизвестная ошибка")
+                  
                     }
                 case let .failure(error):
                     switch error {
@@ -328,4 +329,5 @@ enum ConfirmCodeSuccess: String {
     case alreadyIdentified = "new_valid"
     case notIdentfied = "new_invalid"
     case alreadyRegistered = "old"
+    
 }

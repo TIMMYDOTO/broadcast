@@ -450,26 +450,6 @@ final class ProtobufService: SessionServiceDependency, ConnectManagerDependency,
                     print("123decodingEror", decodingEror)
                     completion(.failure(.wrongData))
                 }
-                
-                
-                
-                
-                
-//                
-//                do {
-//                    let json = try JSONSerialization.jsonObject(with: data, options: .allowFragments) as! [String:Any]
-//  //
-//  //                let meessage = json["message"] as? String
-//                    
-//                    let registerResponse = try JSONDecoder().decode(RegisterCheckSmsResponse.self, from: data)
-//                    self.session.token = registerResponse.token
-//                    self.session.refreshToken = registerResponse.refreshToken
-//                    completion(.success(registerResponse))
-//            
-//                } catch let decodingEror{
-//                    print("decodingEror", decodingEror)
-//                    completion(.failure(.wrongData))
-//                }
         }
     }
     

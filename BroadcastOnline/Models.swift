@@ -21,9 +21,9 @@ struct RegisterAuthPhoneResponse: Codable {
 struct RegisterCheckSmsResponse: Codable {
     var code: Int32 = 0
     var status: String = String()
-    var cupisCode: Int = Int()
-    var message: String = String()
-    var userStatus: String = String()
+    var cupisCode: Int?
+    var message: String?
+    var userStatus: String?
     var token: String?
     var refreshToken: String?
     var errors: [[String: ErrorMessage]]?
