@@ -115,7 +115,7 @@ class CheckSmsViewController: UIViewController, ApiServiceDependency {
         view.addSubview(containerView)
         containerView.snp.makeConstraints { make in
             make.leading.trailing.bottom.equalToSuperview()
-            make.top.equalTo(topBackgroundImageView.snp.bottom).offset(-10)
+            make.top.equalTo(topBackgroundImageView.snp.bottom).offset(-22)
         }
   
         self.containerView = containerView
@@ -129,7 +129,7 @@ class CheckSmsViewController: UIViewController, ApiServiceDependency {
         view.addSubview(imageView)
         imageView.snp.makeConstraints { make in
             make.top.leading.trailing.equalToSuperview()
-            make.height.equalTo(view.frame.height * 0.25)
+            make.height.equalTo(view.frame.height * 0.26)
         }
         topBackgroundImageView = imageView
     }

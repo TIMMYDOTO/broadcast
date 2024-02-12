@@ -203,7 +203,20 @@ class MainViewController: UIViewController, MainViewInput, SessionServiceDepende
         
         loginLabel.text = session.hasToken ? "Выйти" : "Войти"
         self.navigationItem.rightBarButtonItem?.title = title
-        
+        guard let bar = navigationController?.navigationBar else { return }
+        if #available(iOS 15.0, *) {
+            let appearance = UINavigationBarAppearance()
+            appearance.configureWithTransparentBackground()
+            appearance.shadowImage = UIImage()
+            appearance.shadowColor = nil
+            bar.standardAppearance = appearance
+            bar.scrollEdgeAppearance = appearance
+        } else {
+            bar.setBackgroundImage(UIImage(), for: .default)
+            bar.shadowImage = UIImage()
+            bar.backgroundColor = .clear
+            bar.barStyle = .default
+        }
   
    }
     override func viewDidLayoutSubviews() {

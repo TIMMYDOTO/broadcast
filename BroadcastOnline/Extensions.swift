@@ -565,6 +565,7 @@ extension UIButton {
         let firstColor = #colorLiteral(red: 0.2, green: 0.2392156863, blue: 0.3411764706, alpha: 1)
         let secondColor = #colorLiteral(red: 0.1450980392, green: 0.1725490196, blue: 0.2392156863, alpha: 1)
         setTitleColor(#colorLiteral(red: 0.3529411765, green: 0.4274509804, blue: 0.6, alpha: 1), for: .normal)
+        
         applyGradient(isVertical: true, colorArray: [firstColor, secondColor])
         isUserInteractionEnabled = false
         

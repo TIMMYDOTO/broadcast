@@ -58,17 +58,17 @@
             <objects>
                 <viewController storyboardIdentifier="AuthViewController" id="4W2-cl-8yU" customClass="AuthViewController" customModule="Cyber_Live" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="Kjp-os-ECY">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="812"/>
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="812"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="background" translatesAutoresizingMaskIntoConstraints="NO" id="fey-lE-emN">
-                                <rect key="frame" x="0.0" y="0.0" width="414" height="812"/>
+                                <rect key="frame" x="0.0" y="0.0" width="600" height="812"/>
                             </imageView>
                             <view clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="mzo-it-KmH" customClass="GradientView" customModule="Cyber_Live" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="184" width="414" height="628"/>
+                                <rect key="frame" x="0.0" y="184" width="600" height="628"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="NAz-zJ-Rig">
-                                        <rect key="frame" x="16" y="524" width="382" height="56"/>
+                                        <rect key="frame" x="16" y="524" width="568" height="56"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="56" id="dU0-Uu-bpA"/>
                                         </constraints>
@@ -80,41 +80,41 @@
                                         </connections>
                                     </button>
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="equalSpacing" spacing="16" translatesAutoresizingMaskIntoConstraints="NO" id="r4X-Iq-W52">
-                                        <rect key="frame" x="16" y="174" width="382" height="274"/>
+                                        <rect key="frame" x="16" y="174" width="568" height="274"/>
                                         <subviews>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="EWI-xB-zaM" customClass="PhoneTextField" customModule="Cyber_Live" customModuleProvider="target">
-                                                <rect key="frame" x="0.0" y="0.0" width="382" height="48"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="568" height="48"/>
                                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="48" id="WTh-xQ-Xid"/>
                                                 </constraints>
                                             </view>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="hV7-Pd-0fq" customClass="PasswordTextField" customModule="Cyber_Live" customModuleProvider="target">
-                                                <rect key="frame" x="0.0" y="64" width="382" height="48"/>
+                                                <rect key="frame" x="0.0" y="64" width="568" height="48"/>
                                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="48" id="bip-2o-4ig"/>
                                                 </constraints>
                                             </view>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="nlV-KG-ham" userLabel="Captchaview">
-                                                <rect key="frame" x="0.0" y="128" width="382" height="48"/>
+                                                <rect key="frame" x="0.0" y="128" width="568" height="48"/>
                                                 <subviews>
                                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Q7i-sa-avT" customClass="CaptchaTextField" customModule="Cyber_Live" customModuleProvider="target">
-                                                        <rect key="frame" x="0.0" y="0.0" width="268" height="48"/>
+                                                        <rect key="frame" x="0.0" y="0.0" width="454" height="48"/>
                                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                         <constraints>
                                                             <constraint firstAttribute="height" constant="48" id="6IE-DA-ZTp"/>
                                                         </constraints>
                                                     </view>
                                                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="uOx-97-ZHM">
-                                                        <rect key="frame" x="284" y="12" width="66" height="24"/>
+                                                        <rect key="frame" x="470" y="12" width="66" height="24"/>
                                                         <constraints>
                                                             <constraint firstAttribute="height" constant="24" id="Wy8-OX-whU"/>
                                                             <constraint firstAttribute="width" constant="66" id="qSE-6l-lnc"/>
                                                         </constraints>
                                                     </imageView>
                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="3TY-hQ-vz5">
-                                                        <rect key="frame" x="358" y="12" width="24" height="24"/>
+                                                        <rect key="frame" x="544" y="12" width="24" height="24"/>
                                                         <constraints>
                                                             <constraint firstAttribute="height" constant="24" id="PWf-y0-ILL"/>
                                                             <constraint firstAttribute="width" constant="24" id="eaq-Jq-pbb"/>
@@ -140,7 +140,7 @@
                                                 </constraints>
                                             </view>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="z30-ei-Yqn">
-                                                <rect key="frame" x="0.0" y="192" width="382" height="82"/>
+                                                <rect key="frame" x="0.0" y="192" width="568" height="82"/>
                                                 <subviews>
                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="uw8-jg-Ir0" customClass="BBCheckBox" customModule="Cyber_Live" customModuleProvider="target">
                                                         <rect key="frame" x="0.0" y="8" width="16" height="16"/>
@@ -155,7 +155,7 @@
                                                         </connections>
                                                     </button>
                                                     <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="MPC-zl-4lC" customClass="NonSelectableTextViewWithTappableLink" customModule="Cyber_Live" customModuleProvider="target">
-                                                        <rect key="frame" x="28" y="8" width="354" height="74"/>
+                                                        <rect key="frame" x="28" y="8" width="540" height="74"/>
                                                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                                         <constraints>
                                                             <constraint firstAttribute="height" constant="74" id="lqD-8a-yZd"/>
@@ -180,7 +180,7 @@
                                         </subviews>
                                     </stackView>
                                     <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Cgo-Ru-Zh8">
-                                        <rect key="frame" x="282" y="310" width="116" height="22"/>
+                                        <rect key="frame" x="468" y="310" width="116" height="22"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="22" id="BEP-mB-4FC"/>
                                         </constraints>
@@ -219,7 +219,7 @@
                                 </userDefinedRuntimeAttributes>
                             </view>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="logo" translatesAutoresizingMaskIntoConstraints="NO" id="aKb-Vj-ZAe">
-                                <rect key="frame" x="147" y="128" width="120" height="120"/>
+                                <rect key="frame" x="240" y="128" width="120" height="120"/>
                             </imageView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="141-AY-fAk"/>
@@ -237,7 +237,7 @@
                             <constraint firstItem="fey-lE-emN" firstAttribute="trailing" secondItem="141-AY-fAk" secondAttribute="trailing" id="wGx-Vh-qJk"/>
                         </constraints>
                     </view>
-                    <size key="freeformSize" width="414" height="812"/>
+                    <size key="freeformSize" width="600" height="812"/>
                     <connections>
                         <outlet property="captchaImageView" destination="uOx-97-ZHM" id="htq-Wh-PIv"/>
                         <outlet property="captchaTextField" destination="Q7i-sa-avT" id="MnR-PZ-jmE"/>

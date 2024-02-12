@@ -43,6 +43,7 @@ class AuthViewController: UIViewController, AuthViewInput {
     @IBOutlet weak var signUpButton: UIButton!{
         didSet{
             signUpButton.setTitleColor(#colorLiteral(red: 0.3529411765, green: 0.4274509804, blue: 0.6, alpha: 1), for: .normal)
+     
             signUpButton.disableButton()
             signUpButton.layer.cornerRadius = 12
             signUpButton.clipsToBounds = true
@@ -78,6 +79,8 @@ class AuthViewController: UIViewController, AuthViewInput {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         presenter?.viewWillAppear()
+        
+
     }
     
     

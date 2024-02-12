@@ -32,5 +32,6 @@ class BBCheckBox: UIButton {
         setImage(#imageLiteral(resourceName: "CheckBoxEmpty"), for: .normal)
         setImage(#imageLiteral(resourceName: "checkbox"), for: .selected)
         imageEdgeInsets = .zero
+        tintColor = .clear
     }
 }
