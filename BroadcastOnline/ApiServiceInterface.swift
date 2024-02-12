@@ -27,7 +27,7 @@ protocol ApiServiceInterface {
     
     func login(gambler: Gambler, _ completion: @escaping (Result<AuthLoginResponse, Endpoint.ApiError>) -> ())
     
-    func registerAuthPhone(gambler: Gambler, captchaKey: String, _ completion: @escaping (Result<RegisterAuthPhoneResponse, Endpoint.ApiError>) -> ())
+    func registerAuthPhone(gambler: Gambler, captchaKey: String, captcha: String,  _ completion: @escaping (Result<RegisterAuthPhoneResponse, Endpoint.ApiError>) -> ())
     
     func passwordRecoverySendSms(phone: String, captcha_key: String?, captcha: String?, _ completion: @escaping (Result<PasswordRecoverySendSmsResponse, Endpoint.ApiError>) -> ())
     

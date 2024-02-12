@@ -119,9 +119,6 @@ class CheckSmsViewController: UIViewController, ApiServiceDependency {
         }
   
         self.containerView = containerView
- 
-        
-   
     }
     
     func setupTopBackgroundImageView() {

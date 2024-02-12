@@ -284,14 +284,14 @@ class AuthViewController: UIViewController, AuthViewInput {
     
     func updateCaptcha(isEnabled: Bool, data: String) {
         self.capchaIsEnabled = isEnabled
-        if !isEnabled{
-            catpchaView.isHidden = true
-//            stackViewHeightConstraint.constant = stackViewHeightConstraint.constant - 48
-        }else{
+        if isEnabled {
             captchaImageView.image = UIImage(base64: data)
-            catpchaView.isHidden = false
+            if  currentType == .signUp {
+                catpchaView.isHidden = false
+            }
+        }else{
+            catpchaView.isHidden = true
         }
-        
     }
     
     @IBAction func didTapRepeatButton(_ sender: UIButton) {
@@ -308,10 +308,11 @@ class AuthViewController: UIViewController, AuthViewInput {
     @IBAction func didClickSign(_ sender: UIButton) {
         let phone = phoneTextFieldView.textField.text ?? ""
         let password = passwordTextFieldView.textField.text ?? ""
+        let captcha = captchaTextField.textField.text ?? ""
         let gambler = Gambler(phone: phone, password: password)
         if currentType == .signUp{
        
-            presenter?.didTapSignUp(gambler: gambler)
+            presenter?.didTapSignUp(gambler: gambler, captcha: captcha)
         }else{
             presenter?.didTapSignIn(gambler: gambler)
         }

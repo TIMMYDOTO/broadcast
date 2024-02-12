@@ -77,7 +77,7 @@ class CaptchaTextField: UIView {
         l.string = "Текст справа *"
         l.font = R.font.robotoRegular(size: 14)
         l.fontSize = 14
-        l.foregroundColor = #colorLiteral(red: 0.8, green: 0.8, blue: 0.8, alpha: 1)
+        l.foregroundColor = #colorLiteral(red: 1, green: 1, blue: 1, alpha: 1)
         l.contentsScale = UIScreen.main.scale
         layer.addSublayer(l)
         l.frame = CGRect(x: 56, y: 20, width: 183, height: 16)

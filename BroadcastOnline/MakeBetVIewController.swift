@@ -52,7 +52,7 @@ class MakeBetVIewController: UIViewController {
     
     override func viewDidLayoutSubviews() {
         super.viewDidLayoutSubviews()
-        let firstColor = #colorLiteral(red: 1, green: 0.4784313725, blue: 0.3058823529, alpha: 1)
+        let firstColor = #colorLiteral(red: 1, green: 0.3058823529, blue: 0.3058823529, alpha: 1)
         let secondColor = #colorLiteral(red: 1, green: 0.5137254902, blue: 0.3058823529, alpha: 1)
         self.makeBetButton.applyGradient(colours: [firstColor, secondColor])
     }

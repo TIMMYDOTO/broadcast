@@ -9,12 +9,13 @@ import Foundation
 
 
 struct RegisterAuthPhoneResponse: Codable {
-    var sessionId = String()
+    var sessionId: String?
     var code: Int32 = 0
-    var message: String = String()
+    var message: String?
     var status: String = String()
-    var cupisCode: Int = Int()
+    var cupisCode: Int?
     var codeText: String = String()
+    var errors: [[String: ErrorMessage]]?
 }
 
 

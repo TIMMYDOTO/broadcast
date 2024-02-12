@@ -152,13 +152,16 @@ final class ProtobufService: SessionServiceDependency, ConnectManagerDependency,
         
     }
     
-    func registerAuthPhone(gambler: Gambler, captchaKey: String, _ completion: @escaping (Result<RegisterAuthPhoneResponse, Endpoint.ApiError>) -> ()) {
+    func registerAuthPhone(gambler: Gambler, captchaKey: String, captcha: String, _ completion: @escaping (Result<RegisterAuthPhoneResponse, Endpoint.ApiError>) -> ()) {
         
         let endpoint = Endpoint.registerAuthPhone.rawValue
         let parameters: [String: Any] = ["phone": gambler.phone.digits,
                                    "password": gambler.password,
                                    "confirmInfo": true,
-                                   "confirmInfoRules": true]
+                                   "confirmInfoRules": true,
+                                   "captcha_key": captchaKey,
+                                         "captcha": captcha
+        ]
         
         headers.remove(name: "x-access-token")
         
@@ -172,15 +175,41 @@ final class ProtobufService: SessionServiceDependency, ConnectManagerDependency,
                     completion(.failure(.noData))
                     return
                 }
-                
-                if let registerResponse = try? JSONDecoder().decode(RegisterAuthPhoneResponse.self, from: data) {
-                    completion(.success(registerResponse))
-                }else if let json = try? JSONSerialization.jsonObject(with: data, options: .allowFragments) as? [String:Any] {
-                    let meessage = json["message"] as? String
-                    completion(.failure(.serverError(meessage ?? "Неизвестная Ошибка. Попробуйте позже")))
-                }else{
-                    completion(.failure(.serverError("Неизвестная Ошибка. Попробуйте позже")))
+                do {
+                    let json = try JSONSerialization.jsonObject(with: data, options: .allowFragments) as! [String:Any]
+                    
+//                    let meessage = json["message"] as? String
+                    let registerResponse = try JSONDecoder().decode(RegisterAuthPhoneResponse.self, from: data)
+                    
+                    guard let error = registerResponse.errors?.first?["message"] else {
+           
+                        completion(.success(registerResponse))
+                        return}
+                    
+                    switch error {
+                    case .message(let msg):
+                        completion(.failure(.serverError(msg)))
+                    
+                    case .reason(_):
+                        break
+                    }
+                } catch let decodingEror{
+                    print("123decodingEror", decodingEror)
+                    completion(.failure(.wrongData))
                 }
+                
+                
+                
+                
+                
+//                if let registerResponse = try? JSONDecoder().decode(RegisterAuthPhoneResponse.self, from: data) {
+//                    completion(.success(registerResponse))
+//                }else if let json = try? JSONSerialization.jsonObject(with: data, options: .allowFragments) as? [String:Any] {
+//                    let meessage = json["message"] as? String
+//                    completion(.failure(.serverError(meessage ?? "Неизвестная Ошибка. Попробуйте позже")))
+//                }else{
+//                    completion(.failure(.serverError("Неизвестная Ошибка. Попробуйте позже")))
+//                }
             }
     }
 

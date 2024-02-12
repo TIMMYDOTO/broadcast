@@ -27,7 +27,7 @@ final class AuthPresenter: ApiServiceDependency {
             if case .success(let response) = result {
                 
                 self.state.captchaKey = response.key ?? ""
-                
+                self.state.captcha.data = response.data ?? ""
                 self.view?.updateCaptcha(isEnabled: response.status != "fail", data: response.data ?? "")
 //                self.updateSubmitButton()
 //                completion(response.isEnabled, response.data, response.key)
@@ -35,12 +35,12 @@ final class AuthPresenter: ApiServiceDependency {
         }
     }
     
-    func didTapSignUp(gambler: Gambler) {
-        api.registerAuthPhone(gambler: gambler, captchaKey: self.state.captchaKey) { result in
+    func didTapSignUp(gambler: Gambler, captcha: String) {
+        api.registerAuthPhone(gambler: gambler, captchaKey: self.state.captchaKey, captcha: captcha) { result in
             if case .success(let success) = result {
                 print("success", success)
                 self.view?.addTimerToSubmitButton()
-                self.view?.showCheckSmsController(sessionId: success.sessionId)
+                self.view?.showCheckSmsController(sessionId: success.sessionId ?? "")
             } else if case .failure(let failure) = result {
                 switch failure {
                 case .serverError(let message):

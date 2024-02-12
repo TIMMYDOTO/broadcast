@@ -262,22 +262,6 @@
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            uuid = "B7CF86CC-8C3B-419D-A51A-F7C8629AFD6E"
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "ProtobufService.swift"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "171"
-            endingLineNumber = "171"
-            landmarkName = "registerAuthPhone(gambler:captchaKey:_:)"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
             uuid = "458F2055-B08C-451B-A3A5-8B353C312DA0"
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
@@ -285,13 +269,13 @@
             filePath = "ProtobufService.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "215"
-            endingLineNumber = "215"
+            startingLineNumber = "244"
+            endingLineNumber = "244"
             landmarkName = "authPhone(gambler:captchaKey:_:)"
             landmarkType = "7">
             <Locations>
                <Location
-                  uuid = "458F2055-B08C-451B-A3A5-8B353C312DA0 - bd95fac5476a0d1b"
+                  uuid = "458F2055-B08C-451B-A3A5-8B353C312DA0 - bd95fac5476a09d6"
                   shouldBeEnabled = "Yes"
                   ignoreCount = "0"
                   continueAfterRunningActions = "No"
@@ -301,12 +285,12 @@
                   urlString = "file:///Users/av_shkepu/broadcast/ProtobufService.swift"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "215"
-                  endingLineNumber = "215"
+                  startingLineNumber = "244"
+                  endingLineNumber = "244"
                   offsetFromSymbolStart = "2180">
                </Location>
                <Location
-                  uuid = "458F2055-B08C-451B-A3A5-8B353C312DA0 - bd95fac5476a0d1b"
+                  uuid = "458F2055-B08C-451B-A3A5-8B353C312DA0 - bd95fac5476a09d6"
                   shouldBeEnabled = "Yes"
                   ignoreCount = "0"
                   continueAfterRunningActions = "No"
@@ -316,8 +300,8 @@
                   urlString = "file:///Users/av_shkepu/broadcast/ProtobufService.swift"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "215"
-                  endingLineNumber = "215"
+                  startingLineNumber = "244"
+                  endingLineNumber = "244"
                   offsetFromSymbolStart = "1968">
                </Location>
             </Locations>
@@ -333,13 +317,13 @@
             filePath = "ProtobufService.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "210"
-            endingLineNumber = "210"
+            startingLineNumber = "239"
+            endingLineNumber = "239"
             landmarkName = "authPhone(gambler:captchaKey:_:)"
             landmarkType = "7">
             <Locations>
                <Location
-                  uuid = "47AAECE8-9F64-4B99-8CC5-83C228D2BE4A - bd95fac5476a0db4"
+                  uuid = "47AAECE8-9F64-4B99-8CC5-83C228D2BE4A - bd95fac5476a0a73"
                   shouldBeEnabled = "Yes"
                   ignoreCount = "0"
                   continueAfterRunningActions = "No"
@@ -349,12 +333,12 @@
                   urlString = "file:///Users/av_shkepu/broadcast/ProtobufService.swift"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "210"
-                  endingLineNumber = "210"
+                  startingLineNumber = "239"
+                  endingLineNumber = "239"
                   offsetFromSymbolStart = "1224">
                </Location>
                <Location
-                  uuid = "47AAECE8-9F64-4B99-8CC5-83C228D2BE4A - bd95fac5476a0db4"
+                  uuid = "47AAECE8-9F64-4B99-8CC5-83C228D2BE4A - bd95fac5476a0a73"
                   shouldBeEnabled = "Yes"
                   ignoreCount = "0"
                   continueAfterRunningActions = "No"
@@ -364,8 +348,8 @@
                   urlString = "file:///Users/av_shkepu/broadcast/ProtobufService.swift"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "210"
-                  endingLineNumber = "210"
+                  startingLineNumber = "239"
+                  endingLineNumber = "239"
                   offsetFromSymbolStart = "360">
                </Location>
             </Locations>
@@ -381,28 +365,13 @@
             filePath = "ProtobufService.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "481"
-            endingLineNumber = "481"
+            startingLineNumber = "510"
+            endingLineNumber = "510"
             landmarkName = "newPassword(password:sessionId:_:)"
             landmarkType = "7">
             <Locations>
                <Location
-                  uuid = "9AD0A8C6-EC3F-46C6-A092-015B7ADD2734 - 1305d9578e6fca1d"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "Cyber_Live.ProtobufService.newPassword(password: Swift.String, sessionId: Swift.String, _: (Swift.Result&lt;Cyber_Live.PasswordRecoveryChangePasswordResponse, Cyber_Live.Endpoint.ApiError&gt;) -&gt; ()) -&gt; ()"
-                  moduleName = "Cyber Live"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/av_shkepu/broadcast/ProtobufService.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "483"
-                  endingLineNumber = "483"
-                  offsetFromSymbolStart = "136">
-               </Location>
-               <Location
-                  uuid = "9AD0A8C6-EC3F-46C6-A092-015B7ADD2734 - b2fe198f3d9a6056"
+                  uuid = "9AD0A8C6-EC3F-46C6-A092-015B7ADD2734 - b2fe198f3d9a7c70"
                   shouldBeEnabled = "Yes"
                   ignoreCount = "0"
                   continueAfterRunningActions = "No"
@@ -412,8 +381,23 @@
                   urlString = "file:///Users/av_shkepu/broadcast/ProtobufService.swift"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "481"
-                  endingLineNumber = "481"
+                  startingLineNumber = "511"
+                  endingLineNumber = "511"
+                  offsetFromSymbolStart = "636">
+               </Location>
+               <Location
+                  uuid = "9AD0A8C6-EC3F-46C6-A092-015B7ADD2734 - b2fe198f3d9a7c13"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #1 (Alamofire.DataResponse&lt;Foundation.Data, Alamofire.AFError&gt;) -&gt; () in Cyber_Live.ProtobufService.newPassword(password: Swift.String, sessionId: Swift.String, _: (Swift.Result&lt;Cyber_Live.PasswordRecoveryChangePasswordResponse, Cyber_Live.Endpoint.ApiError&gt;) -&gt; ()) -&gt; ()"
+                  moduleName = "Cyber Live"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/av_shkepu/broadcast/ProtobufService.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "510"
+                  endingLineNumber = "510"
                   offsetFromSymbolStart = "492">
                </Location>
             </Locations>
@@ -429,8 +413,8 @@
             filePath = "ProtobufService.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "253"
-            endingLineNumber = "253"
+            startingLineNumber = "282"
+            endingLineNumber = "282"
             landmarkName = "passwordRecoverySendSms(phone:captcha_key:captcha:_:)"
             landmarkType = "7">
          </BreakpointContent>
@@ -445,8 +429,8 @@
             filePath = "ProtobufService.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "298"
-            endingLineNumber = "298"
+            startingLineNumber = "327"
+            endingLineNumber = "327"
             landmarkName = "passwordRecoverySendSms(phone:captcha_key:captcha:_:)"
             landmarkType = "7">
          </BreakpointContent>
@@ -461,8 +445,8 @@
             filePath = "ProtobufService.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "301"
-            endingLineNumber = "301"
+            startingLineNumber = "330"
+            endingLineNumber = "330"
             landmarkName = "passwordRecoverySendSms(phone:captcha_key:captcha:_:)"
             landmarkType = "7">
          </BreakpointContent>
@@ -477,8 +461,8 @@
             filePath = "ProtobufService.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "305"
-            endingLineNumber = "305"
+            startingLineNumber = "334"
+            endingLineNumber = "334"
             landmarkName = "passwordRecoverySendSms(phone:captcha_key:captcha:_:)"
             landmarkType = "7">
          </BreakpointContent>
@@ -525,28 +509,13 @@
             filePath = "ProtobufService.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "344"
-            endingLineNumber = "344"
+            startingLineNumber = "373"
+            endingLineNumber = "373"
             landmarkName = "passwordRecoveryCheckSms(smsCode:sessionId:_:)"
             landmarkType = "7">
             <Locations>
                <Location
-                  uuid = "4EDFB492-9546-4367-B185-DFF670A26CD2 - cf318aea3b57d88a"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "closure #1 (Alamofire.DataResponse&lt;Foundation.Data, Alamofire.AFError&gt;) -&gt; () in Cyber_Live.ProtobufService.passwordRecoveryChangePassword(password: Swift.String, sessionId: Swift.String, _: (Swift.Result&lt;Cyber_Live.PasswordRecoveryChangePasswordResponse, Cyber_Live.Endpoint.ApiError&gt;) -&gt; ()) -&gt; ()"
-                  moduleName = "Cyber Live"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/av_shkepu/broadcast/ProtobufService.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "346"
-                  endingLineNumber = "346"
-                  offsetFromSymbolStart = "340">
-               </Location>
-               <Location
-                  uuid = "4EDFB492-9546-4367-B185-DFF670A26CD2 - ce42cdbdb4b9bbdf"
+                  uuid = "4EDFB492-9546-4367-B185-DFF670A26CD2 - ce42cdbdb4b9bf9c"
                   shouldBeEnabled = "Yes"
                   ignoreCount = "0"
                   continueAfterRunningActions = "No"
@@ -556,8 +525,23 @@
                   urlString = "file:///Users/av_shkepu/broadcast/ProtobufService.swift"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "344"
-                  endingLineNumber = "344"
+                  startingLineNumber = "373"
+                  endingLineNumber = "373"
+                  offsetFromSymbolStart = "2160">
+               </Location>
+               <Location
+                  uuid = "4EDFB492-9546-4367-B185-DFF670A26CD2 - ce42cdbdb4b9bf9c"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #1 (Alamofire.DataResponse&lt;Foundation.Data, Alamofire.AFError&gt;) -&gt; () in Cyber_Live.ProtobufService.passwordRecoveryCheckSms(smsCode: Swift.String, sessionId: Swift.String, _: (Swift.Result&lt;Cyber_Live.PasswordRecoveryCheckSmsResponse, Cyber_Live.Endpoint.ApiError&gt;) -&gt; ()) -&gt; ()"
+                  moduleName = "Cyber Live"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/av_shkepu/broadcast/ProtobufService.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "373"
+                  endingLineNumber = "373"
                   offsetFromSymbolStart = "1960">
                </Location>
             </Locations>
@@ -573,248 +557,40 @@
             filePath = "ProtobufService.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "276"
-            endingLineNumber = "276"
+            startingLineNumber = "305"
+            endingLineNumber = "305"
             landmarkName = "passwordRecoverySendSms(phone:captcha_key:captcha:_:)"
             landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            uuid = "9332CFA4-EA68-4DC5-AADC-3D7668A9FBEF"
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "BroadcastOnline/CheckSmsViewController.swift"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "268"
-            endingLineNumber = "268"
-            landmarkName = "checkCode()"
-            landmarkType = "7">
             <Locations>
                <Location
-                  uuid = "9332CFA4-EA68-4DC5-AADC-3D7668A9FBEF - d8c6ca67751a230"
+                  uuid = "16B7B1FB-FDB2-46C3-932E-F5E5A06E5E90 - 955c6a8bd9c7f1c8"
                   shouldBeEnabled = "Yes"
                   ignoreCount = "0"
                   continueAfterRunningActions = "No"
-                  symbolName = "closure #2 (Swift.Result&lt;Cyber_Live.RegisterCheckSmsResponse, Cyber_Live.Endpoint.ApiError&gt;) -&gt; () in Cyber_Live.CheckSmsViewController.checkCode() -&gt; ()"
+                  symbolName = "closure #1 (Alamofire.DataResponse&lt;Foundation.Data, Alamofire.AFError&gt;) -&gt; () in Cyber_Live.ProtobufService.passwordRecoverySendSms(phone: Swift.String, captcha_key: Swift.Optional&lt;Swift.String&gt;, captcha: Swift.Optional&lt;Swift.String&gt;, _: (Swift.Result&lt;Cyber_Live.PasswordRecoverySendSmsResponse, Cyber_Live.Endpoint.ApiError&gt;) -&gt; ()) -&gt; ()"
                   moduleName = "Cyber Live"
                   usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/av_shkepu/broadcast/BroadcastOnline/CheckSmsViewController.swift"
+                  urlString = "file:///Users/av_shkepu/broadcast/ProtobufService.swift"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "268"
-                  endingLineNumber = "268"
-                  offsetFromSymbolStart = "376">
+                  startingLineNumber = "306"
+                  endingLineNumber = "306"
+                  offsetFromSymbolStart = "832">
                </Location>
                <Location
-                  uuid = "9332CFA4-EA68-4DC5-AADC-3D7668A9FBEF - d8c6ca67751a230"
+                  uuid = "16B7B1FB-FDB2-46C3-932E-F5E5A06E5E90 - 955c6a8bd9c7f1e9"
                   shouldBeEnabled = "Yes"
                   ignoreCount = "0"
                   continueAfterRunningActions = "No"
-                  symbolName = "closure #2 (Swift.Result&lt;Cyber_Live.RegisterCheckSmsResponse, Cyber_Live.Endpoint.ApiError&gt;) -&gt; () in Cyber_Live.CheckSmsViewController.checkCode() -&gt; ()"
+                  symbolName = "closure #1 (Alamofire.DataResponse&lt;Foundation.Data, Alamofire.AFError&gt;) -&gt; () in Cyber_Live.ProtobufService.passwordRecoverySendSms(phone: Swift.String, captcha_key: Swift.Optional&lt;Swift.String&gt;, captcha: Swift.Optional&lt;Swift.String&gt;, _: (Swift.Result&lt;Cyber_Live.PasswordRecoverySendSmsResponse, Cyber_Live.Endpoint.ApiError&gt;) -&gt; ()) -&gt; ()"
                   moduleName = "Cyber Live"
                   usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/av_shkepu/broadcast/BroadcastOnline/CheckSmsViewController.swift"
+                  urlString = "file:///Users/av_shkepu/broadcast/ProtobufService.swift"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "268"
-                  endingLineNumber = "268"
-                  offsetFromSymbolStart = "620">
-               </Location>
-            </Locations>
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            uuid = "C35C128D-2429-4019-A5D6-17B19C71AEE2"
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "BroadcastOnline/CheckSmsViewController.swift"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "270"
-            endingLineNumber = "270"
-            landmarkName = "checkCode()"
-            landmarkType = "7">
-            <Locations>
-               <Location
-                  uuid = "C35C128D-2429-4019-A5D6-17B19C71AEE2 - d8c6ca67751a2f6"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "closure #2 (Swift.Result&lt;Cyber_Live.RegisterCheckSmsResponse, Cyber_Live.Endpoint.ApiError&gt;) -&gt; () in Cyber_Live.CheckSmsViewController.checkCode() -&gt; ()"
-                  moduleName = "Cyber Live"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/av_shkepu/broadcast/BroadcastOnline/CheckSmsViewController.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "270"
-                  endingLineNumber = "270"
-                  offsetFromSymbolStart = "408">
-               </Location>
-               <Location
-                  uuid = "C35C128D-2429-4019-A5D6-17B19C71AEE2 - d8c6ca67751a2f6"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "closure #2 (Swift.Result&lt;Cyber_Live.RegisterCheckSmsResponse, Cyber_Live.Endpoint.ApiError&gt;) -&gt; () in Cyber_Live.CheckSmsViewController.checkCode() -&gt; ()"
-                  moduleName = "Cyber Live"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/av_shkepu/broadcast/BroadcastOnline/CheckSmsViewController.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "270"
-                  endingLineNumber = "270"
-                  offsetFromSymbolStart = "652">
-               </Location>
-            </Locations>
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            uuid = "29142CDD-DC89-47FA-8CD5-73526AC8A829"
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "BroadcastOnline/CheckSmsViewController.swift"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "272"
-            endingLineNumber = "272"
-            landmarkName = "checkCode()"
-            landmarkType = "7">
-            <Locations>
-               <Location
-                  uuid = "29142CDD-DC89-47FA-8CD5-73526AC8A829 - d8c6ca67751a2b4"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "closure #2 (Swift.Result&lt;Cyber_Live.RegisterCheckSmsResponse, Cyber_Live.Endpoint.ApiError&gt;) -&gt; () in Cyber_Live.CheckSmsViewController.checkCode() -&gt; ()"
-                  moduleName = "Cyber Live"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/av_shkepu/broadcast/BroadcastOnline/CheckSmsViewController.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "272"
-                  endingLineNumber = "272"
-                  offsetFromSymbolStart = "440">
-               </Location>
-               <Location
-                  uuid = "29142CDD-DC89-47FA-8CD5-73526AC8A829 - d8c6ca67751a2b4"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "closure #2 (Swift.Result&lt;Cyber_Live.RegisterCheckSmsResponse, Cyber_Live.Endpoint.ApiError&gt;) -&gt; () in Cyber_Live.CheckSmsViewController.checkCode() -&gt; ()"
-                  moduleName = "Cyber Live"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/av_shkepu/broadcast/BroadcastOnline/CheckSmsViewController.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "272"
-                  endingLineNumber = "272"
-                  offsetFromSymbolStart = "684">
-               </Location>
-            </Locations>
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            uuid = "3B9091A0-3586-42EA-996B-CF4269F29475"
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "BroadcastOnline/CheckSmsViewController.swift"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "282"
-            endingLineNumber = "282"
-            landmarkName = "checkCode()"
-            landmarkType = "7">
-            <Locations>
-               <Location
-                  uuid = "3B9091A0-3586-42EA-996B-CF4269F29475 - d8c6ca677519c43"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "closure #2 (Swift.Result&lt;Cyber_Live.RegisterCheckSmsResponse, Cyber_Live.Endpoint.ApiError&gt;) -&gt; () in Cyber_Live.CheckSmsViewController.checkCode() -&gt; ()"
-                  moduleName = "Cyber Live"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/av_shkepu/broadcast/BroadcastOnline/CheckSmsViewController.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "281"
-                  endingLineNumber = "281"
-                  offsetFromSymbolStart = "824">
-               </Location>
-               <Location
-                  uuid = "3B9091A0-3586-42EA-996B-CF4269F29475 - d8c6ca677519c62"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "closure #2 (Swift.Result&lt;Cyber_Live.RegisterCheckSmsResponse, Cyber_Live.Endpoint.ApiError&gt;) -&gt; () in Cyber_Live.CheckSmsViewController.checkCode() -&gt; ()"
-                  moduleName = "Cyber Live"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/av_shkepu/broadcast/BroadcastOnline/CheckSmsViewController.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "282"
-                  endingLineNumber = "282"
-                  offsetFromSymbolStart = "1136">
-               </Location>
-            </Locations>
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            uuid = "A6E45A5F-D7FF-4F2A-B6D5-383B4D88B7F4"
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "BroadcastOnline/CheckSmsViewController.swift"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "285"
-            endingLineNumber = "285"
-            landmarkName = "checkCode()"
-            landmarkType = "7">
-            <Locations>
-               <Location
-                  uuid = "A6E45A5F-D7FF-4F2A-B6D5-383B4D88B7F4 - d8c6ca677519c20"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "closure #2 (Swift.Result&lt;Cyber_Live.RegisterCheckSmsResponse, Cyber_Live.Endpoint.ApiError&gt;) -&gt; () in Cyber_Live.CheckSmsViewController.checkCode() -&gt; ()"
-                  moduleName = "Cyber Live"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/av_shkepu/broadcast/BroadcastOnline/CheckSmsViewController.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "284"
-                  endingLineNumber = "284"
-                  offsetFromSymbolStart = "880">
-               </Location>
-               <Location
-                  uuid = "A6E45A5F-D7FF-4F2A-B6D5-383B4D88B7F4 - d8c6ca677519cc7"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "closure #2 (Swift.Result&lt;Cyber_Live.RegisterCheckSmsResponse, Cyber_Live.Endpoint.ApiError&gt;) -&gt; () in Cyber_Live.CheckSmsViewController.checkCode() -&gt; ()"
-                  moduleName = "Cyber Live"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/av_shkepu/broadcast/BroadcastOnline/CheckSmsViewController.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "285"
-                  endingLineNumber = "285"
-                  offsetFromSymbolStart = "1192">
+                  startingLineNumber = "305"
+                  endingLineNumber = "305"
+                  offsetFromSymbolStart = "648">
                </Location>
             </Locations>
          </BreakpointContent>
@@ -829,13 +605,13 @@
             filePath = "ProtobufService.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "451"
-            endingLineNumber = "451"
+            startingLineNumber = "480"
+            endingLineNumber = "480"
             landmarkName = "checkSms(code:sessionId:_:)"
             landmarkType = "7">
             <Locations>
                <Location
-                  uuid = "CB0CCFC8-B42A-4D95-9426-1D2FEFD01654 - 5f1fcef9aeee5890"
+                  uuid = "CB0CCFC8-B42A-4D95-9426-1D2FEFD01654 - 5f1fcef9aeee5d72"
                   shouldBeEnabled = "Yes"
                   ignoreCount = "0"
                   continueAfterRunningActions = "No"
@@ -845,12 +621,12 @@
                   urlString = "file:///Users/av_shkepu/broadcast/ProtobufService.swift"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "451"
-                  endingLineNumber = "451"
-                  offsetFromSymbolStart = "2324">
+                  startingLineNumber = "481"
+                  endingLineNumber = "481"
+                  offsetFromSymbolStart = "2444">
                </Location>
                <Location
-                  uuid = "CB0CCFC8-B42A-4D95-9426-1D2FEFD01654 - 5f1fcef9aeee5890"
+                  uuid = "CB0CCFC8-B42A-4D95-9426-1D2FEFD01654 - 5f1fcef9aeee5d55"
                   shouldBeEnabled = "Yes"
                   ignoreCount = "0"
                   continueAfterRunningActions = "No"
@@ -860,8 +636,8 @@
                   urlString = "file:///Users/av_shkepu/broadcast/ProtobufService.swift"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "451"
-                  endingLineNumber = "451"
+                  startingLineNumber = "480"
+                  endingLineNumber = "480"
                   offsetFromSymbolStart = "2780">
                </Location>
             </Locations>
@@ -870,49 +646,270 @@
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            uuid = "D3295F5F-D1EC-40E6-A941-23DF4CBC0152"
+            uuid = "ADC6F4FD-DBF4-4B44-83E0-376A3F010D60"
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "BroadcastOnline/AuthViewController.swift"
+            filePath = "ProtobufService.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "162"
-            endingLineNumber = "162"
-            landmarkName = "setPasswordIsConfirmable(_:)"
+            startingLineNumber = "166"
+            endingLineNumber = "166"
+            landmarkName = "registerAuthPhone(gambler:captchaKey:captcha:_:)"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            uuid = "77FFEA4A-921A-4C48-8950-CF307B23235D"
+            uuid = "2EEDC19E-E08C-4A34-A732-54F70D618066"
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "BroadcastOnline/AuthViewController.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "147"
-            endingLineNumber = "147"
-            landmarkName = "setClearPhoneButtonIsShown(_:)"
+            startingLineNumber = "309"
+            endingLineNumber = "309"
+            landmarkName = "didClickSign(_:)"
             landmarkType = "7">
+            <Locations>
+               <Location
+                  uuid = "2EEDC19E-E08C-4A34-A732-54F70D618066 - 717e8b0dca3e56d3"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "Cyber_Live.AuthViewController.didClickSign(__C.UIButton) -&gt; ()"
+                  moduleName = "Cyber Live"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/av_shkepu/broadcast/BroadcastOnline/AuthViewController.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "309"
+                  endingLineNumber = "309"
+                  offsetFromSymbolStart = "1000">
+               </Location>
+               <Location
+                  uuid = "2EEDC19E-E08C-4A34-A732-54F70D618066 - 717e8b0dca3e5630"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "Cyber_Live.AuthViewController.didClickSign(__C.UIButton) -&gt; ()"
+                  moduleName = "Cyber Live"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/av_shkepu/broadcast/BroadcastOnline/AuthViewController.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "310"
+                  endingLineNumber = "310"
+                  offsetFromSymbolStart = "264">
+               </Location>
+               <Location
+                  uuid = "2EEDC19E-E08C-4A34-A732-54F70D618066 - 717e8b0dca3e56d3"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "Cyber_Live.AuthViewController.didClickSign(__C.UIButton) -&gt; ()"
+                  moduleName = "Cyber Live"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/av_shkepu/broadcast/BroadcastOnline/AuthViewController.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "309"
+                  endingLineNumber = "309"
+                  offsetFromSymbolStart = "264">
+               </Location>
+               <Location
+                  uuid = "2EEDC19E-E08C-4A34-A732-54F70D618066 - 717e8b0dca3e56d3"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "Cyber_Live.AuthViewController.didClickSign(__C.UIButton) -&gt; ()"
+                  moduleName = "Cyber Live"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/av_shkepu/broadcast/BroadcastOnline/AuthViewController.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "309"
+                  endingLineNumber = "309"
+                  offsetFromSymbolStart = "304">
+               </Location>
+            </Locations>
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            uuid = "993D0509-DFD5-402D-981E-E5B2AEB5E5EF"
-            shouldBeEnabled = "Yes"
+            uuid = "C80733F6-B06F-49A7-9980-7C35203074C0"
+            shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "BroadcastOnline/AuthViewController.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "52"
-            endingLineNumber = "52"
-            landmarkName = "signUpButton"
+            startingLineNumber = "288"
+            endingLineNumber = "288"
+            landmarkName = "updateCaptcha(isEnabled:data:)"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  uuid = "C80733F6-B06F-49A7-9980-7C35203074C0 - 65d81558b2ce2418"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "Cyber_Live.AuthViewController.updateCaptcha(isEnabled: Swift.Bool, data: Swift.String) -&gt; ()"
+                  moduleName = "Cyber Live"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/av_shkepu/broadcast/BroadcastOnline/AuthViewController.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "288"
+                  endingLineNumber = "288"
+                  offsetFromSymbolStart = "316">
+               </Location>
+               <Location
+                  uuid = "C80733F6-B06F-49A7-9980-7C35203074C0 - 65d81558b2ce2418"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "Cyber_Live.AuthViewController.updateCaptcha(isEnabled: Swift.Bool, data: Swift.String) -&gt; ()"
+                  moduleName = "Cyber Live"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/av_shkepu/broadcast/BroadcastOnline/AuthViewController.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "288"
+                  endingLineNumber = "288"
+                  offsetFromSymbolStart = "168">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "B460DDB8-7A6A-4536-995D-36526D6EB128"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "BroadcastOnline/AuthViewController.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "60"
+            endingLineNumber = "60"
+            landmarkName = "currentType"
             landmarkType = "24">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "CE16CC5B-B75E-404E-89B9-C4AC7649F122"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "BroadcastOnline/ForgetPasswordViewController.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "180"
+            endingLineNumber = "180"
+            landmarkName = "sendSms()"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  uuid = "CE16CC5B-B75E-404E-89B9-C4AC7649F122 - fb194d31f9efe637"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "Cyber_Live.ForgetPasswordViewController.sendSms() -&gt; ()"
+                  moduleName = "Cyber Live"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/av_shkepu/broadcast/BroadcastOnline/ForgetPasswordViewController.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "180"
+                  endingLineNumber = "180"
+                  offsetFromSymbolStart = "1488">
+               </Location>
+               <Location
+                  uuid = "CE16CC5B-B75E-404E-89B9-C4AC7649F122 - 6af44d1f428a40b8"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #1 (Swift.Result&lt;Cyber_Live.PasswordRecoverySendSmsResponse, Cyber_Live.Endpoint.ApiError&gt;) -&gt; () in Cyber_Live.ForgetPasswordViewController.sendSms() -&gt; ()"
+                  moduleName = "Cyber Live"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/av_shkepu/broadcast/BroadcastOnline/ForgetPasswordViewController.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "181"
+                  endingLineNumber = "181"
+                  offsetFromSymbolStart = "68">
+               </Location>
+               <Location
+                  uuid = "CE16CC5B-B75E-404E-89B9-C4AC7649F122 - fb194d31f9efe637"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "Cyber_Live.ForgetPasswordViewController.sendSms() -&gt; ()"
+                  moduleName = "Cyber Live"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/av_shkepu/broadcast/BroadcastOnline/ForgetPasswordViewController.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "180"
+                  endingLineNumber = "180"
+                  offsetFromSymbolStart = "1972">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "E28C23A6-83E3-4D4C-A32D-21768AC8F79E"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "ProtobufService.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "312"
+            endingLineNumber = "312"
+            landmarkName = "passwordRecoverySendSms(phone:captcha_key:captcha:_:)"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  uuid = "E28C23A6-83E3-4D4C-A32D-21768AC8F79E - 955c6a8bd9c7f0e1"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #1 (Alamofire.DataResponse&lt;Foundation.Data, Alamofire.AFError&gt;) -&gt; () in Cyber_Live.ProtobufService.passwordRecoverySendSms(phone: Swift.String, captcha_key: Swift.Optional&lt;Swift.String&gt;, captcha: Swift.Optional&lt;Swift.String&gt;, _: (Swift.Result&lt;Cyber_Live.PasswordRecoverySendSmsResponse, Cyber_Live.Endpoint.ApiError&gt;) -&gt; ()) -&gt; ()"
+                  moduleName = "Cyber Live"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/av_shkepu/broadcast/ProtobufService.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "313"
+                  endingLineNumber = "313"
+                  offsetFromSymbolStart = "1556">
+               </Location>
+               <Location
+                  uuid = "E28C23A6-83E3-4D4C-A32D-21768AC8F79E - 955c6a8bd9c7f0e1"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #1 (Alamofire.DataResponse&lt;Foundation.Data, Alamofire.AFError&gt;) -&gt; () in Cyber_Live.ProtobufService.passwordRecoverySendSms(phone: Swift.String, captcha_key: Swift.Optional&lt;Swift.String&gt;, captcha: Swift.Optional&lt;Swift.String&gt;, _: (Swift.Result&lt;Cyber_Live.PasswordRecoverySendSmsResponse, Cyber_Live.Endpoint.ApiError&gt;) -&gt; ()) -&gt; ()"
+                  moduleName = "Cyber Live"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/av_shkepu/broadcast/ProtobufService.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "313"
+                  endingLineNumber = "313"
+                  offsetFromSymbolStart = "1584">
+               </Location>
+            </Locations>
          </BreakpointContent>
       </BreakpointProxy>
    </Breakpoints>

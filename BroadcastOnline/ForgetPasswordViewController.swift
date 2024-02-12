@@ -14,7 +14,7 @@ class ForgetPasswordViewController: UIViewController, ApiServiceDependency {
     
     @IBOutlet weak var captchaView: UIView!
     @IBOutlet weak var containerView: GradientView!
-    @IBOutlet weak var birthdayField: CaptchaTextField!
+    @IBOutlet weak var captchaTextField: CaptchaTextField!
     @IBOutlet weak var phoneTextField: PhoneTextField!{
         didSet{
             let gr = UITapGestureRecognizer()
@@ -175,8 +175,8 @@ class ForgetPasswordViewController: UIViewController, ApiServiceDependency {
     
     func sendSms() {
         let phone = phoneTextField.textField.text?.digits ?? ""
-        let captcha = state.captcha.data ?? ""
-        let captchaKey = state.captchaKey 
+        let captcha = captchaTextField.textField.text ?? ""
+        let captchaKey = state.captchaKey
         api.passwordRecoverySendSms(phone: phone, captcha_key: captchaKey, captcha: captcha) { result in
             if case .success(let success) = result {
                 print("succes", success)
