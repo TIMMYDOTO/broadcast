@@ -21,7 +21,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         InAppStory.shared.initWith(serviceKey: "Bb8CAAAAAAAAAAAAABEaIThgEhYUJk9CMBlDT0RBDslI4x3FthKC61MMca18BzWlw0Spe5gEeKnsqTDs2FSy")
         setupIQKeyboardManager()
-        StorifyMeInstance.shared.initialize(accountId: "hakob-6561994", apiKey: "f498b6bb-3295-41c6-949e-c64f5d4ddd69", env: StorifyMeEnv.EU)
+        StorifyMeInstance.shared.initialize(accountId: "cyber-live-0368030", apiKey: "stws-ed150b49-88e9-4771-996f-148735128c3e", env: StorifyMeEnv.EU)
         return true
     }
     

@@ -271,7 +271,7 @@ class MainViewController: UIViewController, MainViewInput, SessionServiceDepende
     
     func setupStoryWidget() {
         let storifyMeWidget = StorifyMeWidget()
-        storifyMeWidget.setWidgetId(widgetId: 7629)
+        storifyMeWidget.setWidgetId(widgetId: 7752)
         
         view.addSubview(storifyMeWidget)
         
@@ -290,7 +290,7 @@ class MainViewController: UIViewController, MainViewInput, SessionServiceDepende
     
     func setTagsStoryAndLoad(tags: [String]) {
         var widgetConf = StorifyMeWidgetConfig()
-//        widgetConf.setSegments(tags: tags)
+        widgetConf.setSegments(tags: tags)
         self.storyViewWidget.setWidgetConfig(config: widgetConf)
         self.storyViewWidget.load()
     }
