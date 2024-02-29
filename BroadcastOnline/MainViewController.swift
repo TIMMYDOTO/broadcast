@@ -272,7 +272,8 @@ class MainViewController: UIViewController, MainViewInput, SessionServiceDepende
     func setupStoryWidget() {
         let storifyMeWidget = StorifyMeWidget()
         storifyMeWidget.setWidgetId(widgetId: 7752)
-        
+
+
         view.addSubview(storifyMeWidget)
         
         storifyMeWidget.snp.makeConstraints {
