@@ -15,7 +15,7 @@ import InAppStorySDK
 
 enum Endpoint: String {
 
-    case getGamblerTags = "/stories/inappstory/get_gambler_tags"
+    case getGamblerTags = "/stories/get"
     case getCaptcha = "/getCaptcha"
     case passwordRecoverySendSms = "/passwordRecovery/sendSms"
     case passwordRecoveryCheckSms = "/passwordRecovery/checkSms"
@@ -126,18 +126,20 @@ final class ProtobufService: SessionServiceDependency, ConnectManagerDependency,
     }
     
     
-    func getGamblerTags(_ completion: @escaping (Result<Bb_StoriesInappstoryGetGamblerTagsResponse, Endpoint.ApiError>) -> ()) {
+    func getGamblerTags(_ completion: @escaping (Result<Bb_StoriesGetResponse, Endpoint.ApiError>) -> ()) {
         checkExpired {
             let endpoint = Endpoint.getGamblerTags.rawValue
-            let parameters = Bb_StoriesInappstoryGetGamblerTagsRequest()
+            let parameters = Bb_StoriesGetRequest()
             
             AF.upload(try! parameters.serializedData(), to: self.baseUrl + endpoint, headers: self.headers).responseData { (apiResponse) in
+                print("TEST START",self.baseUrl + endpoint)
+                print("TEST START",apiResponse)
                 guard let data = apiResponse.data else {
                     completion(.failure(.noData))
                     return
                 }
                 
-                if let response = try? Bb_StoriesInappstoryGetGamblerTagsResponse(serializedData: data) {
+                if let response = try? Bb_StoriesGetResponse(serializedData: data) {
                     if self.checkResponse(response.code, response.status) {
                         
                         completion(.success((response)))
@@ -353,22 +355,29 @@ final class ProtobufService: SessionServiceDependency, ConnectManagerDependency,
                 return
             }
                 do {
-                    let json = try JSONSerialization.jsonObject(with: data, options: .allowFragments) as! [String:Any]
                     
-//                    let meessage = json["message"] as? String
                     let changePasswordResponse = try JSONDecoder().decode(PasswordRecoveryCheckSmsResponse.self, from: data)
-                    
-                    guard let error = changePasswordResponse.errors?.first?["message"] else {
+                    switch changePasswordResponse.code {
+                    case 200:
                         completion(.success(changePasswordResponse))
-                        return}
-                    
-                    switch error {
-                    case .message(let msg):
-                        completion(.failure(.serverError(msg)))
-                    
-                    case .reason(_):
-                        break
+                    case 400:
+                        guard let error = changePasswordResponse.errors?.first?["message"] else {
+                            completion(.failure(.errorSmsLimit(Bb_IdentificationSmsLimitExceedDetails())))
+                            return}
+                        
+                        
+                        switch error {
+                        case .message(let msg):
+                            completion(.failure(.serverError(msg)))
+                        
+                        case .reason(_):
+                            break
+                        }
+                    default:
+                        print(changePasswordResponse)
                     }
+                    
+                    
                 } catch let decodingEror{
                     print("123decodingEror", decodingEror)
                     completion(.failure(.wrongData))
@@ -462,19 +471,31 @@ final class ProtobufService: SessionServiceDependency, ConnectManagerDependency,
 //                    let meessage = json["message"] as? String
                     let registerResponse = try JSONDecoder().decode(RegisterCheckSmsResponse.self, from: data)
                     
-                    guard let error = registerResponse.errors?.first?["message"] else {
+                    switch registerResponse.code {
+                    case 200:
                         self.session.token = registerResponse.token
                         self.session.refreshToken = registerResponse.refreshToken
                         completion(.success(registerResponse))
-                        return}
-                    
-                    switch error {
-                    case .message(let msg):
-                        completion(.failure(.serverError(msg)))
-                    
-                    case .reason(_):
+                    case 400:
+                        guard let error = registerResponse.errors?.first?["message"] else {
+                            if let errorMesssage = registerResponse.message {
+                                completion(.failure(.errorSmsLimit(Bb_IdentificationSmsLimitExceedDetails())))
+                            } else {
+                                completion(.failure(.wrongData))
+                            }
+                            return
+                        }
+                        switch error {
+                        case .message(let msg):
+                            completion(.failure(.serverError(msg)))
+                        
+                        case .reason(_):
+                            break
+                        }
+                    default:
                         break
                     }
+                   
                 } catch let decodingEror{
                     print("123decodingEror", decodingEror)
                     completion(.failure(.wrongData))

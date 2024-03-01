@@ -304,6 +304,21 @@
                   endingLineNumber = "244"
                   offsetFromSymbolStart = "1968">
                </Location>
+               <Location
+                  uuid = "458F2055-B08C-451B-A3A5-8B353C312DA0 - 49d9f4d8bd3bcae"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #1 (Alamofire.DataResponse&lt;Foundation.Data, Alamofire.AFError&gt;) -&gt; () in Cyber_Live.ProtobufService.authPhone(gambler: Cyber_Live.Gambler, captchaKey: Swift.String, _: (Swift.Result&lt;Cyber_Live.Bb_RegisterStartResponse, Cyber_Live.Endpoint.ApiError&gt;) -&gt; ()) -&gt; ()"
+                  moduleName = "Cyber Live"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/av_shkepu/Downloads/Telegram%20Desktop/broadcast/ProtobufService.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "244"
+                  endingLineNumber = "244"
+                  offsetFromSymbolStart = "1584">
+               </Location>
             </Locations>
          </BreakpointContent>
       </BreakpointProxy>
@@ -350,6 +365,21 @@
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "239"
                   endingLineNumber = "239"
+                  offsetFromSymbolStart = "360">
+               </Location>
+               <Location
+                  uuid = "47AAECE8-9F64-4B99-8CC5-83C228D2BE4A - 49d9f4d8bd3bd0d"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #1 (Alamofire.DataResponse&lt;Foundation.Data, Alamofire.AFError&gt;) -&gt; () in Cyber_Live.ProtobufService.authPhone(gambler: Cyber_Live.Gambler, captchaKey: Swift.String, _: (Swift.Result&lt;Cyber_Live.Bb_RegisterStartResponse, Cyber_Live.Endpoint.ApiError&gt;) -&gt; ()) -&gt; ()"
+                  moduleName = "Cyber Live"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/av_shkepu/Downloads/Telegram%20Desktop/broadcast/ProtobufService.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "241"
+                  endingLineNumber = "241"
                   offsetFromSymbolStart = "360">
                </Location>
             </Locations>
@@ -415,8 +445,8 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "282"
             endingLineNumber = "282"
-            landmarkName = "passwordRecoverySendSms(phone:captcha_key:captcha:_:)"
-            landmarkType = "7">
+            landmarkName = "ProtobufService"
+            landmarkType = "3">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -495,8 +525,8 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "52"
             endingLineNumber = "52"
-            landmarkName = "setup()"
-            landmarkType = "7">
+            landmarkName = "CheckSmsViewController"
+            landmarkType = "3">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -543,6 +573,21 @@
                   startingLineNumber = "373"
                   endingLineNumber = "373"
                   offsetFromSymbolStart = "1960">
+               </Location>
+               <Location
+                  uuid = "4EDFB492-9546-4367-B185-DFF670A26CD2 - 774aa83578002b75"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #1 (Alamofire.DataResponse&lt;Foundation.Data, Alamofire.AFError&gt;) -&gt; () in Cyber_Live.ProtobufService.passwordRecoveryCheckSms(smsCode: Swift.String, sessionId: Swift.String, _: (Swift.Result&lt;Cyber_Live.PasswordRecoveryCheckSmsResponse, Cyber_Live.Endpoint.ApiError&gt;) -&gt; ()) -&gt; ()"
+                  moduleName = "Cyber Live"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/av_shkepu/Downloads/Telegram%20Desktop/broadcast/ProtobufService.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "374"
+                  endingLineNumber = "374"
+                  offsetFromSymbolStart = "1664">
                </Location>
             </Locations>
          </BreakpointContent>
@@ -640,6 +685,21 @@
                   endingLineNumber = "480"
                   offsetFromSymbolStart = "2780">
                </Location>
+               <Location
+                  uuid = "CB0CCFC8-B42A-4D95-9426-1D2FEFD01654 - e617ab716254280d"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #1 (Alamofire.DataResponse&lt;Foundation.Data, Alamofire.AFError&gt;) -&gt; () in Cyber_Live.ProtobufService.checkSms(code: Swift.String, sessionId: Swift.String, _: (Swift.Result&lt;Cyber_Live.RegisterCheckSmsResponse, Cyber_Live.Endpoint.ApiError&gt;) -&gt; ()) -&gt; ()"
+                  moduleName = "Cyber Live"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/av_shkepu/Downloads/Telegram%20Desktop/broadcast/ProtobufService.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "480"
+                  endingLineNumber = "480"
+                  offsetFromSymbolStart = "1584">
+               </Location>
             </Locations>
          </BreakpointContent>
       </BreakpointProxy>
@@ -653,10 +713,10 @@
             filePath = "BroadcastOnline/AuthViewController.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "309"
-            endingLineNumber = "309"
-            landmarkName = "didClickSign(_:)"
-            landmarkType = "7">
+            startingLineNumber = "293"
+            endingLineNumber = "293"
+            landmarkName = "AuthViewController"
+            landmarkType = "3">
             <Locations>
                <Location
                   uuid = "2EEDC19E-E08C-4A34-A732-54F70D618066 - 717e8b0dca3e56d3"
@@ -731,9 +791,9 @@
             filePath = "BroadcastOnline/AuthViewController.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "288"
-            endingLineNumber = "288"
-            landmarkName = "updateCaptcha(isEnabled:data:)"
+            startingLineNumber = "272"
+            endingLineNumber = "272"
+            landmarkName = "didTapCheckBox(_:)"
             landmarkType = "7">
             <Locations>
                <Location
@@ -779,8 +839,8 @@
             filePath = "BroadcastOnline/AuthViewController.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "60"
-            endingLineNumber = "60"
+            startingLineNumber = "61"
+            endingLineNumber = "61"
             landmarkName = "currentType"
             landmarkType = "24">
          </BreakpointContent>
@@ -836,22 +896,6 @@
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            uuid = "E6F5A873-A04B-4B2A-8078-8946BAC45518"
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "BroadcastOnline/MainPresenter.swift"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "75"
-            endingLineNumber = "75"
-            landmarkName = "getGamblerTags()"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
             uuid = "E310DFB3-DA46-4FF9-A39F-C21878B666CB"
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
@@ -868,49 +912,145 @@
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            uuid = "6689FE1A-7252-482F-B8D4-BD6F0A6E096C"
+            uuid = "D0F4CED5-283C-480E-B1CC-39DE367D1EAD"
             shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "BroadcastOnline/MainViewController.swift"
+            filePath = "BroadcastOnline/AuthPresenter.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "294"
-            endingLineNumber = "294"
-            landmarkName = "setTagsStoryAndLoad(tags:)"
+            startingLineNumber = "195"
+            endingLineNumber = "195"
+            landmarkName = "updateSubmitButton()"
             landmarkType = "7">
-            <Locations>
-               <Location
-                  uuid = "6689FE1A-7252-482F-B8D4-BD6F0A6E096C - 923c7003970537bd"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "Cyber_Live.MainViewController.setTagsStoryAndLoad(tags: Swift.Array&lt;Swift.String&gt;) -&gt; ()"
-                  moduleName = "Cyber Live"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/av_shkepu/broadcast/BroadcastOnline/MainViewController.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "294"
-                  endingLineNumber = "294"
-                  offsetFromSymbolStart = "188">
-               </Location>
-               <Location
-                  uuid = "6689FE1A-7252-482F-B8D4-BD6F0A6E096C - 923c7003970537bd"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "Cyber_Live.MainViewController.setTagsStoryAndLoad(tags: Swift.Array&lt;Swift.String&gt;) -&gt; ()"
-                  moduleName = "Cyber Live"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/av_shkepu/broadcast/BroadcastOnline/MainViewController.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "294"
-                  endingLineNumber = "294"
-                  offsetFromSymbolStart = "204">
-               </Location>
-            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "366A0626-2DE1-4869-B597-1FA50783B8E9"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "BroadcastOnline/AuthPresenter.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "216"
+            endingLineNumber = "216"
+            landmarkName = "updateSubmitButton()"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "0FE18B24-E69A-481D-86E4-14DB5447ABD3"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "BroadcastOnline/AuthPresenter.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "217"
+            endingLineNumber = "217"
+            landmarkName = "updateSubmitButton()"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "D6509235-FF92-4F39-8DDC-A01E89B5944B"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "BroadcastOnline/AuthPresenter.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "224"
+            endingLineNumber = "224"
+            landmarkName = "updateSubmitButton()"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "1FC167CB-9675-4E9F-A2D1-0FD0C83E440E"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "BroadcastOnline/AuthPresenter.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "226"
+            endingLineNumber = "226"
+            landmarkName = "updateSubmitButton()"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "31659BF6-9DC7-4D83-83F3-EC1465525E38"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "BroadcastOnline/AuthPresenter.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "221"
+            endingLineNumber = "221"
+            landmarkName = "updateSubmitButton()"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "FF2DD76B-BE6B-4515-B3BD-AE87B8A7516B"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "BroadcastOnline/AuthPresenter.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "218"
+            endingLineNumber = "218"
+            landmarkName = "updateSubmitButton()"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "48E17CE8-8ABB-428D-8FBF-5DB96F98B7A8"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "BroadcastOnline/AuthPresenter.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "108"
+            endingLineNumber = "108"
+            landmarkName = "didClearCaptchaTextField()"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "5B8865E6-F656-424B-B424-BD5D1F0C1A7B"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "BroadcastOnline/AuthPresenter.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "196"
+            endingLineNumber = "196"
+            landmarkName = "updateSubmitButton()"
+            landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
    </Breakpoints>

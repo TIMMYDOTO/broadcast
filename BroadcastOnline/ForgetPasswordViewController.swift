@@ -41,12 +41,16 @@ class ForgetPasswordViewController: UIViewController, ApiServiceDependency {
     override func viewDidLoad() {
         super.viewDidLoad()
         setupNavigationBar()
-        getCaptcha()
+        
         binding()
     }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
+        getCaptcha()
+//        captchaTextField.textField.text = ""
+//        captchaTextField.updateStatus(message: "")
+        captchaTextField.movePlaceholderBack()
     }
     
     override func viewDidLayoutSubviews() {
@@ -91,7 +95,29 @@ class ForgetPasswordViewController: UIViewController, ApiServiceDependency {
             setClearPhoneButtonIsShown(!newText.string.isEmpty)
             updateSubmitButton()
         }
+        
+        captchaTextField.didChangeEditing = { [weak self] str in
+            self?.didChangeEditingCaptcha(str)
+        }
     }
+    
+    func didChangeEditingCaptcha(_ cs: CaretString) {
+        print("TEST CAPCHA", cs)
+        let stringCount = cs.string.count
+        switch stringCount {
+        case 0:
+            state.captcha.validationState = .errorMessage("Обязательное поле")
+        case 4:
+            state.captcha.validationState = .success
+            captchaTextField.removeError()
+        default:
+            state.captcha.validationState = .errorMessage("Неверный формат")
+        }
+        
+        print("TEST CAPCHA", state.captcha.validationState )
+        updateSubmitButton()
+    }
+    
     
     @objc func tapClearPhone() {
         let empty = CaretString(string: "", caretPosition: "".startIndex)
@@ -177,7 +203,8 @@ class ForgetPasswordViewController: UIViewController, ApiServiceDependency {
         let phone = phoneTextField.textField.text?.digits ?? ""
         let captcha = captchaTextField.textField.text ?? ""
         let captchaKey = state.captchaKey
-        api.passwordRecoverySendSms(phone: phone, captcha_key: captchaKey, captcha: captcha) { result in
+        api.passwordRecoverySendSms(phone: phone, captcha_key: captchaKey, captcha: captcha) {[weak self] result in
+            guard let self = self else { return }
             if case .success(let success) = result {
                 print("succes", success)
                 self.showCheckSmsController(sessionId: success.sessionId ?? "")
@@ -186,6 +213,7 @@ class ForgetPasswordViewController: UIViewController, ApiServiceDependency {
                 switch failure {
                 case .serverError(let message):
                     self.showAlert(title: "Ошибка", message: message)
+                    
                 default:
                     self.showAlert(title: "Ошибка", message: "Неизвестная ошибка")
                 }
@@ -206,12 +234,15 @@ class ForgetPasswordViewController: UIViewController, ApiServiceDependency {
     }
     
     func getCaptcha() {
-        api.getCaptcha(color: "white", state: "captcha_register_enabled") { result in
+        api.getCaptcha(color: "white", state: "captcha_register_enabled") {[weak self] result in
+            
+            guard let self = self else { return }
             if case .success(let response) = result {
                 
                 self.state.captchaKey = response.key ?? ""
                 print("response ",response.key)
                 self.updateCaptcha(isEnabled: response.status != "fail", data: response.data ?? "")
+                self.state.captcha.isEnabled = true
 //                self.updateSubmitButton()
 //                completion(response.isEnabled, response.data, response.key)
             }

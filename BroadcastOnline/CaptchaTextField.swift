@@ -11,7 +11,6 @@ class CaptchaTextField: UIView {
     var didBecomeFirstResponder: ((PhoneTextField) -> Void)?
     
     var didResignFirstResponder: ((PhoneTextField) -> Void)?
-    
     @IBInspectable var isValidated: Bool = false
     var didChangeEditing: ((CaretString) -> Void)?
     let fieldHeight: CGFloat = 48.0
@@ -105,6 +104,9 @@ class CaptchaTextField: UIView {
     
     @objc func tapRemoveText() {
         textField.text = ""
+        let text = textField.text ?? ""
+        let caretString = CaretString(string: text, caretPosition: text.index(text.startIndex, offsetBy: 0))
+        didChangeEditing?(caretString)
     }
     
     private func setupLeftView() {
@@ -146,6 +148,17 @@ class CaptchaTextField: UIView {
         self.textField = tf
     }
     
+    func movePlaceholderBack() {
+        DispatchQueue.main.async {
+            self.updateStatus(message: "")
+            self.textField.text = ""
+        }
+        
+        let options = UIView.AnimationOptions.curveEaseIn.union(.beginFromCurrentState)
+        animateViewsOnResignFirstResponder(duration: 0, options:options)
+       
+    }
+    
     @objc func didBeginEditing() {
         self.backgroundView.layer.borderColor = #colorLiteral(red: 0.5843137255, green: 0.7176470588, blue: 1, alpha: 1)
         let options = UIView.AnimationOptions.curveEaseIn.union(.beginFromCurrentState)
@@ -168,6 +181,7 @@ class CaptchaTextField: UIView {
             updateStatus(message: "Обязательное поле")
         }else {
             let errorMsg = hasError(textField: textField)
+            
             updateStatus(message: errorMsg)
         }
         
@@ -213,11 +227,12 @@ class CaptchaTextField: UIView {
 //        if redLine.superview != nil {
 //            redLine.removeFromSuperview()
 //        }
+        self.errorLabel.text = ""
         if let constraint = getHeightConstraint(), constraint.constant > fieldHeight {
             UIView.animate(withDuration: 0.4, animations: {
                 constraint.constant = self.fieldHeight
-                self.errorLabel.text = ""
-//                self.window?.layoutIfNeeded()
+               
+                self.window?.layoutIfNeeded()
             })
         }
     }
@@ -231,7 +246,7 @@ class CaptchaTextField: UIView {
         }.first
     }
     
-    private func animateViewsOnBecomingFirstResponder(duration: CGFloat, options: UIView.AnimationOptions) {
+    func animateViewsOnBecomingFirstResponder(duration: CGFloat, options: UIView.AnimationOptions) {
 
         let pf = CABasicAnimation(keyPath: #keyPath(CATextLayer.fontSize))
         pf.fromValue = self.placeholderLayer.fontSize
@@ -256,7 +271,7 @@ class CaptchaTextField: UIView {
     
     }
     
-    private func animateViewsOnResignFirstResponder(duration: CGFloat, options: UIView.AnimationOptions) {
+    func animateViewsOnResignFirstResponder(duration: CGFloat, options: UIView.AnimationOptions) {
         let pf = CABasicAnimation(keyPath: #keyPath(CATextLayer.fontSize))
         pf.fromValue = self.placeholderLayer.fontSize
         pf.toValue = 14

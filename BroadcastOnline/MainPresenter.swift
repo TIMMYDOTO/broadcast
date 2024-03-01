@@ -56,9 +56,10 @@ final class MainPresenter: MainOutput {
     
     
     func getGamblerTags() {
+        print("TEST START")
         interactor.gamblerTagsRequest { [weak self] response in
             guard let self = self else { return }
-            
+            print("TEST START", response)
             let id = self.interactor.getGamblerId()
             var newTags: [String]
             

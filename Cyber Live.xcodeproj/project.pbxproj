@@ -157,7 +157,6 @@
 		DE2B8FEF2B34434100D12FC9 /* BBField.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE2B8FED2B34434100D12FC9 /* BBField.swift */; };
 		DE2B8FF12B345CE700D12FC9 /* PasswordChangedViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE2B8FF02B345CE700D12FC9 /* PasswordChangedViewController.swift */; };
 		DE2B8FF32B345CF700D12FC9 /* SignUpFinishedViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE2B8FF22B345CF700D12FC9 /* SignUpFinishedViewController.swift */; };
-		DE2B8FF52B346C8400D12FC9 /* NewPasswordFinishedViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE2B8FF42B346C8400D12FC9 /* NewPasswordFinishedViewController.swift */; };
 		DE2B8FF72B3480AB00D12FC9 /* login.pb.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE2B8FF62B3480AB00D12FC9 /* login.pb.swift */; };
 		DE31C3012B18EF37001E45D6 /* BBCheckBox.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE31C3002B18EF37001E45D6 /* BBCheckBox.swift */; };
 		DE38F28E2B3194790009884E /* ButtonWithLoader.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE38F28D2B3194790009884E /* ButtonWithLoader.swift */; };
@@ -205,8 +204,11 @@
 		DED8D3772B5AC3C800B1746D /* Models.swift in Sources */ = {isa = PBXBuildFile; fileRef = DED8D3762B5AC3C800B1746D /* Models.swift */; };
 		DEDFFDCE2B188EB8004BB1CE /* AuthViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEDFFDCD2B188EB8004BB1CE /* AuthViewController.swift */; };
 		DEDFFDD02B189685004BB1CE /* GradientView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEDFFDCF2B189685004BB1CE /* GradientView.swift */; };
-		DEDFFDD22B18C1D3004BB1CE /* TextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEDFFDD12B18C1D3004BB1CE /* TextField.swift */; };
 		DEE58CBA2B63FECD0003341D /* MainViewController2.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEE58CB92B63FECD0003341D /* MainViewController2.swift */; };
+		F9323E182B7F5191002FB04E /* NewPasswordFinishedViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9323E172B7F5191002FB04E /* NewPasswordFinishedViewController.swift */; };
+		F9323E1A2B7F51A4002FB04E /* TextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9323E192B7F51A4002FB04E /* TextField.swift */; };
+		F9B6A9422B87612500C2F4B0 /* SMSPlaceholder.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9B6A9412B87612500C2F4B0 /* SMSPlaceholder.swift */; };
+		F9B6A9442B876B0000C2F4B0 /* stories_get.pb.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9B6A9432B876B0000C2F4B0 /* stories_get.pb.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -377,7 +379,6 @@
 		DE2B8FED2B34434100D12FC9 /* BBField.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BBField.swift; sourceTree = "<group>"; };
 		DE2B8FF02B345CE700D12FC9 /* PasswordChangedViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PasswordChangedViewController.swift; sourceTree = "<group>"; };
 		DE2B8FF22B345CF700D12FC9 /* SignUpFinishedViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpFinishedViewController.swift; sourceTree = "<group>"; };
-		DE2B8FF42B346C8400D12FC9 /* NewPasswordFinishedViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = NewPasswordFinishedViewController.swift; path = /Users/av_shkepu/broadcast/BroadcastOnline/NewPasswordFinishedViewController.swift; sourceTree = "<absolute>"; };
 		DE2B8FF62B3480AB00D12FC9 /* login.pb.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = login.pb.swift; sourceTree = SOURCE_ROOT; };
 		DE31C3002B18EF37001E45D6 /* BBCheckBox.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BBCheckBox.swift; sourceTree = "<group>"; };
 		DE38F28D2B3194790009884E /* ButtonWithLoader.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ButtonWithLoader.swift; sourceTree = "<group>"; };
@@ -425,9 +426,12 @@
 		DED8D3762B5AC3C800B1746D /* Models.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Models.swift; sourceTree = "<group>"; };
 		DEDFFDCD2B188EB8004BB1CE /* AuthViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthViewController.swift; sourceTree = "<group>"; };
 		DEDFFDCF2B189685004BB1CE /* GradientView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GradientView.swift; sourceTree = "<group>"; };
-		DEDFFDD12B18C1D3004BB1CE /* TextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = TextField.swift; path = /Users/av_shkepu/broadcast/BroadcastOnline/TextField.swift; sourceTree = "<absolute>"; };
 		DEE58CB92B63FECD0003341D /* MainViewController2.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainViewController2.swift; sourceTree = "<group>"; };
 		F44A24DBE9FF638C35EB38AE /* Pods-BroadcastOnline.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BroadcastOnline.debug.xcconfig"; path = "Target Support Files/Pods-BroadcastOnline/Pods-BroadcastOnline.debug.xcconfig"; sourceTree = "<group>"; };
+		F9323E172B7F5191002FB04E /* NewPasswordFinishedViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NewPasswordFinishedViewController.swift; sourceTree = "<group>"; };
+		F9323E192B7F51A4002FB04E /* TextField.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TextField.swift; sourceTree = "<group>"; };
+		F9B6A9412B87612500C2F4B0 /* SMSPlaceholder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SMSPlaceholder.swift; sourceTree = "<group>"; };
+		F9B6A9432B876B0000C2F4B0 /* stories_get.pb.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = stories_get.pb.swift; sourceTree = "<group>"; };
 		FE7501537DFD11AE83E49500 /* Pods-BroadcastOnline.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BroadcastOnline.release.xcconfig"; path = "Target Support Files/Pods-BroadcastOnline/Pods-BroadcastOnline.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -607,8 +611,8 @@
 				DEDFFDCD2B188EB8004BB1CE /* AuthViewController.swift */,
 				DE38F2952B33208A0009884E /* ForgetPasswordViewController.swift */,
 				DEC8B0452B1A1873000411E5 /* AuthPresenter.swift */,
-				DE2B8FF42B346C8400D12FC9 /* NewPasswordFinishedViewController.swift */,
 				DE2B8FF22B345CF700D12FC9 /* SignUpFinishedViewController.swift */,
+				F9323E172B7F5191002FB04E /* NewPasswordFinishedViewController.swift */,
 				9A790DD528C9F358009F2AA4 /* Main.storyboard */,
 				DE2B8FF02B345CE700D12FC9 /* PasswordChangedViewController.swift */,
 				DE38F2972B3320B00009884E /* NewPasswordViewController.swift */,
@@ -621,7 +625,7 @@
 				DE2B8FED2B34434100D12FC9 /* BBField.swift */,
 				DE2B8FEC2B34434100D12FC9 /* BBFieldBirthdayPicker.swift */,
 				DE31C3002B18EF37001E45D6 /* BBCheckBox.swift */,
-				DEDFFDD12B18C1D3004BB1CE /* TextField.swift */,
+				F9323E192B7F51A4002FB04E /* TextField.swift */,
 				DEC5563E2B1E37F900B39C49 /* KeyboardAccessoryView.swift */,
 				DE522DD72B16144900850E61 /* SessionServiceDependency.swift */,
 				DE522DDA2B1615F300850E61 /* SessionService.swift */,
@@ -689,6 +693,7 @@
 				DE38F2932B31EFF40009884E /* illustration_10.json */,
 				9A4EE34028D07DE500905FF9 /* CSTeam.swift */,
 				9ACBA99F28D9E99400E73AAF /* CyberSportPlaceholderView.swift */,
+				F9B6A9412B87612500C2F4B0 /* SMSPlaceholder.swift */,
 				9A79193428D0947400062946 /* subscribe_state.pb.swift */,
 				9A79192E28D093B800062946 /* match.pb.swift */,
 				9A79192328D08F6B00062946 /* errors.pb.swift */,
@@ -708,6 +713,7 @@
 				9A79193228D0943A00062946 /* sport.pb.swift */,
 				DEDFFDCF2B189685004BB1CE /* GradientView.swift */,
 				DE04B6A02B14EFD300F56E8D /* stories_inappstory_get_gambler_tags.pb.swift */,
+				F9B6A9432B876B0000C2F4B0 /* stories_get.pb.swift */,
 				9A4EE34528D0809200905FF9 /* Fonts */,
 				DED68A682B1A46ED005E9545 /* SignTypeCollectionCell.swift */,
 			);
@@ -1073,6 +1079,7 @@
 				9A79193928D0976700062946 /* R.generated.swift in Sources */,
 				DEE58CBA2B63FECD0003341D /* MainViewController2.swift in Sources */,
 				DE522DE22B1616DB00850E61 /* BBTheme.swift in Sources */,
+				F9323E182B7F5191002FB04E /* NewPasswordFinishedViewController.swift in Sources */,
 				9A790DEE28CA1D77009F2AA4 /* MainOutput.swift in Sources */,
 				9A790E3D28CA29CB009F2AA4 /* CyberOdinWsService.swift in Sources */,
 				9AF76E1128DDB9730040E574 /* NoConnectionViewController.swift in Sources */,
@@ -1084,7 +1091,6 @@
 				9A4EE34128D07DE500905FF9 /* CSPeriodScore.swift in Sources */,
 				DE38F2922B31EBC00009884E /* ResultAlreadyRegisteredViewController.swift in Sources */,
 				DE38F2962B33208A0009884E /* ForgetPasswordViewController.swift in Sources */,
-				DE2B8FF52B346C8400D12FC9 /* NewPasswordFinishedViewController.swift in Sources */,
 				9AE2FC5B28F84599003EF4A5 /* AppConfig.swift in Sources */,
 				9A790E3B28CA29CB009F2AA4 /* etw_rpc_unsubscribe_state.pb.swift in Sources */,
 				DEC8B04C2B1A2EB9000411E5 /* password_recovery_send_sms.pb.swift in Sources */,
@@ -1126,7 +1132,9 @@
 				DE2B8FEB2B343E1E00D12FC9 /* BirthdayTextField.swift in Sources */,
 				DEC556372B1DF12300B39C49 /* Gambler.swift in Sources */,
 				9A790E3328CA29CB009F2AA4 /* etw_rpc_ping.pb.swift in Sources */,
+				F9323E1A2B7F51A4002FB04E /* TextField.swift in Sources */,
 				9A79193328D0943A00062946 /* sport.pb.swift in Sources */,
+				F9B6A9422B87612500C2F4B0 /* SMSPlaceholder.swift in Sources */,
 				9A790E2728CA29CB009F2AA4 /* etw_rpc_newsletter_stake.pb.swift in Sources */,
 				DE522DEE2B16253900850E61 /* ApiServiceDependency.swift in Sources */,
 				DEC556392B1E11D500B39C49 /* CaretString.swift in Sources */,
@@ -1168,6 +1176,7 @@
 				9A4EE32628CF5C8000905FF9 /* UIColor.swift in Sources */,
 				9A790E2928CA29CB009F2AA4 /* etw_rpc_newsletter_match.pb.swift in Sources */,
 				DE2B8FEE2B34434100D12FC9 /* BBFieldBirthdayPicker.swift in Sources */,
+				F9B6A9442B876B0000C2F4B0 /* stories_get.pb.swift in Sources */,
 				DED68A6B2B1A4741005E9545 /* SignType.swift in Sources */,
 				9A4EE31C28CF4D5200905FF9 /* CyberSportGameCell.swift in Sources */,
 				DE38F28E2B3194790009884E /* ButtonWithLoader.swift in Sources */,
@@ -1185,7 +1194,6 @@
 				DE522DEA2B161C9400850E61 /* StorageServiceDependencyImpl.swift in Sources */,
 				9A790E2C28CA29CB009F2AA4 /* etw_rpc_newsletter_sport.pb.swift in Sources */,
 				DE2B8FF12B345CE700D12FC9 /* PasswordChangedViewController.swift in Sources */,
-				DEDFFDD22B18C1D3004BB1CE /* TextField.swift in Sources */,
 				DE522DDB2B1615F300850E61 /* SessionServiceInterface.swift in Sources */,
 				9A4EE34228D07DE500905FF9 /* CSScoreboard.swift in Sources */,
 				DEC8B04E2B1A2EB9000411E5 /* check_sms.pb.swift in Sources */,
@@ -1385,7 +1393,7 @@
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = QC3379N7C7;
+				DEVELOPMENT_TEAM = 5XHJ5W6A53;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = BroadcastOnline/Info.plist;
 				INFOPLIST_KEY_CFBundleDisplayName = "Cyber live";
@@ -1424,7 +1432,7 @@
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = QC3379N7C7;
+				DEVELOPMENT_TEAM = 5XHJ5W6A53;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = BroadcastOnline/Info.plist;
 				INFOPLIST_KEY_CFBundleDisplayName = "Cyber live";

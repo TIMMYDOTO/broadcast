@@ -40,6 +40,7 @@ class MainViewController: UIViewController, MainViewInput, SessionServiceDepende
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        print("TEST START")
         setupTopView()
         
         setupStoryWidget()
@@ -272,8 +273,7 @@ class MainViewController: UIViewController, MainViewInput, SessionServiceDepende
     func setupStoryWidget() {
         let storifyMeWidget = StorifyMeWidget()
         storifyMeWidget.setWidgetId(widgetId: 7752)
-
-
+        
         view.addSubview(storifyMeWidget)
         
         storifyMeWidget.snp.makeConstraints {

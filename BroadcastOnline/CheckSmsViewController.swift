@@ -23,6 +23,8 @@ class CheckSmsViewController: UIViewController, ApiServiceDependency {
     
     private var logoImageView: UIImageView!
     
+    private weak var placeholderView: SmsPlaceholderView!
+    
     private var code = String()
     
     private var errorLabel: UILabel!
@@ -45,12 +47,13 @@ class CheckSmsViewController: UIViewController, ApiServiceDependency {
     override func viewDidLoad() {
         super.viewDidLoad()
         setup()
+        print("TEST CHECK SMS")
     }
     
     private func setup() {
 //        setupView()
         setupTopBackgroundImageView()
-  
+        
         setupTextField()
       
 
@@ -65,7 +68,7 @@ class CheckSmsViewController: UIViewController, ApiServiceDependency {
         setupSubtitle()
         setupStackView()
         setupErrorLabel()
-        
+        setupPlaceholder()
     }
     
   
@@ -88,7 +91,18 @@ class CheckSmsViewController: UIViewController, ApiServiceDependency {
         logoImageView = logoImgView
     }
     
-
+    private func setupPlaceholder() {
+        let v = SmsPlaceholderView()
+        placeholderView = v
+        view.addSubview(placeholderView)
+        placeholderView.snp.makeConstraints {
+            $0.edges.equalToSuperview()
+        }
+        placeholderView.onPop = {[weak self] in
+            self?.goBack()
+        }
+        placeholderView.isHidden = true
+    }
 
     private func setupErrorLabel() {
         let l = UILabel()
@@ -235,54 +249,73 @@ class CheckSmsViewController: UIViewController, ApiServiceDependency {
         navigationController?.pushViewController(vc, animated: true)
     }
     
+    func showPlaceholder() {
+        UIView.animate(withDuration: 0.5, animations: {
+            self.placeholderView.isHidden = false
+        })
+        
+    }
+    
     func checkCode() {
         if isRecovery {
             
             api.passwordRecoveryCheckSms(smsCode: code, sessionId: sessionId) { result in
-                if case .success(let success) = result {
-                    print("success", success)
-                    self.goToNewPasswordController()
-                    
-                }else if case .failure(let failure) = result {
-                    switch failure {
-                    case .serverError(let message):
-                        self.showError(message)
+               print("Recavery")
+                DispatchQueue.main.async { [weak self] in
+                    guard let self = self else { return }
+                    if case .success(let success) = result {
+                        print("success", success)
+                        self.goToNewPasswordController()
                         
-                    default:
-                        self.showError("Неизвестная ошибка")
+                    }else if case .failure(let failure) = result {
+                        switch failure {
+                        case .serverError(let message):
+                            self.showError(message)
+                        
+                        case .errorSmsLimit(let details):
+                            self.showPlaceholder()
+                        default:
+                            self.showError("Неизвестная ошибка")
+                        }
+                        
                     }
-                    
                 }
             }
         }else{
-            api.checkSms(code: code, sessionId: sessionId) { [weak self] response in
-                guard let self = self else { return }
-                switch response {
-                case let .success(result):
-                    let status = ConfirmCodeSuccess(rawValue: (result.userStatus ?? .none)!)
-                    
-                    switch status {
-                    case .alreadyIdentified:
-                        self.showSuccess()
-                    case .notIdentfied:
-                        self.showSuccess()
-                    case .alreadyRegistered:
-                        self.showAlreadyRegistered()
+            api.checkSms(code: code, sessionId: sessionId) { response in
+                print(response)
+                print("test rega")
+                DispatchQueue.main.async {  [weak self] in
+                    guard let self = self else { return }
+                    switch response {
+                    case let .success(result):
+                        let status = ConfirmCodeSuccess(rawValue: (result.userStatus ?? .none)!)
                         
-                    case .none:
-                        print("none")
-                        self.showError("Неизвестная ошибка")
-                  
-                    }
-                case let .failure(error):
-                    switch error {
-                    case .serverError(let message):
-                        self.showError(message)
+                        switch status {
+                        case .new:
+                            self.showSuccess()
+                        case .alreadyRegistered:
+                            self.showAlreadyRegistered()
                         
-                    default:
-                        self.showError("Неизвестная ошибка")
+                        case .none:
+                            print("none")
+                            self.showError("Неизвестная ошибка")
+                      
+                        }
+                    case let .failure(error):
+                        switch error {
+                        case .serverError(let message):
+                            if message == "Превышено число попыток ввода смс" {
+                                self.showPlaceholder()
+                            } else {
+                                self.showError(message)
+                            }
+                        case .errorSmsLimit(let details):
+                            self.showPlaceholder()
+                        default:
+                            self.showError("Неизвестная ошибка")
+                        }
                     }
-
                 }
             }
         }
@@ -324,8 +357,7 @@ enum ConfirmCodeError: String {
 }
 
 enum ConfirmCodeSuccess: String {
-    case alreadyIdentified = "new_valid"
-    case notIdentfied = "new_invalid"
+    case new = "new"
     case alreadyRegistered = "old"
     
 }

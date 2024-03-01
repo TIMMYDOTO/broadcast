@@ -8,8 +8,10 @@
 import UIKit
 
 class AuthViewController: UIViewController, AuthViewInput {
-    @IBOutlet weak var stackView: UIStackView!
+
     
+    @IBOutlet weak var stackView: UIStackView!
+
     
     @IBOutlet weak var catpchaView: UIView!
     
@@ -107,21 +109,6 @@ class AuthViewController: UIViewController, AuthViewInput {
         showAlert(title: title, message: message)
     }
     
-    func addTimerToSubmitButton() {
-        signUpButton.disableButton()
-        var runCount = 30
-        Timer.scheduledTimer(withTimeInterval: 1.0, repeats: true) { timer in
-          
-            runCount -= 1
-            self.signUpButton.setTitle("Повторный запрос кода через \(runCount) сек", for: .normal)
-            if runCount == 0 {
-                timer.invalidate()
-                self.signUpButton.enbaleButton()
-                self.signUpButton.setTitle("Зарегистрироваться", for: .normal)
-            }
-        }
-    }
-    
     func binding() {
         signTypeCollectionView.willSelect = { [weak self] type in
             self?.currentType = type
@@ -140,6 +127,8 @@ class AuthViewController: UIViewController, AuthViewInput {
             self?.presenter?.didChangeEditingCaptcha(str)
         }
     }
+    
+    
     
     func setClearPhoneButtonIsShown(_ isShown: Bool) {
         let img: UIImage? = isShown ? UIImage(named: "Close") : nil
@@ -163,11 +152,16 @@ class AuthViewController: UIViewController, AuthViewInput {
         passwordTextFieldView.setConfirmButtonEnabled(isConfirmable)
     }
     
+    func updateSignUpButtonTitle(text: String) {
+        self.signUpButton.setTitle(text, for: .normal)
+    }
+    
     func makeSignInType() {
         signUpButton.setTitle("Войти", for: .normal)
         checkBox.isHidden = true
         textView.isHidden = true
         forgetPasswordButton.isHidden = false
+//        enableSubmitButton()
 //        if capchaIsEnabled {
             catpchaView.isHidden = true
 //            stackViewHeightConstraint.constant = stackViewHeightConstraint.constant - 48
@@ -196,7 +190,6 @@ class AuthViewController: UIViewController, AuthViewInput {
     }
     
     func enableSubmitButton() {
-        
         signUpButton.enbaleButton()
     }
     

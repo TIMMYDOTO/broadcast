@@ -755,7 +755,7 @@ struct R: Rswift.Validatable {
     fileprivate init() {}
   }
 
-  /// This `R.image` struct is generated, and contains static references to 52 images.
+  /// This `R.image` struct is generated, and contains static references to 54 images.
   struct image {
     /// Image `BackButton`.
     static let backButton = Rswift.ImageResource(bundle: R.hostingBundle, name: "BackButton")
@@ -785,6 +785,10 @@ struct R: Rswift.Validatable {
     static let fullscreen = Rswift.ImageResource(bundle: R.hostingBundle, name: "fullscreen")
     /// Image `green`.
     static let green = Rswift.ImageResource(bundle: R.hostingBundle, name: "green")
+    /// Image `handImg`.
+    static let handImg = Rswift.ImageResource(bundle: R.hostingBundle, name: "handImg")
+    /// Image `hiddenPS`.
+    static let hiddenPS = Rswift.ImageResource(bundle: R.hostingBundle, name: "hiddenPS")
     /// Image `ic10ArrowDown`.
     static let ic10ArrowDown = Rswift.ImageResource(bundle: R.hostingBundle, name: "ic10ArrowDown")
     /// Image `ic16Lock`.
@@ -957,6 +961,20 @@ struct R: Rswift.Validatable {
     /// `UIImage(named: "green", bundle: ..., traitCollection: ...)`
     static func green(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIImage? {
       return UIKit.UIImage(resource: R.image.green, compatibleWith: traitCollection)
+    }
+    #endif
+
+    #if os(iOS) || os(tvOS)
+    /// `UIImage(named: "handImg", bundle: ..., traitCollection: ...)`
+    static func handImg(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIImage? {
+      return UIKit.UIImage(resource: R.image.handImg, compatibleWith: traitCollection)
+    }
+    #endif
+
+    #if os(iOS) || os(tvOS)
+    /// `UIImage(named: "hiddenPS", bundle: ..., traitCollection: ...)`
+    static func hiddenPS(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIImage? {
+      return UIKit.UIImage(resource: R.image.hiddenPS, compatibleWith: traitCollection)
     }
     #endif
 
@@ -1292,7 +1310,7 @@ struct R: Rswift.Validatable {
       fileprivate init() {}
     }
 
-    /// This `R.string.localizable` struct is generated, and contains static references to 8 localization keys.
+    /// This `R.string.localizable` struct is generated, and contains static references to 9 localization keys.
     struct localizable {
       /// en translation: Follow prematch events
       ///
@@ -1322,6 +1340,10 @@ struct R: Rswift.Validatable {
       ///
       /// Locales: en, pt-PT, ru, es
       static let prematchTitle = Rswift.StringResource(key: "PrematchTitle", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en", "pt-PT", "ru", "es"], comment: nil)
+      /// en translation: The number of attempts to enter SMS has been exceeded
+      ///
+      /// Locales: en, pt-PT, ru, es
+      static let smsError = Rswift.StringResource(key: "SMSError", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en", "pt-PT", "ru", "es"], comment: nil)
       /// en translation: eSports
       ///
       /// Locales: en, pt-PT, ru, es
@@ -1430,6 +1452,21 @@ struct R: Rswift.Validatable {
         }
 
         return NSLocalizedString("PrematchTitle", bundle: bundle, comment: "")
+      }
+
+      /// en translation: The number of attempts to enter SMS has been exceeded
+      ///
+      /// Locales: en, pt-PT, ru, es
+      static func smsError(preferredLanguages: [String]? = nil) -> String {
+        guard let preferredLanguages = preferredLanguages else {
+          return NSLocalizedString("SMSError", bundle: hostingBundle, comment: "")
+        }
+
+        guard let (_, bundle) = localeBundle(tableName: "Localizable", preferredLanguages: preferredLanguages) else {
+          return "SMSError"
+        }
+
+        return NSLocalizedString("SMSError", bundle: bundle, comment: "")
       }
 
       /// en translation: eSports

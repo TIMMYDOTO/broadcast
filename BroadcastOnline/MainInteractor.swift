@@ -233,7 +233,7 @@ final class MainInteractor: CyberOdinWsServiceDependency, ConnectManagerDependen
     }
     
     func gamblerTagsRequest(
-        _ completion: @escaping (Result<Bb_StoriesInappstoryGetGamblerTagsResponse, Endpoint.ApiError>) -> ()
+        _ completion: @escaping (Result<Bb_StoriesGetResponse, Endpoint.ApiError>) -> ()
     ) {
         api.getGamblerTags(completion)
     }

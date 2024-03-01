@@ -43,6 +43,7 @@ class PasswordTextField: UIView {
     }
     
     func setRightImage(image: UIImage?, animated: Bool) {
+        
         guard animated else { rightView.image = image; return }
         UIView.transition(with: rightView, duration: lastKnownKeyboardAnimationDuration, options: lastKnownKeyboardAnimationOptions, animations: {
             self.rightView.image = image
@@ -129,6 +130,8 @@ class PasswordTextField: UIView {
     
     @objc func tapRevealPassword() {
         textField.isSecureTextEntry = !textField.isSecureTextEntry
+        let tmpImg = textField.isSecureTextEntry ? UIImage(named: "ShownPS") : UIImage(named: "hiddenPS")
+        setRightImage(image: tmpImg, animated: true)
     }
     
     private func setupLeftView() {
@@ -302,7 +305,8 @@ class PasswordTextField: UIView {
     
     @objc func editingChanged() {
         let text = textField.text ?? ""
-        let img: UIImage? = !text.isEmpty ? UIImage(named: "ShownPS") : nil
+        let tmpImg = textField.isSecureTextEntry ? UIImage(named: "ShownPS") : UIImage(named: "hiddenPS")
+        let img: UIImage? = !text.isEmpty ? tmpImg : nil
         setRightImage(image: img, animated: true)
         let caretString = CaretString(string: text, caretPosition: text.index(text.startIndex, offsetBy: 0))
         

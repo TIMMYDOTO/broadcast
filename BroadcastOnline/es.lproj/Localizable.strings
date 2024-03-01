@@ -5,3 +5,5 @@
 "MakeSureConnection" = "Asegúrese de que su teléfono\n tenga una conexión a Internet\n de red estable y vuelva a intentarlo";
 "LiveIsEmpty" = "La lista de eventos\n en vivo está vacía";
 "FollowForPrematch" = "Siga los eventos previos al partido";
+"SMSError" = "Se ha excedido el número\nde intentos de ingresar SMS";
+

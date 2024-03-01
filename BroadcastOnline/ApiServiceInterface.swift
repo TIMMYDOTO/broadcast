@@ -12,7 +12,7 @@ protocol ApiServiceInterface {
     
     var contentUrl: String { get }
     
-    func getGamblerTags(_ completion: @escaping (Result<Bb_StoriesInappstoryGetGamblerTagsResponse, Endpoint.ApiError> ) -> ())
+    func getGamblerTags(_ completion: @escaping (Result<Bb_StoriesGetResponse, Endpoint.ApiError> ) -> ())
     func getCaptcha(color: String, state: String, _ completion: @escaping (Result<GetCaptchaResponse, Endpoint.ApiError>) -> ())
     
     func passwordRecoveryCheckSms(smsCode: String, sessionId: String, _ completion: @escaping (Result<PasswordRecoveryCheckSmsResponse, Endpoint.ApiError>) -> ())
