@@ -34,6 +34,7 @@ extension StorifyMeAdEventProtocol {
   public func initialization(apiKey: Swift.String, accountId: Swift.String)
   public func openStoryByHandle(handle: Swift.String, config: StorifyMe.StorifyMeWidgetConfig? = nil, playbackOptions: StorifyMe.StorifyMeStoryPlaybackOptions? = nil, audioOptions: StorifyMe.StorifyMeStoryAudioOptions? = nil, urlPresentationOptions: StorifyMe.StorifyMeURLPresentationOptions? = nil, storyEventDelegate: StorifyMe.StorifyMeStoryEventProtocol? = nil)
   public func showNotification(title: Swift.String, message: Swift.String?, duration: Swift.Double = 3.0)
+  public func disableInitialOnboarding()
   public var playbackController: StorifyMe.StorifyMePlaybackController {
     get
   }
@@ -119,6 +120,9 @@ extension StorifyMeWidget {
   public func setAudioOptions(options: StorifyMe.StorifyMeStoryAudioOptions)
   public func setPlaybackOptions(options: StorifyMe.StorifyMeStoryPlaybackOptions)
   public func setURLPresentationOptions(options: StorifyMe.StorifyMeURLPresentationOptions)
+}
+extension StorifyMeWidget {
+  public func getWidgetProperties() -> StorifyMe.StorifyMeWidgetProperties?
 }
 extension StorifyMeWidget : StorifyMe.StorifyMeWidgetStoryNavigator {
   public func openWidgetStoryByPosition(_ position: Swift.Int, completion: ((StorifyMe.StorifyMeWidgetStoryNavigatorExecutionResult) -> Swift.Void)?)
@@ -230,6 +234,11 @@ public struct StorifyMeWidgetLoadingAnimationStyle {
   public let enabled: Swift.Bool
   public init(type: StorifyMe.StorifyMeWidgetLoadingAnimationStyle.LoadingAnimation = .default, enabled: Swift.Bool)
 }
+public struct StorifyMeWidgetProperties {
+  public let storyWidth: Swift.Int?
+  public let storyHeight: Swift.Int?
+  public let storyRadius: Swift.Int?
+}
 @_hasMissingDesignatedInitializers public class StorifyMeStoryModel : Swift.Codable, Swift.Equatable {
   final public let id: Swift.Int
   final public let name: Swift.String
@@ -269,9 +278,6 @@ public struct StorifyMeStoryNewStyleOptions {
   public let cornerRadius: CoreGraphics.CGFloat?
   public let enabled: Swift.Bool?
   public init(label: Swift.String? = nil, background: UIKit.UIColor? = nil, labelColor: UIKit.UIColor? = nil, labelFont: UIKit.UIFont? = nil, labelTextSize: Swift.Int? = nil, horizontalPadding: CoreGraphics.CGFloat? = nil, verticalPadding: CoreGraphics.CGFloat? = nil, cornerRadius: CoreGraphics.CGFloat? = nil, enabled: Swift.Bool? = nil)
-}
-@available(iOS, obsoleted: 9.0, renamed: "StorifyMeStoryEventProtocol")
-public protocol StoryEventProtocol : AnyObject {
 }
 public protocol StorifyMeStoryEventProtocol : AnyObject {
   func onLoad(widgetId: Swift.Int, stories: [StorifyMe.StorifyMeStoryModel])

@@ -8,4 +8,9 @@ This script will generate release libraries, zip them and upload them to Storify
 
 NOTE: When releasing a new version, please go ahead and update **VERSION** in release.sh.
  
+If you do not see the StorifyMe Cocoapod, please run:
 
+```bash
+pod repo update
+pod search StorifyMe
+```

@@ -319,6 +319,21 @@
                   endingLineNumber = "244"
                   offsetFromSymbolStart = "1584">
                </Location>
+               <Location
+                  uuid = "458F2055-B08C-451B-A3A5-8B353C312DA0 - bd95fac5476a09d6"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #1 (Alamofire.DataResponse&lt;Foundation.Data, Alamofire.AFError&gt;) -&gt; () in Cyber_Live.ProtobufService.authPhone(gambler: Cyber_Live.Gambler, captchaKey: Swift.String, _: (Swift.Result&lt;Cyber_Live.Bb_RegisterStartResponse, Cyber_Live.Endpoint.ApiError&gt;) -&gt; ()) -&gt; ()"
+                  moduleName = "Cyber Live"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/av_shkepu/broadcast/ProtobufService.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "244"
+                  endingLineNumber = "244"
+                  offsetFromSymbolStart = "1584">
+               </Location>
             </Locations>
          </BreakpointContent>
       </BreakpointProxy>
@@ -376,6 +391,21 @@
                   moduleName = "Cyber Live"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/av_shkepu/Downloads/Telegram%20Desktop/broadcast/ProtobufService.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "241"
+                  endingLineNumber = "241"
+                  offsetFromSymbolStart = "360">
+               </Location>
+               <Location
+                  uuid = "47AAECE8-9F64-4B99-8CC5-83C228D2BE4A - bd95fac5476a09b5"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #1 (Alamofire.DataResponse&lt;Foundation.Data, Alamofire.AFError&gt;) -&gt; () in Cyber_Live.ProtobufService.authPhone(gambler: Cyber_Live.Gambler, captchaKey: Swift.String, _: (Swift.Result&lt;Cyber_Live.Bb_RegisterStartResponse, Cyber_Live.Endpoint.ApiError&gt;) -&gt; ()) -&gt; ()"
+                  moduleName = "Cyber Live"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/av_shkepu/broadcast/ProtobufService.swift"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "241"
@@ -589,6 +619,21 @@
                   endingLineNumber = "374"
                   offsetFromSymbolStart = "1664">
                </Location>
+               <Location
+                  uuid = "4EDFB492-9546-4367-B185-DFF670A26CD2 - ce42cdbdb4b9bfbd"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #1 (Alamofire.DataResponse&lt;Foundation.Data, Alamofire.AFError&gt;) -&gt; () in Cyber_Live.ProtobufService.passwordRecoveryCheckSms(smsCode: Swift.String, sessionId: Swift.String, _: (Swift.Result&lt;Cyber_Live.PasswordRecoveryCheckSmsResponse, Cyber_Live.Endpoint.ApiError&gt;) -&gt; ()) -&gt; ()"
+                  moduleName = "Cyber Live"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/av_shkepu/broadcast/ProtobufService.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "374"
+                  endingLineNumber = "374"
+                  offsetFromSymbolStart = "1664">
+               </Location>
             </Locations>
          </BreakpointContent>
       </BreakpointProxy>
@@ -694,6 +739,21 @@
                   moduleName = "Cyber Live"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/av_shkepu/Downloads/Telegram%20Desktop/broadcast/ProtobufService.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "480"
+                  endingLineNumber = "480"
+                  offsetFromSymbolStart = "1584">
+               </Location>
+               <Location
+                  uuid = "CB0CCFC8-B42A-4D95-9426-1D2FEFD01654 - 5f1fcef9aeee5d55"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #1 (Alamofire.DataResponse&lt;Foundation.Data, Alamofire.AFError&gt;) -&gt; () in Cyber_Live.ProtobufService.checkSms(code: Swift.String, sessionId: Swift.String, _: (Swift.Result&lt;Cyber_Live.RegisterCheckSmsResponse, Cyber_Live.Endpoint.ApiError&gt;) -&gt; ()) -&gt; ()"
+                  moduleName = "Cyber Live"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/av_shkepu/broadcast/ProtobufService.swift"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "480"
@@ -1050,6 +1110,22 @@
             startingLineNumber = "196"
             endingLineNumber = "196"
             landmarkName = "updateSubmitButton()"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "5A482EBB-975B-4004-AFF1-E01E7FF91F5C"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "BroadcastOnline/MainViewController.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "274"
+            endingLineNumber = "274"
+            landmarkName = "setupStoryWidget()"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>

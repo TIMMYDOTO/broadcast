@@ -16,7 +16,7 @@ PODS:
   - SkeletonView (1.30.3)
   - SnapKit (5.6.0)
   - Starscream (4.0.4)
-  - StorifyMe (2.3.6)
+  - StorifyMe (2.3.9)
   - SwiftProtobuf (1.20.2)
   - SwiftTheme (0.6.4)
   - SwiftVideoBackground (3.4.0)
@@ -93,7 +93,7 @@ SPEC CHECKSUMS:
   SkeletonView: f5b099c708e42a278079a12bcaaf71c303be65a3
   SnapKit: e01d52ebb8ddbc333eefe2132acf85c8227d9c25
   Starscream: 5178aed56b316f13fa3bc55694e583d35dd414d9
-  StorifyMe: 7a4a57b551a42c621acd64d219ed61cf6c7e2c3c
+  StorifyMe: 4baee364b0d61b828378d9f57c533c896ee02cec
   SwiftProtobuf: 9f458aaa7844a2fc0b910053e66578bc4e2da9c1
   SwiftTheme: 007cbaf1f9e171caf6448a4657533e54c682b285
   SwiftVideoBackground: 826e0567c737ded2a211aa309e9951c643695e8f
@@ -103,4 +103,4 @@ SPEC CHECKSUMS:
 
 PODFILE CHECKSUM: 7b576acdc6c33d4b30a4dd57e22b1731bcbbab85
 
-COCOAPODS: 1.14.3
+COCOAPODS: 1.15.2

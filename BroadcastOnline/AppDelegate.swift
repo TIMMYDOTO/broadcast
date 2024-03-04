@@ -22,6 +22,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         InAppStory.shared.initWith(serviceKey: "Bb8CAAAAAAAAAAAAABEaIThgEhYUJk9CMBlDT0RBDslI4x3FthKC61MMca18BzWlw0Spe5gEeKnsqTDs2FSy")
         setupIQKeyboardManager()
         StorifyMeInstance.shared.initialize(accountId: "cyber-live-0368030", apiKey: "stws-ed150b49-88e9-4771-996f-148735128c3e", env: StorifyMeEnv.EU)
+        StorifyMeInstance.shared.disableInitialOnboarding()
         return true
     }
     
