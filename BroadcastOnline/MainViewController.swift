@@ -80,7 +80,7 @@ class MainViewController: UIViewController, MainViewInput, SessionServiceDepende
         loginLabel.addGestureRecognizer(gesture)
         loginLabel.isUserInteractionEnabled = true
         
-        self.navigationItem.rightBarButtonItem = UIBarButtonItem.init(customView: loginLabel)
+//        self.navigationItem.rightBarButtonItem = UIBarButtonItem.init(customView: loginLabel)
         
         setupNoConnection()
     }
