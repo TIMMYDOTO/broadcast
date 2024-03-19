@@ -6,7 +6,7 @@
 //
 
 import UIKit
-
+import PDFKit
 class AuthViewController: UIViewController, AuthViewInput {
 
     
@@ -247,6 +247,7 @@ class AuthViewController: UIViewController, AuthViewInput {
         textView.attributedText = mas
         textView.textContainerInset =  .zero
         textView.textContainer.lineFragmentPadding = 0
+        textView.delegate = self
         
 //        stackView.addSubview(self.textView)
 //        textView.snp.makeConstraints { make in
@@ -255,6 +256,9 @@ class AuthViewController: UIViewController, AuthViewInput {
 //            make.height.equalTo(74)
 //            make.trailing.equalToSuperview().offset(28)
 //        }
+        
+        
+
     }
     
     @IBAction func phoneDidTapRemove(_ sender: UIButton) {
@@ -340,4 +344,28 @@ class AuthViewController: UIViewController, AuthViewInput {
         let startIndex = offset(from: beginningOfDocument, to: range.start)
         return attributedText.attribute(.link, at: startIndex, effectiveRange: nil) != nil
     }
+}
+
+
+extension AuthViewController: UITextViewDelegate {
+    
+    func textView(_ textView: UITextView, shouldInteractWith URL: URL, in characterRange: NSRange, interaction: UITextItemInteraction) -> Bool {
+        
+        presentPDFController()
+        return false
+    }
+    
+    @available(iOS 17.0, *)
+    func textView(_ textView: UITextView, primaryActionFor textItem: UITextItem, defaultAction: UIAction) -> UIAction? {
+        if case .link(_) = textItem.content {
+            presentPDFController()
+            return nil
+        }
+        return nil
+    }
+    
+    func presentPDFController() {
+        navigationController?.present(PDFViewController(), animated: true)
+    }
+    
 }

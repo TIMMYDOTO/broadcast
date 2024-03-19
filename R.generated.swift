@@ -140,7 +140,7 @@ struct R: Rswift.Validatable {
     fileprivate init() {}
   }
 
-  /// This `R.file` struct is generated, and contains static references to 39 files.
+  /// This `R.file` struct is generated, and contains static references to 40 files.
   struct file {
     /// Resource file `Gilroy-Bold.otf`.
     static let gilroyBoldOtf = Rswift.FileResource(bundle: R.hostingBundle, name: "Gilroy-Bold", pathExtension: "otf")
@@ -188,6 +188,8 @@ struct R: Rswift.Validatable {
     static let lucitaGrandeBoldTtf = Rswift.FileResource(bundle: R.hostingBundle, name: "Lucita Grande-Bold", pathExtension: "ttf")
     /// Resource file `Lucita Grande.ttf`.
     static let lucitaGrandeTtf = Rswift.FileResource(bundle: R.hostingBundle, name: "Lucita Grande", pathExtension: "ttf")
+    /// Resource file `Polytics.pdf`.
+    static let polyticsPdf = Rswift.FileResource(bundle: R.hostingBundle, name: "Polytics", pathExtension: "pdf")
     /// Resource file `Roboto-Black.ttf`.
     static let robotoBlackTtf = Rswift.FileResource(bundle: R.hostingBundle, name: "Roboto-Black", pathExtension: "ttf")
     /// Resource file `Roboto-BlackItalic.ttf`.
@@ -356,6 +358,12 @@ struct R: Rswift.Validatable {
     /// `bundle.url(forResource: "Lucita Grande-Bold", withExtension: "ttf")`
     static func lucitaGrandeBoldTtf(_: Void = ()) -> Foundation.URL? {
       let fileResource = R.file.lucitaGrandeBoldTtf
+      return fileResource.bundle.url(forResource: fileResource)
+    }
+
+    /// `bundle.url(forResource: "Polytics", withExtension: "pdf")`
+    static func polyticsPdf(_: Void = ()) -> Foundation.URL? {
+      let fileResource = R.file.polyticsPdf
       return fileResource.bundle.url(forResource: fileResource)
     }
 

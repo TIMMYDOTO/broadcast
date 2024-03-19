@@ -195,9 +195,7 @@ final class AuthPresenter: ApiServiceDependency {
         if signType == .signUp {
             let checkboxIsChecked = checkboxIsChecked()
             if state.captcha.isEnabled{
-                print("phone",  state.phone.validationState)
-                print("pass", state.password.validationState)
-                print("capcha", state.captcha.validationState)
+       
                 if state.phone.validationState == .success && state.password.validationState == .success && state.captcha.validationState == .success && checkboxIsChecked, !state.isBlocked {
                     view?.enableSubmitButton()
                 }else{

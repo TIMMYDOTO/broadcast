@@ -184,6 +184,8 @@
 		DE522DEE2B16253900850E61 /* ApiServiceDependency.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE522DED2B16253900850E61 /* ApiServiceDependency.swift */; };
 		DE522DF02B16254900850E61 /* ApiServiceInterface.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE522DEF2B16254900850E61 /* ApiServiceInterface.swift */; };
 		DE522DF22B16362B00850E61 /* ApiServiceDependencyImpl.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE522DF12B16362B00850E61 /* ApiServiceDependencyImpl.swift */; };
+		DEC2D52E2BA9B93600CBA1BA /* Polytics.pdf in Resources */ = {isa = PBXBuildFile; fileRef = DEC2D52D2BA9B93600CBA1BA /* Polytics.pdf */; };
+		DEC2D5522BA9D48500CBA1BA /* PDFViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEC2D5512BA9D48500CBA1BA /* PDFViewController.swift */; };
 		DEC556352B1DD99300B39C49 /* register_auth_phone.pb.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEC556342B1DD99300B39C49 /* register_auth_phone.pb.swift */; };
 		DEC556372B1DF12300B39C49 /* Gambler.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEC556362B1DF12300B39C49 /* Gambler.swift */; };
 		DEC556392B1E11D500B39C49 /* CaretString.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEC556382B1E11D500B39C49 /* CaretString.swift */; };
@@ -406,6 +408,8 @@
 		DE522DED2B16253900850E61 /* ApiServiceDependency.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ApiServiceDependency.swift; sourceTree = "<group>"; };
 		DE522DEF2B16254900850E61 /* ApiServiceInterface.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ApiServiceInterface.swift; sourceTree = "<group>"; };
 		DE522DF12B16362B00850E61 /* ApiServiceDependencyImpl.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ApiServiceDependencyImpl.swift; sourceTree = "<group>"; };
+		DEC2D52D2BA9B93600CBA1BA /* Polytics.pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; path = Polytics.pdf; sourceTree = "<group>"; };
+		DEC2D5512BA9D48500CBA1BA /* PDFViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PDFViewController.swift; sourceTree = "<group>"; };
 		DEC556342B1DD99300B39C49 /* register_auth_phone.pb.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = register_auth_phone.pb.swift; sourceTree = "<group>"; };
 		DEC556362B1DF12300B39C49 /* Gambler.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Gambler.swift; sourceTree = "<group>"; };
 		DEC556382B1E11D500B39C49 /* CaretString.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CaretString.swift; sourceTree = "<group>"; };
@@ -608,7 +612,9 @@
 		9A790DCE28C9F358009F2AA4 /* BroadcastOnline */ = {
 			isa = PBXGroup;
 			children = (
+				DEC2D52D2BA9B93600CBA1BA /* Polytics.pdf */,
 				DEDFFDCD2B188EB8004BB1CE /* AuthViewController.swift */,
+				DEC2D5512BA9D48500CBA1BA /* PDFViewController.swift */,
 				DE38F2952B33208A0009884E /* ForgetPasswordViewController.swift */,
 				DEC8B0452B1A1873000411E5 /* AuthPresenter.swift */,
 				DE2B8FF22B345CF700D12FC9 /* SignUpFinishedViewController.swift */,
@@ -958,6 +964,7 @@
 				9A4EE36E28D0809300905FF9 /* Giorgio Sans LCG Black.otf in Resources */,
 				9A4EE36828D0809300905FF9 /* Giorgio Sans LCG Regular.otf in Resources */,
 				9A4EE37128D0809300905FF9 /* Lato_BB-Bold.otf in Resources */,
+				DEC2D52E2BA9B93600CBA1BA /* Polytics.pdf in Resources */,
 				9ABECC432902E5AF00FE498B /* InfoPlist.strings in Resources */,
 				9A4EE37628D0809300905FF9 /* Lucita Grande.ttf in Resources */,
 				9AE4764628D3380800E59FC0 /* Roboto-Light.ttf in Resources */,
@@ -1128,6 +1135,7 @@
 				9A4EE31328CF40C000905FF9 /* CyberSportMainState.swift in Sources */,
 				9A790E2B28CA29CB009F2AA4 /* etw_rpc_newsletter_tournament.pb.swift in Sources */,
 				9A4EE34328D07DE500905FF9 /* CSStream.swift in Sources */,
+				DEC2D5522BA9D48500CBA1BA /* PDFViewController.swift in Sources */,
 				9A790E3728CA29CB009F2AA4 /* etw_rpc_unsubscribe_match.pb.swift in Sources */,
 				DE2B8FEB2B343E1E00D12FC9 /* BirthdayTextField.swift in Sources */,
 				DEC556372B1DF12300B39C49 /* Gambler.swift in Sources */,
@@ -1392,8 +1400,8 @@
 				CODE_SIGN_ENTITLEMENTS = "Cyber Live.entitlements";
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = 5XHJ5W6A53;
+				CURRENT_PROJECT_VERSION = 2;
+				DEVELOPMENT_TEAM = QC3379N7C7;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = BroadcastOnline/Info.plist;
 				INFOPLIST_KEY_CFBundleDisplayName = "Cyber live";
@@ -1431,8 +1439,8 @@
 				CODE_SIGN_ENTITLEMENTS = "Cyber Live.entitlements";
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = 5XHJ5W6A53;
+				CURRENT_PROJECT_VERSION = 2;
+				DEVELOPMENT_TEAM = QC3379N7C7;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = BroadcastOnline/Info.plist;
 				INFOPLIST_KEY_CFBundleDisplayName = "Cyber live";
