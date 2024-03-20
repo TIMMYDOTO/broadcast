@@ -344,13 +344,23 @@ class AuthViewController: UIViewController, AuthViewInput {
         let startIndex = offset(from: beginningOfDocument, to: range.start)
         return attributedText.attribute(.link, at: startIndex, effectiveRange: nil) != nil
     }
+     
+     override func gestureRecognizerShouldBegin(_ gestureRecognizer: UIGestureRecognizer) -> Bool {
+         if gestureRecognizer is UITapGestureRecognizer{
+             return true
+         }
+         return false
+     }
+     
+     override func caretRect(for position: UITextPosition) -> CGRect {
+            .null
+     }
 }
 
 
 extension AuthViewController: UITextViewDelegate {
     
     func textView(_ textView: UITextView, shouldInteractWith URL: URL, in characterRange: NSRange, interaction: UITextItemInteraction) -> Bool {
-        
         presentPDFController()
         return false
     }
@@ -369,3 +379,4 @@ extension AuthViewController: UITextViewDelegate {
     }
     
 }
+
