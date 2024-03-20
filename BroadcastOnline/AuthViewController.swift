@@ -365,15 +365,6 @@ extension AuthViewController: UITextViewDelegate {
         return false
     }
     
-    @available(iOS 17.0, *)
-    func textView(_ textView: UITextView, primaryActionFor textItem: UITextItem, defaultAction: UIAction) -> UIAction? {
-        if case .link(_) = textItem.content {
-            presentPDFController()
-            return nil
-        }
-        return nil
-    }
-    
     func presentPDFController() {
         navigationController?.present(PDFViewController(), animated: true)
     }
