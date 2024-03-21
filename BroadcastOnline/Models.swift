@@ -61,7 +61,7 @@ struct PasswordRecoverySendSmsResponse: Codable {
 struct PasswordRecoveryCheckSmsResponse: Codable {
     var code: Int32 = Int32()
     var codeText: String = String()
-    var status: String = String()
+    var status: String?
     var errors: [[String: ErrorMessage]]?
 }
 

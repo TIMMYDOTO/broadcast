@@ -47,7 +47,6 @@ class CheckSmsViewController: UIViewController, ApiServiceDependency {
     override func viewDidLoad() {
         super.viewDidLoad()
         setup()
-        print("TEST CHECK SMS")
     }
     
     private func setup() {
@@ -260,7 +259,7 @@ class CheckSmsViewController: UIViewController, ApiServiceDependency {
         if isRecovery {
             
             api.passwordRecoveryCheckSms(smsCode: code, sessionId: sessionId) { result in
-               print("Recavery")
+         
                 DispatchQueue.main.async { [weak self] in
                     guard let self = self else { return }
                     if case .success(let success) = result {
@@ -315,7 +314,7 @@ class CheckSmsViewController: UIViewController, ApiServiceDependency {
                         default:
                             self.showError("Неизвестная ошибка")
                         }
-                    }
+                        }
                 }
             }
         }

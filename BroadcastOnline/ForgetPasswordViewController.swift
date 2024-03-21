@@ -131,13 +131,13 @@ class ForgetPasswordViewController: UIViewController, ApiServiceDependency {
     
     private func updateSubmitButton() {
             if state.captcha.isEnabled{
-                if state.phone.validationState == .success && state.captcha.validationState == .success {
+                if state.phone.validationState == .success && state.captcha.validationState == .success && !state.isBlocked {
                     continueButton.enbaleButton()
                 }else{
                     continueButton.disableButton()
             }
         } else {
-            if state.phone.validationState == .success {
+            if state.phone.validationState == .success && !state.isBlocked {
                 continueButton.enbaleButton()
             }else{
                 continueButton.disableButton()
@@ -207,19 +207,45 @@ class ForgetPasswordViewController: UIViewController, ApiServiceDependency {
             guard let self = self else { return }
             if case .success(let success) = result {
                 print("succes", success)
+                self.addTimerToSubmitButton()
                 self.showCheckSmsController(sessionId: success.sessionId ?? "")
 
             }else if case .failure(let failure) = result {
                 switch failure {
                 case .serverError(let message):
                     self.showAlert(title: "Ошибка", message: message)
-                    
+                    self.getCaptcha()
                 default:
                     self.showAlert(title: "Ошибка", message: "Неизвестная ошибка")
                 }
         
             }
         }
+    }
+    
+    func addTimerToSubmitButton() {
+        continueButton.disableButton()
+        var runCount = 60
+        Timer.scheduledTimer(withTimeInterval: 1.0, repeats: true) {[weak self] timer in
+            guard let self = self else { return }
+            state.isBlocked = true
+            runCount -= 1
+            self.updateContinuerButtonTitle(text: "Повторный запрос кода через \(runCount) сек")
+
+            
+            if runCount == 0 {
+                state.isBlocked = false
+                timer.invalidate()
+                runCount = 60
+                updateSubmitButton()
+                self.updateContinuerButtonTitle(text: "Зарегистрироваться")
+                
+            }
+        }
+    }
+    
+    func updateContinuerButtonTitle(text: String) {
+        self.continueButton.setTitle(text, for: .normal)
     }
     
     func showCheckSmsController(sessionId: String) {

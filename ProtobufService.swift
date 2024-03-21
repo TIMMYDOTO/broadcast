@@ -363,6 +363,8 @@ final class ProtobufService: SessionServiceDependency, ConnectManagerDependency,
                     case 400:
                         guard let error = changePasswordResponse.errors?.first?["message"] else {
                             completion(.failure(.errorSmsLimit(Bb_IdentificationSmsLimitExceedDetails())))
+
+//                            completion(.failure(.serverError("Неверная сессия")))
                             return}
                         
                         
@@ -479,7 +481,7 @@ final class ProtobufService: SessionServiceDependency, ConnectManagerDependency,
                     case 400:
                         guard let error = registerResponse.errors?.first?["message"] else {
                             if let errorMesssage = registerResponse.message {
-                                completion(.failure(.errorSmsLimit(Bb_IdentificationSmsLimitExceedDetails())))
+                                completion(.failure(.serverError(errorMesssage)))
                             } else {
                                 completion(.failure(.wrongData))
                             }
