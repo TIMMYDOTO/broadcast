@@ -238,7 +238,7 @@ class ForgetPasswordViewController: UIViewController, ApiServiceDependency {
                 timer.invalidate()
                 runCount = 60
                 updateSubmitButton()
-                self.updateContinuerButtonTitle(text: "Зарегистрироваться")
+                self.updateContinuerButtonTitle(text: "Далее")
                 
             }
         }
