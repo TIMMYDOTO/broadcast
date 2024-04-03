@@ -56,7 +56,9 @@ class NewPasswordViewController: UIViewController, ApiServiceDependency {
             !firstPassword.isEmpty &&
             !secondPassword.isEmpty &&
             firstPassword.count >= 8 &&
-            secondPassword.count >= 8{
+            secondPassword.count >= 8 &&
+            firstPassword.count <= 21 &&
+            secondPassword.count <= 21 {
             acceptButton.enbaleButton()
         }else{
             acceptButton.disableButton()
