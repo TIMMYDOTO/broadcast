@@ -197,7 +197,14 @@ class PasswordTextField: UIView {
     
     
     func hasError(textField: UITextField) -> String {
-        return textField.text!.count < 8 ? "Минимум 8 символов" : ""
+        if textField.text!.count < 8 {
+            return "Минимум 8 символов"
+        } else if textField.text!.count > 21 {
+            return "Максимум 21 символов"
+        }else{
+            return ""
+        }
+        
     }
     
     func updateStatus(message: String) {
