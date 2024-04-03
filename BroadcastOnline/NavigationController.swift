@@ -66,6 +66,10 @@ class NavigationController: UINavigationController {
             self.noConnectionVC = vc
         }
     }
+    
+    override var preferredStatusBarStyle: UIStatusBarStyle {
+        return .lightContent
+    }
 
 }
 
