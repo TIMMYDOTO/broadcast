@@ -282,8 +282,7 @@ class CheckSmsViewController: UIViewController, ApiServiceDependency {
             }
         }else{
             api.checkSms(code: code, sessionId: sessionId) { response in
-                print(response)
-                print("test rega")
+        
                 DispatchQueue.main.async {  [weak self] in
                     guard let self = self else { return }
                     switch response {

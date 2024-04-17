@@ -11,6 +11,7 @@ import Alamofire
 import SwiftProtobuf
 import SwiftyJWT
 import InAppStorySDK
+import AppsFlyerLib
 //import BetBoomUITests
 
 enum Endpoint: String {
@@ -455,10 +456,10 @@ final class ProtobufService: SessionServiceDependency, ConnectManagerDependency,
     
     func checkSms(code: String, sessionId: String, _ completion: @escaping (Result<RegisterCheckSmsResponse, Endpoint.ApiError>) -> ()) {
         let endpoint = Endpoint.registerCheckSms.rawValue
-        
+       
         let parameters: [String: Any] = ["smsCode": code,
                                          "sessionId": sessionId,
-                                         "appsflyerId": "0000000000000-0000000"]
+                                         "appsflyerId": AppsFlyerLib.shared().getAppsFlyerUID()]
 
         
         AF.request(self.baseUrl + endpoint,
@@ -552,7 +553,7 @@ final class ProtobufService: SessionServiceDependency, ConnectManagerDependency,
         
         let parameters: [String: Any] = ["phone": gambler.phone.digits,
                                          "password": gambler.password,
-                                         "appsflyerId": ""]
+                                         "appsflyerId": AppsFlyerLib.shared().getAppsFlyerUID()]
         
         headers.remove(name: "x-access-token")
         AF.request(self.baseUrl + endpoint,

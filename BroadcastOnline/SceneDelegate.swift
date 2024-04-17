@@ -57,7 +57,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
     func setupAppsFlyer() {
         AppsFlyerLib.shared().appsFlyerDevKey = "ebEDZ4mtpS7VfmLqQrvXVn"
         AppsFlyerLib.shared().appleAppID = "6443601769"
-
+        
         AppsFlyerLib.shared().delegate = self
         
         if #available(iOS 14, *) {
